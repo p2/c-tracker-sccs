@@ -1,0 +1,3 @@
+[submodule "c3-pro-ios-framework"]
+	path = c3-pro-ios-framework
+	url = https://github.com/C3-PRO/c3-pro-ios-framework.git

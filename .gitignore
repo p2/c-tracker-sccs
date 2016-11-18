@@ -1,4 +1,6 @@
 
 # Xcode
 *.xcuserdatad
+*.xcscmblueprint
+Carthage
 

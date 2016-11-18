@@ -12,7 +12,42 @@
 		EE14E7AB1DD0CAAA009F8736 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE14E7A91DD0CAAA009F8736 /* LaunchScreen.storyboard */; };
 		EE14E7B91DD0CBBE009F8736 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E7B51DD0CBBE009F8736 /* AppDelegate.swift */; };
 		EE14E7BA1DD0CBBE009F8736 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E7B71DD0CBBE009F8736 /* WelcomeViewController.swift */; };
+		EE14E7C01DD0D236009F8736 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E7BF1DD0D236009F8736 /* ConfirmViewController.swift */; };
+		EE14E7C21DD0D23F009F8736 /* LinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E7C11DD0D23F009F8736 /* LinkViewController.swift */; };
+		EE14E7C41DD0DF79009F8736 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E7C31DD0DF79009F8736 /* String+Extensions.swift */; };
+		EE14E7DE1DD27D08009F8736 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E7DD1DD27D08009F8736 /* ProfileManager.swift */; };
+		EE57D4891DD3703A0099E846 /* JWT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D4881DD3703A0099E846 /* JWT.framework */; };
+		EE57D48A1DD3703A0099E846 /* JWT.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D4881DD3703A0099E846 /* JWT.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EE57D48D1DD370600099E846 /* C3PRO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D48C1DD370600099E846 /* C3PRO.framework */; };
+		EE57D48E1DD370600099E846 /* C3PRO.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D48C1DD370600099E846 /* C3PRO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EE57D4901DD370600099E846 /* SMART.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D48F1DD370600099E846 /* SMART.framework */; };
+		EE57D4911DD370600099E846 /* SMART.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D48F1DD370600099E846 /* SMART.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EE57D4931DD370600099E846 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D4921DD370600099E846 /* ResearchKit.framework */; };
+		EE57D4941DD370600099E846 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D4921DD370600099E846 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EE57D4961DD370600099E846 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D4951DD370600099E846 /* CryptoSwift.framework */; };
+		EE57D4971DD370600099E846 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D4951DD370600099E846 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EE57D4991DD370600099E846 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D4981DD370600099E846 /* SQLite.framework */; };
+		EE57D49A1DD370600099E846 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D4981DD370600099E846 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		EE57D48B1DD3703A0099E846 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EE57D48E1DD370600099E846 /* C3PRO.framework in Embed Frameworks */,
+				EE57D48A1DD3703A0099E846 /* JWT.framework in Embed Frameworks */,
+				EE57D49A1DD370600099E846 /* SQLite.framework in Embed Frameworks */,
+				EE57D4941DD370600099E846 /* ResearchKit.framework in Embed Frameworks */,
+				EE57D4971DD370600099E846 /* CryptoSwift.framework in Embed Frameworks */,
+				EE57D4911DD370600099E846 /* SMART.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		EE14E79B1DD0CAAA009F8736 /* C Tracker SCCS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "C Tracker SCCS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,6 +57,16 @@
 		EE14E7AC1DD0CAAA009F8736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE14E7B51DD0CBBE009F8736 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE14E7B71DD0CBBE009F8736 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		EE14E7BF1DD0D236009F8736 /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
+		EE14E7C11DD0D23F009F8736 /* LinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkViewController.swift; sourceTree = "<group>"; };
+		EE14E7C31DD0DF79009F8736 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		EE14E7DD1DD27D08009F8736 /* ProfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
+		EE57D4881DD3703A0099E846 /* JWT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JWT.framework; path = Carthage/Build/iOS/JWT.framework; sourceTree = "<group>"; };
+		EE57D48C1DD370600099E846 /* C3PRO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = C3PRO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE57D48F1DD370600099E846 /* SMART.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SMART.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE57D4921DD370600099E846 /* ResearchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE57D4951DD370600099E846 /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE57D4981DD370600099E846 /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +74,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE57D48D1DD370600099E846 /* C3PRO.framework in Frameworks */,
+				EE57D4891DD3703A0099E846 /* JWT.framework in Frameworks */,
+				EE57D4991DD370600099E846 /* SQLite.framework in Frameworks */,
+				EE57D4931DD370600099E846 /* ResearchKit.framework in Frameworks */,
+				EE57D4961DD370600099E846 /* CryptoSwift.framework in Frameworks */,
+				EE57D4901DD370600099E846 /* SMART.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +91,7 @@
 			children = (
 				EE14E7B31DD0CBBE009F8736 /* Sources */,
 				EE14E79D1DD0CAAA009F8736 /* App */,
+				EE14E7CD1DD18921009F8736 /* Frameworks */,
 				EE14E79C1DD0CAAA009F8736 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -67,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				EE14E7B41DD0CBBE009F8736 /* App */,
+				EE14E7DC1DD27CF7009F8736 /* Profile */,
 				EE14E7B61DD0CBBE009F8736 /* ViewController */,
 			);
 			path = Sources;
@@ -76,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				EE14E7B51DD0CBBE009F8736 /* AppDelegate.swift */,
+				EE14E7C31DD0DF79009F8736 /* String+Extensions.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -84,8 +138,31 @@
 			isa = PBXGroup;
 			children = (
 				EE14E7B71DD0CBBE009F8736 /* WelcomeViewController.swift */,
+				EE14E7C11DD0D23F009F8736 /* LinkViewController.swift */,
+				EE14E7BF1DD0D236009F8736 /* ConfirmViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		EE14E7CD1DD18921009F8736 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EE57D4981DD370600099E846 /* SQLite.framework */,
+				EE57D4951DD370600099E846 /* CryptoSwift.framework */,
+				EE57D4921DD370600099E846 /* ResearchKit.framework */,
+				EE57D48F1DD370600099E846 /* SMART.framework */,
+				EE57D48C1DD370600099E846 /* C3PRO.framework */,
+				EE57D4881DD3703A0099E846 /* JWT.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE14E7DC1DD27CF7009F8736 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				EE14E7DD1DD27D08009F8736 /* ProfileManager.swift */,
+			);
+			name = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -98,6 +175,8 @@
 				EE14E7971DD0CAAA009F8736 /* Sources */,
 				EE14E7981DD0CAAA009F8736 /* Frameworks */,
 				EE14E7991DD0CAAA009F8736 /* Resources */,
+				EE14E7BE1DD0CFC0009F8736 /* Run Carthage copy-frameworks */,
+				EE57D48B1DD3703A0099E846 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -155,11 +234,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		EE14E7BE1DD0CFC0009F8736 /* Run Carthage copy-frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/JWT.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/C3PRO.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ResearchKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SMART.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SQLite.framework",
+			);
+			name = "Run Carthage copy-frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n# must add paths to the frameworks below under \"Input Files\", like: \"$(SRCROOT)/Carthage/Build/iOS/JWT.framework\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EE14E7971DD0CAAA009F8736 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE14E7C41DD0DF79009F8736 /* String+Extensions.swift in Sources */,
+				EE14E7DE1DD27D08009F8736 /* ProfileManager.swift in Sources */,
+				EE14E7C21DD0D23F009F8736 /* LinkViewController.swift in Sources */,
+				EE14E7C01DD0D236009F8736 /* ConfirmViewController.swift in Sources */,
 				EE14E7BA1DD0CBBE009F8736 /* WelcomeViewController.swift in Sources */,
 				EE14E7B91DD0CBBE009F8736 /* AppDelegate.swift in Sources */,
 			);
@@ -282,6 +388,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.swisshcv.app.ios.C-Tracker-SCCS";
@@ -294,6 +404,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.swisshcv.app.ios.C-Tracker-SCCS";

@@ -16,6 +16,7 @@
 		EE14E7C21DD0D23F009F8736 /* LinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E7C11DD0D23F009F8736 /* LinkViewController.swift */; };
 		EE14E7C41DD0DF79009F8736 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E7C31DD0DF79009F8736 /* String+Extensions.swift */; };
 		EE14E7DE1DD27D08009F8736 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E7DD1DD27D08009F8736 /* ProfileManager.swift */; };
+		EE5074C31DE892B300A0C73F /* UIViewController+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */; };
 		EE57D4891DD3703A0099E846 /* JWT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D4881DD3703A0099E846 /* JWT.framework */; };
 		EE57D48A1DD3703A0099E846 /* JWT.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D4881DD3703A0099E846 /* JWT.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE57D48D1DD370600099E846 /* C3PRO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D48C1DD370600099E846 /* C3PRO.framework */; };
@@ -61,6 +62,7 @@
 		EE14E7C11DD0D23F009F8736 /* LinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkViewController.swift; sourceTree = "<group>"; };
 		EE14E7C31DD0DF79009F8736 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		EE14E7DD1DD27D08009F8736 /* ProfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
+		EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utilities.swift"; sourceTree = "<group>"; };
 		EE57D4881DD3703A0099E846 /* JWT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JWT.framework; path = Carthage/Build/iOS/JWT.framework; sourceTree = "<group>"; };
 		EE57D48C1DD370600099E846 /* C3PRO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = C3PRO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE57D48F1DD370600099E846 /* SMART.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SMART.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +142,7 @@
 				EE14E7B71DD0CBBE009F8736 /* WelcomeViewController.swift */,
 				EE14E7C11DD0D23F009F8736 /* LinkViewController.swift */,
 				EE14E7BF1DD0D236009F8736 /* ConfirmViewController.swift */,
+				EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				EE14E7C01DD0D236009F8736 /* ConfirmViewController.swift in Sources */,
 				EE14E7BA1DD0CBBE009F8736 /* WelcomeViewController.swift in Sources */,
 				EE14E7B91DD0CBBE009F8736 /* AppDelegate.swift in Sources */,
+				EE5074C31DE892B300A0C73F /* UIViewController+Utilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

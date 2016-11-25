@@ -10,10 +10,9 @@ import Foundation
 import SMART
 
 
-let ProfileManagerDidChangePatientNotification = Notification.Name("ProfileManagerDidChangePatientNotification")
-
-
 class ProfileManager {
+	
+	static let didChangePatientNotification = Notification.Name("ProfileManagerDidChangePatientNotification")
 	
 	static let shared = ProfileManager()
 	
@@ -46,7 +45,9 @@ class ProfileManager {
 	
 	public private(set) var patient: Patient?
 	
-	/** Set or unset the patient to use. */
+	/**
+	Set or unset the patient to use.
+	*/
 	func use(patient: Patient?) throws {
 		if let patient = patient {
 			let json = patient.asJSON()
@@ -59,7 +60,39 @@ class ProfileManager {
 		
 		// assign and notify
 		self.patient = patient
-		NotificationCenter.default.post(name: ProfileManagerDidChangePatientNotification, object: self)
+		NotificationCenter.default.post(name: type(of: self).didChangePatientNotification, object: self)
+	}
+	
+	/**
+	Create a patient resource from confirmed token data.
+	*/
+	public class func profile(from token: [String: Any]) -> Patient {
+		let patient = Patient(json: nil)
+		if let name = token["sub"] as? String {
+			patient.name = [HumanName(json: ["text": name])]
+		}
+		if let bday = token["birthday"] as? String {
+			patient.birthDate = FHIRDate(string: bday)
+		}
+		
+		return patient
+	}
+	
+	
+	// MARK: - Trying the App
+	
+	class func sampleProfile() -> Patient {
+		let patient = profile(from: ["sub": "Sarah Pes", "birthday": "1976-04-28"])
+		patient.id = "000-SAMPLE"
+		return patient
+	}
+	
+	class func sampleToken() -> (String, String) {
+		let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2lkbS5jMy1wcm8uaW8iLCJhdWQiOiJodHRwczovL2lkbS5jMy1wcm8uaW8iLCJqdGkiOiI4MkYyNzk3OUE5MzYiLCJleHAiOiIxNjczNDk3Mjg4Iiwic3ViIjoiU2FyYWggUGVzIiwiYmlydGhkYXkiOiIxOTc2LTA0LTI4In0.e_Fo1vrmn_EjQSN2gp0Pf9a1AI07tvFLnx5UEsLynO0"	// valid until Jan 2023
+//		let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2lkbS5jMy1wcm8uaW8iLCJhdWQiOiJodHRwczovL2lkbS5jMy1wcm8uaW8iLCJqdGkiOiI4MkYyNzk3OUE5MzYiLCJleHAiOiIxNDczNDk3Mjg4Iiwic3ViIjoiU2FyYWggUGVzIiwiYmlydGhkYXkiOiIxOTc2LTA0LTI4In0._Y3PHBwGajDt_tdCcFOxLTdFj1kiosYBreKLF9IQ4qU"
+		let secret = "secret"
+		
+		return (token, secret)
 	}
 }
 

@@ -1,9 +1,9 @@
 //
 //  LinkViewController.swift
-//  CHIP_Clinic-App
+//  C Tracker SCCS
 //
 //  Created by Pascal Pfiffner on 06.09.16.
-//  Copyright © 2016 CHIP. All rights reserved.
+//  Copyright © 2016 SCCS. All rights reserved.
 //
 
 import UIKit

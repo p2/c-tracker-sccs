@@ -12,10 +12,20 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
+	
+	var profileManager: ProfileManager?
 
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-		// Override point for customization after application launch.
+		let paths = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)
+		guard let first = paths.first else {
+			fatalError("No user documents directory, cannot continue")
+		}
+		
+		let manager = ProfileManager(dir: URL(fileURLWithPath: first))
+		(window?.rootViewController as? RootViewController)?.profileManager = manager
+		profileManager = manager
+		
 		return true
 	}
 }

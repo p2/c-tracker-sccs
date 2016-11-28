@@ -1,2 +1,2 @@
-#github "C3-PRO/c3-pro-ios-framework" "develop"
+github "C3-PRO/c3-pro-ios-framework" "develop"
 github "kylef/JSONWebToken.swift" ~> 2.0

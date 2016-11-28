@@ -12,17 +12,14 @@ import SMART
 
 class WelcomeViewController: UIViewController {
 	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		self.tabBarController?.tabBar.isHidden = true
-	}
+	var profileManager: ProfileManager!
 	
 	
 	// MARK: - Routing
 	
 	@IBAction func doTryApp(_ sender: AnyObject?) {
-		let sample = ProfileManager.sampleProfile()
-		didLoad(profile: sample)
+		let sample = ProfileManager.sampleUser()
+		didLoad(user: sample)
 	}
 	
 	@IBAction func aboutTheApp(_ sender: AnyObject?) {
@@ -37,11 +34,10 @@ class WelcomeViewController: UIViewController {
 		
 	}
 	
-	func didLoad(profile: Patient) {
+	func didLoad(user: User) {
 		do {
-			try ProfileManager.shared.use(patient: profile)
-			print("USING \(profile)")
-			// TODO: load view controllers
+			try profileManager.enroll(user: user)
+			// emits a notification that root view controller should listen to and update the UI
 		}
 		catch let error {
 			show(error: error, title: "Could Not Load Profile".sccs_loc)
@@ -56,8 +52,8 @@ class WelcomeViewController: UIViewController {
 			if let target = (segue.destination as? UINavigationController)?.topViewController as? LinkViewController {
 				target.tokenDataConfirmed = { data in
 					target.dismiss(animated: true) {
-						let profile = ProfileManager.profile(from: data)
-						self.didLoad(profile: profile)
+						let profile = ProfileManager.userFromToken(data)
+						self.didLoad(user: profile)
 					}
 				}
 				target.tokenDataRefuted = { error in

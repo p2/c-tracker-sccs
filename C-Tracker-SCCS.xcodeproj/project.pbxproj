@@ -29,6 +29,16 @@
 		EE57D4971DD370600099E846 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D4951DD370600099E846 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE57D4991DD370600099E846 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D4981DD370600099E846 /* SQLite.framework */; };
 		EE57D49A1DD370600099E846 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D4981DD370600099E846 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EEEC78641DEC24B400E7020C /* SCCSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78631DEC24B400E7020C /* SCCSViewController.swift */; };
+		EEEC78671DEC258100E7020C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78661DEC258100E7020C /* ProfileViewController.swift */; };
+		EEEC78691DEC258B00E7020C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78681DEC258B00E7020C /* DashboardViewController.swift */; };
+		EEEC786B1DEC25BE00E7020C /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC786A1DEC25BE00E7020C /* RootViewController.swift */; };
+		EEEC786D1DEC28E800E7020C /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC786C1DEC28E800E7020C /* AppUser.swift */; };
+		EEEC786F1DEC291C00E7020C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC786E1DEC291C00E7020C /* User.swift */; };
+		EEEC78711DEC2B4F00E7020C /* AppUserTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78701DEC2B4F00E7020C /* AppUserTask.swift */; };
+		EEEC78731DEC2B6600E7020C /* UserTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78721DEC2B6600E7020C /* UserTask.swift */; };
+		EEEC78791DEC3DDA00E7020C /* GraphDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78781DEC3DDA00E7020C /* GraphDataSource.swift */; };
+		EEECC2241DECDF2C005645B8 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEECC2211DECDF2C005645B8 /* Configuration.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,6 +79,20 @@
 		EE57D4921DD370600099E846 /* ResearchKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ResearchKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE57D4951DD370600099E846 /* CryptoSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CryptoSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE57D4981DD370600099E846 /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEEC78631DEC24B400E7020C /* SCCSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCCSViewController.swift; sourceTree = "<group>"; };
+		EEEC78661DEC258100E7020C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EEEC78681DEC258B00E7020C /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		EEEC786A1DEC25BE00E7020C /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		EEEC786C1DEC28E800E7020C /* AppUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
+		EEEC786E1DEC291C00E7020C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EEEC78701DEC2B4F00E7020C /* AppUserTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserTask.swift; sourceTree = "<group>"; };
+		EEEC78721DEC2B6600E7020C /* UserTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTask.swift; sourceTree = "<group>"; };
+		EEEC78781DEC3DDA00E7020C /* GraphDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphDataSource.swift; sourceTree = "<group>"; };
+		EEECC2211DECDF2C005645B8 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = ../Configuration.swift; sourceTree = "<group>"; };
+		EEECC2221DECDF2C005645B8 /* Configuration_Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configuration_Debug.swift; path = ../Configuration_Debug.swift; sourceTree = "<group>"; };
+		EEECC2231DECDF2C005645B8 /* Configuration_Release.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configuration_Release.swift; path = ../Configuration_Release.swift; sourceTree = "<group>"; };
+		EEECC2281DECE0AB005645B8 /* preflight.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = preflight.sh; sourceTree = SOURCE_ROOT; };
+		EEECC22A1DECE108005645B8 /* postflight.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = postflight.sh; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +144,11 @@
 		EE14E7B31DD0CBBE009F8736 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				EEECC2211DECDF2C005645B8 /* Configuration.swift */,
+				EEECC2221DECDF2C005645B8 /* Configuration_Debug.swift */,
+				EEECC2231DECDF2C005645B8 /* Configuration_Release.swift */,
+				EEECC2281DECE0AB005645B8 /* preflight.sh */,
+				EEECC22A1DECE108005645B8 /* postflight.sh */,
 				EE14E7B41DD0CBBE009F8736 /* App */,
 				EE14E7DC1DD27CF7009F8736 /* Profile */,
 				EE14E7B61DD0CBBE009F8736 /* ViewController */,
@@ -131,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				EE14E7B51DD0CBBE009F8736 /* AppDelegate.swift */,
+				EEEC78781DEC3DDA00E7020C /* GraphDataSource.swift */,
 				EE14E7C31DD0DF79009F8736 /* String+Extensions.swift */,
 			);
 			path = App;
@@ -139,9 +169,13 @@
 		EE14E7B61DD0CBBE009F8736 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				EEEC786A1DEC25BE00E7020C /* RootViewController.swift */,
 				EE14E7B71DD0CBBE009F8736 /* WelcomeViewController.swift */,
 				EE14E7C11DD0D23F009F8736 /* LinkViewController.swift */,
 				EE14E7BF1DD0D236009F8736 /* ConfirmViewController.swift */,
+				EEEC78681DEC258B00E7020C /* DashboardViewController.swift */,
+				EEEC78661DEC258100E7020C /* ProfileViewController.swift */,
+				EEEC78631DEC24B400E7020C /* SCCSViewController.swift */,
 				EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */,
 			);
 			path = ViewController;
@@ -164,8 +198,12 @@
 			isa = PBXGroup;
 			children = (
 				EE14E7DD1DD27D08009F8736 /* ProfileManager.swift */,
+				EEEC786E1DEC291C00E7020C /* User.swift */,
+				EEEC78721DEC2B6600E7020C /* UserTask.swift */,
+				EEEC786C1DEC28E800E7020C /* AppUser.swift */,
+				EEEC78701DEC2B4F00E7020C /* AppUserTask.swift */,
 			);
-			name = Profile;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,11 +213,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EE14E7AF1DD0CAAA009F8736 /* Build configuration list for PBXNativeTarget "C Tracker SCCS" */;
 			buildPhases = (
+				EEECC2271DECE04C005645B8 /* Run Preflight */,
 				EE14E7971DD0CAAA009F8736 /* Sources */,
 				EE14E7981DD0CAAA009F8736 /* Frameworks */,
 				EE14E7991DD0CAAA009F8736 /* Resources */,
 				EE14E7BE1DD0CFC0009F8736 /* Run Carthage copy-frameworks */,
 				EE57D48B1DD3703A0099E846 /* Embed Frameworks */,
+				EEECC2291DECE0EF005645B8 /* Run Postflight */,
 			);
 			buildRules = (
 			);
@@ -258,6 +298,34 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n# must add paths to the frameworks below under \"Input Files\", like: \"$(SRCROOT)/Carthage/Build/iOS/JWT.framework\"";
 		};
+		EEECC2271DECE04C005645B8 /* Run Preflight */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Preflight";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./preflight.sh\n";
+		};
+		EEECC2291DECE0EF005645B8 /* Run Postflight */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Postflight";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./postflight.sh\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -265,12 +333,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEEC78731DEC2B6600E7020C /* UserTask.swift in Sources */,
+				EEEC786F1DEC291C00E7020C /* User.swift in Sources */,
 				EE14E7C41DD0DF79009F8736 /* String+Extensions.swift in Sources */,
 				EE14E7DE1DD27D08009F8736 /* ProfileManager.swift in Sources */,
+				EEEC78711DEC2B4F00E7020C /* AppUserTask.swift in Sources */,
 				EE14E7C21DD0D23F009F8736 /* LinkViewController.swift in Sources */,
+				EEEC786B1DEC25BE00E7020C /* RootViewController.swift in Sources */,
 				EE14E7C01DD0D236009F8736 /* ConfirmViewController.swift in Sources */,
 				EE14E7BA1DD0CBBE009F8736 /* WelcomeViewController.swift in Sources */,
 				EE14E7B91DD0CBBE009F8736 /* AppDelegate.swift in Sources */,
+				EEECC2241DECDF2C005645B8 /* Configuration.swift in Sources */,
+				EEEC78671DEC258100E7020C /* ProfileViewController.swift in Sources */,
+				EEEC786D1DEC28E800E7020C /* AppUser.swift in Sources */,
+				EEEC78691DEC258B00E7020C /* DashboardViewController.swift in Sources */,
+				EEEC78791DEC3DDA00E7020C /* GraphDataSource.swift in Sources */,
+				EEEC78641DEC24B400E7020C /* SCCSViewController.swift in Sources */,
 				EE5074C31DE892B300A0C73F /* UIViewController+Utilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

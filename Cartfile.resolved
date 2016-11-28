@@ -1,2 +1,6 @@
 github "krzyzanowskim/CryptoSwift" "0.6.6"
+github "ResearchKit/ResearchKit" "7a4dd58df6753ae71971dfb9b8e09f9c4f56a8a1"
+github "p2/SQLite.swift" "d7974d37a5a7108f38e3bc45067351dd8c09ef5b"
+github "smart-on-fhir/Swift-SMART" "2.8.1"
 github "kylef/JSONWebToken.swift" "2.0.1"
+github "C3-PRO/c3-pro-ios-framework" "c13eea2c0d56902cd3a98f475d065ef16a31c1d1"

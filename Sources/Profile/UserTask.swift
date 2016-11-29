@@ -11,9 +11,9 @@ import UIKit
 
 /// The type of the task.
 public enum UserTaskType: String {
-	case unknown = "Unknown"
-	case consent = "Consent"
-	case survey = "Survey"
+	case unknown = "unknown"
+	case consent = "consent"
+	case survey = "survey"
 }
 
 let UserDidReceiveTaskNotification = Notification.Name(rawValue: "UserDidReceiveTask")
@@ -36,8 +36,14 @@ public protocol UserTask {
 	/// The type of the task.
 	var type: UserTaskType { get }
 	
+	/// The title of this task.
+	var title: String? { get }
+	
 	/// Which user this task is assigned to
 	var assignedTo: User? { get set }
+	
+	/// The notification type of this task.
+	var notificationType: NotificationManagerNotificationType? { get set }
 	
 	/// The day this task is due.
 	var dueDate: Date? { get }
@@ -46,6 +52,9 @@ public protocol UserTask {
 	var due: Bool { get }
 	
 	var humanDueDate: String? { get }
+	
+	/// Until when the task can be delayed (e.g. via "Remind me tomorrow" actions)
+	var delayMaxDate: Date? { get }
 	
 	/// The day this task has been completed.
 	var completedDate: Date? { get }
@@ -60,9 +69,6 @@ public protocol UserTask {
 	
 	/// Whether this task can be reviewed.
 	var canReview: Bool { get }
-	
-	/// The title of this task.
-	var title: String? { get }
 	
 	
 	init(id: String, type: UserTaskType)
@@ -80,9 +86,6 @@ public protocol UserTask {
 	
 	/** Call this method to mark a task complete. Should emit "UserTaskDidCompleteNotification". */
 	func completed(by user: User, context: Any?)
-	
-	/** Method for subclasses to override. Will be called from `completedBy()`, default implementation does nothing. */
-	func wasCompleted(by: User, context: Any?)
 	
 	
 	// MARK: - Serialization

@@ -345,13 +345,19 @@ class DashboardViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		if 0 == section {
+			if 0 == tasksOutstanding.count {
+				return nil
+			}
 			let ttl = "Your Tasks".sccs_loc
 			return (tasksOutstanding.filter() { $0.due }.count > 0) ? "🔔 \(ttl)" : ttl
 		}
 		if 1 == section {
 			return "Recent Activity".sccs_loc
 		}
-		return "Completed Tasks".sccs_loc
+		if tasksDone.count > 0 {
+			return "Completed Tasks".sccs_loc
+		}
+		return nil
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -16,6 +16,13 @@
 		EE14E7C21DD0D23F009F8736 /* LinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E7C11DD0D23F009F8736 /* LinkViewController.swift */; };
 		EE14E7C41DD0DF79009F8736 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E7C31DD0DF79009F8736 /* String+Extensions.swift */; };
 		EE14E7DE1DD27D08009F8736 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E7DD1DD27D08009F8736 /* ProfileManager.swift */; };
+		EE252D001DED718B008F5E3E /* UIColor+C3PRO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252CFF1DED718B008F5E3E /* UIColor+C3PRO.swift */; };
+		EE252D031DED7196008F5E3E /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252D011DED7196008F5E3E /* NotificationManager.swift */; };
+		EE252D041DED7196008F5E3E /* UserNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252D021DED7196008F5E3E /* UserNotificationManager.swift */; };
+		EE252D061DED7A4C008F5E3E /* ProfileManagerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252D051DED7A4C008F5E3E /* ProfileManagerSettings.swift */; };
+		EE252D081DED81A3008F5E3E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252D071DED81A3008F5E3E /* AppError.swift */; };
+		EE252D0A1DED87BC008F5E3E /* ProfileSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = EE252D091DED87BC008F5E3E /* ProfileSettings.json */; };
+		EE252D0C1DEDCC5A008F5E3E /* UserTaskSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252D0B1DEDCC5A008F5E3E /* UserTaskSetting.swift */; };
 		EE5074C31DE892B300A0C73F /* UIViewController+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */; };
 		EE57D4891DD3703A0099E846 /* JWT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D4881DD3703A0099E846 /* JWT.framework */; };
 		EE57D48A1DD3703A0099E846 /* JWT.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE57D4881DD3703A0099E846 /* JWT.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -72,6 +79,13 @@
 		EE14E7C11DD0D23F009F8736 /* LinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkViewController.swift; sourceTree = "<group>"; };
 		EE14E7C31DD0DF79009F8736 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		EE14E7DD1DD27D08009F8736 /* ProfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
+		EE252CFF1DED718B008F5E3E /* UIColor+C3PRO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+C3PRO.swift"; sourceTree = "<group>"; };
+		EE252D011DED7196008F5E3E /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		EE252D021DED7196008F5E3E /* UserNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationManager.swift; sourceTree = "<group>"; };
+		EE252D051DED7A4C008F5E3E /* ProfileManagerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileManagerSettings.swift; sourceTree = "<group>"; };
+		EE252D071DED81A3008F5E3E /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		EE252D091DED87BC008F5E3E /* ProfileSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfileSettings.json; sourceTree = SOURCE_ROOT; };
+		EE252D0B1DEDCC5A008F5E3E /* UserTaskSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTaskSetting.swift; sourceTree = "<group>"; };
 		EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utilities.swift"; sourceTree = "<group>"; };
 		EE57D4881DD3703A0099E846 /* JWT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JWT.framework; path = Carthage/Build/iOS/JWT.framework; sourceTree = "<group>"; };
 		EE57D48C1DD370600099E846 /* C3PRO.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = C3PRO.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +161,7 @@
 				EEECC2211DECDF2C005645B8 /* Configuration.swift */,
 				EEECC2221DECDF2C005645B8 /* Configuration_Debug.swift */,
 				EEECC2231DECDF2C005645B8 /* Configuration_Release.swift */,
+				EE252D091DED87BC008F5E3E /* ProfileSettings.json */,
 				EEECC2281DECE0AB005645B8 /* preflight.sh */,
 				EEECC22A1DECE108005645B8 /* postflight.sh */,
 				EE14E7B41DD0CBBE009F8736 /* App */,
@@ -160,8 +175,10 @@
 			isa = PBXGroup;
 			children = (
 				EE14E7B51DD0CBBE009F8736 /* AppDelegate.swift */,
+				EE252D071DED81A3008F5E3E /* AppError.swift */,
 				EEEC78781DEC3DDA00E7020C /* GraphDataSource.swift */,
 				EE14E7C31DD0DF79009F8736 /* String+Extensions.swift */,
+				EE252CFF1DED718B008F5E3E /* UIColor+C3PRO.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -198,10 +215,14 @@
 			isa = PBXGroup;
 			children = (
 				EE14E7DD1DD27D08009F8736 /* ProfileManager.swift */,
+				EE252D051DED7A4C008F5E3E /* ProfileManagerSettings.swift */,
 				EEEC786E1DEC291C00E7020C /* User.swift */,
 				EEEC78721DEC2B6600E7020C /* UserTask.swift */,
 				EEEC786C1DEC28E800E7020C /* AppUser.swift */,
 				EEEC78701DEC2B4F00E7020C /* AppUserTask.swift */,
+				EE252D0B1DEDCC5A008F5E3E /* UserTaskSetting.swift */,
+				EE252D011DED7196008F5E3E /* NotificationManager.swift */,
+				EE252D021DED7196008F5E3E /* UserNotificationManager.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -271,6 +292,7 @@
 			files = (
 				EE14E7AB1DD0CAAA009F8736 /* LaunchScreen.storyboard in Resources */,
 				EE14E7A81DD0CAAA009F8736 /* Assets.xcassets in Resources */,
+				EE252D0A1DED87BC008F5E3E /* ProfileSettings.json in Resources */,
 				EE14E7A61DD0CAAA009F8736 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,8 +358,12 @@
 				EEEC78731DEC2B6600E7020C /* UserTask.swift in Sources */,
 				EEEC786F1DEC291C00E7020C /* User.swift in Sources */,
 				EE14E7C41DD0DF79009F8736 /* String+Extensions.swift in Sources */,
+				EE252D001DED718B008F5E3E /* UIColor+C3PRO.swift in Sources */,
 				EE14E7DE1DD27D08009F8736 /* ProfileManager.swift in Sources */,
+				EE252D061DED7A4C008F5E3E /* ProfileManagerSettings.swift in Sources */,
+				EE252D041DED7196008F5E3E /* UserNotificationManager.swift in Sources */,
 				EEEC78711DEC2B4F00E7020C /* AppUserTask.swift in Sources */,
+				EE252D081DED81A3008F5E3E /* AppError.swift in Sources */,
 				EE14E7C21DD0D23F009F8736 /* LinkViewController.swift in Sources */,
 				EEEC786B1DEC25BE00E7020C /* RootViewController.swift in Sources */,
 				EE14E7C01DD0D236009F8736 /* ConfirmViewController.swift in Sources */,
@@ -347,6 +373,8 @@
 				EEEC78671DEC258100E7020C /* ProfileViewController.swift in Sources */,
 				EEEC786D1DEC28E800E7020C /* AppUser.swift in Sources */,
 				EEEC78691DEC258B00E7020C /* DashboardViewController.swift in Sources */,
+				EE252D0C1DEDCC5A008F5E3E /* UserTaskSetting.swift in Sources */,
+				EE252D031DED7196008F5E3E /* NotificationManager.swift in Sources */,
 				EEEC78791DEC3DDA00E7020C /* GraphDataSource.swift in Sources */,
 				EEEC78641DEC24B400E7020C /* SCCSViewController.swift in Sources */,
 				EE5074C31DE892B300A0C73F /* UIViewController+Utilities.swift in Sources */,

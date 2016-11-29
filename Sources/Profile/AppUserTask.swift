@@ -49,6 +49,8 @@ class AppUserTask: UserTask {
 	
 	var assignedTo: User?
 	
+	var notificationType: NotificationManagerNotificationType?
+	
 	/// The day this task is due.
 	var dueDate: Date?
 	
@@ -90,6 +92,9 @@ class AppUserTask: UserTask {
 		}
 		return nil
 	}
+	
+	/// How long this can be delayed.
+	var delayMaxDate: Date?
 	
 	/// The day this task has been completed.
 	var completedDate: Date?
@@ -156,12 +161,7 @@ class AppUserTask: UserTask {
 	/** Call this method to mark a task complete. */
 	final func completed(by user: User, context: Any?) {
 		completedDate = Date()
-		wasCompleted(by: user, context: context)
 		NotificationCenter.default.post(name: UserTaskDidCompleteNotification, object: self, userInfo: [kUserTaskNotificationUserKey: user])
-	}
-	
-	/** Method for subclasses to override. Will be called from `completedBy()`, default implementation does nothing. */
-	func wasCompleted(by: User, context: Any?) {
 	}
 	
 	
@@ -179,8 +179,14 @@ class AppUserTask: UserTask {
 		if let title = title {
 			json["title"] = title
 		}
+		if let notify = notificationType {
+			json["notificationType"] = notify.rawValue
+		}
 		if let due = dueDate?.fhir_asDate() {
 			json["due"] = due.asJSON()
+		}
+		if let delayMax = delayMaxDate?.fhir_asDateTime() {
+			json["delayMax"] = delayMax.asJSON()
 		}
 		if let comp = completedDate?.fhir_asDate() {
 			json["done"] = comp.asJSON()
@@ -192,8 +198,14 @@ class AppUserTask: UserTask {
 		if let ttl = serialized["title"] as? String {
 			title = ttl
 		}
+		if let notify = serialized["notificationType"] as? String {
+			notificationType = NotificationManagerNotificationType(rawValue: notify)
+		}
 		if let due = serialized["due"] as? String {
 			dueDate = FHIRDate(string: due)?.nsDate
+		}
+		if let delayMax = serialized["delayMax"] as? String {
+			delayMaxDate = DateTime(string: delayMax)?.nsDate
 		}
 		if let done = serialized["done"] as? String {
 			completedDate = FHIRDate(string: done)?.nsDate

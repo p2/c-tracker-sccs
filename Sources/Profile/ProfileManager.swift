@@ -6,7 +6,7 @@
 //  Copyright © 2016 SCCS. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import SMART
 
 
@@ -18,21 +18,31 @@ class ProfileManager {
 	
 	let directory: URL
 	
-	private var url: URL {
+	var settings: ProfileManagerSettings?
+	
+	private var settingsURL: URL? {
+		return Bundle.main.url(forResource: "ProfileSettings", withExtension: "json")
+	}
+	
+	private var userURL: URL {
 		return directory.appendingPathComponent("User.json")
 	}
 	
-	public init(dir: URL) {
+	private var scheduleURL: URL {
+		return directory.appendingPathComponent("Schedule.json")
+	}
+	
+	public init(dir: URL) throws {
 		directory = dir
-		if FileManager.default.fileExists(atPath: url.path) {
-			do {
-				let data = try Data(contentsOf: url)
-				let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-				user = type(of: self).userFromJSON(json)
-			}
-			catch let error {
-				print(error)
-			}
+		if let settingsURL = settingsURL {
+			let data = try Data(contentsOf: settingsURL)
+			let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+			settings = try ProfileManagerSettings(with: json)
+		}
+		if FileManager.default.fileExists(atPath: userURL.path) {
+			let data = try Data(contentsOf: userURL)
+			let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+			user = type(of: self).userFromJSON(json)
 		}
 	}
 	
@@ -45,10 +55,17 @@ class ProfileManager {
 	func enroll(user inUser: User?) throws {
 		if var user = inUser {
 			user.enrollmentDate = Date()
-			try type(of: self).persist(user: user, at: url)
+			try type(of: self).persist(user: user, at: userURL)
+			try setupSchedule()
 		}
-		else if FileManager.default.fileExists(atPath: url.path) {
-			try FileManager.default.removeItem(at: url)
+		else {
+			let fm = FileManager()
+			if fm.fileExists(atPath: userURL.path) {
+				try fm.removeItem(at: userURL)
+			}
+			if fm.fileExists(atPath: scheduleURL.path) {
+				try fm.removeItem(at: scheduleURL)
+			}
 		}
 		
 		// assign and notify
@@ -63,6 +80,70 @@ class ProfileManager {
 		}
 		catch let error {
 			callback(error)
+		}
+	}
+	
+	
+	// MARK: - Tasks
+	
+	func setupSchedule() throws {
+		guard let schedulable = settings?.tasks else {
+			print("There are no settings or no tasks in the settings, not setting up the user's schedule")
+			return
+		}
+		
+		// setup complete schedule
+		var scheduled = [UserTask]()
+		for task in schedulable {
+			scheduled.append(contentsOf: try task.scheduledTasks())
+		}
+		scheduled.sort {
+			guard let ldue = $0.dueDate else {
+				return false
+			}
+			guard let rdue = $1.dueDate else {
+				return true
+			}
+			return ldue < rdue
+		}
+		
+		// serialize to file
+		let data = try JSONSerialization.data(withJSONObject: ["schedule": scheduled.map() { $0.serialized() }], options: .prettyPrinted)
+		try data.write(to: scheduleURL)
+		print("--->  SCHEDULE WRITTEN TO \(scheduleURL)")
+		
+		// create a notification for the next occurence of each task per taskId
+		
+	}
+	
+	/**
+	Create a notification suitable for the given task, influenced by the suggested date given.
+	
+	- returns: A tuple with the actual notification [0] and the notification type [1]
+	*/
+	func notification(for task: UserTask, suggestedDate: DateComponents?) -> (UILocalNotification, NotificationManagerNotificationType)? {
+		if task.completed {
+			return nil
+		}
+		switch task.type {
+		case .survey:
+			if let dd = task.dueDate {
+				var comps = Calendar.current.dateComponents([.year, .month, .day], from: dd)
+				comps.hour = suggestedDate?.hour ?? 10
+				comps.minute = suggestedDate?.minute ?? 0
+				let date = Calendar.current.date(from: comps)
+				
+				let notification = UILocalNotification()
+				notification.alertBody = "We'd like you to complete another survey".sccs_loc
+				notification.fireDate = date
+				notification.timeZone = TimeZone.current
+				notification.repeatInterval = NSCalendar.Unit.day
+				
+				return (notification, NotificationManagerNotificationType.delayable)
+			}
+			return nil
+		default:
+			return nil
 		}
 	}
 	

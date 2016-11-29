@@ -265,7 +265,16 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 	}
 	
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		return (0 == section ? "Your Medical Data" : (1 == section ? "Consent" : (2 == section ? "App Settings" : "Legal"))).sccs_loc
+		if 0 == section {
+			return "Your Medical Data".sccs_loc
+		}
+		if 1 == section {
+			return (nil == user?.enrollmentDate) ? nil : "Consent".sccs_loc
+		}
+		if 2 == section {
+			return "App Settings".sccs_loc
+		}
+		return "Legal".sccs_loc
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

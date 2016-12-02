@@ -28,6 +28,8 @@ class DashboardViewController: UITableViewController {
 	
 	var profileManager: ProfileManager?
 	
+	var taskPreparer: UserTaskPreparer?
+	
 	var user: User? {
 		return profileManager?.user
 	}
@@ -95,14 +97,13 @@ class DashboardViewController: UITableViewController {
 			showConsent(animated)
 		}
 		else if .survey == task.type {
-//			assert(task is UserSurveyTask, "Expecting a UserSurveyTask instance for survey tasks")
-//			showSpinnerAt(indexPath)
-//			startQuestionnaireTask(task as! UserSurveyTask, animated: animated) { error in
-//				self.showSpinnerAt(indexPath, show: false)
-//				if let error = error {
-//					self.showError(error)
-//				}
-//			}
+			showSpinnerAt(indexPath)
+			startSurveyTask(task, animated: animated) { error in
+				self.showSpinnerAt(indexPath, show: false)
+				if let error = error {
+					self.showError(error)
+				}
+			}
 		}
 	}
 	
@@ -125,56 +126,59 @@ class DashboardViewController: UITableViewController {
 	
 	// MARK: - Questionnaires
 	
-//	func startQuestionnaireTask(_ task: UserSurveyTask, animated: Bool = true, started: @escaping ((Error?) -> Void)) {
-//		if let server = server {
-//			task.getQuestionnaire(server) { questionnaire, error in
-//				if let questionnaire = questionnaire {
-//					let quest = QuestionnaireController(questionnaire: questionnaire)
-//					quest.whenCompleted = { viewController, answers in
-//						self.didCompleteQuestionnaireTask(task, answers: answers)
-//					}
-//					quest.whenCancelledOrFailed = { viewController, error in
-//						self.didCancelOrFailQuestionnaireTask(task, error: error)
-//					}
-//					
-//					quest.prepareQuestionnaireViewController() { viewController, error in
-//						if let vc = viewController {
-//							self.present(vc, animated: animated)
-//							started(nil)
-//						}
-//						else {
-//							started(error ?? C3Error.questionnaireUnknownError)
-//						}
-//					}
-//					self.questionnaireController = quest
-//				}
-//				else {
-//					started(error ?? C3Error.questionnaireUnknownError)
-//				}
-//			}
-//		}
-//		else {
-//			started(C3Error.serverNotConfigured)
-//		}
-//	}
-//	
-//	func didCompleteQuestionnaireTask(_ task: UserTask, answers: QuestionnaireResponse?) {
-//		if let answers = answers {
-//			task.completed(by: user!, context: answers)
-//		}
-//		else {
-//			c3_logIfDebug("Finished questionnaire but no answers received, not marking as completed")
-//		}
-//		self.dismiss(animated: true, completion: nil)
-//	}
-//	
-//	func didCancelOrFailQuestionnaireTask(_ task: UserTask, error: Error?) {
-//		dismiss(animated: true, completion: nil)
-//		if let error = error {
-//			c3_logIfDebug("Questionnaire failed: \(error)")
-//			self.showError(error)
-//		}
-//	}
+	func startSurveyTask(_ task: UserTask, animated: Bool = true, started: @escaping ((Error?) -> Void)) {
+		guard let user = user else {
+			started(AppError.noUserEnrolled)
+			return
+		}
+		
+		taskPreparer = taskPreparer ?? UserTaskPreparer(user: user, server: server)
+		taskPreparer!.prepareResource(for: task) { resource, error in
+			if let questionnaire = resource as? Questionnaire {
+				
+				// got a questionnaire, setup a questionnaire controller and launch!
+				let quest = QuestionnaireController(questionnaire: questionnaire)
+				quest.whenCompleted = { viewController, answers in
+					self.didCompleteQuestionnaireTask(task, answers: answers)
+				}
+				quest.whenCancelledOrFailed = { viewController, error in
+					self.didCancelOrFailQuestionnaireTask(task, error: error)
+				}
+				
+				quest.prepareQuestionnaireViewController() { viewController, error in
+					if let vc = viewController {
+						self.present(vc, animated: animated)
+						started(nil)
+					}
+					else {
+						started(error ?? C3Error.questionnaireUnknownError)
+					}
+				}
+				self.questionnaireController = quest
+			}
+			else {
+				started(error ?? C3Error.questionnaireUnknownError)
+			}
+		}
+	}
+	
+	func didCompleteQuestionnaireTask(_ task: UserTask, answers: QuestionnaireResponse?) {
+		if let answers = answers {
+			task.completed(by: user!, context: answers)
+		}
+		else {
+			c3_logIfDebug("Finished questionnaire but no answers received, not marking as completed")
+		}
+		self.dismiss(animated: true, completion: nil)
+	}
+	
+	func didCancelOrFailQuestionnaireTask(_ task: UserTask, error: Error?) {
+		dismiss(animated: true, completion: nil)
+		if let error = error {
+			c3_logIfDebug("Questionnaire failed: \(error)")
+			self.showError(error)
+		}
+	}
 	
 	
 	// MARK: - Consent
@@ -492,7 +496,7 @@ class DashboardViewController: UITableViewController {
 	func registerForNotifications() {
 		let center = NotificationCenter.default
 		center.addObserver(self, selector: #selector(DashboardViewController.userDidSomething(_:)), name: UserDidReceiveTaskNotification, object: nil)
-		center.addObserver(self, selector: #selector(DashboardViewController.userDidSomething(_:)), name: UserTaskDidCompleteNotification, object: nil)
+		center.addObserver(self, selector: #selector(DashboardViewController.userDidSomething(_:)), name: UserDidCompleteTaskNotification, object: nil)
 	}
 	
 	

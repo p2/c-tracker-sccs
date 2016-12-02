@@ -43,7 +43,14 @@ final class AppUser: User {
 	
 	var profileImage: Data?
 	
+	
+	// MARK: - Enrollment
+	
 	var enrollmentDate: Date?
+	
+	func didEnroll(on date: Date) {
+		enrollmentDate = date
+	}
 	
 	
 	// MARK: - Tasks

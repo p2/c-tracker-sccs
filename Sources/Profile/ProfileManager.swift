@@ -16,9 +16,13 @@ class ProfileManager {
 	
 	var user: User?
 	
+	var server: Server?
+	
 	let directory: URL
 	
 	var settings: ProfileManagerSettings?
+	
+	var taskPreparer: UserTaskPreparer?
 	
 	private var settingsURL: URL? {
 		return Bundle.main.url(forResource: "ProfileSettings", withExtension: "json")
@@ -44,50 +48,51 @@ class ProfileManager {
 			let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
 			user = type(of: self).userFromJSON(json)
 		}
+		if FileManager.default.fileExists(atPath: scheduleURL.path) {
+			user?.tasks = try readScheduledTasks()
+		}
 	}
 	
 	
 	// MARK: - Enrollment & Withdrawal
 	
 	/**
-	Enroll (or withdraw, if nil) the given user profile.
+	Enroll the given user profile.
 	
-	- parameter user: The User to enroll – will withdraw if nil!
+	- parameter user: The User to enroll
 	*/
-	func enroll(user inUser: User?) throws {
-		user = inUser
+	open func enroll(user: User) throws {
+		self.user = user
+		user.didEnroll(on: Date())
 		
-		// enroll
-		if var user = inUser {
-			user.enrollmentDate = Date()
-			try type(of: self).persist(user: user, at: userURL)
-			try setupSchedule()
-		}
-			
-		// withdraw
-		else {
-			let fm = FileManager()
-			if fm.fileExists(atPath: userURL.path) {
-				try fm.removeItem(at: userURL)
+		try type(of: self).persist(user: user, at: userURL)
+		try setupSchedule()
+		if let server = server {
+			taskPreparer = taskPreparer ?? UserTaskPreparer(user: user, server: server)
+			taskPreparer!.prepareDueTasks() { [weak self] in
+				if let this = self {
+					this.taskPreparer = nil
+				}
 			}
-			if fm.fileExists(atPath: scheduleURL.path) {
-				try fm.removeItem(at: scheduleURL)
-			}
-			NotificationManager.shared.cancelExistingNotifications(ofTypes: [], evenRescheduled: true)
 		}
 		
-		// notify
 		NotificationCenter.default.post(name: type(of: self).didChangeProfileNotification, object: self)
 	}
 	
-	func withdraw(_ callback: (Error?) -> Void) {
-		do {
-			try enroll(user: nil)
-			callback(nil)
+	/**
+	Withdraw our user.
+	*/
+	open func withdraw() throws {
+		let fm = FileManager()
+		if fm.fileExists(atPath: userURL.path) {
+			try fm.removeItem(at: userURL)
 		}
-		catch let error {
-			callback(error)
+		if fm.fileExists(atPath: scheduleURL.path) {
+			try fm.removeItem(at: scheduleURL)
 		}
+		
+		NotificationManager.shared.cancelExistingNotifications(ofTypes: [], evenRescheduled: true)
+		NotificationCenter.default.post(name: type(of: self).didChangeProfileNotification, object: self)
 	}
 	
 	
@@ -101,7 +106,7 @@ class ProfileManager {
 			throw AppError.noUserEnrolled
 		}
 		guard let schedulable = settings?.tasks else {
-			print("There are no settings or no tasks in the settings, not setting up the user's schedule")
+			NSLog("There are no settings or no tasks in the settings, not setting up the user's schedule")
 			return
 		}
 		
@@ -124,7 +129,19 @@ class ProfileManager {
 		print("--->  SCHEDULE WRITTEN TO \(scheduleURL)")
 		
 		// create notifications
-		UserNotificationManager.shared.synchronizeNotifications(informing: self)
+		UserNotificationManager.shared.synchronizeNotifications(with: self)
+	}
+	
+	/**
+	Reads the user's scheduled tasks.
+	*/
+	func readScheduledTasks() throws -> [UserTask] {
+		let data = try Data(contentsOf: scheduleURL)
+		let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+		guard let scheduled = json["schedule"] as? [[String: Any]] else {
+			throw AppError.invalidScheduleFormat("Expecting an array of schedule objects at `schedule` top level")
+		}
+		return try scheduled.map() { try AppUserTask(serialized: $0) }
 	}
 	
 	/**

@@ -25,7 +25,7 @@ class UserNotificationManager {
 	This method cancels all notifications (if changing time of day does not cancel those that were rescheduled), then re-creates all
 	reminders for the user.
 	*/
-	func synchronizeNotifications(informing profileManager: ProfileManager?) {
+	func synchronizeNotifications(with profileManager: ProfileManager?) {
 		let defaults = UserDefaults.standard
 		
 		// cancel all notifications
@@ -70,7 +70,7 @@ extension UserDefaults {
 	
 	func surveyRemindersEnable(_ flag: Bool, profileManager: ProfileManager?) {
 		set(flag, forKey: surveyRemindersEnableKey)
-		UserNotificationManager.shared.synchronizeNotifications(informing: profileManager)
+		UserNotificationManager.shared.synchronizeNotifications(with: profileManager)
 	}
 	
 	private var surveyRemindersTimeOfDayKey: String {
@@ -88,7 +88,7 @@ extension UserDefaults {
 	func surveyRemindersSet(timeOfDay: DateComponents, profileManager: ProfileManager?) {
 		let parts = [timeOfDay.hour ?? 10, timeOfDay.minute ?? 00]
 		set(parts, forKey: surveyRemindersTimeOfDayKey)
-		UserNotificationManager.shared.synchronizeNotifications(informing: profileManager)
+		UserNotificationManager.shared.synchronizeNotifications(with: profileManager)
 	}
 }
 

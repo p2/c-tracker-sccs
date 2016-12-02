@@ -30,7 +30,12 @@ public protocol User {
 	
 	var profileImage: Data? { get }
 	
+	
+	// MARK: - Enrollment
+	
 	var enrollmentDate: Date? { get set }
+	
+	func didEnroll(on date: Date)
 	
 	
 	// MARK: - Tasks

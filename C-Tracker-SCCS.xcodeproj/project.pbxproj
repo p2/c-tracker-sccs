@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE0B32881DF1B191009F9939 /* UserTaskPreparer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0B32871DF1B191009F9939 /* UserTaskPreparer.swift */; };
+		EE0B328E1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json in Resources */ = {isa = PBXBuildFile; fileRef = EE0B328D1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json */; };
 		EE14E7A61DD0CAAA009F8736 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE14E7A41DD0CAAA009F8736 /* Main.storyboard */; };
 		EE14E7A81DD0CAAA009F8736 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE14E7A71DD0CAAA009F8736 /* Assets.xcassets */; };
 		EE14E7AB1DD0CAAA009F8736 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE14E7A91DD0CAAA009F8736 /* LaunchScreen.storyboard */; };
@@ -68,6 +70,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		EE0B32871DF1B191009F9939 /* UserTaskPreparer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTaskPreparer.swift; sourceTree = "<group>"; };
+		EE0B328C1DF1CA90009F9939 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EE0B328D1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "c-tracker.survey-in-app.main.json"; sourceTree = "<group>"; };
 		EE14E79B1DD0CAAA009F8736 /* C Tracker SCCS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "C Tracker SCCS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE14E7A51DD0CAAA009F8736 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE14E7A71DD0CAAA009F8736 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -126,11 +131,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE0B328A1DF1CA90009F9939 /* c-tracker-sccs-questionnaires */ = {
+			isa = PBXGroup;
+			children = (
+				EE0B328C1DF1CA90009F9939 /* README.md */,
+				EE0B328D1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json */,
+			);
+			path = "c-tracker-sccs-questionnaires";
+			sourceTree = "<group>";
+		};
 		EE14E7921DD0CAAA009F8736 = {
 			isa = PBXGroup;
 			children = (
 				EE14E7B31DD0CBBE009F8736 /* Sources */,
 				EE14E79D1DD0CAAA009F8736 /* App */,
+				EE0B328A1DF1CA90009F9939 /* c-tracker-sccs-questionnaires */,
 				EE14E7CD1DD18921009F8736 /* Frameworks */,
 				EE14E79C1DD0CAAA009F8736 /* Products */,
 			);
@@ -219,6 +234,7 @@
 				EEEC786E1DEC291C00E7020C /* User.swift */,
 				EEEC78721DEC2B6600E7020C /* UserTask.swift */,
 				EE252D0B1DEDCC5A008F5E3E /* UserTaskSetting.swift */,
+				EE0B32871DF1B191009F9939 /* UserTaskPreparer.swift */,
 				EEEC786C1DEC28E800E7020C /* AppUser.swift */,
 				EEEC78701DEC2B4F00E7020C /* AppUserTask.swift */,
 				EE252D011DED7196008F5E3E /* NotificationManager.swift */,
@@ -291,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE14E7AB1DD0CAAA009F8736 /* LaunchScreen.storyboard in Resources */,
+				EE0B328E1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json in Resources */,
 				EE14E7A81DD0CAAA009F8736 /* Assets.xcassets in Resources */,
 				EE252D0A1DED87BC008F5E3E /* ProfileSettings.json in Resources */,
 				EE14E7A61DD0CAAA009F8736 /* Main.storyboard in Resources */,
@@ -367,6 +384,7 @@
 				EE14E7C21DD0D23F009F8736 /* LinkViewController.swift in Sources */,
 				EEEC786B1DEC25BE00E7020C /* RootViewController.swift in Sources */,
 				EE14E7C01DD0D236009F8736 /* ConfirmViewController.swift in Sources */,
+				EE0B32881DF1B191009F9939 /* UserTaskPreparer.swift in Sources */,
 				EE14E7BA1DD0CBBE009F8736 /* WelcomeViewController.swift in Sources */,
 				EE14E7B91DD0CBBE009F8736 /* AppDelegate.swift in Sources */,
 				EEECC2241DECDF2C005645B8 /* Configuration.swift in Sources */,

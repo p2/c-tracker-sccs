@@ -18,7 +18,7 @@ public enum UserTaskType: String {
 
 let UserDidReceiveTaskNotification = Notification.Name(rawValue: "UserDidReceiveTask")
 
-let UserTaskDidCompleteNotification = Notification.Name(rawValue: "UserTaskDidComplete")
+let UserDidCompleteTaskNotification = Notification.Name(rawValue: "UserDidCompleteTask")
 
 /// The key for Notification user dictionaries where one finds the associated User instance.
 let kUserTaskNotificationUserKey = "user"
@@ -84,15 +84,15 @@ public protocol UserTask {
 	/** Call this method to let the user know about the new task and emit a notification. Should emit "UserDidReceiveTaskNotification". */
 	func add(to user: User) throws
 	
-	/** Call this method to mark a task complete. Should emit "UserTaskDidCompleteNotification". */
+	/** Call this method to mark a task complete. Should emit "UserDidCompleteTaskNotification". */
 	func completed(by user: User, context: Any?)
 	
 	
 	// MARK: - Serialization
 	
-	func serialized() -> [String: Any]
+	init(serialized: [String: Any]) throws
 	
-	func from(serialized: [String: Any])
+	func serialized() -> [String: Any]
 }
 
 

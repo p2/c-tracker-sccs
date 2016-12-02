@@ -11,34 +11,6 @@ import SMART
 
 
 /**
-A factory to help instantiate the correct UserTask.
-*/
-class UserTaskFactory {
-	
-	class func task(ofType type: UserTaskType, withId: String) -> UserTask? {
-		switch type {
-//		case .consent:
-//			return UserConsentTask(id: withId)
-//		case .survey:
-//			return UserSurveyTask(id: withId)
-		default:
-			return AppUserTask(id: withId, type: type)
-		}
-	}
-	
-	class func from(serialized: [String: Any]) -> UserTask? {
-		if let id = serialized["id"] as? String, let type = UserTaskType(rawValue: (serialized["type"] as? String)!) {
-			if let task = task(ofType: type, withId: id) {
-				task.from(serialized: serialized)
-				return task
-			}
-		}
-		return nil
-	}
-}
-
-
-/**
 A task a user needs to complete, such as consenting or taking a survey.
 */
 class AppUserTask: UserTask {
@@ -164,18 +136,34 @@ class AppUserTask: UserTask {
 	/** Call this method to mark a task complete. */
 	final func completed(by user: User, context: Any?) {
 		completedDate = Date()
-		NotificationCenter.default.post(name: UserTaskDidCompleteNotification, object: self, userInfo: [kUserTaskNotificationUserKey: user])
+		NotificationCenter.default.post(name: UserDidCompleteTaskNotification, object: self, userInfo: [kUserTaskNotificationUserKey: user])
 	}
 	
 	
-	// MARK: - Notifications
-	
-//	func notification(_ suggestedDate: DateComponents?) -> (UILocalNotification, NotificationManagerNotificationType)? {
-//		return nil
-//	}
-	
-	
 	// MARK: - Serialization
+	
+	required init(serialized: [String: Any]) throws {
+		id = serialized["id"] as? String ?? ""
+		type = UserTaskType(rawValue: serialized["type"] as? String ?? "") ?? .unknown
+		if id.isEmpty || .unknown == type {
+			throw AppError.generic("Invalid serialization format for UserTask: \(serialized)")
+		}
+		if let ttl = serialized["title"] as? String {
+			title = ttl
+		}
+		if let notify = serialized["notificationType"] as? String {
+			notificationType = NotificationManagerNotificationType(rawValue: notify)
+		}
+		if let due = serialized["due"] as? String {
+			dueDate = FHIRDate(string: due)?.nsDate
+		}
+		if let delayMax = serialized["delayMax"] as? String {
+			delayMaxDate = DateTime(string: delayMax)?.nsDate
+		}
+		if let done = serialized["done"] as? String {
+			completedDate = FHIRDate(string: done)?.nsDate
+		}
+	}
 	
 	func serialized() -> [String: Any] {
 		var json = ["id": id, "type": type.rawValue]
@@ -195,24 +183,6 @@ class AppUserTask: UserTask {
 			json["done"] = comp.asJSON()
 		}
 		return json
-	}
-	
-	func from(serialized: [String: Any]) {
-		if let ttl = serialized["title"] as? String {
-			title = ttl
-		}
-		if let notify = serialized["notificationType"] as? String {
-			notificationType = NotificationManagerNotificationType(rawValue: notify)
-		}
-		if let due = serialized["due"] as? String {
-			dueDate = FHIRDate(string: due)?.nsDate
-		}
-		if let delayMax = serialized["delayMax"] as? String {
-			delayMaxDate = DateTime(string: delayMax)?.nsDate
-		}
-		if let done = serialized["done"] as? String {
-			completedDate = FHIRDate(string: done)?.nsDate
-		}
 	}
 }
 

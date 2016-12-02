@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		prepareDueTasks()
 		NotificationManager.shared.ensureProperNotificationSettings()
 		if let manager = profileManager {
-			UserNotificationManager.shared.synchronizeNotifications(informing: manager)
+			UserNotificationManager.shared.synchronizeNotifications(with: manager)
 		}
 		rootViewController?.updateBadges()
 	}

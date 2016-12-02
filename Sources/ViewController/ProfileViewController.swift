@@ -153,10 +153,11 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 //			answers.create(server) { error in }
 //		}
 //		self.questionnaireController = nil
-		profileManager?.withdraw() { error in
-			if let err = error {
-				c3_logIfDebug("ERROR withdrawing: \(err.localizedDescription)")
-			}
+		do {
+			try profileManager?.withdraw()
+		}
+		catch let error {
+			c3_logIfDebug("ERROR withdrawing: \(error)")
 		}
 	}
 	

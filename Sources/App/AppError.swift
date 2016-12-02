@@ -12,6 +12,9 @@ public enum AppError: Error {
 	
 	case generic(String)
 	
+	/// No user has been enrolled at this time.
+	case noUserEnrolled
+	
 	/// The date format string is invalid.
 	case invalidScheduleFormat(String)
 }

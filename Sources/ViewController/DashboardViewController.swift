@@ -32,8 +32,17 @@ class DashboardViewController: UITableViewController {
 		return profileManager?.user
 	}
 	
+	/// will only include one task per task.id!
 	var tasksOutstanding: [UserTask] {
-		return user?.tasks.filter() { return !$0.completed } ?? []
+		var found = [String]()
+		let outstanding = user?.tasks.filter() {
+			if found.contains($0.id) {
+				return false
+			}
+			found.append($0.id)
+			return !$0.completed
+		}
+		return outstanding ?? []
 	}
 	
 	var tasksDone: [UserTask] {

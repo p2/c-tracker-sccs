@@ -43,6 +43,9 @@ A task a user needs to complete, such as consenting or taking a survey.
 */
 class AppUserTask: UserTask {
 	
+	/// To be used in notification's `userInfo` dictionaries.
+	static let notificationUserTaskIdKey = "user-task-id"
+	
 	let id: String
 	
 	let type: UserTaskType

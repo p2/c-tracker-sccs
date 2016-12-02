@@ -33,12 +33,17 @@ class UserNotificationManager {
 		NotificationManager.shared.cancelExistingNotifications(ofTypes: [], evenRescheduled: !keep)
 		
 		if keep, let manager = profileManager, let tasks = manager.user?.tasks {
+			NotificationManager.shared.ensureProperNotificationSettings()
 			let timeOfDay = defaults.surveyRemindersTimeOfDay
 			
-			// re-add all tasks that want reminders
+			// re-add all tasks that want reminders (for the first occurrence only)
+			var notified = [String]()
 			for task in tasks {
-				if let (notification, type) = manager.notification(for: task, suggestedDate: timeOfDay) {
-					NotificationManager.shared.schedule(notification, type: type)
+				if !notified.contains(task.id) {
+					if let (notification, type) = manager.notification(for: task, suggestedDate: timeOfDay) {
+						NotificationManager.shared.schedule(notification, type: type)
+					}
+					notified.append(task.id)
 				}
 			}
 		}

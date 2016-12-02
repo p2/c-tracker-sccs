@@ -123,7 +123,10 @@ public class NotificationManager {
 	// MARK: - Managing Notifications
 	
 	/**
-	Schedules the given notification according to the given type.
+	Schedules the given notification according to the given type. If a notification's `fireDate` is in the past, displays the notification
+	immediately.
+	
+	NOTE: You are responsible to have called `ensureProperNotificationSettings()` at some point before trying to schedule a notification.
 	
 	- parameter notification: The notification to schedule; MUST have `fireDate` unless .none is the type
 	- parameter type:         The type of the notification
@@ -144,7 +147,12 @@ public class NotificationManager {
 			notification.category = category.rawValue
 		}
 		
-		UIApplication.shared.scheduleLocalNotification(notification)
+		if let fireDate = notification.fireDate, fireDate < Date() {
+			UIApplication.shared.presentLocalNotificationNow(notification)
+		}
+		else {
+			UIApplication.shared.scheduleLocalNotification(notification)
+		}
 	}
 	
 	/**

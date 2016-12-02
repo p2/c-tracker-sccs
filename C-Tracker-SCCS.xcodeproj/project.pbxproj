@@ -218,9 +218,9 @@
 				EE252D051DED7A4C008F5E3E /* ProfileManagerSettings.swift */,
 				EEEC786E1DEC291C00E7020C /* User.swift */,
 				EEEC78721DEC2B6600E7020C /* UserTask.swift */,
+				EE252D0B1DEDCC5A008F5E3E /* UserTaskSetting.swift */,
 				EEEC786C1DEC28E800E7020C /* AppUser.swift */,
 				EEEC78701DEC2B4F00E7020C /* AppUserTask.swift */,
-				EE252D0B1DEDCC5A008F5E3E /* UserTaskSetting.swift */,
 				EE252D011DED7196008F5E3E /* NotificationManager.swift */,
 				EE252D021DED7196008F5E3E /* UserNotificationManager.swift */,
 			);

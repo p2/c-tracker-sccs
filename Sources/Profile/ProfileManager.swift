@@ -51,13 +51,20 @@ class ProfileManager {
 	
 	/**
 	Enroll (or withdraw, if nil) the given user profile.
+	
+	- parameter user: The User to enroll – will withdraw if nil!
 	*/
 	func enroll(user inUser: User?) throws {
+		user = inUser
+		
+		// enroll
 		if var user = inUser {
 			user.enrollmentDate = Date()
 			try type(of: self).persist(user: user, at: userURL)
 			try setupSchedule()
 		}
+			
+		// withdraw
 		else {
 			let fm = FileManager()
 			if fm.fileExists(atPath: userURL.path) {
@@ -66,10 +73,10 @@ class ProfileManager {
 			if fm.fileExists(atPath: scheduleURL.path) {
 				try fm.removeItem(at: scheduleURL)
 			}
+			NotificationManager.shared.cancelExistingNotifications(ofTypes: [], evenRescheduled: true)
 		}
 		
-		// assign and notify
-		user = inUser
+		// notify
 		NotificationCenter.default.post(name: type(of: self).didChangeProfileNotification, object: self)
 	}
 	
@@ -86,17 +93,20 @@ class ProfileManager {
 	
 	// MARK: - Tasks
 	
+	/**
+	Reads the app's profile configuration, creates `UserTask` for every scheduled task and sets up app notifications.
+	*/
 	func setupSchedule() throws {
+		guard let user = user else {
+			throw AppError.noUserEnrolled
+		}
 		guard let schedulable = settings?.tasks else {
 			print("There are no settings or no tasks in the settings, not setting up the user's schedule")
 			return
 		}
 		
 		// setup complete schedule
-		var scheduled = [UserTask]()
-		for task in schedulable {
-			scheduled.append(contentsOf: try task.scheduledTasks())
-		}
+		var scheduled = try schedulable.flatMap() { try $0.scheduledTasks() }
 		scheduled.sort {
 			guard let ldue = $0.dueDate else {
 				return false
@@ -106,14 +116,15 @@ class ProfileManager {
 			}
 			return ldue < rdue
 		}
+		try scheduled.forEach() { try user.add(task: $0) }
 		
 		// serialize to file
 		let data = try JSONSerialization.data(withJSONObject: ["schedule": scheduled.map() { $0.serialized() }], options: .prettyPrinted)
 		try data.write(to: scheduleURL)
 		print("--->  SCHEDULE WRITTEN TO \(scheduleURL)")
 		
-		// create a notification for the next occurence of each task per taskId
-		
+		// create notifications
+		UserNotificationManager.shared.synchronizeNotifications(informing: self)
 	}
 	
 	/**
@@ -138,6 +149,9 @@ class ProfileManager {
 				notification.fireDate = date
 				notification.timeZone = TimeZone.current
 				notification.repeatInterval = NSCalendar.Unit.day
+				notification.userInfo = [
+					AppUserTask.notificationUserTaskIdKey: task.id
+				]
 				
 				return (notification, NotificationManagerNotificationType.delayable)
 			}

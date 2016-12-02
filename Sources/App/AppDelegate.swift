@@ -85,5 +85,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			}
 		}
 	}
+	
+	func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, withResponseInfo responseInfo: [AnyHashable : Any], completionHandler: @escaping () -> Void) {
+		if let identifier = identifier, let action = NotificationManagerNotificationAction(rawValue: identifier) {
+			NotificationManager.shared.applyNotificationAction(action, toNotification: notification)
+		}
+		else {
+			print("Unknown notification action: “\(identifier)”")
+		}
+		completionHandler()
+	}
 }
 

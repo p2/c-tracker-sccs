@@ -48,6 +48,7 @@
 		EEEC78731DEC2B6600E7020C /* UserTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78721DEC2B6600E7020C /* UserTask.swift */; };
 		EEEC78791DEC3DDA00E7020C /* GraphDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78781DEC3DDA00E7020C /* GraphDataSource.swift */; };
 		EEECC2241DECDF2C005645B8 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEECC2211DECDF2C005645B8 /* Configuration.swift */; };
+		EEFC6B331DF5CCB900D03A84 /* c-tracker.survey-in-app.withdrawal.json in Resources */ = {isa = PBXBuildFile; fileRef = EEFC6B321DF5CCB900D03A84 /* c-tracker.survey-in-app.withdrawal.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -112,6 +113,9 @@
 		EEECC2231DECDF2C005645B8 /* Configuration_Release.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configuration_Release.swift; path = ../Configuration_Release.swift; sourceTree = "<group>"; };
 		EEECC2281DECE0AB005645B8 /* preflight.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = preflight.sh; sourceTree = SOURCE_ROOT; };
 		EEECC22A1DECE108005645B8 /* postflight.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = postflight.sh; sourceTree = SOURCE_ROOT; };
+		EEFC6B321DF5CCB900D03A84 /* c-tracker.survey-in-app.withdrawal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "c-tracker.survey-in-app.withdrawal.json"; sourceTree = "<group>"; };
+		EEFC6B341DF5CD4700D03A84 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
+		EEFC6B351DF5CD4700D03A84 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +140,7 @@
 			children = (
 				EE0B328C1DF1CA90009F9939 /* README.md */,
 				EE0B328D1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json */,
+				EEFC6B321DF5CCB900D03A84 /* c-tracker.survey-in-app.withdrawal.json */,
 			);
 			path = "c-tracker-sccs-questionnaires";
 			sourceTree = "<group>";
@@ -162,10 +167,12 @@
 		EE14E79D1DD0CAAA009F8736 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				EEFC6B351DF5CD4700D03A84 /* README.md */,
 				EE14E7A41DD0CAAA009F8736 /* Main.storyboard */,
 				EE14E7A71DD0CAAA009F8736 /* Assets.xcassets */,
 				EE14E7A91DD0CAAA009F8736 /* LaunchScreen.storyboard */,
 				EE14E7AC1DD0CAAA009F8736 /* Info.plist */,
+				EEFC6B341DF5CD4700D03A84 /* Cartfile */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -308,6 +315,7 @@
 			files = (
 				EE14E7AB1DD0CAAA009F8736 /* LaunchScreen.storyboard in Resources */,
 				EE0B328E1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json in Resources */,
+				EEFC6B331DF5CCB900D03A84 /* c-tracker.survey-in-app.withdrawal.json in Resources */,
 				EE14E7A81DD0CAAA009F8736 /* Assets.xcassets in Resources */,
 				EE252D0A1DED87BC008F5E3E /* ProfileSettings.json in Resources */,
 				EE14E7A61DD0CAAA009F8736 /* Main.storyboard in Resources */,

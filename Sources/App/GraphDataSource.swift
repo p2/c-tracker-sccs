@@ -18,7 +18,7 @@ class PieDataSource: NSObject, ORKPieChartViewDataSource {
 	
 	var report: ActivityReport? {
 		didSet {
-			nonZeroActivities = report?.last?.coreMotionActivities?.filter() { 0.0 != $0.duration.value?.floatValue ?? 0.0 }
+			nonZeroActivities = report?.last?.coreMotionActivities?.filter() { 0.0 != $0.duration.value?.decimal ?? 0.0 }
 		}
 	}
 	
@@ -27,7 +27,7 @@ class PieDataSource: NSObject, ORKPieChartViewDataSource {
 	
 	init(report: ActivityReport?) {
 		self.report = report
-		self.nonZeroActivities = report?.last?.coreMotionActivities?.filter() { 0.0 != $0.duration.value?.floatValue ?? 0.0 }
+		self.nonZeroActivities = report?.last?.coreMotionActivities?.filter() { 0.0 != $0.duration.value?.decimal ?? 0.0 }
 	}
 	
 	func numberOfSegments(in pieChartView: ORKPieChartView) -> Int {
@@ -36,7 +36,7 @@ class PieDataSource: NSObject, ORKPieChartViewDataSource {
 	
 	func pieChartView(_ pieChartView: ORKPieChartView, valueForSegmentAt index: Int) -> CGFloat {
 		if let durations = nonZeroActivities, durations.count > index {
-			return CGFloat(durations[index].duration.value?.floatValue ?? 0.0)
+			return CGFloat(NSDecimalNumber(decimal: durations[index].duration.value?.decimal ?? 0.0))
 		}
 		return 0.0
 	}
@@ -79,8 +79,9 @@ class GraphDataSource: NSObject, ORKValueRangeGraphChartViewDataSource {
 	func graphChartView(_ graphChartView: ORKGraphChartView, dataPointForPointIndex pointIndex: Int, plotIndex: Int) -> ORKValueRange {
 		if let report = report?[pointIndex] {
 			if let durations = report.coreMotionActivities, durations.count > plotIndex {
-				let daily = durations[plotIndex].duration.value?.dividing(by: NSDecimalNumber(value: report.numberOfDays ?? 1)) ?? NSDecimalNumber.zero
-				return ORKValueRange(value: daily.doubleValue)
+				var daily = durations[plotIndex].duration.value?.decimal ?? Decimal(0)
+				daily.divide(by: Decimal(report.numberOfDays ?? 1))
+				return ORKValueRange(value: NSDecimalNumber(decimal: daily).doubleValue)
 			}
 		}
 		return ORKValueRange(value: 0.0)
@@ -117,8 +118,9 @@ class HealthGraphDataSource: GraphDataSource {
 			for sample in samples {
 				if want.rawValue == sample.quantityType.identifier {
 					let quantity = try? sample.c3_asFHIRQuantity()
-					let daily = quantity?.value?.dividing(by: NSDecimalNumber(value: report?[pointIndex]?.numberOfDays ?? 1)) ?? NSDecimalNumber.zero
-					return ORKValueRange(value: daily.doubleValue)
+					var daily = quantity?.value?.decimal ?? Decimal(0)
+					daily.divide(by: Decimal(report?[pointIndex]?.numberOfDays ?? 1))
+					return ORKValueRange(value: NSDecimalNumber(decimal: daily).doubleValue)
 				}
 			}
 		}

@@ -83,6 +83,8 @@ class ProfileManager {
 	Withdraw our user.
 	*/
 	open func withdraw() throws {
+		user = nil
+		
 		let fm = FileManager()
 		if fm.fileExists(atPath: userURL.path) {
 			try fm.removeItem(at: userURL)
@@ -234,9 +236,10 @@ class ProfileManager {
 	// MARK: - FHIR
 	
 	public func patient() -> Patient {
-		let patient = Patient(json: nil)
+		let patient = Patient()
 		if let name = user?.name {
-			patient.name = [HumanName(json: ["text": name])]
+			patient.name = [HumanName()]
+			patient.name?.first?.text = FHIRString(name)
 		}
 		if let bday = user?.birthDate {
 			patient.birthDate = bday.fhir_asDate()

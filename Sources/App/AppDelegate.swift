@@ -7,17 +7,19 @@
 //
 
 import UIKit
+import C3PRO
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+	
 	var window: UIWindow?
 	
 	var profileManager: ProfileManager?
 	
 	var rootViewController: RootViewController?
-
-
+	
+	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 		rootViewController = window?.rootViewController as? RootViewController
 		
@@ -34,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			fatalError("\(error)")
 		}
 		
+		NSLog("APP STARTED. C3-PRO is using FHIR v\(C3PROFHIRVersion). Profile manager is storing to «\(profileManager!.directory)»")
 		return true
 	}
 	

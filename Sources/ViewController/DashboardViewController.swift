@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import C3PRO
 import SMART
+import C3PRO
 import ResearchKit
 
 let kDashboardActivityNumDays = 7
@@ -310,13 +310,15 @@ class DashboardViewController: UITableViewController {
 			for sample in samples {
 				if HKQuantityTypeIdentifier.stepCount.rawValue == sample.quantityType.identifier {
 					let quantity = try? sample.c3_asFHIRQuantity()
-					let daily = quantity?.value?.dividing(by: NSDecimalNumber(value: kDashboardActivityNumDays)) ?? NSDecimalNumber.zero
-					stepstr = formatter.string(from: daily) ?? stepstr
+					var daily = quantity?.value?.decimal ?? Decimal(0)
+					daily.divide(by: Decimal(kDashboardActivityNumDays))
+					stepstr = formatter.string(from: NSDecimalNumber(decimal: daily)) ?? stepstr
 				}
 				else if HKQuantityTypeIdentifier.flightsClimbed.rawValue == sample.quantityType.identifier {
 					let quantity = try? sample.c3_asFHIRQuantity()
-					let daily = quantity?.value?.dividing(by: NSDecimalNumber(value: kDashboardActivityNumDays)) ?? NSDecimalNumber.zero
-					fligstr = formatter.string(from: daily) ?? fligstr
+					var daily = quantity?.value?.decimal ?? Decimal(0)
+					daily.divide(by: Decimal(kDashboardActivityNumDays))
+					fligstr = formatter.string(from: NSDecimalNumber(decimal: daily)) ?? fligstr
 				}
 			}
 		}

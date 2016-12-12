@@ -141,8 +141,8 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 			}
 			self.questionnaireController = quest
 		}
-		catch {
-			c3_logIfDebug("Withdrawal questionnaire «c-tracker.survey-in-app.withdrawal» not found")
+		catch let error {
+			c3_logIfDebug("Failed to read withdrawal questionnaire «c-tracker.survey-in-app.withdrawal»: \(error)")
 			self.doWithdraw()
 		}
 	}

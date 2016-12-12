@@ -1,3 +1,9 @@
 [submodule "c-tracker-sccs-questionnaires"]
 	path = c-tracker-sccs-questionnaires
 	url = git@github.com:p2/c-tracker-sccs-questionnaires.git
+[submodule "c3-pro-ios-framework"]
+	path = c3-pro-ios-framework
+	url = https://github.com/C3-PRO/c3-pro-ios-framework.git
+[submodule "JSONWebToken.swift"]
+	path = JSONWebToken.swift
+	url = https://github.com/kylef/JSONWebToken.swift

@@ -166,6 +166,7 @@ class AppUserTask: UserTask {
 	}
 	
 	func serialized() -> [String: Any] {
+		var errors = [FHIRValidationError]()
 		var json = ["id": id, "type": type.rawValue]
 		if let title = title {
 			json["title"] = title
@@ -174,13 +175,13 @@ class AppUserTask: UserTask {
 			json["notificationType"] = notify.rawValue
 		}
 		if let due = dueDate?.fhir_asDate() {
-			json["due"] = due.asJSON()
+			json["due"] = due.asJSON(errors: &errors)
 		}
 		if let delayMax = delayMaxDate?.fhir_asDateTime() {
-			json["delayMax"] = delayMax.asJSON()
+			json["delayMax"] = delayMax.asJSON(errors: &errors)
 		}
 		if let comp = completedDate?.fhir_asDate() {
-			json["done"] = comp.asJSON()
+			json["done"] = comp.asJSON(errors: &errors)
 		}
 		return json
 	}

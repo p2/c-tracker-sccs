@@ -4,4 +4,22 @@
    <FileRef
       location = "container:C-Tracker-SCCS.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:c3-pro-ios-framework/C3PRO.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:c3-pro-ios-framework/Swift-SMART/SwiftSMART.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:c3-pro-ios-framework/SQLiteSwift/SQLite.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:c3-pro-ios-framework/ResearchKit/ResearchKit.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:c3-pro-ios-framework/CryptoSwift/CryptoSwift.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:JSONWebToken.swift/JWT.xcodeproj">
+   </FileRef>
 </Workspace>

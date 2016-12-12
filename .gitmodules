@@ -1,6 +1,3 @@
-[submodule "c3-pro-ios-framework"]
-	path = c3-pro-ios-framework
-	url = https://github.com/C3-PRO/c3-pro-ios-framework.git
 [submodule "c-tracker-sccs-questionnaires"]
 	path = c-tracker-sccs-questionnaires
 	url = git@github.com:p2/c-tracker-sccs-questionnaires.git

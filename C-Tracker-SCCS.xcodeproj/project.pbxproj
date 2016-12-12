@@ -83,7 +83,6 @@
 		EEECC2281DECE0AB005645B8 /* preflight.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = preflight.sh; sourceTree = SOURCE_ROOT; };
 		EEECC22A1DECE108005645B8 /* postflight.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = postflight.sh; sourceTree = SOURCE_ROOT; };
 		EEFC6B321DF5CCB900D03A84 /* c-tracker.survey-in-app.withdrawal.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "c-tracker.survey-in-app.withdrawal.json"; sourceTree = "<group>"; };
-		EEFC6B341DF5CD4700D03A84 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		EEFC6B351DF5CD4700D03A84 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -135,7 +134,6 @@
 				EE14E7A71DD0CAAA009F8736 /* Assets.xcassets */,
 				EE14E7A91DD0CAAA009F8736 /* LaunchScreen.storyboard */,
 				EE14E7AC1DD0CAAA009F8736 /* Info.plist */,
-				EEFC6B341DF5CD4700D03A84 /* Cartfile */,
 			);
 			path = App;
 			sourceTree = "<group>";

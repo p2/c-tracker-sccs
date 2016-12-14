@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Boston Children's Hospital. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 
 /// The type of the task.
@@ -30,14 +30,17 @@ A task a user needs to complete, such as consenting or taking a survey.
 */
 public protocol UserTask {
 	
-	/// Unique identifier for the task.
+	/// Unique identifier for the task instance, e.g. a UUID, as opposed to `taskId`.
 	var id: String { get }
+	
+	/// An identifier for the task, e.g. "survey-1"; there can be multiple task instances for the same `taskId`.
+	var taskId: String { get }
 	
 	/// The type of the task.
 	var type: UserTaskType { get }
 	
 	/// The title of this task.
-	var title: String? { get }
+	var title: String? { get set }
 	
 	/// Which user this task is assigned to
 	var assignedTo: User? { get set }
@@ -46,7 +49,7 @@ public protocol UserTask {
 	var notificationType: NotificationManagerNotificationType? { get set }
 	
 	/// The day this task is due.
-	var dueDate: Date? { get }
+	var dueDate: Date? { get set }
 	
 	/// Whether this task is due.
 	var due: Bool { get }
@@ -57,7 +60,7 @@ public protocol UserTask {
 	var delayMaxDate: Date? { get }
 	
 	/// The day this task has been completed.
-	var completedDate: Date? { get }
+	var completedDate: Date? { get set }
 	
 	var humanCompletedDate: String? { get }
 	
@@ -71,12 +74,7 @@ public protocol UserTask {
 	var canReview: Bool { get }
 	
 	
-	init(id: String, type: UserTaskType)
-	
-	
-	// MARK: - Progress
-	
-	func progressImage() -> UIImage
+	init(id: String, taskId: String, type: UserTaskType)
 	
 	
 	// MARK: - Creation & Completion
@@ -85,7 +83,7 @@ public protocol UserTask {
 	func add(to user: User) throws
 	
 	/** Call this method to mark a task complete. Should emit "UserDidCompleteTaskNotification". */
-	func completed(by user: User, context: Any?)
+	func completed(by user: User, on date: Date, context: Any?)
 	
 	
 	// MARK: - Serialization
@@ -93,6 +91,8 @@ public protocol UserTask {
 	init(serialized: [String: Any]) throws
 	
 	func serialized() -> [String: Any]
+	
+	func serializedMinimal() -> [String: Any]
 }
 
 

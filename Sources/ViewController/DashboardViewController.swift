@@ -38,11 +38,14 @@ class DashboardViewController: UITableViewController {
 	var tasksOutstanding: [UserTask] {
 		var found = [String]()
 		let outstanding = user?.tasks.filter() {
-			if found.contains($0.id) {
+			if found.contains($0.taskId) {
 				return false
 			}
-			found.append($0.id)
-			return !$0.completed
+			if $0.completed {
+				return false
+			}
+			found.append($0.taskId)
+			return true
 		}
 		return outstanding ?? []
 	}
@@ -164,7 +167,7 @@ class DashboardViewController: UITableViewController {
 	
 	func didCompleteQuestionnaireTask(_ task: UserTask, answers: QuestionnaireResponse?) {
 		if let answers = answers {
-			task.completed(by: user!, context: answers)
+			task.completed(by: user!, on: Date(), context: answers)
 		}
 		else {
 			c3_logIfDebug("Finished questionnaire but no answers received, not marking as completed")
@@ -416,7 +419,7 @@ class DashboardViewController: UITableViewController {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "C3TaskCell", for: indexPath) as! DashboardTaskTableViewCell
 		if let task = taskAtIndexPath(indexPath) {
 			cell.labelTask?.text = (task.title ?? task.type.rawValue).sccs_loc
-			cell.progress?.image = task.progressImage()
+			cell.progress?.image = progressImage(for: task)
 			cell.accessoryType = task.canReview ? .disclosureIndicator : .none
 			
 			if task.due {
@@ -503,6 +506,16 @@ class DashboardViewController: UITableViewController {
 	
 	
 	// MARK: - Utilities
+	
+	func progressImage(for task: UserTask) -> UIImage? {
+		if task.completed {
+			return UIImage(named: "progress_complete")
+		}
+		if task.due {
+			return UIImage(named: "progress_due")
+		}
+		return UIImage(named: "progress_pending")
+	}
 	
 	func showSpinnerAt(_ indexPath: IndexPath, show: Bool = true) {
 		showSpinnerInCell = show ? indexPath : nil

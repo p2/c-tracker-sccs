@@ -39,11 +39,11 @@ class UserNotificationManager {
 			// re-add all tasks that want reminders (for the first occurrence only)
 			var notified = [String]()
 			for task in tasks {
-				if !notified.contains(task.id) {
+				if !notified.contains(task.taskId) {
 					if let (notification, type) = manager.notification(for: task, suggestedDate: timeOfDay) {
 						NotificationManager.shared.schedule(notification, type: type)
 					}
-					notified.append(task.id)
+					notified.append(task.taskId)
 				}
 			}
 		}

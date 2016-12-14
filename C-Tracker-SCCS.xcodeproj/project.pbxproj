@@ -37,6 +37,7 @@
 		EE86F4B31E00029B00922994 /* JWT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F4721E0001D600922994 /* JWT.framework */; };
 		EE86F4B41E00029B00922994 /* JWT.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F4721E0001D600922994 /* JWT.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE86F4C11E00038D00922994 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F4641E0001CE00922994 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EE98D2A51E0160EC001BC845 /* ProfileSettingsDebug.json in Resources */ = {isa = PBXBuildFile; fileRef = EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */; };
 		EEEC78641DEC24B400E7020C /* SCCSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78631DEC24B400E7020C /* SCCSViewController.swift */; };
 		EEEC78671DEC258100E7020C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78661DEC258100E7020C /* ProfileViewController.swift */; };
 		EEEC78691DEC258B00E7020C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78681DEC258B00E7020C /* DashboardViewController.swift */; };
@@ -332,6 +333,7 @@
 		EE86F4541E0001C700922994 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = "c3-pro-ios-framework/ResearchKit/ResearchKit.xcodeproj"; sourceTree = "<group>"; };
 		EE86F45E1E0001CE00922994 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = "c3-pro-ios-framework/CryptoSwift/CryptoSwift.xcodeproj"; sourceTree = "<group>"; };
 		EE86F4671E0001D600922994 /* JWT.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JWT.xcodeproj; path = JSONWebToken.swift/JWT.xcodeproj; sourceTree = "<group>"; };
+		EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfileSettingsDebug.json; sourceTree = SOURCE_ROOT; };
 		EEEC78631DEC24B400E7020C /* SCCSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCCSViewController.swift; sourceTree = "<group>"; };
 		EEEC78661DEC258100E7020C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EEEC78681DEC258B00E7020C /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -380,7 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				EE14E7B31DD0CBBE009F8736 /* Sources */,
-				EE14E79D1DD0CAAA009F8736 /* App */,
+				EE14E79D1DD0CAAA009F8736 /* Assets */,
 				EE0B328A1DF1CA90009F9939 /* c-tracker-sccs-questionnaires */,
 				EE14E7CD1DD18921009F8736 /* Frameworks */,
 				EE14E79C1DD0CAAA009F8736 /* Products */,
@@ -401,7 +403,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EE14E79D1DD0CAAA009F8736 /* App */ = {
+		EE14E79D1DD0CAAA009F8736 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
 				EEFC6B351DF5CD4700D03A84 /* README.md */,
@@ -410,6 +412,7 @@
 				EE14E7A91DD0CAAA009F8736 /* LaunchScreen.storyboard */,
 				EE14E7AC1DD0CAAA009F8736 /* Info.plist */,
 			);
+			name = Assets;
 			path = App;
 			sourceTree = "<group>";
 		};
@@ -420,6 +423,7 @@
 				EEECC2221DECDF2C005645B8 /* Configuration_Debug.swift */,
 				EEECC2231DECDF2C005645B8 /* Configuration_Release.swift */,
 				EE252D091DED87BC008F5E3E /* ProfileSettings.json */,
+				EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */,
 				EEECC2281DECE0AB005645B8 /* preflight.sh */,
 				EEECC22A1DECE108005645B8 /* postflight.sh */,
 				EE14E7B41DD0CBBE009F8736 /* App */,
@@ -585,7 +589,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = SCCS;
 				TargetAttributes = {
 					EE14E79A1DD0CAAA009F8736 = {
@@ -802,6 +806,7 @@
 			files = (
 				EE14E7AB1DD0CAAA009F8736 /* LaunchScreen.storyboard in Resources */,
 				EE0B328E1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json in Resources */,
+				EE98D2A51E0160EC001BC845 /* ProfileSettingsDebug.json in Resources */,
 				EEFC6B331DF5CCB900D03A84 /* c-tracker.survey-in-app.withdrawal.json in Resources */,
 				EE14E7A81DD0CAAA009F8736 /* Assets.xcassets in Resources */,
 				EE252D0A1DED87BC008F5E3E /* ProfileSettings.json in Resources */,
@@ -972,6 +977,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1021,6 +1027,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1050,8 +1057,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.swisshcv.app.ios.C-Tracker-SCCS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
@@ -1063,6 +1072,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.swisshcv.app.ios.C-Tracker-SCCS";

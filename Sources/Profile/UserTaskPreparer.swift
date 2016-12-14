@@ -136,7 +136,7 @@ class UserTaskPreparer {
 			guard let server = server else {
 				c3_logIfDebug("No server is configured, looking for Questionnaire in app bundle")
 				do {
-					let res = try Bundle.main.fhir_bundledResource(task.id, type: Questionnaire.self)
+					let res = try Bundle.main.fhir_bundledResource(task.taskId, type: Questionnaire.self)
 					callback(res, nil)
 				}
 				catch let error {

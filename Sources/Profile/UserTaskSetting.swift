@@ -87,15 +87,18 @@ public struct UserTaskSetting {
 	/**
 	Calculates all dates on which a notification should be emitted.
 	
+	- parameter starting: When the schedule should start, usually the enrollment day
 	- returns: An array full of `Date`
 	*/
-	func scheduledTasks() throws -> [UserTask] {
+	func scheduledTasks(starting: Date) throws -> [UserTask] {
 		let cal = Calendar.current
-		let today = cal.date(from: cal.dateComponents([.year, .month, .day], from: Date()))!
+		var startComp = cal.dateComponents([.year, .month, .day], from: starting)
+		startComp.timeZone = TimeZone(identifier: "UTC")!
+		let start = cal.date(from: startComp)!
 		
 		// create start date
 		var dates = [Date]()
-		if let first = cal.date(byAdding: starts ?? DateComponents(), to: today) {
+		if let first = cal.date(byAdding: starts ?? DateComponents(), to: start) {
 			dates.append(first)
 		}
 		else {
@@ -104,8 +107,8 @@ public struct UserTaskSetting {
 		
 		// create repetitions
 		if let rep = repeats, let exp = expires {
-			if let end = cal.date(byAdding: exp, to: today) {
-				var next = today
+			if let end = cal.date(byAdding: exp, to: start) {
+				var next = start
 				while next < end {
 					if let date = cal.date(byAdding: rep, to: next) {
 						dates.append(date)
@@ -117,14 +120,14 @@ public struct UserTaskSetting {
 				}
 			}
 			else {
-				throw AppError.invalidScheduleFormat("Unable to add date components \(exp) to date \(today)")
+				throw AppError.invalidScheduleFormat("Unable to add date components \(exp) to date \(start)")
 			}
 		}
 		
 		// create UserTask instances
 		var tasks = [UserTask]()
 		for date in dates {
-			let task = AppUserTask(id: taskId, type: taskType)
+			let task = AppUserTask(id: UUID().uuidString, taskId: taskId, type: taskType)
 			task.notificationType = notificationType
 			task.dueDate = date
 			if let delay = delayMax {

@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Boston Children's Hospital. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import SMART
 
 
@@ -19,6 +19,8 @@ class AppUserTask: UserTask {
 	static let notificationUserTaskIdKey = "user-task-id"
 	
 	let id: String
+	
+	let taskId: String
 	
 	let type: UserTaskType
 	
@@ -105,22 +107,10 @@ class AppUserTask: UserTask {
 	/// The resource resulting from this task, if any.
 	var resultResource: Resource?
 	
-	required init(id: String, type: UserTaskType) {
+	required init(id: String, taskId: String, type: UserTaskType) {
 		self.id = id
+		self.taskId = taskId
 		self.type = type
-	}
-	
-	
-	// MARK: - Progress
-	
-	func progressImage() -> UIImage {
-		if completed {
-			return UIImage(named: "progress_complete")!
-		}
-		if due {
-			return UIImage(named: "progress_due")!
-		}
-		return UIImage(named: "progress_pending")!
 	}
 	
 	
@@ -134,8 +124,9 @@ class AppUserTask: UserTask {
 	}
 	
 	/** Call this method to mark a task complete. */
-	final func completed(by user: User, context: Any?) {
-		completedDate = Date()
+	final func completed(by user: User, on date: Date, context: Any?) {
+		completedDate = date
+		print("===>  COMPLETED TASK WITH CONTEXT \(context)")
 		NotificationCenter.default.post(name: UserDidCompleteTaskNotification, object: self, userInfo: [kUserTaskNotificationUserKey: user])
 	}
 	
@@ -143,7 +134,8 @@ class AppUserTask: UserTask {
 	// MARK: - Serialization
 	
 	required init(serialized: [String: Any]) throws {
-		id = serialized["id"] as? String ?? ""
+		id = serialized["id"] as? String ?? UUID().uuidString
+		taskId = serialized["taskId"] as? String ?? ""
 		type = UserTaskType(rawValue: serialized["type"] as? String ?? "") ?? .unknown
 		if id.isEmpty || .unknown == type {
 			throw AppError.generic("Invalid serialization format for UserTask: \(serialized)")
@@ -165,25 +157,37 @@ class AppUserTask: UserTask {
 		}
 	}
 	
-	func serialized() -> [String: Any] {
+	func serialized(minimal: Bool) -> [String: Any] {
 		var errors = [FHIRValidationError]()
-		var json = ["id": id, "type": type.rawValue]
-		if let title = title {
-			json["title"] = title
-		}
-		if let notify = notificationType {
-			json["notificationType"] = notify.rawValue
-		}
-		if let due = dueDate?.fhir_asDate() {
-			json["due"] = due.asJSON(errors: &errors)
-		}
-		if let delayMax = delayMaxDate?.fhir_asDateTime() {
-			json["delayMax"] = delayMax.asJSON(errors: &errors)
-		}
+		
+		var json = ["id": id, "taskId": taskId, "type": type.rawValue]
 		if let comp = completedDate?.fhir_asDate() {
 			json["done"] = comp.asJSON(errors: &errors)
 		}
+		
+		if !minimal {
+			if let title = title {
+				json["title"] = title
+			}
+			if let notify = notificationType {
+				json["notificationType"] = notify.rawValue
+			}
+			if let due = dueDate?.fhir_asDate() {
+				json["due"] = due.asJSON(errors: &errors)
+			}
+			if let delayMax = delayMaxDate?.fhir_asDateTime() {
+				json["delayMax"] = delayMax.asJSON(errors: &errors)
+			}
+		}
 		return json
+	}
+	
+	func serialized() -> [String: Any] {
+		return serialized(minimal: false)
+	}
+	
+	func serializedMinimal() -> [String: Any] {
+		return serialized(minimal: true)
 	}
 }
 

@@ -1,0 +1,12 @@
+{
+	"tasks": [
+		{
+			"taskId": "c-tracker.survey-in-app.main",
+			"taskType": "survey",
+			"notificationType": "delayable",
+			"repeats": "2d",
+			"delayMax": "2h",
+			"expires": "8d"
+		}
+	]
+}

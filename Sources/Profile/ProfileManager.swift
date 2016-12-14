@@ -8,8 +8,21 @@
 
 import UIKit
 import SMART
+import C3PRO
 
 
+/**
+The profile manager handles the app user, which usually is the user that consented to participating in the study.
+
+It uses the bundled file `ProfileSettings.json` to schedule tasks for the user.
+
+Data pertaining to the user will be written to the following files inside `directory` the manager is configured to run. These files will
+receive OS-level data protection.
+
+- `User.json`: participant demographic information
+- `Schedule.json`: A schedule of the tasks for the user for the whole course of his or her enrollment
+- `Completed.json`: Which tasks have been completed
+*/
 class ProfileManager {
 	
 	static let didChangeProfileNotification = Notification.Name("ProfileManagerDidChangeProfileNotification")
@@ -25,15 +38,26 @@ class ProfileManager {
 	var taskPreparer: UserTaskPreparer?
 	
 	private var settingsURL: URL? {
-		return Bundle.main.url(forResource: "ProfileSettings", withExtension: "json")
+		#if DEBUG
+			return Bundle.main.url(forResource: "ProfileSettingsDebug", withExtension: "json")
+		#else
+			return Bundle.main.url(forResource: "ProfileSettings", withExtension: "json")
+		#endif
 	}
 	
+	/// JSON file containing user demographic information.
 	private var userURL: URL {
 		return directory.appendingPathComponent("User.json")
 	}
 	
+	/// The user-specific schedule lives here.
 	private var scheduleURL: URL {
 		return directory.appendingPathComponent("Schedule.json")
+	}
+	
+	/// Tasks that have been completed by the user.
+	private var completedURL: URL {
+		return directory.appendingPathComponent("Completed.json")
 	}
 	
 	public init(dir: URL) throws {
@@ -49,8 +73,14 @@ class ProfileManager {
 			user = type(of: self).userFromJSON(json)
 		}
 		if FileManager.default.fileExists(atPath: scheduleURL.path) {
-			user?.tasks = try readScheduledTasks()
+			user?.tasks = try readAllTasks()
 		}
+		let center = NotificationCenter.default
+		center.addObserver(self, selector: #selector(ProfileManager.userDidCompleteTask(notification:)), name: UserDidCompleteTaskNotification, object: nil)
+	}
+	
+	deinit {
+		
 	}
 	
 	
@@ -113,7 +143,8 @@ class ProfileManager {
 		}
 		
 		// setup complete schedule
-		var scheduled = try schedulable.flatMap() { try $0.scheduledTasks() }
+		let now = Date()
+		var scheduled = try schedulable.flatMap() { try $0.scheduledTasks(starting: now) }
 		scheduled.sort {
 			guard let ldue = $0.dueDate else {
 				return false
@@ -127,7 +158,7 @@ class ProfileManager {
 		
 		// serialize to file
 		let data = try JSONSerialization.data(withJSONObject: ["schedule": scheduled.map() { $0.serialized() }], options: .prettyPrinted)
-		try data.write(to: scheduleURL)
+		try data.write(to: scheduleURL, options: [.atomic])
 		print("--->  SCHEDULE WRITTEN TO \(scheduleURL)")
 		
 		// create notifications
@@ -135,7 +166,7 @@ class ProfileManager {
 	}
 	
 	/**
-	Reads the user's scheduled tasks.
+	Reads the user's scheduled tasks. Assumes that tasks have already been scheduled!
 	*/
 	func readScheduledTasks() throws -> [UserTask] {
 		let data = try Data(contentsOf: scheduleURL)
@@ -145,6 +176,43 @@ class ProfileManager {
 		}
 		return try scheduled.map() { try AppUserTask(serialized: $0) }
 	}
+	
+	/**
+	Reads the tasks the user has already completed. The returned task instances are minimal representations, carrying id, taskId and
+	completion date only.
+	*/
+	func readCompletedTasks() throws -> [UserTask] {
+		if FileManager.default.fileExists(atPath: completedURL.path) {
+			let existing = try Data(contentsOf: completedURL)
+			let json = try JSONSerialization.jsonObject(with: existing, options: []) as! [String: Any]
+			if let completed = json["completed"] {
+				guard let completed = completed as? [[String: Any]] else {
+					throw AppError.invalidCompletedTasksFormat("Expecting an array of completed task objects at `completed` top level")
+				}
+				return try completed.map() { try AppUserTask(serialized: $0) }
+			}
+		}
+		return []
+	}
+	
+	/**
+	Reads all scheduled tasks first – assumes that a schedule has been set up! – and then updates the instances with completed tasks.
+	*/
+	func readAllTasks() throws -> [UserTask] {
+		let tasks = try readScheduledTasks()
+		let completed = try readCompletedTasks()
+		return tasks.map() { task in
+			if let cmpltd = completed.filter({ $0.id == task.id }).first {
+				var copy = task
+				copy.completedDate = cmpltd.completedDate
+				return copy
+			}
+			else {
+				return task
+			}
+		}
+	}
+	
 	
 	/**
 	Create a notification suitable for the given task, influenced by the suggested date given.
@@ -180,6 +248,61 @@ class ProfileManager {
 		}
 	}
 	
+	@objc func userDidCompleteTask(notification: Notification) {
+		guard let task = notification.object as? UserTask else {
+			app_logIfDebug("Received user-did-complete-task notification without UserTask as object, but: \(notification.object)")
+			return
+		}
+		guard let user = notification.userInfo?[kUserTaskNotificationUserKey] as? User else {
+			app_logIfDebug("Received user-did-complete-task notification without User in userInfo dictionary, but: \(notification.userInfo)")
+			return
+		}
+		if nil == self.user || self.user!.userId != user.userId {
+			app_logIfDebug("Received user-did-complete-task notification for different user. We have: \(self.user!), notification is for: \(user)")
+			return
+		}
+		
+		do {
+			try userDidComplete(task: task)
+		}
+		catch let error {
+			NSLog("Failed to persist completed tasks: \(error)")
+		}
+	}
+	
+	func userDidComplete(task: UserTask) throws {
+		guard task.completed else {
+			throw AppError.invalidCompletedTasksFormat("The task \(task) has not been marked as completed yet")
+		}
+		var completed = [[String: Any]]()
+		
+		// read what's already completed
+		if FileManager.default.fileExists(atPath: completedURL.path) {
+			let existing = try Data(contentsOf: completedURL)
+			let json = try JSONSerialization.jsonObject(with: existing, options: []) as! [String: Any]
+			if let alreadyCompleted = json["completed"] {
+				guard let alreadyCompleted = alreadyCompleted as? [[String: Any]] else {
+					throw AppError.invalidCompletedTasksFormat("Expecting an array of completed task objects at `completed` top level")
+				}
+				completed.append(contentsOf: alreadyCompleted)
+			}
+		}
+		
+		// add completed task
+		let tsk: [String: Any] = task.serializedMinimal()
+		//let permissioner = SystemServicePermissioner()
+		//if permissioner.hasGeoLocationPermissions(always: false) {
+			// TODO: use Geocoder.currentLocation()
+			//tsk["location"] = "xy"
+		//}
+		completed.append(tsk)
+		
+		// persist
+		let data = try JSONSerialization.data(withJSONObject: ["completed": completed], options: .prettyPrinted)
+		try data.write(to: completedURL, options: [.atomic])
+		print("--->  COMPLETED TASKS: \(completed)")
+	}
+	
 	
 	// MARK: - Serialization
 	
@@ -197,8 +320,8 @@ class ProfileManager {
 		if let enrolled = user.enrollmentDate?.fhir_asDate() {
 			json["enrolled"] = enrolled.description
 		}
-		let data = try JSONSerialization.data(withJSONObject: json, options: [])
-		try data.write(to: url)
+		let data = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+		try data.write(to: url, options: [.atomic])
 	}
 	
 	/**

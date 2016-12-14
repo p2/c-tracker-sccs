@@ -33,10 +33,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			profileManager = manager
 		}
 		catch let error {
-			fatalError("\(error)")
+			fatalError("\(error) at \(first)")
 		}
 		
-		NSLog("APP STARTED. C3-PRO is using FHIR v\(C3PROFHIRVersion). Profile manager is storing to «\(profileManager!.directory)»")
+		NSLog("APP STARTED. C3-PRO is using FHIR v\(C3PROFHIRVersion). Profile manager is storing to «\(profileManager!.directory.path)»")
 		return true
 	}
 	

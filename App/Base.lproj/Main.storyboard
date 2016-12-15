@@ -15,7 +15,7 @@
         <!--First-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController storyboardIdentifier="Welcome" id="9pv-A4-QxB" customClass="WelcomeViewController" customModule="C_Tracker_SCCS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Welcome" id="9pv-A4-QxB" customClass="WelcomeViewController" customModule="C_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -44,7 +44,7 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="to the Swiss Hepatitis C Cohort Study" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="to the Swiss Hepatitis C Cohort Study" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
                                                 <rect key="frame" x="16" y="259.5" width="343" height="20.5"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -155,7 +155,7 @@
         <!--Root View Controller-->
         <scene sceneID="w39-sF-oo4">
             <objects>
-                <tableViewController storyboardIdentifier="SCCSView" id="etp-HN-9gP" customClass="SCCSViewController" customModule="C_Tracker_SCCS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SCCSView" id="etp-HN-9gP" customClass="SCCSViewController" customModule="C_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="1u1-J5-U67">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -202,7 +202,7 @@
         <!--Root View Controller-->
         <scene sceneID="yl2-sM-qoP">
             <objects>
-                <tabBarController id="49e-Tb-3d3" customClass="RootViewController" customModule="C_Tracker_SCCS" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="49e-Tb-3d3" customClass="RootViewController" customModule="C_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -219,7 +219,7 @@
         <!--Link View Controller-->
         <scene sceneID="GSF-00-b00">
             <objects>
-                <viewController restorationIdentifier="Link" storyboardIdentifier="Link" id="s24-tP-XVP" customClass="LinkViewController" customModule="C_Tracker_SCCS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="Link" storyboardIdentifier="Link" id="s24-tP-XVP" customClass="LinkViewController" customModule="C_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oH6-OL-Fq4"/>
                         <viewControllerLayoutGuide type="bottom" id="czN-Qv-deR"/>
@@ -243,7 +243,7 @@
                                     <constraint firstAttribute="width" secondItem="GuI-fw-X5x" secondAttribute="height" multiplier="1:1" priority="750" id="kl4-Wn-AVz"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Focus the QR code in the area above" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hcs-PN-rax">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Focus the QR code in the area above" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hcs-PN-rax">
                                 <rect key="frame" x="16" y="568" width="343" height="21"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
@@ -339,13 +339,13 @@
         <!--Confirm View Controller-->
         <scene sceneID="4eN-Tr-2fP">
             <objects>
-                <tableViewController storyboardIdentifier="Confirm" id="K5G-ab-qxF" customClass="ConfirmViewController" customModule="C_Tracker_SCCS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Confirm" id="K5G-ab-qxF" customClass="ConfirmViewController" customModule="C_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="162" sectionHeaderHeight="28" sectionFooterHeight="28" id="IK6-i9-VYQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ConfirmData" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConfirmData" rowHeight="162" id="Byb-NJ-VOC" customClass="ConfirmDataCell" customModule="C_Tracker_SCCS" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ConfirmData" selectionStyle="default" indentationWidth="10" reuseIdentifier="ConfirmData" rowHeight="162" id="Byb-NJ-VOC" customClass="ConfirmDataCell" customModule="C_Tracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="162"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Byb-NJ-VOC" id="tEB-z7-eSa">
@@ -425,13 +425,13 @@
         <!--Dashboard-->
         <scene sceneID="Dq1-zs-EN9">
             <objects>
-                <tableViewController storyboardIdentifier="Dashboard" title="Dashboard" id="ZGO-rY-IzW" customClass="DashboardViewController" customModule="C_Tracker_SCCS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Dashboard" title="Dashboard" id="ZGO-rY-IzW" customClass="DashboardViewController" customModule="C_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Yc5-V4-EFY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3TaskCell" rowHeight="76" id="Nmm-iw-Z8e" customClass="DashboardTaskTableViewCell" customModule="C_Tracker_SCCS" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3TaskCell" rowHeight="76" id="Nmm-iw-Z8e" customClass="DashboardTaskTableViewCell" customModule="C_Tracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="55.5" width="375" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nmm-iw-Z8e" id="475-3N-ee3">
@@ -480,7 +480,7 @@
                                     <outlet property="progress" destination="0p5-wk-QLN" id="mza-AO-cW3"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3ActivityCell" rowHeight="224" id="Z7C-sr-THf" customClass="DashboardActivityTableViewCell" customModule="C_Tracker_SCCS" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3ActivityCell" rowHeight="224" id="Z7C-sr-THf" customClass="DashboardActivityTableViewCell" customModule="C_Tracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="131.5" width="375" height="224"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z7C-sr-THf" id="V2p-A8-ecY">
@@ -531,14 +531,14 @@
                                     <outlet property="pie" destination="Pun-f7-TvE" id="Zsy-i9-uLi"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3GraphCell" rowHeight="224" id="cM4-1a-esN" customClass="DashboardGraphTableViewCell" customModule="C_Tracker_SCCS" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3GraphCell" rowHeight="224" id="cM4-1a-esN" customClass="DashboardGraphTableViewCell" customModule="C_Tracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="355.5" width="375" height="224"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cM4-1a-esN" id="rGL-WH-3gY">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="223.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOl-Nu-ABH" userLabel="Graph" customClass="FixedLineGraphChartView" customModule="C_Tracker_SCCS" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOl-Nu-ABH" userLabel="Graph" customClass="FixedLineGraphChartView" customModule="C_Tracker" customModuleProvider="target">
                                             <rect key="frame" x="8" y="8" width="359" height="207"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </view>
@@ -554,7 +554,7 @@
                                     <outlet property="graph" destination="mOl-Nu-ABH" id="8B1-YG-wM8"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3DailyActivityCell" id="5jS-Wc-GBF" customClass="DashboardDailyActivityTableViewCell" customModule="C_Tracker_SCCS" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3DailyActivityCell" id="5jS-Wc-GBF" customClass="DashboardDailyActivityTableViewCell" customModule="C_Tracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="579.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5jS-Wc-GBF" id="mpu-Dl-HPK">
@@ -626,7 +626,7 @@
         <!--Profile-->
         <scene sceneID="fbc-ly-JXt">
             <objects>
-                <tableViewController storyboardIdentifier="Profile" title="Profile" id="vcs-c5-Ktx" customClass="ProfileViewController" customModule="C_Tracker_SCCS" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Profile" title="Profile" id="vcs-c5-Ktx" customClass="ProfileViewController" customModule="C_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="sr1-Rw-k0w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -690,7 +690,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="C3MoreCell" textLabel="JWn-wf-g3s" style="IBUITableViewCellStyleDefault" id="APn-fa-1HE">
-                                <rect key="frame" x="0.0" y="171" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="170.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="APn-fa-1HE" id="sV7-db-TrC">
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
@@ -707,7 +707,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3BasicCell" textLabel="To8-W3-Ta7" style="IBUITableViewCellStyleDefault" id="iIo-rE-FQU">
-                                <rect key="frame" x="0.0" y="215" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="214.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iIo-rE-FQU" id="PAp-IW-MUa">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>

@@ -82,8 +82,8 @@ public protocol UserTask {
 	/** Call this method to let the user know about the new task and emit a notification. Should emit "UserDidReceiveTaskNotification". */
 	func add(to user: User) throws
 	
-	/** Call this method to mark a task complete. Should emit "UserDidCompleteTaskNotification". */
-	func completed(by user: User, on date: Date, context: Any?)
+	/** Call this method to mark a task complete. */
+	func completed(on date: Date)
 	
 	
 	// MARK: - Serialization

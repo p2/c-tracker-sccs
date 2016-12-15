@@ -124,10 +124,8 @@ class AppUserTask: UserTask {
 	}
 	
 	/** Call this method to mark a task complete. */
-	final func completed(by user: User, on date: Date, context: Any?) {
+	final func completed(on date: Date) {
 		completedDate = date
-		print("===>  COMPLETED TASK WITH CONTEXT \(context)")
-		NotificationCenter.default.post(name: UserDidCompleteTaskNotification, object: self, userInfo: [kUserTaskNotificationUserKey: user])
 	}
 	
 	

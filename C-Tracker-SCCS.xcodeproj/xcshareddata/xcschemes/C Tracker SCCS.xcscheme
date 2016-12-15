@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EE14E79A1DD0CAAA009F8736"
-               BuildableName = "C Tracker SCCS.app"
+               BuildableName = "C Tracker.app"
                BlueprintName = "C Tracker SCCS"
                ReferencedContainer = "container:C-Tracker-SCCS.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EE14E79A1DD0CAAA009F8736"
-            BuildableName = "C Tracker SCCS.app"
+            BuildableName = "C Tracker.app"
             BlueprintName = "C Tracker SCCS"
             ReferencedContainer = "container:C-Tracker-SCCS.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EE14E79A1DD0CAAA009F8736"
-            BuildableName = "C Tracker SCCS.app"
+            BuildableName = "C Tracker.app"
             BlueprintName = "C Tracker SCCS"
             ReferencedContainer = "container:C-Tracker-SCCS.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EE14E79A1DD0CAAA009F8736"
-            BuildableName = "C Tracker SCCS.app"
+            BuildableName = "C Tracker.app"
             BlueprintName = "C Tracker SCCS"
             ReferencedContainer = "container:C-Tracker-SCCS.xcodeproj">
          </BuildableReference>

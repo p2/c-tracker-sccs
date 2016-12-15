@@ -167,12 +167,20 @@ class DashboardViewController: UITableViewController {
 	
 	func didCompleteQuestionnaireTask(_ task: UserTask, answers: QuestionnaireResponse?) {
 		if let answers = answers {
-			task.completed(by: user!, on: Date(), context: answers)
+			do {
+				try profileManager?.userDidComplete(task: task, on: Date(), context: answers)
+				dismiss(animated: true)
+			}
+			catch let error {
+				dismiss(animated: true) {
+					self.showError(error)
+				}
+			}
 		}
 		else {
 			c3_logIfDebug("Finished questionnaire but no answers received, not marking as completed")
+			dismiss(animated: true)
 		}
-		self.dismiss(animated: true, completion: nil)
 	}
 	
 	func didCancelOrFailQuestionnaireTask(_ task: UserTask, error: Error?) {
@@ -509,7 +517,7 @@ class DashboardViewController: UITableViewController {
 	
 	func progressImage(for task: UserTask) -> UIImage? {
 		if task.completed {
-			return UIImage(named: "progress_complete")
+			return UIImage(named: "progress_done")
 		}
 		if task.due {
 			return UIImage(named: "progress_due")

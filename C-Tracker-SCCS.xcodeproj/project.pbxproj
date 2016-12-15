@@ -308,7 +308,7 @@
 		EE0B32871DF1B191009F9939 /* UserTaskPreparer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTaskPreparer.swift; sourceTree = "<group>"; };
 		EE0B328C1DF1CA90009F9939 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EE0B328D1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "c-tracker.survey-in-app.main.json"; sourceTree = "<group>"; };
-		EE14E79B1DD0CAAA009F8736 /* C Tracker SCCS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "C Tracker SCCS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE14E79B1DD0CAAA009F8736 /* C Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "C Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE14E7A51DD0CAAA009F8736 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE14E7A71DD0CAAA009F8736 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE14E7AA1DD0CAAA009F8736 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -398,7 +398,7 @@
 		EE14E79C1DD0CAAA009F8736 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EE14E79B1DD0CAAA009F8736 /* C Tracker SCCS.app */,
+				EE14E79B1DD0CAAA009F8736 /* C Tracker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -579,7 +579,7 @@
 			);
 			name = "C Tracker SCCS";
 			productName = "C Tracker SCCS";
-			productReference = EE14E79B1DD0CAAA009F8736 /* C Tracker SCCS.app */;
+			productReference = EE14E79B1DD0CAAA009F8736 /* C Tracker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1058,11 +1058,12 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = MH6DGH3QYY;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.swisshcv.app.ios.C-Tracker-SCCS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.ossus.app.ios.C-Tracker-SCCS";
+				PRODUCT_NAME = "C Tracker";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -1073,10 +1074,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = MH6DGH3QYY;
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.swisshcv.app.ios.C-Tracker-SCCS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.ossus.app.ios.C-Tracker-SCCS";
+				PRODUCT_NAME = "C Tracker";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -62,6 +62,7 @@ class ProfileManager {
 	
 	public init(dir: URL) throws {
 		directory = dir
+		
 		if let settingsURL = settingsURL {
 			let data = try Data(contentsOf: settingsURL)
 			let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
@@ -75,12 +76,6 @@ class ProfileManager {
 		if FileManager.default.fileExists(atPath: scheduleURL.path) {
 			user?.tasks = try readAllTasks()
 		}
-		let center = NotificationCenter.default
-		center.addObserver(self, selector: #selector(ProfileManager.userDidCompleteTask(notification:)), name: UserDidCompleteTaskNotification, object: nil)
-	}
-	
-	deinit {
-		
 	}
 	
 	
@@ -156,12 +151,8 @@ class ProfileManager {
 		}
 		try scheduled.forEach() { try user.add(task: $0) }
 		
-		// serialize to file
-		let data = try JSONSerialization.data(withJSONObject: ["schedule": scheduled.map() { $0.serialized() }], options: .prettyPrinted)
-		try data.write(to: scheduleURL, options: [.atomic])
-		print("--->  SCHEDULE WRITTEN TO \(scheduleURL)")
-		
-		// create notifications
+		// serialize to file and create notifications
+		try write(json: ["schedule": scheduled.map() { $0.serialized() }], to: scheduleURL)
 		UserNotificationManager.shared.synchronizeNotifications(with: self)
 	}
 	
@@ -248,32 +239,11 @@ class ProfileManager {
 		}
 	}
 	
-	@objc func userDidCompleteTask(notification: Notification) {
-		guard let task = notification.object as? UserTask else {
-			app_logIfDebug("Received user-did-complete-task notification without UserTask as object, but: \(notification.object)")
-			return
-		}
-		guard let user = notification.userInfo?[kUserTaskNotificationUserKey] as? User else {
-			app_logIfDebug("Received user-did-complete-task notification without User in userInfo dictionary, but: \(notification.userInfo)")
-			return
-		}
-		if nil == self.user || self.user!.userId != user.userId {
-			app_logIfDebug("Received user-did-complete-task notification for different user. We have: \(self.user!), notification is for: \(user)")
-			return
-		}
-		
-		do {
-			try userDidComplete(task: task)
-		}
-		catch let error {
-			NSLog("Failed to persist completed tasks: \(error)")
-		}
-	}
-	
-	func userDidComplete(task: UserTask) throws {
+	func userDidComplete(task: UserTask, on date: Date, context: Any?) throws {
 		guard task.completed else {
 			throw AppError.invalidCompletedTasksFormat("The task \(task) has not been marked as completed yet")
 		}
+		task.completed(on: date)
 		var completed = [[String: Any]]()
 		
 		// read what's already completed
@@ -288,7 +258,7 @@ class ProfileManager {
 			}
 		}
 		
-		// add completed task
+		// add completed task and persist
 		let tsk: [String: Any] = task.serializedMinimal()
 		//let permissioner = SystemServicePermissioner()
 		//if permissioner.hasGeoLocationPermissions(always: false) {
@@ -296,11 +266,24 @@ class ProfileManager {
 			//tsk["location"] = "xy"
 		//}
 		completed.append(tsk)
+		try write(json: ["completed": completed], to: completedURL)
 		
-		// persist
-		let data = try JSONSerialization.data(withJSONObject: ["completed": completed], options: .prettyPrinted)
-		try data.write(to: completedURL, options: [.atomic])
-		print("--->  COMPLETED TASKS: \(completed)")
+		// handle task context
+		if let context = context {
+			if let resource = context as? Resource {
+				app_logIfDebug("--->  COMPLETED TASK WITH RESOURCE: \(try! resource.asJSON())")
+			}
+			else {
+				app_logIfDebug("Completed task with unknown context: \(context)")
+			}
+		}
+		
+		// send notification
+		var userInfo = [String: Any]()
+		if let user = user {
+			userInfo[kUserTaskNotificationUserKey] = user
+		}
+		NotificationCenter.default.post(name: UserDidCompleteTaskNotification, object: task, userInfo: userInfo)
 	}
 	
 	
@@ -321,7 +304,7 @@ class ProfileManager {
 			json["enrolled"] = enrolled.description
 		}
 		let data = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
-		try data.write(to: url, options: [.atomic])
+		try data.write(to: url, options: [.atomic, .completeFileProtection])
 	}
 	
 	/**
@@ -350,6 +333,7 @@ class ProfileManager {
 			user.name = name
 		}
 		if let bday = token["birthday"] as? String, bday.characters.count > 0 {
+			app_logIfDebug("----->  bday string: \(bday)")
 			user.birthDate = FHIRDate(string: bday)?.nsDate
 		}
 		return user
@@ -368,6 +352,14 @@ class ProfileManager {
 			patient.birthDate = bday.fhir_asDate()
 		}
 		return patient
+	}
+	
+	
+	// MARK: - Utilities
+	
+	private func write(json: [String: Any], to url: URL) throws {
+		let data = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+		try data.write(to: url, options: [.atomic, .completeFileProtection])
 	}
 	
 	

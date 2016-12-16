@@ -234,6 +234,7 @@ class DashboardViewController: UITableViewController {
 	
 	var todayReport: ActivityReport? {
 		didSet {
+			#if DEBUG
 			if let today = todayReport {
 				print("\(today)")
 				if let activities = today.periods.first?.coreMotionActivities {
@@ -242,6 +243,7 @@ class DashboardViewController: UITableViewController {
 					}
 				}
 			}
+			#endif
 			redrawTodayReport()
 		}
 	}
@@ -332,11 +334,11 @@ class DashboardViewController: UITableViewController {
 	}
 	
 	func redrawHealthReport() {
-		tableView.reloadRows(at: [IndexPath(row: 1, section: 1), IndexPath(row: 3, section: 1)], with: .none)
+		tableView.reloadRows(at: [IndexPath(row: 1, section: 1), IndexPath(row: 2, section: 1)], with: .none)
 	}
 	
 	func redrawMotionReport() {
-		tableView.reloadRows(at: [IndexPath(row: 2, section: 1)], with: .none)
+		tableView.reloadRows(at: [IndexPath(row: 3, section: 1)], with: .none)
 	}
 	
 	func localizedStringForStepCount() -> String? {
@@ -428,14 +430,14 @@ class DashboardViewController: UITableViewController {
 			// graphs
 			if 1 == indexPath.row {
 				let cell = tableView.dequeueReusableCell(withIdentifier: "C3GraphCell", for: indexPath) as! DashboardGraphTableViewCell
-				healthGraphSource = HealthGraphDataSource(report: healthReport)
-				cell.graph?.dataSource = healthGraphSource
+				motionGraphSource = GraphDataSource(report: motionReport)
+				cell.graph?.dataSource = motionGraphSource
 				return cell
 			}
 			if 2 == indexPath.row {
 				let cell = tableView.dequeueReusableCell(withIdentifier: "C3GraphCell", for: indexPath) as! DashboardGraphTableViewCell
-				motionGraphSource = GraphDataSource(report: motionReport)
-				cell.graph?.dataSource = motionGraphSource
+				healthGraphSource = HealthGraphDataSource(report: healthReport)
+				cell.graph?.dataSource = healthGraphSource
 				return cell
 			}
 			
@@ -498,11 +500,11 @@ class DashboardViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if 1 == indexPath.section {
-			if 1 == indexPath.row || 3 == indexPath.row {
-				refreshHealthData()
+			if indexPath.row < 2 {
+				refreshMotionData()
 			}
 			else {
-				refreshMotionData()
+				refreshHealthData()
 			}
 			tableView.deselectRow(at: indexPath, animated: true)
 		}

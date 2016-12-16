@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		EE0B32881DF1B191009F9939 /* UserTaskPreparer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0B32871DF1B191009F9939 /* UserTaskPreparer.swift */; };
 		EE0B328E1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json in Resources */ = {isa = PBXBuildFile; fileRef = EE0B328D1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json */; };
+		EE0F34F81E02E61C003AA556 /* MedicalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F34F41E02E61C003AA556 /* MedicalInfoViewController.swift */; };
+		EE0F34F91E02E61C003AA556 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F34F51E02E61C003AA556 /* NotificationsViewController.swift */; };
+		EE0F34FA1E02E61C003AA556 /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F34F61E02E61C003AA556 /* LicenseViewController.swift */; };
+		EE0F34FB1E02E61C003AA556 /* ClientDebugViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F34F71E02E61C003AA556 /* ClientDebugViewController.swift */; };
+		EE0F35171E02E68A003AA556 /* Licenses in Resources */ = {isa = PBXBuildFile; fileRef = EE0F35161E02E68A003AA556 /* Licenses */; };
+		EE0F35191E02F1BF003AA556 /* GenderPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F35181E02F1BF003AA556 /* GenderPicker.swift */; };
+		EE0F351B1E02F1C8003AA556 /* HeightPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F351A1E02F1C8003AA556 /* HeightPicker.swift */; };
+		EE0F351D1E02F435003AA556 /* Intro.css in Resources */ = {isa = PBXBuildFile; fileRef = EE0F351C1E02F435003AA556 /* Intro.css */; };
+		EE0F351F1E02F4C8003AA556 /* StudyContentWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F351E1E02F4C8003AA556 /* StudyContentWebViewController.swift */; };
+		EE0F35221E02FCA7003AA556 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE0F35211E02FCA7003AA556 /* HealthKit.framework */; };
 		EE14E7A61DD0CAAA009F8736 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE14E7A41DD0CAAA009F8736 /* Main.storyboard */; };
 		EE14E7A81DD0CAAA009F8736 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE14E7A71DD0CAAA009F8736 /* Assets.xcassets */; };
 		EE14E7AB1DD0CAAA009F8736 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE14E7A91DD0CAAA009F8736 /* LaunchScreen.storyboard */; };
@@ -37,6 +47,8 @@
 		EE86F4B31E00029B00922994 /* JWT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F4721E0001D600922994 /* JWT.framework */; };
 		EE86F4B41E00029B00922994 /* JWT.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F4721E0001D600922994 /* JWT.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE86F4C11E00038D00922994 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F4641E0001CE00922994 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EE957D4F1E042B29004FADB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE957D511E042B29004FADB4 /* Localizable.strings */; };
+		EE957D581E044156004FADB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE957D5A1E044156004FADB4 /* InfoPlist.strings */; };
 		EE98D2A51E0160EC001BC845 /* ProfileSettingsDebug.json in Resources */ = {isa = PBXBuildFile; fileRef = EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */; };
 		EEEC78641DEC24B400E7020C /* SCCSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78631DEC24B400E7020C /* SCCSViewController.swift */; };
 		EEEC78671DEC258100E7020C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78661DEC258100E7020C /* ProfileViewController.swift */; };
@@ -308,6 +320,17 @@
 		EE0B32871DF1B191009F9939 /* UserTaskPreparer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTaskPreparer.swift; sourceTree = "<group>"; };
 		EE0B328C1DF1CA90009F9939 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EE0B328D1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "c-tracker.survey-in-app.main.json"; sourceTree = "<group>"; };
+		EE0F34F41E02E61C003AA556 /* MedicalInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicalInfoViewController.swift; sourceTree = "<group>"; };
+		EE0F34F51E02E61C003AA556 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		EE0F34F61E02E61C003AA556 /* LicenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
+		EE0F34F71E02E61C003AA556 /* ClientDebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientDebugViewController.swift; sourceTree = "<group>"; };
+		EE0F35161E02E68A003AA556 /* Licenses */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Licenses; sourceTree = "<group>"; };
+		EE0F35181E02F1BF003AA556 /* GenderPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderPicker.swift; sourceTree = "<group>"; };
+		EE0F351A1E02F1C8003AA556 /* HeightPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeightPicker.swift; sourceTree = "<group>"; };
+		EE0F351C1E02F435003AA556 /* Intro.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Intro.css; sourceTree = "<group>"; };
+		EE0F351E1E02F4C8003AA556 /* StudyContentWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyContentWebViewController.swift; sourceTree = "<group>"; };
+		EE0F35201E02FC9C003AA556 /* C Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "C Tracker.entitlements"; path = "../C Tracker.entitlements"; sourceTree = "<group>"; };
+		EE0F35211E02FCA7003AA556 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		EE14E79B1DD0CAAA009F8736 /* C Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "C Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE14E7A51DD0CAAA009F8736 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EE14E7A71DD0CAAA009F8736 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -333,6 +356,12 @@
 		EE86F4541E0001C700922994 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = "c3-pro-ios-framework/ResearchKit/ResearchKit.xcodeproj"; sourceTree = "<group>"; };
 		EE86F45E1E0001CE00922994 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = "c3-pro-ios-framework/CryptoSwift/CryptoSwift.xcodeproj"; sourceTree = "<group>"; };
 		EE86F4671E0001D600922994 /* JWT.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JWT.xcodeproj; path = JSONWebToken.swift/JWT.xcodeproj; sourceTree = "<group>"; };
+		EE957D501E042B29004FADB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EE957D521E042B94004FADB4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		EE957D531E042B94004FADB4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		EE957D541E042B94004FADB4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EE957D591E044156004FADB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EE957D5B1E044159004FADB4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfileSettingsDebug.json; sourceTree = SOURCE_ROOT; };
 		EEEC78631DEC24B400E7020C /* SCCSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCCSViewController.swift; sourceTree = "<group>"; };
 		EEEC78661DEC258100E7020C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -360,6 +389,7 @@
 				EE86F4A71E00029B00922994 /* SMART.framework in Frameworks */,
 				EE86F4A31E00029B00922994 /* C3PRO.framework in Frameworks */,
 				EE86F4B31E00029B00922994 /* JWT.framework in Frameworks */,
+				EE0F35221E02FCA7003AA556 /* HealthKit.framework in Frameworks */,
 				EE86F4AF1E00029B00922994 /* ResearchKit.framework in Frameworks */,
 				EE86F4AB1E00029B00922994 /* SQLite.framework in Frameworks */,
 			);
@@ -410,7 +440,12 @@
 				EE14E7A41DD0CAAA009F8736 /* Main.storyboard */,
 				EE14E7A71DD0CAAA009F8736 /* Assets.xcassets */,
 				EE14E7A91DD0CAAA009F8736 /* LaunchScreen.storyboard */,
+				EE0F351C1E02F435003AA556 /* Intro.css */,
+				EE957D511E042B29004FADB4 /* Localizable.strings */,
+				EE0F35161E02E68A003AA556 /* Licenses */,
 				EE14E7AC1DD0CAAA009F8736 /* Info.plist */,
+				EE957D5A1E044156004FADB4 /* InfoPlist.strings */,
+				EE0F35201E02FC9C003AA556 /* C Tracker.entitlements */,
 			);
 			name = Assets;
 			path = App;
@@ -439,6 +474,8 @@
 				EE14E7B51DD0CBBE009F8736 /* AppDelegate.swift */,
 				EE252D071DED81A3008F5E3E /* AppError.swift */,
 				EEEC78781DEC3DDA00E7020C /* GraphDataSource.swift */,
+				EE0F35181E02F1BF003AA556 /* GenderPicker.swift */,
+				EE0F351A1E02F1C8003AA556 /* HeightPicker.swift */,
 				EE14E7C31DD0DF79009F8736 /* String+Extensions.swift */,
 				EE252CFF1DED718B008F5E3E /* UIColor+C3PRO.swift */,
 			);
@@ -455,6 +492,11 @@
 				EEEC78681DEC258B00E7020C /* DashboardViewController.swift */,
 				EEEC78661DEC258100E7020C /* ProfileViewController.swift */,
 				EEEC78631DEC24B400E7020C /* SCCSViewController.swift */,
+				EE0F34F41E02E61C003AA556 /* MedicalInfoViewController.swift */,
+				EE0F34F51E02E61C003AA556 /* NotificationsViewController.swift */,
+				EE0F34F61E02E61C003AA556 /* LicenseViewController.swift */,
+				EE0F34F71E02E61C003AA556 /* ClientDebugViewController.swift */,
+				EE0F351E1E02F4C8003AA556 /* StudyContentWebViewController.swift */,
 				EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */,
 			);
 			path = ViewController;
@@ -463,6 +505,7 @@
 		EE14E7CD1DD18921009F8736 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EE0F35211E02FCA7003AA556 /* HealthKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -595,6 +638,17 @@
 					EE14E79A1DD0CAAA009F8736 = {
 						CreatedOnToolsVersion = 8.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.DataProtection = {
+								enabled = 1;
+							};
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -605,6 +659,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = EE14E7921DD0CAAA009F8736;
 			productRefGroup = EE14E79C1DD0CAAA009F8736 /* Products */;
@@ -809,7 +864,11 @@
 				EE98D2A51E0160EC001BC845 /* ProfileSettingsDebug.json in Resources */,
 				EEFC6B331DF5CCB900D03A84 /* c-tracker.survey-in-app.withdrawal.json in Resources */,
 				EE14E7A81DD0CAAA009F8736 /* Assets.xcassets in Resources */,
+				EE957D4F1E042B29004FADB4 /* Localizable.strings in Resources */,
 				EE252D0A1DED87BC008F5E3E /* ProfileSettings.json in Resources */,
+				EE0F351D1E02F435003AA556 /* Intro.css in Resources */,
+				EE0F35171E02E68A003AA556 /* Licenses in Resources */,
+				EE957D581E044156004FADB4 /* InfoPlist.strings in Resources */,
 				EE14E7A61DD0CAAA009F8736 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -853,10 +912,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEEC78731DEC2B6600E7020C /* UserTask.swift in Sources */,
+				EE0F34F81E02E61C003AA556 /* MedicalInfoViewController.swift in Sources */,
 				EEEC786F1DEC291C00E7020C /* User.swift in Sources */,
+				EE0F34F91E02E61C003AA556 /* NotificationsViewController.swift in Sources */,
 				EE14E7C41DD0DF79009F8736 /* String+Extensions.swift in Sources */,
 				EE252D001DED718B008F5E3E /* UIColor+C3PRO.swift in Sources */,
+				EE0F351B1E02F1C8003AA556 /* HeightPicker.swift in Sources */,
 				EE14E7DE1DD27D08009F8736 /* ProfileManager.swift in Sources */,
+				EE0F35191E02F1BF003AA556 /* GenderPicker.swift in Sources */,
 				EE252D061DED7A4C008F5E3E /* ProfileManagerSettings.swift in Sources */,
 				EE252D041DED7196008F5E3E /* UserNotificationManager.swift in Sources */,
 				EEEC78711DEC2B4F00E7020C /* AppUserTask.swift in Sources */,
@@ -865,6 +928,8 @@
 				EEEC786B1DEC25BE00E7020C /* RootViewController.swift in Sources */,
 				EE14E7C01DD0D236009F8736 /* ConfirmViewController.swift in Sources */,
 				EE0B32881DF1B191009F9939 /* UserTaskPreparer.swift in Sources */,
+				EE0F34FB1E02E61C003AA556 /* ClientDebugViewController.swift in Sources */,
+				EE0F351F1E02F4C8003AA556 /* StudyContentWebViewController.swift in Sources */,
 				EE14E7BA1DD0CBBE009F8736 /* WelcomeViewController.swift in Sources */,
 				EE14E7B91DD0CBBE009F8736 /* AppDelegate.swift in Sources */,
 				EEECC2241DECDF2C005645B8 /* Configuration.swift in Sources */,
@@ -872,6 +937,7 @@
 				EEEC786D1DEC28E800E7020C /* AppUser.swift in Sources */,
 				EEEC78691DEC258B00E7020C /* DashboardViewController.swift in Sources */,
 				EE252D0C1DEDCC5A008F5E3E /* UserTaskSetting.swift in Sources */,
+				EE0F34FA1E02E61C003AA556 /* LicenseViewController.swift in Sources */,
 				EE252D031DED7196008F5E3E /* NotificationManager.swift in Sources */,
 				EEEC78791DEC3DDA00E7020C /* GraphDataSource.swift in Sources */,
 				EEEC78641DEC24B400E7020C /* SCCSViewController.swift in Sources */,
@@ -944,6 +1010,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EE14E7A51DD0CAAA009F8736 /* Base */,
+				EE957D521E042B94004FADB4 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -952,8 +1019,28 @@
 			isa = PBXVariantGroup;
 			children = (
 				EE14E7AA1DD0CAAA009F8736 /* Base */,
+				EE957D531E042B94004FADB4 /* de */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EE957D511E042B29004FADB4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE957D501E042B29004FADB4 /* en */,
+				EE957D541E042B94004FADB4 /* de */,
+			);
+			name = Localizable.strings;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		EE957D5A1E044156004FADB4 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE957D591E044156004FADB4 /* en */,
+				EE957D5B1E044159004FADB4 /* de */,
+			);
+			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -963,6 +1050,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1013,6 +1101,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1057,6 +1146,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "C Tracker.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = MH6DGH3QYY;
 				INFOPLIST_FILE = App/Info.plist;
@@ -1073,6 +1163,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "C Tracker.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = MH6DGH3QYY;
 				INFOPLIST_FILE = App/Info.plist;

@@ -58,7 +58,7 @@ class AppUserTask: UserTask {
 				return "tomorrow".sccs_loc
 			}
 			if diff < 6 {
-				return String(format: "in %d days".sccs_loc, diff)
+				return "in {{days}} days".sccs_loc.replacingOccurrences(of: "{{days}}", with: "\(diff)")
 			}
 			
 			// more than 5 days, show date

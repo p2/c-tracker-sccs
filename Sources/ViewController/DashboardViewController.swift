@@ -74,12 +74,12 @@ class DashboardViewController: UITableViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		updateTasks()
-//		if nil == healthReport {
-//			refreshHealthData()
-//		}
-//		if nil == motionReport {
-//			refreshMotionData()
-//		}
+		if nil == healthReport {
+			refreshHealthData()
+		}
+		if nil == motionReport {
+			refreshMotionData()
+		}
 	}
 	
 	
@@ -248,11 +248,17 @@ class DashboardViewController: UITableViewController {
 	
 	var motionReport: ActivityReport? {
 		didSet {
+			print("NEW MOTION REPORT")
+			if let periods = motionReport?.periods {
+				for period in periods {
+					print("---->  \(period)")
+				}
+			}
 			redrawMotionReport()
 		}
 	}
 	
-	func refreshHealthData() {
+	func refreshHealthData(isRetry: Bool = false) {
 		if refreshingActivity {
 			return
 		}
@@ -261,6 +267,23 @@ class DashboardViewController: UITableViewController {
 		
 		healthReporter.progressivelyCollatedActivityData() { report, error in
 			self.refreshingActivity = false
+			if let error = error {
+				if isRetry {
+					c3_logIfDebug("Cannot refresh health data: tried to get permission from HealthKit, not received")
+					self.showError(error)
+				}
+				else if let m = self.profileManager {
+					m.requestPermission(for: .healthKit(m.healthKitTypes)) { error in
+						if let error = error {
+							self.showError(error)
+						}
+						else {
+							self.refreshHealthData(isRetry: true)
+						}
+					}
+				}
+				return
+			}
 			self.healthReport = report
 			c3_logIfDebug("Health data refreshed")
 		}
@@ -274,6 +297,18 @@ class DashboardViewController: UITableViewController {
 		if refreshingMotion {
 			return
 		}
+		if let m = profileManager, !m.hasPermission(for: .coreMotion) {
+			m.requestPermission(for: .coreMotion) { error in
+				if let error = error {
+					self.showError(error)
+				}
+				else {
+					self.refreshMotionData()
+				}
+			}
+			return
+		}
+		
 		refreshingMotion = true
 		c3_logIfDebug("Refreshing motion data")
 		
@@ -303,7 +338,7 @@ class DashboardViewController: UITableViewController {
 	}
 	
 	func redrawHealthReport() {
-		tableView.reloadRows(at: [IndexPath(row: 1, section: 1)], with: .none)
+		tableView.reloadRows(at: [IndexPath(row: 1, section: 1), IndexPath(row: 3, section: 1)], with: .none)
 	}
 	
 	func redrawMotionReport() {
@@ -336,9 +371,9 @@ class DashboardViewController: UITableViewController {
 		
 		if let steps = stepstr {
 			if let flights = fligstr {
-				return String(format: "%@ steps, %@ floors climbed per day".sccs_loc, steps, flights)
+				return "{{steps}} steps, {{flights}} floors climbed per day".sccs_loc.replacingOccurrences(of: "{{steps}}", with: steps).replacingOccurrences(of: "{{flights}}", with: flights)
 			}
-			return String(format: "%@ steps per day".sccs_loc, steps)
+			return "{{steps}} steps per day".sccs_loc.replacingOccurrences(of: "{{steps}}", with: steps)
 		}
 		return nil
 	}
@@ -387,23 +422,23 @@ class DashboardViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		if 1 == (indexPath as NSIndexPath).section {
-			if 0 == (indexPath as NSIndexPath).row {
+		if 1 == indexPath.section {
+			if 0 == indexPath.row {
 				let cell = tableView.dequeueReusableCell(withIdentifier: "C3ActivityCell", for: indexPath) as! DashboardActivityTableViewCell
 				pieSource = PieDataSource(report: todayReport)
 				cell.setup(with: pieSource!)
-				cell.legendTitle?.text = "Past 24 Hours"
+				cell.legendTitle?.text = "Past 24 Hours".sccs_loc
 				return cell
 			}
 			
 			// graphs
-			if 1 == (indexPath as NSIndexPath).row {
+			if 1 == indexPath.row {
 				let cell = tableView.dequeueReusableCell(withIdentifier: "C3GraphCell", for: indexPath) as! DashboardGraphTableViewCell
 				healthGraphSource = HealthGraphDataSource(report: healthReport)
 				cell.graph?.dataSource = healthGraphSource
 				return cell
 			}
-			if 2 == (indexPath as NSIndexPath).row {
+			if 2 == indexPath.row {
 				let cell = tableView.dequeueReusableCell(withIdentifier: "C3GraphCell", for: indexPath) as! DashboardGraphTableViewCell
 				motionGraphSource = GraphDataSource(report: motionReport)
 				cell.graph?.dataSource = motionGraphSource
@@ -426,7 +461,7 @@ class DashboardViewController: UITableViewController {
 		// tasks due and completed
 		let cell = tableView.dequeueReusableCell(withIdentifier: "C3TaskCell", for: indexPath) as! DashboardTaskTableViewCell
 		if let task = taskAtIndexPath(indexPath) {
-			cell.labelTask?.text = (task.title ?? task.type.rawValue).sccs_loc
+			cell.labelTask?.text = task.title ?? task.type.rawValue.sccs_loc
 			cell.progress?.image = progressImage(for: task)
 			cell.accessoryType = task.canReview ? .disclosureIndicator : .none
 			
@@ -458,8 +493,8 @@ class DashboardViewController: UITableViewController {
 	// MARK: - Table View Delegate
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		if 1 == (indexPath as NSIndexPath).section {
-			if (indexPath as NSIndexPath).row < 3 {
+		if 1 == indexPath.section {
+			if indexPath.row < 3 {
 				return min(228.0, max(152.0, tableView.bounds.size.width / 2.6))
 			}
 			return UITableViewAutomaticDimension
@@ -468,8 +503,8 @@ class DashboardViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		if 1 == (indexPath as NSIndexPath).section {
-			if 1 == (indexPath as NSIndexPath).row {
+		if 1 == indexPath.section {
+			if 1 == indexPath.row || 3 == indexPath.row {
 				refreshHealthData()
 			}
 			else {

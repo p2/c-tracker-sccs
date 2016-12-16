@@ -68,10 +68,10 @@ final class AppUser: User {
 	// MARK: - Human Readable
 	
 	var humanSummary: String {
-		var parts = [humanSex]
-		if let bd = humanBirthday {	parts.append(bd)	}
-		if let he = humanHeight {	parts.append(he)	}
-		if let we = humanWeight {	parts.append(we)	}
+		var parts = !humanSex.isEmpty ? [humanSex] : [String]()
+		if let bd = humanBirthday, !bd.isEmpty {	parts.append(bd)	}
+		if let he = humanHeight, !he.isEmpty {	parts.append(he)	}
+		if let we = humanWeight, !we.isEmpty {	parts.append(we)	}
 		return parts.count > 0 ? parts.joined(separator: " ● ") : "Gender ● Birthday ● Height ● Weight".sccs_loc
 	}
 	

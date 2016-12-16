@@ -279,36 +279,36 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		if 0 == (indexPath as NSIndexPath).section {
+		if 0 == indexPath.section {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "C3MoreCell", for: indexPath) 
 			cell.textLabel?.text = user?.humanSummary
 			return cell
 		}
 		
 		// Consent
-		if 1 == (indexPath as NSIndexPath).section {
+		if 1 == indexPath.section {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "C3MoreCell", for: indexPath) 
 			cell.textLabel?.text = "Review Consent".sccs_loc
 			return cell
 		}
 		
 		// App Settings
-		if 2 == (indexPath as NSIndexPath).section {
+		if 2 == indexPath.section {
 			let cell = tableView.dequeueReusableCell(withIdentifier: "C3BasicCell", for: indexPath) 
 			cell.detailTextLabel?.text = nil
 			cell.accessoryType = .none
-			if 0 == (indexPath as NSIndexPath).row {
+			if 0 == indexPath.row {
 				cell.textLabel?.text = "Change Passcode".sccs_loc
 			}
-			else if 1 == (indexPath as NSIndexPath).row {
+			else if 1 == indexPath.row {
 				cell.textLabel?.text = "Reminders".sccs_loc
-//				cell.detailTextLabel?.text = (UserDefaults.standard.surveyRemindersEnable ? "ON" : "OFF").sccs_loc
+				cell.detailTextLabel?.text = (UserDefaults.standard.surveyRemindersEnable ? "ON" : "OFF").sccs_loc
 				cell.accessoryType = .disclosureIndicator
 			}
-			else if 2 == (indexPath as NSIndexPath).row {
+			else if 2 == indexPath.row {
 				cell.textLabel?.text = "Verify App Permissions".sccs_loc
 			}
-			else if 3 == (indexPath as NSIndexPath).row {
+			else if 3 == indexPath.row {
 				cell.textLabel?.text = "App Credentials".sccs_loc
 				cell.accessoryType = .disclosureIndicator
 			}
@@ -317,10 +317,10 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 		
 		// Legal
 		let cell = tableView.dequeueReusableCell(withIdentifier: "C3MoreCell", for: indexPath) 
-		if 0 == (indexPath as NSIndexPath).row {
+		if 0 == indexPath.row {
 			cell.textLabel?.text = "Privacy Policy".sccs_loc
 		}
-		else if 1 == (indexPath as NSIndexPath).row {
+		else if 1 == indexPath.row {
 			cell.textLabel?.text = "Software Licenses".sccs_loc
 		}
 		return cell
@@ -330,32 +330,32 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 	// MARK: - Table View Delegate
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		if 0 == (indexPath as NSIndexPath).section {
+		if 0 == indexPath.section {
 			showMedicalInfoVC(true)
 		}
-		else if 1 == (indexPath as NSIndexPath).section {
+		else if 1 == indexPath.section {
 			showConsent(true)
 		}
-		else if 2 == (indexPath as NSIndexPath).section {
-			if 0 == (indexPath as NSIndexPath).row {
+		else if 2 == indexPath.section {
+			if 0 == indexPath.row {
 				showChangePasscodeVC()
 			}
-			else if 1 == (indexPath as NSIndexPath).row {
+			else if 1 == indexPath.row {
 				showNotificationsVC()
 			}
-			else if 2 == (indexPath as NSIndexPath).row {
+			else if 2 == indexPath.row {
 				showPermissionsVC()
 			}
-			else if 3 == (indexPath as NSIndexPath).row {
+			else if 3 == indexPath.row {
 				showClientDebugVC()
 			}
 			tableView.deselectRow(at: indexPath, animated: true)
 		}
-		else if 3 == (indexPath as NSIndexPath).section {
-			if 0 == (indexPath as NSIndexPath).row {
+		else if 3 == indexPath.section {
+			if 0 == indexPath.row {
 				showPrivacyPolicyVC()
 			}
-			else if 1 == (indexPath as NSIndexPath).row {
+			else if 1 == indexPath.row {
 				showLicensesVC()
 			}
 		}
@@ -377,18 +377,18 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 	// MARK: - User Data & Settings
 	
 	func showMedicalInfoVC(_ animated: Bool = true) {
-//		if let info = storyboard?.instantiateViewController(withIdentifier: "C3MedicalInfo") as? MedicalInfoViewController {
-//			info.user = user
-//			if let navi = navigationController {
-//				navi.pushViewController(info, animated: animated)
-//			}
-//			else {
-//				c3_logIfDebug("I need to be in a navigation controller in order to show medical info")
-//			}
-//		}
-//		else {
-//			c3_logIfDebug("Failed to instantiate C3MedicalInfo view controller")
-//		}
+		if let info = storyboard?.instantiateViewController(withIdentifier: "C3MedicalInfo") as? MedicalInfoViewController {
+			info.user = user
+			if let navi = navigationController {
+				navi.pushViewController(info, animated: animated)
+			}
+			else {
+				c3_logIfDebug("I need to be in a navigation controller in order to show medical info")
+			}
+		}
+		else {
+			c3_logIfDebug("Failed to instantiate C3MedicalInfo view controller")
+		}
 	}
 	
 	func showChangePasscodeVC(_ animated: Bool = true) {
@@ -408,8 +408,8 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 	
 	func showNotificationsVC(_ animated: Bool = true) {
 		if let navi = navigationController {
-//			let vc = NotificationsViewController()
-//			navi.pushViewController(vc, animated: animated)
+			let vc = NotificationsViewController()
+			navi.pushViewController(vc, animated: animated)
 		}
 		else {
 			c3_logIfDebug("I need to be in a navigation controller in order to show reminder settings")
@@ -418,34 +418,34 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 	
 	func showPermissionsVC(_ animated: Bool = true) {
 		if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-//			let vc = SystemPermissionTableViewController(style: .plain)
+			let vc = SystemPermissionTableViewController(style: .plain)
 //			vc.services = appDelegate.initialPermissionsRequested()
-//			vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(ProfileViewController.dismissPresentedViewController))
-//			
-//			let navi = UINavigationController(rootViewController: vc)
-//			present(navi, animated: animated, completion: nil)
+			vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(ProfileViewController.dismissPresentedViewController))
+			
+			let navi = UINavigationController(rootViewController: vc)
+			present(navi, animated: animated, completion: nil)
 		}
 	}
 	
 	func showClientDebugVC(_ animated: Bool = true) {
 		#if DEBUG
-//		let debug = ClientDebugViewController()
+		let debug = ClientDebugViewController()
 //		if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
 //			debug.smart = appDelegate.smart
 //		}
-//		navigationController?.pushViewController(debug, animated: animated)
+		navigationController?.pushViewController(debug, animated: animated)
 		#endif
 	}
 	
 	func showPrivacyPolicyVC(_ animated: Bool = true) {
-//		let privacy = StudyContentWebViewController()
-//		privacy.startURL = Bundle.main.url(forResource: "PrivacyPolicy", withExtension: "html", subdirectory: "HTMLContent")
-//		navigationController?.pushViewController(privacy, animated: animated)
+		let privacy = StudyContentWebViewController()
+		privacy.startURL = Bundle.main.url(forResource: "PrivacyPolicy", withExtension: "html", subdirectory: "HTMLContent")
+		navigationController?.pushViewController(privacy, animated: animated)
 	}
 	
 	func showLicensesVC(_ animated: Bool = true) {
-//		let licenses = LicenseViewController()
-//		navigationController?.pushViewController(licenses, animated: animated)
+		let licenses = LicenseViewController()
+		navigationController?.pushViewController(licenses, animated: animated)
 	}
 	
 	func dismissPresentedViewController() {
@@ -456,8 +456,8 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 	// MARK: - Notifications
 	
 	func registerForNotifications() {
-//		let center = NotificationCenter.default
-//		center.addObserver(self, selector: #selector(ProfileViewController.userDidWithdraw(_:)), name: NSNotification.Name(rawValue: kUserDidWithdrawFromStudyNotification), object: nil)
+		let center = NotificationCenter.default
+		center.addObserver(self, selector: #selector(ProfileViewController.userDidWithdraw(_:)), name: ProfileManager.userDidWithdrawFromStudyNotification, object: nil)
 	}
     
     

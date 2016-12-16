@@ -1,0 +1,68 @@
+/* 
+  Localizable.strings
+  C-Tracker-SCCS
+
+  Created by Pascal Pfiffner on 16.12.16.
+  Copyright © 2016 SCCS. All rights reserved.
+*/
+
+"{{steps}} steps per day" = "{{steps}} steps per day";
+"{{steps}} steps, {{flights}} floors climbed per day" = "{{steps}} steps, {{flights}} floors climbed per day";
+"App Credentials" = "App Credentials";
+"App Settings" = "App Settings";
+"Are you sure you wish to withdraw from the study?" = "Are you sure you wish to withdraw from the study?";
+"Birthday" = "Birthday";
+"Cancel" = "Cancel";
+"Change Passcode" = "Change Passcode";
+"Completed Tasks" = "Completed Tasks";
+"consent" = "Consent";
+"Consent" = "Consent";
+"Could Not Load Profile" = "Could Not Load Profile";
+"due" = "due";
+"Error" = "Error";
+"Female" = "Female";
+"Gender" = "Gender";
+"Gender ● Birthday ● Height ● Weight" = "Gender ● Birthday ● Height ● Weight";
+"Height" = "Height";
+"in {{days}} days" = "in {{days}} days";
+"Invalid Code" = "Invalid Code";
+"Join {{study}}!" = "Join {{study}}!";
+"Leave" = "Leave";
+"Leave Study?" = "Leave Study?";
+"Legal" = "Legal";
+"Male" = "Male";
+"Not Set" = "Not Set";
+"Not You" = "Not You";
+"OK" = "OK";
+"Other" = "Other";
+"Our work wouldn't have been possible without the work of other great individuals." = "Our work wouldn't have been possible without the work of other great individuals. The licenses of their software are listed below, in no particular order.";
+"Past 24 Hours" = "Past 24 Hours";
+"Privacy Policy" = "Privacy Policy";
+"Recent Activity" = "Recent Activity";
+"Refreshing activity data..." = "Refreshing activity data...";
+"Remind in 1 hour" = "Remind in 1 hour";
+"Remind me at" = "Remind me at";
+"Remind me tomorrow" = "Remind me tomorrow";
+"Reminders" = "Reminders";
+"Reset" = "Reset";
+"Review Consent" = "Review Consent";
+"Set Reminders" = "Set Reminders";
+"Software Licenses" = "Software Licenses";
+"Step count not available" = "Step count not available";
+"survey" = "Survey";
+"There's still some time until {{due_date}}" = "There's still some time until {{due_date}}";
+"This will unset your medical data for the study. You can later re-enter this data manually." = "This will unset your medical data for the study. You can later re-enter this data manually.";
+"today" = "today";
+"tomorrow" = "tomorrow";
+"Unset Medical Data?" = "Unset Medical Data?";
+"Verify App Permissions" = "Verify App Permissions";
+"We'd like you to complete another survey" = "We'd like you to complete another survey";
+"Weight" = "Weight";
+"You are enrolled in {{study}}" = "You are enrolled in {{study}}";
+"You refuted some of the information contained in the code" = "You refuted some of the information contained in the code";
+"You were born on" = "You were born on";
+"Your Medical Data" = "Your Medical Data";
+"Your name is" = "Your name is";
+"Your Tasks" = "Your Tasks";
+"Your {key} is" = "Your {key} is";
+"{{title}} is not yet due" = "{{title}} is not yet due";

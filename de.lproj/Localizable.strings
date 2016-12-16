@@ -1,0 +1,68 @@
+/* 
+  Localizable.strings
+  C-Tracker-SCCS
+
+  Created by Pascal Pfiffner on 16.12.16.
+  Copyright © 2016 SCCS. All rights reserved.
+*/
+
+"{{steps}} steps per day" = "{{steps}} Schritte pro Tag";
+"{{steps}} steps, {{flights}} floors climbed per day" = "{{steps}} Schritte, {{flights}} Stockwerke pro Tag";
+"App Credentials" = "App Zugangsdaten";
+"App Settings" = "Einstellungen";
+"Are you sure you wish to withdraw from the study?" = "Sind Sie sicher, dass Sie die Studie verlassen möchten?";
+"Birthday" = "Geburtstag";
+"Cancel" = "Abbruch";
+"Change Passcode" = "PIN Ändern";
+"Completed Tasks" = "Erledigt";
+"consent" = "Einwilligung";
+"Consent" = "Einwilligungsverfügung";
+"Could Not Load Profile" = "Profil konnte nicht geladen werden";
+"due" = "heute";
+"Error" = "Fehler";
+"Female" = "Frau";
+"Gender" = "Geschlecht";
+"Gender ● Birthday ● Height ● Weight" = "Geschlecht ● Geburtstag ● Grösse ● Gewicht";
+"Height" = "Grösse";
+"in {{days}} days" = "in {{days}} Tagen";
+"Invalid Code" = "Ungültiger Code";
+"Join {{study}}!" = "{{study}} beitreten!";
+"Leave" = "Verlassen";
+"Leave Study?" = "Studie Verlassen?";
+"Legal" = "Legales";
+"Male" = "Mann";
+"Not Set" = "Unbekannt";
+"Not You" = "Nicht Sie";
+"OK" = "OK";
+"Other" = "Anderes";
+"Our work wouldn't have been possible without the work of other great individuals." = "Unsere Arbeit wäre ohne die Arbeit vieler anderer wunderbarer Menschen nicht möglich gewesen. Die Software-Lizenzen derer Arbeit sind hier aufgelistet, ohne bestimmte Reihenfolge.";
+"Past 24 Hours" = "Letzte 24 Stunden";
+"Privacy Policy" = "Datenvertraulichkeit";
+"Recent Activity" = "Aktivität";
+"Refreshing activity data..." = "Lade Daten...";
+"Remind in 1 hour" = "In 1 Stunde erinnern";
+"Remind me at" = "Erinnern um";
+"Remind me tomorrow" = "Morgen erinnern";
+"Reminders" = "Erinnerungen";
+"Reset" = "Zurücksetzen";
+"Review Consent" = "Einwilligung ansehen";
+"Set Reminders" = "Erinnerungen aktivieren";
+"Software Licenses" = "Software-Lizenzen";
+"Step count not available" = "Schrittdaten nicht verfügbar";
+"survey" = "Fragebogen";
+"There's still some time until {{due_date}}" = "Bis zum {{due_date}} bleibt noch ein wenig Zeit";
+"This will unset your medical data for the study. You can later re-enter this data manually." = "Dies wird die medizinischen Angaben in dieser Studie zurück setzen. Sie können diese Daten später von Hand wieder eingeben.";
+"today" = "heute";
+"tomorrow" = "morgen";
+"Unset Medical Data?" = "Daten Entfernen?";
+"Verify App Permissions" = "App Zugriffsrechte";
+"We'd like you to complete another survey" = "Bitte beantworten Sie einen weiteren Fragebogen";
+"Weight" = "Gewicht";
+"You are enrolled in {{study}}" = "✅ Bei {{study}} dabei";
+"You refuted some of the information contained in the code" = "Sie gaben an, gewisse Angaben im Code seien nicht korrekt";
+"You were born on" = "Sie wurden geboren am";
+"Your Medical Data" = "Persönliche Angaben";
+"Your name is" = "Ihr Name ist";
+"Your Tasks" = "Aufgaben";
+"Your {key} is" = "Ihr {key} ist";
+"{{title}} is not yet due" = "{{title}} ist noch nicht soweit";

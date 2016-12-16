@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import C3PRO
 
 
 class RootViewController: UITabBarController {
@@ -67,6 +68,7 @@ class RootViewController: UITabBarController {
 				let sccsNavi = storyboard?.instantiateViewController(withIdentifier: "SCCSViewRoot") as? UINavigationController {
 				
 				dashboard.profileManager = manager
+				dashboard.motionReporter = CoreMotionReporter(path: manager.directory.appendingPathComponent("CoreMotion").path)
 				profile.profileManager = manager
 				setViewControllers([dashNavi, profileNavi, sccsNavi], animated: animated)
 			}

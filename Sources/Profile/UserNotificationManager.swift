@@ -61,14 +61,14 @@ extension UserDefaults {
 		return "reminders.surveys.enable"
 	}
 	
-	var surveyRemindersEnable: Bool {
+	public var surveyRemindersEnable: Bool {
 		if nil != string(forKey: surveyRemindersEnableKey) {
 			return bool(forKey: surveyRemindersEnableKey)
 		}
 		return true
 	}
 	
-	func surveyRemindersEnable(_ flag: Bool, profileManager: ProfileManager?) {
+	public func surveyRemindersEnable(_ flag: Bool, profileManager: ProfileManager?) {
 		set(flag, forKey: surveyRemindersEnableKey)
 		UserNotificationManager.shared.synchronizeNotifications(with: profileManager)
 	}
@@ -77,7 +77,7 @@ extension UserDefaults {
 		return "reminders.surveys.time-of-day"
 	}
 	
-	var surveyRemindersTimeOfDay: DateComponents {
+	public var surveyRemindersTimeOfDay: DateComponents {
 		let parts = array(forKey: surveyRemindersTimeOfDayKey) as? [Int]
 		var comps = DateComponents()
 		comps.hour = parts?.first
@@ -85,7 +85,7 @@ extension UserDefaults {
 		return comps
 	}
 	
-	func surveyRemindersSet(timeOfDay: DateComponents, profileManager: ProfileManager?) {
+	public func surveyRemindersSet(timeOfDay: DateComponents, profileManager: ProfileManager?) {
 		let parts = [timeOfDay.hour ?? 10, timeOfDay.minute ?? 00]
 		set(parts, forKey: surveyRemindersTimeOfDayKey)
 		UserNotificationManager.shared.synchronizeNotifications(with: profileManager)

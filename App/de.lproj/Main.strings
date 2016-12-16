@@ -1,0 +1,120 @@
+
+/* Class = "UIBarButtonItem"; title = "Help"; ObjectID = "0h9-Z5-Yre"; */
+"0h9-Z5-Yre.title" = "Hilfe";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "2C1-OY-YQ7"; */
+"2C1-OY-YQ7.text" = "Detail";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "4Ub-Qs-5Un"; */
+"4Ub-Qs-5Un.text" = "Titel";
+
+/* Class = "UIButton"; normalTitle = "About SCCS"; ObjectID = "9VG-hk-9TB"; */
+"9VG-hk-9TB.normalTitle" = "Über SCCS";
+
+/* Class = "UILabel"; text = "to the Swiss Hepatitis C Cohort Study"; ObjectID = "A5M-7J-77L"; */
+"A5M-7J-77L.text" = "zur Swiss Hepatitis C Cohort Study";
+
+/* Class = "UILabel"; text = "Your name is"; ObjectID = "A9u-dX-9MA"; */
+"A9u-dX-9MA.text" = "Ihr Name ist";
+
+/* Class = "UIButton"; normalTitle = "Help!"; ObjectID = "EhU-aj-ZlM"; */
+"EhU-aj-ZlM.normalTitle" = "Hilfe!";
+
+/* Class = "UIButton"; normalTitle = "Leave Study"; ObjectID = "FKy-da-W2e"; */
+"FKy-da-W2e.normalTitle" = "Studie verlassen";
+
+/* Class = "UITabBarItem"; title = "You"; ObjectID = "GLl-4M-qUb"; */
+"GLl-4M-qUb.title" = "Sie";
+
+/* Class = "UILabel"; text = "Focus the QR code in the area above"; ObjectID = "Hcs-PN-rax"; */
+"Hcs-PN-rax.text" = "Den QR-Code oben erfassen";
+
+/* Class = "UIButton"; normalTitle = "No"; ObjectID = "I3C-8E-k4p"; */
+"I3C-8E-k4p.normalTitle" = "Nein";
+
+/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "IAA-xY-LVd"; */
+"IAA-xY-LVd.title" = "Root View Controller";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "JWn-wf-g3s"; */
+"JWn-wf-g3s.text" = "Titel";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "KCS-0B-10b"; */
+"KCS-0B-10b.text" = "Label";
+
+/* Class = "UILabel"; text = "Welcome"; ObjectID = "KQZ-1w-vlD"; */
+"KQZ-1w-vlD.text" = "Willkommen";
+
+/* Class = "UILabel"; text = "Update your name here"; ObjectID = "KnI-jg-RWY"; */
+"KnI-jg-RWY.text" = "Name ändern";
+
+/* Class = "UITextField"; placeholder = "Full Name"; ObjectID = "L9N-ti-5lD"; */
+"L9N-ti-5lD.placeholder" = "Name";
+
+/* Class = "UITabBarItem"; title = "Dashboard"; ObjectID = "MDw-Qx-8Pd"; */
+"MDw-Qx-8Pd.title" = "Dashboard";
+
+/* Class = "UILabel"; text = "Today"; ObjectID = "OIl-7N-0nj"; */
+"OIl-7N-0nj.text" = "Heute";
+
+/* Class = "UILabel"; text = "Yesterday"; ObjectID = "OXE-oF-IG1"; */
+"OXE-oF-IG1.text" = "Gestern";
+
+/* Class = "UINavigationItem"; title = "Dashboard"; ObjectID = "QFM-IZ-exJ"; */
+"QFM-IZ-exJ.title" = "Dashboard";
+
+/* Class = "UIButton"; normalTitle = "Enroll"; ObjectID = "THY-03-5WJ"; */
+"THY-03-5WJ.normalTitle" = "Teilnehmen";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "To8-W3-Ta7"; */
+"To8-W3-Ta7.text" = "Title";
+
+/* Class = "UILabel"; text = "8'500 steps, 14 floors"; ObjectID = "Ueo-mC-psY"; */
+"Ueo-mC-psY.text" = "8'500 steps, 14 floors";
+
+/* Class = "UITabBarItem"; title = "SCCS"; ObjectID = "YSI-UM-MId"; */
+"YSI-UM-MId.title" = "SCCS";
+
+/* Class = "UITableViewController"; title = "Dashboard"; ObjectID = "ZGO-rY-IzW"; */
+"ZGO-rY-IzW.title" = "Dashboard";
+
+/* Class = "UINavigationItem"; title = "Your Profile"; ObjectID = "a7D-Yb-njM"; */
+"a7D-Yb-njM.title" = "Ihr Profil";
+
+/* Class = "UITabBarItem"; title = "First"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "First";
+
+/* Class = "UIButton"; normalTitle = "About the App"; ObjectID = "dRm-NV-3Nd"; */
+"dRm-NV-3Nd.normalTitle" = "Über die App";
+
+/* Class = "UIButton"; normalTitle = "Simulate Scan"; ObjectID = "jNd-XW-n8o"; */
+"jNd-XW-n8o.normalTitle" = "Scan Simulieren";
+
+/* Class = "UILabel"; text = "Your name is only used inside the app and on your own copy of the consent PDF. It is never sent off your phone."; ObjectID = "jow-yj-qwI"; */
+"jow-yj-qwI.text" = "Ihr Name wird nur zur Darstellung in der App benötigt. Er wird nicht an uns übermittelt.";
+
+/* Class = "UILabel"; text = "Task"; ObjectID = "mE6-Ib-Y9J"; */
+"mE6-Ib-Y9J.text" = "Aufgabe";
+
+/* Class = "UILabel"; text = "Join C Tracker!"; ObjectID = "nPx-NZ-gPb"; */
+"nPx-NZ-gPb.text" = "Bei C Tracker teilnehmen!";
+
+/* Class = "UITableViewController"; title = "Medical"; ObjectID = "pKZ-QR-8IR"; */
+"pKZ-QR-8IR.title" = "Persönliche Angaben";
+
+/* Class = "UIButton"; normalTitle = "Yes"; ObjectID = "r0r-Uk-ZS2"; */
+"r0r-Uk-ZS2.normalTitle" = "Ja";
+
+/* Class = "UIButton"; normalTitle = "Try the App"; ObjectID = "s4D-mm-5uD"; */
+"s4D-mm-5uD.normalTitle" = "App ausprobieren";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "sBu-cF-KU8"; */
+"sBu-cF-KU8.text" = "Name";
+
+/* Class = "UILabel"; text = "in 1 week"; ObjectID = "sbX-EU-wAv"; */
+"sbX-EU-wAv.text" = "in 1 Woche";
+
+/* Class = "UITableViewController"; title = "Profile"; ObjectID = "vcs-c5-Ktx"; */
+"vcs-c5-Ktx.title" = "Profil";
+
+/* Class = "UIBarButtonItem"; title = "Help"; ObjectID = "vn2-gK-ZWP"; */
+"vn2-gK-ZWP.title" = "Hilfe";

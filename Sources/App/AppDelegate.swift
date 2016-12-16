@@ -28,7 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			fatalError("No user documents directory, cannot continue")
 		}
 		do {
-			let manager = try ProfileManager(dir: URL(fileURLWithPath: first))
+			let dir = URL(fileURLWithPath: first).appendingPathComponent("C-Tracker")
+			let manager = try ProfileManager(dir: dir)
 			rootViewController?.profileManager = manager
 			profileManager = manager
 		}

@@ -9,6 +9,7 @@
 import UIKit
 import SMART
 import C3PRO
+import HealthKit
 
 
 /**
@@ -23,9 +24,11 @@ receive OS-level data protection.
 - `Schedule.json`: A schedule of the tasks for the user for the whole course of his or her enrollment
 - `Completed.json`: Which tasks have been completed
 */
-class ProfileManager {
+open class ProfileManager {
 	
 	static let didChangeProfileNotification = Notification.Name("ProfileManagerDidChangeProfileNotification")
+	
+	static let userDidWithdrawFromStudyNotification = Notification.Name("UserDidWithdrawFromStudyNotification")
 	
 	var user: User?
 	
@@ -36,6 +39,8 @@ class ProfileManager {
 	var settings: ProfileManagerSettings?
 	
 	var taskPreparer: UserTaskPreparer?
+	
+	var permissioner: SystemServicePermissioner?
 	
 	private var settingsURL: URL? {
 		#if DEBUG
@@ -63,17 +68,23 @@ class ProfileManager {
 	public init(dir: URL) throws {
 		directory = dir
 		
+		let fm = FileManager()
+		var isDir: ObjCBool = false
+		if !fm.fileExists(atPath: directory.path, isDirectory: &isDir) || !isDir.boolValue {
+			try fm.createDirectory(at: directory, withIntermediateDirectories: true, attributes: nil)
+		}
+		
 		if let settingsURL = settingsURL {
 			let data = try Data(contentsOf: settingsURL)
 			let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
 			settings = try ProfileManagerSettings(with: json)
 		}
-		if FileManager.default.fileExists(atPath: userURL.path) {
+		if fm.fileExists(atPath: userURL.path) {
 			let data = try Data(contentsOf: userURL)
 			let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
 			user = type(of: self).userFromJSON(json)
 		}
-		if FileManager.default.fileExists(atPath: scheduleURL.path) {
+		if fm.fileExists(atPath: scheduleURL.path) {
 			user?.tasks = try readAllTasks()
 		}
 	}
@@ -284,6 +295,34 @@ class ProfileManager {
 			userInfo[kUserTaskNotificationUserKey] = user
 		}
 		NotificationCenter.default.post(name: UserDidCompleteTaskNotification, object: task, userInfo: userInfo)
+	}
+	
+	
+	// MARK: - Service Permissions
+	
+	public func hasPermission(for service: SystemService) -> Bool {
+		permissioner = permissioner ?? SystemServicePermissioner()
+		return permissioner!.hasPermission(for: service)
+	}
+	
+	public func requestPermission(for service: SystemService, callback: @escaping ((Error?) -> Void)) {
+		permissioner = permissioner ?? SystemServicePermissioner()
+		permissioner!.requestPermission(for: service, callback: callback)
+	}
+	
+	var healthKitTypes: HealthKitTypes {
+		let hkCRead = Set<HKCharacteristicType>([
+			HKCharacteristicType.characteristicType(forIdentifier: .biologicalSex)!,
+			HKCharacteristicType.characteristicType(forIdentifier: .dateOfBirth)!,
+			])
+		let hkQRead = Set<HKQuantityType>([
+//			HKQuantityType.quantityType(forIdentifier: .height)!,
+//			HKQuantityType.quantityType(forIdentifier: .bodyMass)!,
+			HKQuantityType.quantityType(forIdentifier: .stepCount)!,
+			HKQuantityType.quantityType(forIdentifier: .flightsClimbed)!,
+			HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned)!,
+			])
+		return HealthKitTypes(readCharacteristics: hkCRead, readQuantities: hkQRead, writeQuantities: Set())
 	}
 	
 	

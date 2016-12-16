@@ -1,0 +1,58 @@
+
+html, body {
+	margin: 0; padding: 0;
+}
+body {
+	font-family: "Helvetica Neue", 'HelveticaNeue', 'HelveticaNeue'; font: -apple-system-body;
+}
+
+header {
+	text-align: center;
+}
+header div {
+	height: 60px; margin: 1em 0;
+	background: url("Icon-120.png") center center no-repeat; background-size: 60px 60px;
+	@media (-webkit-min-device-pixel-ratio: 3), (min-resolution: 288dpi) {
+		background-image: url("Icon-180.png")
+	}
+}
+
+h1 {
+	padding: 0;
+	font-family: 'HelveticaNeue-Light', 'HelveticaNeue light', 'Helvetica Neue'; font-size: 1.5em; font-weight: 400;
+	color: black; text-align:center;
+}
+
+h2 {
+	font-size: 1.5em; font-weight: 500; font: -apple-system-headline;
+}
+
+h3 {
+	font-size: 1.2em; font-weight: 500; font: -apple-system-subheadline;
+}
+
+hr {
+	height: 1px; margin: 2em;
+	border: none;
+	background: linear-gradient(transparent 0%, transparent 50%, #AAA 50%, #AAA 100%);
+}
+footer hr {
+	margin: 1em 0;
+}
+
+a, a:link, a:visited {
+	color: rgb(57,99,159);
+}
+
+.content {
+	padding: 10px 10px 10px 15px;
+}
+
+.content ul {
+	-webkit-padding-start: 1.5em;
+}
+.content li {
+	margin-top: 0.5em;
+}
+
+

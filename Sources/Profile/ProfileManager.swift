@@ -128,6 +128,9 @@ open class ProfileManager {
 		if fm.fileExists(atPath: scheduleURL.path) {
 			try fm.removeItem(at: scheduleURL)
 		}
+		if fm.fileExists(atPath: completedURL.path) {
+			try fm.removeItem(at: completedURL)
+		}
 		
 		NotificationManager.shared.cancelExistingNotifications(ofTypes: [], evenRescheduled: true)
 		NotificationCenter.default.post(name: type(of: self).didChangeProfileNotification, object: self)
@@ -372,7 +375,6 @@ open class ProfileManager {
 			user.name = name
 		}
 		if let bday = token["birthday"] as? String, bday.characters.count > 0 {
-			app_logIfDebug("----->  bday string: \(bday)")
 			user.birthDate = FHIRDate(string: bday)?.nsDate
 		}
 		return user

@@ -248,12 +248,6 @@ class DashboardViewController: UITableViewController {
 	
 	var motionReport: ActivityReport? {
 		didSet {
-			print("NEW MOTION REPORT")
-			if let periods = motionReport?.periods {
-				for period in periods {
-					print("---->  \(period)")
-				}
-			}
 			redrawMotionReport()
 		}
 	}

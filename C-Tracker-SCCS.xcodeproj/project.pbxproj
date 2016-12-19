@@ -47,6 +47,8 @@
 		EE86F4B31E00029B00922994 /* JWT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F4721E0001D600922994 /* JWT.framework */; };
 		EE86F4B41E00029B00922994 /* JWT.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F4721E0001D600922994 /* JWT.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE86F4C11E00038D00922994 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F4641E0001CE00922994 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EE87B2BA1E081B2C00719A71 /* QRCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE87B2B91E081B2C00719A71 /* QRCodeScanner.swift */; };
+		EE87B2D01E081D9700719A71 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE87B2CF1E081D9700719A71 /* AVFoundation.framework */; };
 		EE957D4F1E042B29004FADB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE957D511E042B29004FADB4 /* Localizable.strings */; };
 		EE957D581E044156004FADB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE957D5A1E044156004FADB4 /* InfoPlist.strings */; };
 		EE98D2A51E0160EC001BC845 /* ProfileSettingsDebug.json in Resources */ = {isa = PBXBuildFile; fileRef = EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */; };
@@ -356,6 +358,8 @@
 		EE86F4541E0001C700922994 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = "c3-pro-ios-framework/ResearchKit/ResearchKit.xcodeproj"; sourceTree = "<group>"; };
 		EE86F45E1E0001CE00922994 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = "c3-pro-ios-framework/CryptoSwift/CryptoSwift.xcodeproj"; sourceTree = "<group>"; };
 		EE86F4671E0001D600922994 /* JWT.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JWT.xcodeproj; path = JSONWebToken.swift/JWT.xcodeproj; sourceTree = "<group>"; };
+		EE87B2B91E081B2C00719A71 /* QRCodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeScanner.swift; sourceTree = "<group>"; };
+		EE87B2CF1E081D9700719A71 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EE957D501E042B29004FADB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE957D521E042B94004FADB4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		EE957D531E042B94004FADB4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -386,6 +390,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE87B2D01E081D9700719A71 /* AVFoundation.framework in Frameworks */,
 				EE86F4A71E00029B00922994 /* SMART.framework in Frameworks */,
 				EE86F4A31E00029B00922994 /* C3PRO.framework in Frameworks */,
 				EE86F4B31E00029B00922994 /* JWT.framework in Frameworks */,
@@ -461,6 +466,7 @@
 				EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */,
 				EEECC2281DECE0AB005645B8 /* preflight.sh */,
 				EEECC22A1DECE108005645B8 /* postflight.sh */,
+				EE87B2A71E081AF100719A71 /* Scan */,
 				EE14E7B41DD0CBBE009F8736 /* App */,
 				EE14E7DC1DD27CF7009F8736 /* Profile */,
 				EE14E7B61DD0CBBE009F8736 /* ViewController */,
@@ -505,6 +511,7 @@
 		EE14E7CD1DD18921009F8736 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EE87B2CF1E081D9700719A71 /* AVFoundation.framework */,
 				EE0F35211E02FCA7003AA556 /* HealthKit.framework */,
 			);
 			name = Frameworks;
@@ -589,6 +596,14 @@
 				EE86F4781E0001D600922994 /* JWTTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EE87B2A71E081AF100719A71 /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				EE87B2B91E081B2C00719A71 /* QRCodeScanner.swift */,
+			);
+			path = Scan;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -928,6 +943,7 @@
 				EEEC786B1DEC25BE00E7020C /* RootViewController.swift in Sources */,
 				EE14E7C01DD0D236009F8736 /* ConfirmViewController.swift in Sources */,
 				EE0B32881DF1B191009F9939 /* UserTaskPreparer.swift in Sources */,
+				EE87B2BA1E081B2C00719A71 /* QRCodeScanner.swift in Sources */,
 				EE0F34FB1E02E61C003AA556 /* ClientDebugViewController.swift in Sources */,
 				EE0F351F1E02F4C8003AA556 /* StudyContentWebViewController.swift in Sources */,
 				EE14E7BA1DD0CBBE009F8736 /* WelcomeViewController.swift in Sources */,

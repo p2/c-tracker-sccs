@@ -9,15 +9,30 @@
 import UIKit
 
 
+/**
+A view controller that can be handed a dictionary with claims and a `whenDone` callback. The user is shown all claims and given the option
+to respond "Yes" or "No" on whether they are accurate. The `whenDone` callback is called with a success flag when the user has reviewed all
+claims.
+
+Currently supported:
+
+- sub (name)
+- birthdate
+*/
 class ConfirmViewController: UITableViewController {
 	
-	public var details: [String: Any]? {
+	public var claims: [String: Any]? {
 		didSet {
+			var confirmable = [String: Any]()
+			claims?.filter() { ["sub", "birthdate"].contains($0.key) }.forEach() { confirmable[$0.key] = $0.value }
+			confirmableClaims = confirmable.isEmpty ? nil : confirmable
 			if isViewLoaded {
 				tableView.reloadData()
 			}
 		}
 	}
+	
+	private var confirmableClaims: [String: Any]?
 	
 	var confirmed = Set<Int>()
 	
@@ -52,7 +67,7 @@ class ConfirmViewController: UITableViewController {
 				whenDone(0 == refuted.count)
 			}
 			else {
-				print("WARNING: no `whenDone` closure assigned, cannot communicate result from \(self)")
+				NSLog("WARNING: no `whenDone` closure assigned, cannot communicate result from \(self)")
 			}
 		}
 	}
@@ -69,7 +84,7 @@ class ConfirmViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return details?.count ?? 0
+		return confirmableClaims?.count ?? 0
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -77,7 +92,7 @@ class ConfirmViewController: UITableViewController {
 		if let cell = cell as? ConfirmDataCell {
 			let key = detailKey(at: indexPath.row)
 			cell.topic?.text = topicName(for: key)
-			cell.data?.text = details?[key] as? String
+			cell.data?.text = confirmableClaims?[key] as? String
 			cell.yesButton?.superview?.tag = indexPath.row
 		}
 		return cell
@@ -88,16 +103,16 @@ class ConfirmViewController: UITableViewController {
 	func detailKey(at index: Int) -> String {
 		switch index {
 		case 0:  return "sub"
-		case 1:  return "birthday"
+		case 1:  return "birthdate"
 		default: return "sub"
 		}
 	}
 	
 	func topicName(for key: String) -> String {
 		switch key {
-		case "sub":      return "Your name is".sccs_loc
-		case "birthday": return "You were born on".sccs_loc
-		default:         return "Your {key} is".sccs_loc.replacingOccurrences(of: "{key}", with: key)
+		case "sub":       return "Your name is".sccs_loc
+		case "birthdate": return "You were born on".sccs_loc
+		default:          return "Your {key} is".sccs_loc.replacingOccurrences(of: "{key}", with: key)
 		}
 	}
 }

@@ -374,7 +374,7 @@ open class ProfileManager {
 		if let name = token["sub"] as? String, name.characters.count > 0 {
 			user.name = name
 		}
-		if let bday = token["birthday"] as? String, bday.characters.count > 0 {
+		if let bday = token["birthdate"] as? String, bday.characters.count > 0 {
 			user.birthDate = FHIRDate(string: bday)?.nsDate
 		}
 		return user
@@ -407,7 +407,7 @@ open class ProfileManager {
 	// MARK: - Trying the App
 	
 	class func sampleUser() -> User {
-		var user = self.userFromToken(["sub": "Sarah Pes", "birthday": "1976-04-28"])
+		var user = self.userFromToken(["sub": "Sarah Pes", "birthdate": "1976-04-28"])
 		user.userId = "000-SAMPLE"
 		return user
 	}

@@ -8,4 +8,5 @@
 
 "NSHealthShareUsageDescription" = "Um grundlegende medizinische Informationen, wie Ihr Geschlecht, zu erfahren";
 "NSMotionUsageDescription" = "Durch Zugriff auf den “Motion Co-Prozessor” kann die App Ihre Aktivität bestimmen, woduch ein möglicher Einfluss der körperlichen Aktivität auf den Krankheitsverlauf besser beurteilt werden kann";
+"NSCameraUsageDescription" = "Um QR-Codes zu scannen";
 

@@ -22,7 +22,7 @@
 "Error" = "Error";
 "Female" = "Female";
 "Gender" = "Gender";
-"Gender ● Birthday ● Height ● Weight" = "Gender ● Birthday ● Height ● Weight";
+"Gender, birthday, height, weight" = "Gender, birthday, height, weight";
 "Height" = "Height";
 "in {{days}} days" = "in {{days}} days";
 "Invalid Code" = "Invalid Code";

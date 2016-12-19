@@ -104,7 +104,7 @@ class DashboardViewController: UITableViewController {
 			startSurveyTask(task, animated: animated) { error in
 				self.showSpinnerAt(indexPath, show: false)
 				if let error = error {
-					self.showError(error)
+					self.show(error: error, title: "Cannot Start Task".sccs_loc)
 				}
 			}
 		}
@@ -173,7 +173,7 @@ class DashboardViewController: UITableViewController {
 			}
 			catch let error {
 				dismiss(animated: true) {
-					self.showError(error)
+					self.show(error: error)
 				}
 			}
 		}
@@ -187,7 +187,7 @@ class DashboardViewController: UITableViewController {
 		dismiss(animated: true, completion: nil)
 		if let error = error {
 			c3_logIfDebug("Questionnaire failed: \(error)")
-			self.showError(error)
+			self.show(error: error)
 		}
 	}
 	
@@ -266,12 +266,12 @@ class DashboardViewController: UITableViewController {
 			if let error = error {
 				if isRetry {
 					c3_logIfDebug("Cannot refresh health data: tried to get permission from HealthKit, not received")
-					self.showError(error)
+					self.show(error: error)
 				}
 				else if let m = self.profileManager {
 					m.requestPermission(for: .healthKit(m.healthKitTypes)) { error in
 						if let error = error {
-							self.showError(error)
+							self.show(error: error)
 						}
 						else {
 							self.refreshHealthData(isRetry: true)
@@ -296,7 +296,7 @@ class DashboardViewController: UITableViewController {
 		if let m = profileManager, !m.hasPermission(for: .coreMotion) {
 			m.requestPermission(for: .coreMotion) { error in
 				if let error = error {
-					self.showError(error)
+					self.show(error: error)
 				}
 				else {
 					self.refreshMotionData()
@@ -559,16 +559,6 @@ class DashboardViewController: UITableViewController {
 	func showSpinnerAt(_ indexPath: IndexPath, show: Bool = true) {
 		showSpinnerInCell = show ? indexPath : nil
 		tableView.reloadRows(at: [indexPath], with: .none)
-	}
-	
-	func showError(_ error: Error) {
-		let alert = UIAlertController(title: "Error".sccs_loc,
-			message: "\(error)",
-			preferredStyle: UIAlertControllerStyle.alert)
-		let ok = UIAlertAction(title: "OK".sccs_loc, style: UIAlertActionStyle.cancel, handler: nil)
-		
-		alert.addAction(ok)
-		present(alert, animated: true, completion: nil)
 	}
 }
 

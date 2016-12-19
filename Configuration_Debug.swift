@@ -38,6 +38,12 @@ let cServerAntispamToken: String? = "A91DCA9156D3492E89B12832145A8899"
 /// An identifier for the public key used to encrypt resources.
 let cEncDataQueueKey = "N/A"
 
+/// The issuer endpoint expected from JWT decoding; can be nil if any issuer should be allowed.
+let cJWTIssuer: String? = "https://idm.c3-pro.io/"
+
+/// The secret used in the JWT.
+let cJWTSecret: String = "super-duper-secret"
+
 /// Your Smooch token; leave nil to not use Smooch.
 let cSmoochToken: String? = nil
 

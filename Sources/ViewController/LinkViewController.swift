@@ -38,7 +38,7 @@ class LinkViewController: UIViewController {
 				throw AppError.generic("No camera on device, cannot scan QR code")
 			}
 			let scanner = try QRCodeScanner(with: camera, eventHandler: { metadata in
-				self.highlight(metadata: metadata)
+				self.highlightArea(of: metadata)
 				self.didScan(metadata: metadata)
 			})
 			qrCodeScanner = scanner
@@ -87,7 +87,7 @@ class LinkViewController: UIViewController {
 		qrCodeScanner?.stopRunning()
 	}
 	
-	func highlight(metadata: AVMetadataMachineReadableCodeObject?) {
+	func highlightArea(of metadata: AVMetadataMachineReadableCodeObject?) {
 		guard let metadata = metadata else {
 			scanIndicator?.isHidden = true
 			return

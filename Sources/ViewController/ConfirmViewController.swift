@@ -130,6 +130,7 @@ class ConfirmDataCell: UITableViewCell {
 	
 	override func awakeFromNib() {
 		super.awakeFromNib()
+		selectionStyle = .none
 	}
 	
 	override func prepareForReuse() {

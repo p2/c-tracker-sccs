@@ -51,7 +51,7 @@ public protocol UserTask {
 	/// The day this task is due.
 	var dueDate: Date? { get set }
 	
-	/// Whether this task is due.
+	/// Whether this task is due and has neither been completed nor expired.
 	var due: Bool { get }
 	
 	var humanDueDate: String? { get }
@@ -62,13 +62,20 @@ public protocol UserTask {
 	/// The day this task has been completed.
 	var completedDate: Date? { get set }
 	
-	var humanCompletedDate: String? { get }
+	/// The day this task has expired.
+	var expiredDate: Date? { get set }
+	
+	/// Human-readable date this task has either been completed or has expired.
+	var humanCompletedExpiredDate: String? { get }
+	
+	/// Whether this task is pending.
+	var pending: Bool { get }
 	
 	/// Whether this task has been completed.
 	var completed: Bool { get }
 	
-	/// Whether this task is pending.
-	var pending: Bool { get }
+	/// Whether this task has expired.
+	var expired: Bool { get }
 	
 	/// Whether this task can be reviewed.
 	var canReview: Bool { get }

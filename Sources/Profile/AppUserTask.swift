@@ -31,17 +31,6 @@ class AppUserTask: UserTask {
 	/// The day this task is due.
 	var dueDate: Date?
 	
-	/// Whether this task is due.
-	var due: Bool {
-		if completed {
-			return false
-		}
-		if let dd = dueDate {
-			return (.orderedAscending == dd.compare(Date()))
-		}
-		return false
-	}
-	
 	var humanDueDate: String? {
 		if let date = dueDate {
 			let cal = Calendar.current
@@ -76,8 +65,8 @@ class AppUserTask: UserTask {
 	/// The day this task has been completed.
 	var completedDate: Date?
 	
-	var humanCompletedDate: String? {
-		if let date = completedDate {
+	var humanCompletedExpiredDate: String? {
+		if let date = completedDate ?? expiredDate {
 			let formatter = DateFormatter()
 			formatter.dateStyle = DateFormatter.Style.medium
 			formatter.timeStyle = DateFormatter.Style.none
@@ -86,14 +75,33 @@ class AppUserTask: UserTask {
 		return nil
 	}
 	
+	/// The day this task has expired.
+	var expiredDate: Date?
+	
+	/// Whether this task is due.
+	var due: Bool {
+		if completed || expired {
+			return false
+		}
+		if let dd = dueDate {
+			return dd < Date()
+		}
+		return false
+	}
+	
+	/// Whether this task is pending.
+	var pending: Bool {
+		return !completed && !due
+	}
+	
 	/// Whether this task has been completed.
 	var completed: Bool {
 		return nil != completedDate
 	}
 	
-	/// Whether this task is pending.
-	var pending: Bool {
-		return !due && !completed
+	/// Whether this task has expired.
+	var expired: Bool {
+		return !completed && nil != expiredDate && expiredDate! < Date()
 	}
 	
 	/// Whether this task can be reviewed.
@@ -149,9 +157,15 @@ class AppUserTask: UserTask {
 		}
 		if let delayMax = serialized["delayMax"] as? String {
 			delayMaxDate = DateTime(string: delayMax)?.nsDate
+			if let delayMaxDate = delayMaxDate, delayMaxDate < Date() {
+				expiredDate = delayMaxDate
+			}
 		}
 		if let done = serialized["done"] as? String {
 			completedDate = FHIRDate(string: done)?.nsDate
+		}
+		if let expired = serialized["expired"] as? String {
+			expiredDate = FHIRDate(string: expired)?.nsDate
 		}
 	}
 	
@@ -175,6 +189,9 @@ class AppUserTask: UserTask {
 			}
 			if let delayMax = delayMaxDate?.fhir_asDateTime() {
 				json["delayMax"] = delayMax.asJSON(errors: &errors)
+			}
+			if let expired = delayMaxDate?.fhir_asDateTime() {
+				json["expired"] = expired.asJSON(errors: &errors)
 			}
 		}
 		return json

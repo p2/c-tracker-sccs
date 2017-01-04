@@ -36,22 +36,19 @@ class DashboardViewController: UITableViewController {
 	
 	/// will only include one task per task.id!
 	var tasksOutstanding: [UserTask] {
-		var found = [String]()
-		let outstanding = user?.tasks.filter() {
+		var found = Set<String>()
+		let outstanding = user?.tasksOutstanding.filter() {
 			if found.contains($0.taskId) {
 				return false
 			}
-			if $0.completed {
-				return false
-			}
-			found.append($0.taskId)
+			found.insert($0.taskId)
 			return true
 		}
 		return outstanding ?? []
 	}
 	
 	var tasksDone: [UserTask] {
-		return Array(user?.tasks.filter() { return $0.completed }.reversed() ?? [])
+		return user?.tasksPast ?? []
 	}
 	
 	var questionnaireController: QuestionnaireController?
@@ -465,9 +462,9 @@ class DashboardViewController: UITableViewController {
 				cell.labelDate?.textColor = UIColor(red:1, green:0.68, blue:0, alpha:1)
 				cell.labelDate?.text = "due".sccs_loc
 			}
-			else if task.completed {
-				cell.labelDate?.textColor = UIColor.lightGray
-				cell.labelDate?.text = task.humanCompletedDate
+			else if task.completed || task.expired {
+				cell.labelDate?.textColor = task.expired ? UIColor.red : UIColor.lightGray
+				cell.labelDate?.text = task.humanCompletedExpiredDate
 			}
 			else {
 				cell.labelDate?.textColor = UIColor.darkGray

@@ -23,8 +23,8 @@
 /* Class = "UIButton"; normalTitle = "Leave Study"; ObjectID = "FKy-da-W2e"; */
 "FKy-da-W2e.normalTitle" = "Studie verlassen";
 
-/* Class = "UITabBarItem"; title = "You"; ObjectID = "GLl-4M-qUb"; */
-"GLl-4M-qUb.title" = "Sie";
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "GLl-4M-qUb"; */
+"GLl-4M-qUb.title" = "Profil";
 
 /* Class = "UILabel"; text = "Focus the QR code in the area above"; ObjectID = "Hcs-PN-rax"; */
 "Hcs-PN-rax.text" = "Den QR-Code oben erfassen";

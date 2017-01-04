@@ -42,6 +42,10 @@ public protocol User {
 	
 	var tasks: [UserTask] { get set }
 	
+	var tasksOutstanding: [UserTask] { get }
+	
+	var tasksPast: [UserTask] { get }
+	
 	func add(task: UserTask) throws
 	
 	

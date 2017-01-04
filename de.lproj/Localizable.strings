@@ -8,6 +8,7 @@
 
 "{{steps}} steps per day" = "{{steps}} Schritte pro Tag";
 "{{steps}} steps, {{flights}} floors climbed per day" = "{{steps}} Schritte, {{flights}} Stockwerke pro Tag";
+"All your tasks are done" = "Alle Aufgaben sind erledigt";
 "App Credentials" = "App Zugangsdaten";
 "App Settings" = "Einstellungen";
 "Are you sure you wish to withdraw from the study?" = "Sind Sie sicher, dass Sie die Studie verlassen möchten?";
@@ -65,4 +66,4 @@
 "Your name is" = "Ihr Name ist";
 "Your Tasks" = "Aufgaben";
 "Your {key} is" = "Ihr {key} ist";
-"{{title}} is not yet due" = "{{title}} ist noch nicht soweit";
+"{{title}} is not yet due" = "{{title}} ist noch nicht fällig";

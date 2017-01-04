@@ -389,7 +389,7 @@ class DashboardViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if 0 == section {
-			return tasksOutstanding.count
+			return max(tasksOutstanding.count, 1)
 		}
 		if 1 == section {
 			return 4
@@ -472,6 +472,13 @@ class DashboardViewController: UITableViewController {
 			}
 		}
 		
+		// no task at this row - should only happen if there are no more tasks
+		else {
+			cell.labelTask?.text = "All your tasks are done".sccs_loc
+			cell.progress?.image = UIImage(named: "progress_done")
+			cell.labelDate?.text = nil
+		}
+		
 		// do we want a spinner?
 		if let ip = showSpinnerInCell, ip == indexPath {
 			let activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)
@@ -514,7 +521,7 @@ class DashboardViewController: UITableViewController {
 					let formatter = DateFormatter()
 					formatter.dateStyle = .long
 					formatter.timeStyle = .none
-					let alert = UIAlertController(title: "{{title}} is not yet due".sccs_loc.replacingOccurrences(of: "{{title}}", with: task.title ?? task.type.rawValue),
+					let alert = UIAlertController(title: "{{title}} is not yet due".sccs_loc.replacingOccurrences(of: "{{title}}", with: task.title ?? task.type.rawValue.sccs_loc),
 						message: "There's still some time until {{due_date}}".sccs_loc.replacingOccurrences(of: "{{due_date}}", with: formatter.string(from: task.dueDate!)),
 						preferredStyle: UIAlertControllerStyle.alert)
 					let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)

@@ -50,7 +50,7 @@ class AppUserTask: UserTask {
 				return "in {{days}} days".sccs_loc.replacingOccurrences(of: "{{days}}", with: "\(diff)")
 			}
 			
-			// more than 5 days, show date
+			// later than in 5 days: show date
 			let formatter = DateFormatter()
 			formatter.dateStyle = DateFormatter.Style.medium
 			formatter.timeStyle = DateFormatter.Style.none
@@ -91,7 +91,7 @@ class AppUserTask: UserTask {
 	
 	/// Whether this task is pending.
 	var pending: Bool {
-		return !completed && !due
+		return !completed && !expired && !due
 	}
 	
 	/// Whether this task has been completed.

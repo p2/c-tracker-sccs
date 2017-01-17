@@ -30,9 +30,14 @@ open class ProfileManager {
 	
 	static let userDidWithdrawFromStudyNotification = Notification.Name("UserDidWithdrawFromStudyNotification")
 	
+	/// The user managed by the receiver.
 	var user: User?
 	
-	var server: Server?
+	/// The data server to be used.
+	var dataServer: FHIRServer?
+	
+	/// Internally used to hold on to a token server instance.
+	var tokenServer: OAuth2Requestable?
 	
 	let directory: URL
 	
@@ -93,7 +98,11 @@ open class ProfileManager {
 	// MARK: - Enrollment & Withdrawal
 	
 	/**
-	Enroll the given user profile.
+	Enroll the given user profile:
+	
+	1. persist user data
+	2. create the schedule
+	3. prepare user tasks
 	
 	- parameter user: The User to enroll
 	*/
@@ -103,7 +112,7 @@ open class ProfileManager {
 		
 		try type(of: self).persist(user: user, at: userURL)
 		try setupSchedule()
-		if let server = server {
+		if let server = dataServer {
 			taskPreparer = taskPreparer ?? UserTaskPreparer(user: user, server: server)
 			taskPreparer!.prepareDueTasks() { [weak self] in
 				if let this = self {
@@ -111,8 +120,43 @@ open class ProfileManager {
 				}
 			}
 		}
-		
+		else {
+			app_logIfDebug("No `dataServer` configured, cannot prepare due tasks")
+		}
 		NotificationCenter.default.post(name: type(of: self).didChangeProfileNotification, object: self)
+	}
+	
+	/**
+	Establish the link between the user and the JWT.
+	
+	- parameter user:     The User to which to link
+	- parameter token:    The token data with which the user wants to be linked
+	- parameter callback: The callback to call when enrolling has finished
+	*/
+	open func establishLink(between user: User, and link: ProfileLink, callback: @escaping ((Error?) -> Void)) {
+		do {
+			let endpoint = try link.establishURL()
+			let srv = OAuth2Requestable(verbose: false)
+			var req = URLRequest(url: endpoint)
+			req.addValue("Bearer \(link.token)", forHTTPHeaderField: "Authorization")
+			req.addValue("application/json", forHTTPHeaderField: "Content-type")
+			// TODO: body
+			srv.perform(request: req) { res in
+				if res.response.statusCode >= 400 {
+					callback(res.error ?? AppError.generic(res.response.statusString))
+				}
+				else {
+					user.didLink(on: Date(), against: endpoint)
+					callback(nil)
+				}
+				self.tokenServer = nil
+			}
+			tokenServer = srv
+		}
+		catch let error {
+			callback(error)
+			return
+		}
 	}
 	
 	/**
@@ -345,6 +389,12 @@ open class ProfileManager {
 		if let enrolled = user.enrollmentDate?.fhir_asDate() {
 			json["enrolled"] = enrolled.description
 		}
+		if let linked = user.linkedDate?.fhir_asDate() {
+			json["linked"] = linked.description
+		}
+		if let linked = user.linkedAgainst?.absoluteString {
+			json["linked_at"] = linked
+		}
 		let data = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
 		try data.write(to: url, options: [.atomic, .completeFileProtection])
 	}
@@ -363,18 +413,24 @@ open class ProfileManager {
 		if let enrolled = json["enrolled"] as? String, enrolled.characters.count > 0 {
 			user.enrollmentDate = FHIRDate(string: enrolled)?.nsDate
 		}
+		if let linked = json["linked"] as? String, linked.characters.count > 0 {
+			user.linkedDate = FHIRDate(string: linked)?.nsDate
+		}
+		if let linked = json["linked_at"] as? String, linked.characters.count > 0 {
+			user.linkedAgainst = URL(string: linked)
+		}
 		return user
 	}
 	
 	/**
 	Create a user from confirmed token data.
 	*/
-	public class func userFromToken(_ token: [String: Any]) -> User {
+	public class func userFromLink(_ link: ProfileLink) -> User {
 		let user = AppUser()
-		if let name = token["sub"] as? String, name.characters.count > 0 {
+		if let name = link.payload["sub"] as? String, name.characters.count > 0 {
 			user.name = name
 		}
-		if let bday = token["birthdate"] as? String, bday.characters.count > 0 {
+		if let bday = link.payload["birthdate"] as? String, bday.characters.count > 0 {
 			user.birthDate = FHIRDate(string: bday)?.nsDate
 		}
 		return user
@@ -407,15 +463,16 @@ open class ProfileManager {
 	// MARK: - Trying the App
 	
 	class func sampleUser() -> User {
-		var user = self.userFromToken(["sub": "Sarah Pes", "birthdate": "1976-04-28"])
+		let (token, secret) = sampleToken()
+		let link = try! ProfileLink(token: token, using: secret)
+		var user = self.userFromLink(link)
 		user.userId = "000-SAMPLE"
 		return user
 	}
 	
 	class func sampleToken() -> (String, String) {
-		let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2lkbS5jMy1wcm8uaW8iLCJhdWQiOiJodHRwczovL2lkbS5jMy1wcm8uaW8iLCJqdGkiOiI4MkYyNzk3OUE5MzYiLCJleHAiOiIxNjczNDk3Mjg4Iiwic3ViIjoiU2FyYWggUGVzIiwiYmlydGhkYXkiOiIxOTc2LTA0LTI4In0.e_Fo1vrmn_EjQSN2gp0Pf9a1AI07tvFLnx5UEsLynO0"	// valid until Jan 2023
-//		let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2lkbS5jMy1wcm8uaW8iLCJhdWQiOiJodHRwczovL2lkbS5jMy1wcm8uaW8iLCJqdGkiOiI4MkYyNzk3OUE5MzYiLCJleHAiOiIxNDczNDk3Mjg4Iiwic3ViIjoiU2FyYWggUGVzIiwiYmlydGhkYXkiOiIxOTc2LTA0LTI4In0._Y3PHBwGajDt_tdCcFOxLTdFj1kiosYBreKLF9IQ4qU"
-		let secret = "secret"
+		let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2lkbS5jMy1wcm8uaW8vIiwiYXVkIjoiaHR0cHM6Ly9pZG0uYzMtcHJvLmlvLyIsImp0aSI6IjgyRjI3OTc5QTkzNiIsImV4cCI6IjE2NzM0OTcyODgiLCJzdWIiOiJQZXRlciBNw7xsbGVyIiwiYmlydGhkYXRlIjoiMTk3Ni0wNC0yOCJ9.ZwhX0_dVNsekm7N-tf4-m1y4P37GR7z4qOGtuWD_oNY"	// valid until Jan 2023
+		let secret = "super-duper-secret"
 		
 		return (token, secret)
 	}

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import JWT
 import AVFoundation
 
 
@@ -15,9 +14,9 @@ class LinkViewController: UIViewController {
 	
 	@IBOutlet var scanArea: UIView?
 	
-	var tokenDataConfirmed: (([String: Any]) -> Void)?
+	var tokenConfirmed: ((ProfileLink) -> Void)?
 	
-	var tokenDataRefuted: ((Error) -> Void)?
+	var tokenRefuted: ((Error) -> Void)?
 	
 	var usingSampleData = false
 	
@@ -103,9 +102,9 @@ class LinkViewController: UIViewController {
 		if let scanned = metadata?.stringValue {
 			stopScanner()
 			do {
-				let payload = try decodeScanned(token: scanned, using: cJWTSecret, issuer: cJWTIssuer)
+				let link = try ProfileLink(token: scanned, using: cJWTSecret, issuer: cJWTIssuer)
 				DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-					self.letUserConfirm(claims: payload)
+					self.letUserConfirm(link: link)
 				}
 			}
 			catch let error {
@@ -116,39 +115,50 @@ class LinkViewController: UIViewController {
 		}
 	}
 	
-	func decodeScanned(token: String, using secret: String, issuer: String? = nil) throws -> Payload {
-		guard let secretData = secret.data(using: String.Encoding.utf8) else {
-			throw AppError.generic("Cannot convert secret to data")
-		}
-		//print("--->  \(token)")
-		return try JWT.decode(token, algorithm: .hs256(secretData), verify: true, audience: nil, issuer: issuer)
-	}
-	
 	
 	// MARK: - Confirmation
 	
-	func letUserConfirm(claims: [String: Any]) {
+	func letUserConfirm(link: ProfileLink) {
 		guard let confirm = storyboard?.instantiateViewController(withIdentifier: "Confirm") as? ConfirmViewController else {
 			fatalError("There is no “Confirm” view controller in storyboard \(storyboard?.description ?? "nil")")
 		}
-		confirm.claims = claims
+		confirm.claims = link.payload
 		confirm.whenDone = { success in
 			if success {
-				self.didConfirmToken(data: claims)
+				self.didConfirm(link: link)
 			}
 			else {
-				self.didRefuteTokenData()
+				self.didRefute()
 			}
 		}
 		navigationController?.pushViewController(confirm, animated: true)
 	}
 	
-	func didConfirmToken(data: [String: Any]) {
-		tokenDataConfirmed?(data)
+	func didConfirm(link: ProfileLink) {
+		tokenConfirmed?(link)
 	}
 	
-	func didRefuteTokenData() {
-		tokenDataRefuted?(AppError.jwtDataRefuted)
+	func didRefute() {
+		tokenRefuted?(AppError.jwtDataRefuted)
+	}
+	
+	
+	// MARK: - Linking
+	
+	public func didStartLinking() {
+		guard let establish = storyboard?.instantiateViewController(withIdentifier: "Establish") as? EstablishViewController else {
+			fatalError("There is no “Establish” view controller in storyboard \(storyboard?.description ?? "nil")")
+		}
+		navigationController?.pushViewController(establish, animated: true)
+	}
+	
+	public func didFinishLinking(with status: String) {
+		guard let idx = navigationController?.viewControllers.index(of: self)
+			, (idx+1) < (navigationController?.viewControllers.count ?? 0)
+			, let establish = navigationController?.viewControllers[idx+1] as? EstablishViewController else {
+			return
+		}
+		establish.processDone(status: status)
 	}
 	
 	
@@ -169,9 +179,9 @@ class LinkViewController: UIViewController {
 	func scanFakeToken() {
 		do {
 			let (token, secret) = ProfileManager.sampleToken()
-			let payload = try decodeScanned(token: token, using: secret)
+			let link = try ProfileLink(token: token, using: secret)
 			DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-				self.letUserConfirm(claims: payload)
+				self.letUserConfirm(link: link)
 			}
 		}
 		catch let error {

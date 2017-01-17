@@ -23,9 +23,9 @@ class UserTaskPreparer {
 	
 	let user: User
 	
-	let server: Server?
+	let server: FHIRServer?
 	
-	init(user: User, server: Server? = nil) {
+	init(user: User, server: FHIRServer? = nil) {
 		self.user = user
 		self.server = server
 	}

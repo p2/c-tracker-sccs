@@ -19,7 +19,7 @@ class WelcomeViewController: UIViewController {
 	
 	@IBAction func doTryApp(_ sender: AnyObject?) {
 		let sample = ProfileManager.sampleUser()
-		didLoad(user: sample)
+		doEnroll(user: sample)
 	}
 	
 	@IBAction func aboutTheApp(_ sender: AnyObject?) {
@@ -34,7 +34,7 @@ class WelcomeViewController: UIViewController {
 		
 	}
 	
-	func didLoad(user: User) {
+	func doEnroll(user: User) {
 		do {
 			try profileManager.enroll(user: user)
 			// emits a notification that root view controller should listen to and update the UI
@@ -49,17 +49,28 @@ class WelcomeViewController: UIViewController {
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if "ShowLink" == segue.identifier {
-			if let target = (segue.destination as? UINavigationController)?.topViewController as? LinkViewController {
-				target.tokenDataConfirmed = { data in
-					target.dismiss(animated: true) {
-						let profile = ProfileManager.userFromToken(data)
-						self.didLoad(user: profile)
+			guard let target = (segue.destination as? UINavigationController)?.topViewController as? LinkViewController else {
+				fatalError("The target of the “ShowLink” segue is not a navigation controller hosting a link view controller")
+			}
+			target.tokenConfirmed = { link in
+				let user = ProfileManager.userFromLink(link)
+				target.didStartLinking()
+				self.profileManager.establishLink(between: user, and: link) { error in
+					if let error = error {
+						// TODO: ok to fail gracefully, but attempt to establish the link later on!
+						app_logIfDebug("Failed to establish link: \(error)")
+					}
+					target.didFinishLinking(with: "Enrolled!")
+					DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+						target.dismiss(animated: true) {
+							self.doEnroll(user: user)
+						}
 					}
 				}
-				target.tokenDataRefuted = { error in
-					target.dismiss(animated: true) {
-						self.show(error: error, title: "Not You".sccs_loc)
-					}
+			}
+			target.tokenRefuted = { error in
+				target.dismiss(animated: true) {
+					self.show(error: error, title: "Not You".sccs_loc)
 				}
 			}
 		}

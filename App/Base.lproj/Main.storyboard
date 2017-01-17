@@ -422,6 +422,57 @@
             </objects>
             <point key="canvasLocation" x="1724" y="-1034"/>
         </scene>
+        <!--Establish View Controller-->
+        <scene sceneID="wRc-zo-ge1">
+            <objects>
+                <viewController storyboardIdentifier="Establish" id="UKM-VQ-WG9" customClass="EstablishViewController" customModule="C_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="C9S-d0-xEC"/>
+                        <viewControllerLayoutGuide type="bottom" id="2AQ-iG-bHu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="88r-f0-vvR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qdy-D3-dOf">
+                                <rect key="frame" x="128" y="286.5" width="118" height="93.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enrolling..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2T-o4-Sn8">
+                                        <rect key="frame" x="8" y="67" width="102" height="26.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="1b4-Kc-fcW">
+                                        <rect key="frame" x="40" y="0.0" width="37" height="37"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="c2T-o4-Sn8" secondAttribute="bottom" id="3t5-XL-UWY"/>
+                                    <constraint firstItem="1b4-Kc-fcW" firstAttribute="top" secondItem="Qdy-D3-dOf" secondAttribute="top" id="Bh2-xd-dnN"/>
+                                    <constraint firstItem="1b4-Kc-fcW" firstAttribute="centerX" secondItem="Qdy-D3-dOf" secondAttribute="centerX" id="Bq3-Ca-4c9"/>
+                                    <constraint firstItem="c2T-o4-Sn8" firstAttribute="top" secondItem="1b4-Kc-fcW" secondAttribute="bottom" constant="30" id="I0A-4r-k7J"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="c2T-o4-Sn8" secondAttribute="trailing" id="Jh8-ff-KdQ"/>
+                                    <constraint firstItem="c2T-o4-Sn8" firstAttribute="leading" secondItem="Qdy-D3-dOf" secondAttribute="leadingMargin" id="tmX-jO-tr9"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Qdy-D3-dOf" firstAttribute="width" relation="lessThanOrEqual" secondItem="88r-f0-vvR" secondAttribute="width" id="5Ya-HG-Iep"/>
+                            <constraint firstItem="Qdy-D3-dOf" firstAttribute="centerX" secondItem="88r-f0-vvR" secondAttribute="centerX" id="I5E-L4-a12"/>
+                            <constraint firstItem="Qdy-D3-dOf" firstAttribute="centerY" secondItem="88r-f0-vvR" secondAttribute="centerY" id="SNF-Me-Yft"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="label" destination="c2T-o4-Sn8" id="XaH-xQ-Bfp"/>
+                        <outlet property="spinner" destination="1b4-Kc-fcW" id="1Mj-ff-vop"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FqG-of-c06" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2590" y="-1034"/>
+        </scene>
         <!--Dashboard-->
         <scene sceneID="Dq1-zs-EN9">
             <objects>
@@ -569,13 +620,13 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8'500 steps, 14 floors" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ueo-mC-psY">
-                                            <rect key="frame" x="39" y="12" width="260" height="21"/>
+                                            <rect key="frame" x="39" y="11" width="260" height="21"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Yesterday" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXE-oF-IG1">
-                                            <rect key="frame" x="307" y="16" width="60" height="16"/>
+                                            <rect key="frame" x="307" y="15" width="60" height="16"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                             <color key="textColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>

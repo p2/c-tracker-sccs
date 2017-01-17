@@ -83,6 +83,9 @@
 /* Class = "UITabBarItem"; title = "First"; ObjectID = "acW-dT-cKf"; */
 "acW-dT-cKf.title" = "First";
 
+/* Class = "UILabel"; text = "Enrolling..."; ObjectID = "c2T-o4-Sn8"; */
+"c2T-o4-Sn8.text" = "Anmelden...";
+
 /* Class = "UIButton"; normalTitle = "About the App"; ObjectID = "dRm-NV-3Nd"; */
 "dRm-NV-3Nd.normalTitle" = "Über die App";
 

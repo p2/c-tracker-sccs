@@ -28,6 +28,12 @@ public enum AppError: Error, CustomStringConvertible {
 	/// Some JWT data was refuted.
 	case jwtDataRefuted
 	
+	/// The JWT payload is missing its audience.
+	case jwtMissingAudience
+	
+	/// The JWT `aud` param is not a valid URL.
+	case jwtInvalidAudience(String)
+	
 	
 	// MARK: - CustomStringConvertible
 	
@@ -38,6 +44,8 @@ public enum AppError: Error, CustomStringConvertible {
 		case .invalidScheduleFormat(let str):       return "Schedule format is invalid".sccs_loc + ":\n\n" + str
 		case .invalidCompletedTasksFormat(let str): return "Completed task format is invalid".sccs_loc + ":\n\n" + str
 		case .jwtDataRefuted:                       return "You refuted some of the information contained in the code".sccs_loc
+		case .jwtMissingAudience:                   return "The JWT is missing its audience (`aud` parameter)".sccs_loc
+		case .jwtInvalidAudience(let str):          return "The JWT `aud` param's value is “{{aud}}”, which is not a valid URL".sccs_loc.replacingOccurrences(of: "{{aud}}", with: str)
 		}
 	}
 }

@@ -37,6 +37,12 @@ public protocol User {
 	
 	func didEnroll(on date: Date)
 	
+	var linkedDate: Date? { get set }
+	
+	var linkedAgainst: URL? { get set }
+	
+	func didLink(on date: Date, against url: URL)
+	
 	
 	// MARK: - Tasks
 	

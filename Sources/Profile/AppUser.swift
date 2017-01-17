@@ -52,6 +52,15 @@ final class AppUser: User {
 		enrollmentDate = date
 	}
 	
+	public internal(set) var linkedDate: Date?
+	
+	public internal(set) var linkedAgainst: URL?
+	
+	public func didLink(on date: Date, against url: URL) {
+		linkedDate = date
+		linkedAgainst = url
+	}
+	
 	
 	// MARK: - Tasks
 	

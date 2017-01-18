@@ -56,7 +56,7 @@ public protocol UserTask {
 	
 	var humanDueDate: String? { get }
 	
-	/// Until when the task can be delayed (e.g. via "Remind me tomorrow" actions)
+	/// Until when the task can be delayed (e.g. via "Remind me tomorrow" actions).
 	var delayMaxDate: Date? { get }
 	
 	/// The day this task has been completed.

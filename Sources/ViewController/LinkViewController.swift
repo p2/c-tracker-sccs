@@ -14,6 +14,11 @@ class LinkViewController: UIViewController {
 	
 	@IBOutlet var scanArea: UIView?
 	
+	@IBOutlet var instructionOverlay: UIVisualEffectView?
+	@IBOutlet var instructionTitle: UILabel?
+	@IBOutlet var instructionMain: UILabel?
+	@IBOutlet var instructionButton: UIButton?
+	
 	var tokenConfirmed: ((ProfileLink) -> Void)?
 	
 	var tokenRefuted: ((Error) -> Void)?
@@ -34,7 +39,7 @@ class LinkViewController: UIViewController {
 		
 		do {
 			guard let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) else {
-				throw AppError.generic("No camera on device, cannot scan QR code")
+				throw AppError.generic("No camera on device, cannot scan QR code".sccs_loc)
 			}
 			let scanner = try QRCodeScanner(with: camera, eventHandler: { metadata in
 				self.highlightArea(of: metadata)
@@ -72,6 +77,21 @@ class LinkViewController: UIViewController {
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		stopScanner()
+	}
+	
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		if nil != linkToConfirm {
+			instructionOverlay?.isHidden = true
+			linkToConfirm = nil
+		}
+	}
+	
+	
+	// MARK: - Instructional View
+	
+	@IBAction func hideInstructions(_ sender: AnyObject?) {
+		instructionOverlay?.isHidden = true
 	}
 	
 	
@@ -118,7 +138,23 @@ class LinkViewController: UIViewController {
 	
 	// MARK: - Confirmation
 	
+	var linkToConfirm: ProfileLink?
+	
 	func letUserConfirm(link: ProfileLink) {
+		linkToConfirm = link
+		
+		instructionTitle?.text = "Scanned!".sccs_loc
+		instructionMain?.text = "Now, please verify your personal data in order to conclude enrollment".sccs_loc
+		instructionButton?.setTitle("Verify…".sccs_loc, for: .normal)
+		instructionButton?.removeTarget(self, action: nil, for: .touchUpInside)
+		instructionButton?.addTarget(self, action: #selector(LinkViewController.startUserConfirm(_:)), for: .touchUpInside)
+		instructionOverlay?.isHidden = false
+	}
+	
+	func startUserConfirm(_ sender: AnyObject?) {
+		guard let link = linkToConfirm else {
+			fatalError("No stored link in `linkToConfirm `")
+		}
 		guard let confirm = storyboard?.instantiateViewController(withIdentifier: "Confirm") as? ConfirmViewController else {
 			fatalError("There is no “Confirm” view controller in storyboard \(storyboard?.description ?? "nil")")
 		}

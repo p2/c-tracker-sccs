@@ -347,6 +347,14 @@ open class ProfileManager {
 	
 	// MARK: - Service Permissions
 	
+	public var systemServicesNeeded: [SystemService] {
+		return [
+			.localNotifications(notificationCategories),
+			.coreMotion,
+			.healthKit(healthKitTypes),
+		]
+	}
+	
 	public func hasPermission(for service: SystemService) -> Bool {
 		permissioner = permissioner ?? SystemServicePermissioner()
 		return permissioner!.hasPermission(for: service)
@@ -355,6 +363,11 @@ open class ProfileManager {
 	public func requestPermission(for service: SystemService, callback: @escaping ((Error?) -> Void)) {
 		permissioner = permissioner ?? SystemServicePermissioner()
 		permissioner!.requestPermission(for: service, callback: callback)
+	}
+	
+	var notificationCategories: Set<UIUserNotificationCategory> {
+		let notificationTypes = [NotificationManagerNotificationType.none, .once, .delayable]
+		return Set(notificationTypes.map() { $0.category() }.filter() { nil != $0 }.map() { $0!.userNotificationCategory })
 	}
 	
 	var healthKitTypes: HealthKitTypes {

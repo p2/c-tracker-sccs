@@ -9,6 +9,7 @@
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -249,14 +250,73 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X5n-jA-CdM">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="QDU-fU-WUb">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eVP-0t-yn7">
+                                            <rect key="frame" x="39.5" y="197" width="296" height="210"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enrollment" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="caH-7i-mcd">
+                                                    <rect key="frame" x="0.0" y="0.0" width="296" height="33.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ask the researcher to display your enrollment QR code on a computer screen" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8lv-86-ycl">
+                                                    <rect key="frame" x="0.5" y="58.5" width="296" height="82.5"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8GH-99-70k">
+                                                    <rect key="frame" x="132.5" y="171" width="31" height="39"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                    <state key="normal" title="OK">
+                                                        <color key="titleColor" red="0.55553501839999997" green="0.8159300089" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="hideInstructions:" destination="s24-tP-XVP" eventType="touchUpInside" id="TW5-JA-28O"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="8GH-99-70k" secondAttribute="bottom" id="13r-EG-d1s"/>
+                                                <constraint firstAttribute="trailing" secondItem="8lv-86-ycl" secondAttribute="trailing" id="5t7-TK-tb1"/>
+                                                <constraint firstItem="8lv-86-ycl" firstAttribute="leading" secondItem="eVP-0t-yn7" secondAttribute="leading" id="B82-Nx-Vbq"/>
+                                                <constraint firstItem="8lv-86-ycl" firstAttribute="top" secondItem="caH-7i-mcd" secondAttribute="bottom" constant="25" id="G4d-JE-NlJ"/>
+                                                <constraint firstItem="caH-7i-mcd" firstAttribute="top" secondItem="eVP-0t-yn7" secondAttribute="top" id="M5h-nX-C2l"/>
+                                                <constraint firstAttribute="trailing" secondItem="caH-7i-mcd" secondAttribute="trailing" id="cL8-5h-k9r"/>
+                                                <constraint firstItem="caH-7i-mcd" firstAttribute="leading" secondItem="eVP-0t-yn7" secondAttribute="leading" id="dea-pj-73Q"/>
+                                                <constraint firstItem="8GH-99-70k" firstAttribute="top" secondItem="8lv-86-ycl" secondAttribute="bottom" constant="30" id="fyu-js-cYe"/>
+                                                <constraint firstItem="8GH-99-70k" firstAttribute="centerX" secondItem="eVP-0t-yn7" secondAttribute="centerX" id="mLt-c2-LEM"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="eVP-0t-yn7" firstAttribute="centerY" secondItem="QDU-fU-WUb" secondAttribute="centerY" id="1un-ks-qPc"/>
+                                        <constraint firstItem="eVP-0t-yn7" firstAttribute="centerX" secondItem="QDU-fU-WUb" secondAttribute="centerX" id="Ror-Ka-8LG"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="eVP-0t-yn7" firstAttribute="width" relation="lessThanOrEqual" secondItem="X5n-jA-CdM" secondAttribute="width" multiplier="0.8" id="ejq-F7-i6s"/>
+                                </constraints>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="czN-Qv-deR" firstAttribute="top" secondItem="jNd-XW-n8o" secondAttribute="bottom" constant="30" id="67t-uV-cMK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Hcs-PN-rax" secondAttribute="trailing" id="9Ow-wE-6Jf"/>
                             <constraint firstAttribute="trailing" secondItem="GuI-fw-X5x" secondAttribute="trailing" id="BZn-wC-QpX"/>
+                            <constraint firstAttribute="trailing" secondItem="X5n-jA-CdM" secondAttribute="trailing" id="IWT-ea-Pcg"/>
+                            <constraint firstItem="X5n-jA-CdM" firstAttribute="leading" secondItem="BGA-Hy-NAg" secondAttribute="leading" id="PEq-uv-3vq"/>
+                            <constraint firstItem="czN-Qv-deR" firstAttribute="top" secondItem="X5n-jA-CdM" secondAttribute="bottom" id="Vwu-IR-Q1z"/>
                             <constraint firstItem="GuI-fw-X5x" firstAttribute="leading" secondItem="BGA-Hy-NAg" secondAttribute="leading" id="bsJ-JD-5Ps"/>
                             <constraint firstItem="GuI-fw-X5x" firstAttribute="top" relation="greaterThanOrEqual" secondItem="oH6-OL-Fq4" secondAttribute="bottom" id="cgH-eI-AHK"/>
+                            <constraint firstItem="X5n-jA-CdM" firstAttribute="top" secondItem="oH6-OL-Fq4" secondAttribute="bottom" id="hpe-dw-eYw"/>
                             <constraint firstItem="Hcs-PN-rax" firstAttribute="leading" secondItem="BGA-Hy-NAg" secondAttribute="leadingMargin" id="n1k-zO-r4X"/>
                             <constraint firstItem="GuI-fw-X5x" firstAttribute="centerY" secondItem="BGA-Hy-NAg" secondAttribute="centerY" priority="750" id="ocF-G2-5BD"/>
                             <constraint firstItem="jNd-XW-n8o" firstAttribute="top" secondItem="Hcs-PN-rax" secondAttribute="bottom" constant="20" id="sA9-Ux-jK3"/>
@@ -272,6 +332,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="instructionButton" destination="8GH-99-70k" id="faM-Gt-vx8"/>
+                        <outlet property="instructionMain" destination="8lv-86-ycl" id="E0N-an-9qE"/>
+                        <outlet property="instructionOverlay" destination="X5n-jA-CdM" id="hOM-CZ-pYa"/>
+                        <outlet property="instructionTitle" destination="caH-7i-mcd" id="9FU-Fe-Z0I"/>
                         <outlet property="scanArea" destination="GuI-fw-X5x" id="uB6-wo-sMR"/>
                     </connections>
                 </viewController>
@@ -420,7 +484,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ETw-Sa-uGz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1724" y="-1034"/>
+            <point key="canvasLocation" x="1737" y="-1034"/>
         </scene>
         <!--Establish View Controller-->
         <scene sceneID="wRc-zo-ge1">

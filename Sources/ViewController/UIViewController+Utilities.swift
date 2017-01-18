@@ -12,9 +12,10 @@ import UIKit
 extension UIViewController {
 	
 	func show(error: Error, title: String = "Error".sccs_loc, onDismiss: ((UIAlertAction) -> Void)? = nil) {
-		let msg = (NSCocoaErrorDomain == error._domain) ? error.localizedDescription : "\(error)"
+		app_logIfDebug("Presenting error: \(error)")
+		let msg = ([NSCocoaErrorDomain, NSURLErrorDomain].contains(error._domain)) ? error.localizedDescription : "\(error)"
 		let alert = UIAlertController(title: title, message: msg, preferredStyle: .alert)
-		alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: onDismiss))
+		alert.addAction(UIAlertAction(title: "OK".sccs_loc, style: .cancel, handler: onDismiss))
 		present(alert, animated: true)
 	}
 }

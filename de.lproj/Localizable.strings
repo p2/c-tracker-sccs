@@ -6,21 +6,24 @@
   Copyright © 2016 SCCS. All rights reserved.
 */
 
-"{{steps}} steps per day" = "{{steps}} Schritte pro Tag";
-"{{steps}} steps, {{flights}} floors climbed per day" = "{{steps}} Schritte, {{flights}} Stockwerke pro Tag";
 "All your tasks are done" = "Alle Aufgaben sind erledigt";
 "App Credentials" = "App Zugangsdaten";
 "App Settings" = "Einstellungen";
 "Are you sure you wish to withdraw from the study?" = "Sind Sie sicher, dass Sie die Studie verlassen möchten?";
 "Birthday" = "Geburtstag";
 "Cancel" = "Abbruch";
+"Cannot Scan QR Code" = "Kann QR-Code Nicht Scannen";
+"Cannot Start Task" = "Kann Aufgabe Nicht Starten";
 "Change Passcode" = "PIN Ändern";
+"Completed task format is invalid" = "Aufgaben-Format is Ungültig";
 "Completed Tasks" = "Erledigt";
 "consent" = "Einwilligung";
 "Consent" = "Einwilligungsverfügung";
 "Could Not Load Profile" = "Profil konnte nicht geladen werden";
 "due" = "heute";
+"Enrolled!" = "Angemeldet!";
 "Error" = "Fehler";
+"Failed to Enroll" = "Anmeldung ist Fehlgeschlagen";
 "Female" = "Frau";
 "Gender" = "Geschlecht";
 "Gender, birthday, height, weight" = "Geschlecht, Geburtstag, Grösse, Gewicht";
@@ -33,6 +36,7 @@
 "Legal" = "Legales";
 "Male" = "Mann";
 "No camera on device, cannot scan QR code" = "Dieses Gerät hat keine Kamera, kann QR Code nicht scannen";
+"Not enrolled in the study yet" = "Noch nicht angemeldet";
 "Not Set" = "Unbekannt";
 "Not You" = "Falsche Person?";
 "Now, please verify your personal data in order to conclude enrollment" = "Überprüfen Sie nun Ihre persönlichen Angaben, um die Studie zu starten";
@@ -40,7 +44,9 @@
 "Other" = "Anderes";
 "Our work wouldn't have been possible without the work of other great individuals." = "Unsere Arbeit wäre ohne die Arbeit vieler anderer wunderbarer Menschen nicht möglich gewesen. Die Software-Lizenzen derer Arbeit sind hier aufgelistet, ohne bestimmte Reihenfolge.";
 "Past 24 Hours" = "Letzte 24 Stunden";
+"Permissioning Error" = "Fehler bei Zugriffsermächtigung";
 "Privacy Policy" = "Datenvertraulichkeit";
+"Problem with QR Code" = "Problem mit dem QR-Code";
 "Recent Activity" = "Aktivität";
 "Refreshing activity data..." = "Lade Daten...";
 "Remind in 1 hour" = "In 1 Stunde erinnern";
@@ -50,10 +56,12 @@
 "Reset" = "Zurücksetzen";
 "Review Consent" = "Einwilligung ansehen";
 "Scanned!" = "Gescannt!";
+"Schedule format is invalid" = "Das Format des Zeitflans ist ungültig";
 "Set Reminders" = "Erinnerungen aktivieren";
 "Software Licenses" = "Software-Lizenzen";
 "Step count not available" = "Schrittdaten nicht verfügbar";
 "survey" = "Fragebogen";
+"The JWT is missing its audience (`aud` parameter)" = "Im JWT fehlt die “audience” (`aud` Parameter)";
 "There's still some time until {{due_date}}" = "Bis zum {{due_date}} bleibt noch ein wenig Zeit";
 "This will unset your medical data for the study. You can later re-enter this data manually." = "Dies wird die medizinischen Angaben in dieser Studie zurück setzen. Sie können diese Daten später von Hand wieder eingeben.";
 "To get started, please allow the app to access some of the features of your phone" = "Als erstes erlauben Sie bitte der App, gewisse Dienste Ihres Telefons zu benutzen\n\nTappen Sie danach auf “Fertig”";
@@ -72,4 +80,6 @@
 "Your name is" = "Ihr Name ist";
 "Your Tasks" = "Aufgaben";
 "Your {key} is" = "Ihr {key} ist";
+"{{steps}} steps per day" = "{{steps}} Schritte pro Tag";
+"{{steps}} steps, {{flights}} floors climbed per day" = "{{steps}} Schritte, {{flights}} Stockwerke pro Tag";
 "{{title}} is not yet due" = "{{title}} ist noch nicht fällig";

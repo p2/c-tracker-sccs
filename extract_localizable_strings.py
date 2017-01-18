@@ -7,6 +7,9 @@ import re
 import sys
 import glob
 
+# the reference language - 1st argument, defaults to "en"
+REFERENCE = sys.argv[1] if len(sys.argv) > 1 else 'en'
+
 # the 1st group must capture the actual string
 #PATTERN = re.compile(r'"((([^"])|(\\"))+?)".sccs_loc')
 # TODO: how to zip past '\"'?
@@ -43,7 +46,7 @@ if '__main__' == __name__:
 	
 	# look at Localizable.strings
 	existing = {}
-	with io.open('en.lproj/Localizable.strings', 'r', encoding='utf-8') as handle:
+	with io.open('{}.lproj/Localizable.strings'.format(REFERENCE), 'r', encoding='utf-8') as handle:
 		for line in handle:
 			line = line.strip()
 			if len(line) > 0:

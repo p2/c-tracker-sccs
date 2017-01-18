@@ -36,35 +36,49 @@ class WelcomeViewController: UIViewController, ORKTaskViewControllerDelegate {
 		
 	}
 	
+	/**
+	Tells the profile manager to use this user going forward. Will emit a notification that the root view controller intercepts and
+	consequently updates the UI, dismissing the receiver.
+	*/
 	func doEnroll(user: User) {
 		do {
 			try profileManager.enroll(user: user)
-			// emits a notification that root view controller should listen to and update the UI
 		}
 		catch let error {
 			show(error: error, title: "Could Not Load Profile".sccs_loc)
 		}
 	}
 	
-	func didConfirm(link: ProfileLink, in viewController: LinkViewController) {
+	func didConfirm(link: ProfileLink, in viewController: LinkViewController, isFake: Bool) {
 		
 		// link is confirmed, create user and attempt to establish link
 		let user = ProfileManager.userFromLink(link)
 		viewController.didStartLinking()
 		self.profileManager.establishLink(between: user, and: link) { error in
-			if let error = error {
-				// TODO: ok to fail gracefully, but attempt to establish the link later on!
-				app_logIfDebug("Failed to establish link: \(error)")
+			// TODO: allow non-fake links to fail gracefully, attempt to establish the link later on
+			if !isFake, let error = error {
+				self.dismiss(animated: true) {
+					self.show(error: error, title: "Failed to Enroll".sccs_loc)
+				}
 			}
-			viewController.didFinishLinking(with: "Enrolled!")
-			DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-				self.foo(user: user, in: viewController)
+			else {
+				DispatchQueue.main.async() {
+					viewController.didFinishLinking(withStatus: "Enrolled!".sccs_loc)
+				}
+				DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+					self.performPermissioning(from: viewController) { error in
+						self.doEnroll(user: user)
+						// TODO: user gets launched into Dashboard immediately. Show some kind of greeting.
+					}
+				}
 			}
 		}
 	}
 	
-	// TODO: working here
-	func foo(user: User, in viewController: UIViewController) {
+	/**
+	Creates a two-step ordered task with instructional text and the system permissioning step.
+	*/
+	func performPermissioning(from viewController: UIViewController, callback: @escaping ((Error?) -> Void)) {
 		
 		// create an intro step and a system permissioning step
 		let step1 = ORKInstructionStep(identifier: "permission-intro")
@@ -78,12 +92,9 @@ class WelcomeViewController: UIViewController, ORKTaskViewControllerDelegate {
 		// when permissioning ends, dismiss the original view controller and load the profile
 		onPermissioningEnd = { vc, error in
 			vc.dismiss(animated: true) {
-				// ENROLL `user`
-				
-				// TODO: user gets launched into Dashboard immediately. Show some kind of greeting.
-				
+				callback(error)
 				if let error = error {
-					self.show(error: error, title: "Permissioning Error")
+					(self.view.window?.rootViewController ?? self).show(error: error, title: "Permissioning Error".sccs_loc)
 				}
 			}
 		}
@@ -100,8 +111,8 @@ class WelcomeViewController: UIViewController, ORKTaskViewControllerDelegate {
 			guard let target = (segue.destination as? UINavigationController)?.topViewController as? LinkViewController else {
 				fatalError("Destination for “ShowLink” is not a link view controller in storyboard «\(storyboard?.description ?? "nil")»")
 			}
-			target.tokenConfirmed = { link in
-				self.didConfirm(link: link, in: target)
+			target.tokenConfirmed = { link, fake in
+				self.didConfirm(link: link, in: target, isFake: fake)
 			}
 			target.tokenRefuted = { error in
 				target.dismiss(animated: true) {

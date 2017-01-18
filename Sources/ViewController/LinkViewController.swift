@@ -19,7 +19,7 @@ class LinkViewController: UIViewController {
 	@IBOutlet var instructionMain: UILabel?
 	@IBOutlet var instructionButton: UIButton?
 	
-	var tokenConfirmed: ((ProfileLink) -> Void)?
+	var tokenConfirmed: ((ProfileLink, Bool) -> Void)?
 	
 	var tokenRefuted: ((Error) -> Void)?
 	
@@ -138,10 +138,10 @@ class LinkViewController: UIViewController {
 	
 	// MARK: - Confirmation
 	
-	var linkToConfirm: ProfileLink?
+	var linkToConfirm: (ProfileLink, Bool)?
 	
-	func letUserConfirm(link: ProfileLink) {
-		linkToConfirm = link
+	func letUserConfirm(link: ProfileLink, fakeProfile: Bool = false) {
+		linkToConfirm = (link, fakeProfile)
 		
 		instructionTitle?.text = "Scanned!".sccs_loc
 		instructionMain?.text = "Now, please verify your personal data in order to conclude enrollment".sccs_loc
@@ -152,7 +152,7 @@ class LinkViewController: UIViewController {
 	}
 	
 	func startUserConfirm(_ sender: AnyObject?) {
-		guard let link = linkToConfirm else {
+		guard let (link, fake) = linkToConfirm else {
 			fatalError("No stored link in `linkToConfirm `")
 		}
 		guard let confirm = storyboard?.instantiateViewController(withIdentifier: "Confirm") as? ConfirmViewController else {
@@ -161,7 +161,7 @@ class LinkViewController: UIViewController {
 		confirm.claims = link.payload
 		confirm.whenDone = { success in
 			if success {
-				self.didConfirm(link: link)
+				self.didConfirm(link: link, isFake: fake)
 			}
 			else {
 				self.didRefute()
@@ -170,8 +170,8 @@ class LinkViewController: UIViewController {
 		navigationController?.pushViewController(confirm, animated: true)
 	}
 	
-	func didConfirm(link: ProfileLink) {
-		tokenConfirmed?(link)
+	func didConfirm(link: ProfileLink, isFake: Bool) {
+		tokenConfirmed?(link, isFake)
 	}
 	
 	func didRefute() {
@@ -181,20 +181,18 @@ class LinkViewController: UIViewController {
 	
 	// MARK: - Linking
 	
+	var establishLinkViewController: EstablishViewController?
+	
 	public func didStartLinking() {
 		guard let establish = storyboard?.instantiateViewController(withIdentifier: "Establish") as? EstablishViewController else {
 			fatalError("There is no “Establish” view controller in storyboard \(storyboard?.description ?? "nil")")
 		}
 		navigationController?.pushViewController(establish, animated: true)
+		establishLinkViewController = establish
 	}
 	
-	public func didFinishLinking(with status: String) {
-		guard let idx = navigationController?.viewControllers.index(of: self)
-			, (idx+1) < (navigationController?.viewControllers.count ?? 0)
-			, let establish = navigationController?.viewControllers[idx+1] as? EstablishViewController else {
-			return
-		}
-		establish.processDone(status: status)
+	public func didFinishLinking(withStatus status: String) {
+		establishLinkViewController?.processDone(status: status)
 	}
 	
 	
@@ -217,7 +215,7 @@ class LinkViewController: UIViewController {
 			let (token, secret) = ProfileManager.sampleToken()
 			let link = try ProfileLink(token: token, using: secret)
 			DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-				self.letUserConfirm(link: link)
+				self.letUserConfirm(link: link, fakeProfile: true)
 			}
 		}
 		catch let error {

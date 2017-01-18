@@ -8,6 +8,12 @@
 /* Class = "UILabel"; text = "Title"; ObjectID = "4Ub-Qs-5Un"; */
 "4Ub-Qs-5Un.text" = "Titel";
 
+/* Class = "UIButton"; normalTitle = "OK"; ObjectID = "8GH-99-70k"; */
+"8GH-99-70k.normalTitle" = "OK";
+
+/* Class = "UILabel"; text = "Ask the researcher to display your enrollment QR code on a computer screen"; ObjectID = "8lv-86-ycl"; */
+"8lv-86-ycl.text" = "Lassen Sie sich vom Studienmitarbeiter den QR-Code zur Anmeldung anzeigen";
+
 /* Class = "UIButton"; normalTitle = "About SCCS"; ObjectID = "9VG-hk-9TB"; */
 "9VG-hk-9TB.normalTitle" = "Über SCCS";
 
@@ -66,10 +72,10 @@
 "THY-03-5WJ.normalTitle" = "Teilnehmen";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "To8-W3-Ta7"; */
-"To8-W3-Ta7.text" = "Title";
+"To8-W3-Ta7.text" = "Titel";
 
 /* Class = "UILabel"; text = "8'500 steps, 14 floors"; ObjectID = "Ueo-mC-psY"; */
-"Ueo-mC-psY.text" = "8'500 steps, 14 floors";
+"Ueo-mC-psY.text" = "8'500 Schritte, 14 Stockwerke";
 
 /* Class = "UITabBarItem"; title = "SCCS"; ObjectID = "YSI-UM-MId"; */
 "YSI-UM-MId.title" = "SCCS";
@@ -85,6 +91,9 @@
 
 /* Class = "UILabel"; text = "Enrolling..."; ObjectID = "c2T-o4-Sn8"; */
 "c2T-o4-Sn8.text" = "Anmelden...";
+
+/* Class = "UILabel"; text = "Enrollment"; ObjectID = "caH-7i-mcd"; */
+"caH-7i-mcd.text" = "Anmeldung";
 
 /* Class = "UIButton"; normalTitle = "About the App"; ObjectID = "dRm-NV-3Nd"; */
 "dRm-NV-3Nd.normalTitle" = "Über die App";

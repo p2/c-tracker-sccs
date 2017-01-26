@@ -6,21 +6,24 @@
   Copyright © 2016 SCCS. All rights reserved.
 */
 
-"{{steps}} steps per day" = "{{steps}} steps per day";
-"{{steps}} steps, {{flights}} floors climbed per day" = "{{steps}} steps, {{flights}} floors climbed per day";
 "All your tasks are done" = "All your tasks are done";
 "App Credentials" = "App Credentials";
 "App Settings" = "App Settings";
 "Are you sure you wish to withdraw from the study?" = "Are you sure you wish to withdraw from the study?";
 "Birthday" = "Birthday";
 "Cancel" = "Cancel";
+"Cannot Scan QR Code" = "Cannot Scan QR Code";
+"Cannot Start Task" = "Cannot Start Task";
 "Change Passcode" = "Change Passcode";
+"Completed task format is invalid" = "Completed task format is invalid";
 "Completed Tasks" = "Completed Tasks";
 "consent" = "Consent";
 "Consent" = "Consent";
 "Could Not Load Profile" = "Could Not Load Profile";
 "due" = "due";
+"Enrolled!" = "Enrolled!";
 "Error" = "Error";
+"Failed to Enroll" = "Failed to Enroll";
 "Female" = "Female";
 "Gender" = "Gender";
 "Gender, birthday, height, weight" = "Gender, birthday, height, weight";
@@ -33,6 +36,7 @@
 "Legal" = "Legal";
 "Male" = "Male";
 "No camera on device, cannot scan QR code" = "No camera on device, cannot scan QR code";
+"Not enrolled in the study yet" = "Not enrolled in the study yet";
 "Not Set" = "Not Set";
 "Not You" = "Not You";
 "Now, please verify your personal data in order to conclude enrollment" = "Now, please verify your personal data in order to conclude enrollment";
@@ -40,7 +44,9 @@
 "Other" = "Other";
 "Our work wouldn't have been possible without the work of other great individuals." = "Our work wouldn't have been possible without the work of other great individuals. The licenses of their software are listed below, in no particular order.";
 "Past 24 Hours" = "Past 24 Hours";
+"Permissioning Error" = "Permissioning Error";
 "Privacy Policy" = "Privacy Policy";
+"Problem with QR Code" = "Problem with QR Code";
 "Recent Activity" = "Recent Activity";
 "Refreshing activity data..." = "Refreshing activity data...";
 "Remind in 1 hour" = "Remind in 1 hour";
@@ -50,10 +56,13 @@
 "Reset" = "Reset";
 "Review Consent" = "Review Consent";
 "Scanned!" = "Scanned!";
+"Schedule format is invalid" = "Schedule format is invalid";
 "Set Reminders" = "Set Reminders";
 "Software Licenses" = "Software Licenses";
 "Step count not available" = "Step count not available";
 "survey" = "Survey";
+"The JWT `aud` param's value is “{{aud}}”, which is not a valid URL" = "The JWT `aud` param's value is “{{aud}}”, which is not a valid URL";
+"The JWT is missing its audience (`aud` parameter)" = "The JWT is missing its audience (`aud` parameter)";
 "There's still some time until {{due_date}}" = "There's still some time until {{due_date}}";
 "This will unset your medical data for the study. You can later re-enter this data manually." = "This will unset your medical data for the study. You can later re-enter this data manually.";
 "To get started, please allow the app to access some of the features of your phone" = "To get started, please allow the app to access some of the features of your phone\n\nAfterwards, tap “Done”";
@@ -72,4 +81,6 @@
 "Your name is" = "Your name is";
 "Your Tasks" = "Your Tasks";
 "Your {key} is" = "Your {key} is";
+"{{steps}} steps per day" = "{{steps}} steps per day";
+"{{steps}} steps, {{flights}} floors climbed per day" = "{{steps}} steps, {{flights}} floors climbed per day";
 "{{title}} is not yet due" = "{{title}} is not yet due";

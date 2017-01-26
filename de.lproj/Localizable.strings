@@ -61,6 +61,7 @@
 "Software Licenses" = "Software-Lizenzen";
 "Step count not available" = "Schrittdaten nicht verfügbar";
 "survey" = "Fragebogen";
+"The JWT `aud` param's value is “{{aud}}”, which is not a valid URL" = "Im JWT ist der `aud` Parameter “{{aud}}” – dies ist keine gültige URL";
 "The JWT is missing its audience (`aud` parameter)" = "Im JWT fehlt die “audience” (`aud` Parameter)";
 "There's still some time until {{due_date}}" = "Bis zum {{due_date}} bleibt noch ein wenig Zeit";
 "This will unset your medical data for the study. You can later re-enter this data manually." = "Dies wird die medizinischen Angaben in dieser Studie zurück setzen. Sie können diese Daten später von Hand wieder eingeben.";

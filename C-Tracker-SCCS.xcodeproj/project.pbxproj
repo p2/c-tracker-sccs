@@ -1192,6 +1192,8 @@
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
+				"OTHER_SWIFT_FLAGS[sdk=iphoneos*]" = "-DDEBUG";
+				"OTHER_SWIFT_FLAGS[sdk=iphonesimulator*]" = "-DON_SIMULATOR -DDEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.ossus.app.ios.C-Tracker-SCCS";
 				PRODUCT_NAME = "C Tracker";
 				SWIFT_VERSION = 3.0;

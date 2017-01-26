@@ -68,6 +68,8 @@ public protocol User {
 	var humanWeight: String? { get }
 }
 
+// MARK: -
+
 
 extension User {
 	

@@ -7,12 +7,13 @@
 //
 
 import JWT
+import SMART
 
 
 /**
 You can use instances of this class to link user profiles to known participants on a remote server, by way of JWT.
 */
-open class ProfileLink {
+public class ProfileLink {
 	
 	public let token: String
 	
@@ -34,7 +35,7 @@ open class ProfileLink {
 	}
 	
 	
-	// MARK: -
+	// MARK: - Request Generation
 	
 	/**
 	Returns the URL against which the link can be established. Uses the token's `aud` parameter and appends `/establish` to arrive at the
@@ -48,6 +49,38 @@ open class ProfileLink {
 			throw AppError.jwtInvalidAudience(aud)
 		}
 		return url.appendingPathComponent("establish")
+	}
+	
+	/**
+	Create and decorate FHIR Patient resource as needed for the /establish endpoint.
+	
+	- returns: Correctly configured Patient resource
+	*/
+	public func patientResource(user: User, dataEndpoint: URL) throws -> Patient {
+		guard let userId = user.userId else {
+			throw AppError.generic("User does not have a user id")
+		}
+		let patient = Patient()
+		let ident = Identifier()
+		ident.value = userId.fhir_string
+		ident.system = dataEndpoint.fhir_url
+		patient.identifier = [ident]
+		return patient
+	}
+	
+	/**
+	Configures a `URLRequest` that can be used to establish the link.
+	*/
+	public func request(linking user: User, dataEndpoint: URL) throws -> URLRequest {
+		let linkEndpoint = try establishURL()
+		let pat = try patientResource(user: user, dataEndpoint: dataEndpoint)
+		
+		var req = URLRequest(url: linkEndpoint)
+		req.httpMethod = "POST"
+		req.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+		req.addValue("application/json", forHTTPHeaderField: "Content-type")
+		req.httpBody = try JSONSerialization.data(withJSONObject: try pat.asJSON(), options: [])
+		return req
 	}
 }
 

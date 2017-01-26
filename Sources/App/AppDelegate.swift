@@ -15,9 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	var window: UIWindow?
 	
-	var profileManager: ProfileManager?
+	var profileManager: ProfileManager!
 	
-	var rootViewController: RootViewController?
+	var rootViewController: RootViewController!
 	
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -29,7 +29,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 		do {
 			let dir = URL(fileURLWithPath: first).appendingPathComponent("C-Tracker")
-			let manager = try ProfileManager(dir: dir)
+			
+			// server configuration
+			let dataRoot = URL(string: cStudyDataServerRoot)!
+			let dataEndpoint = dataRoot.appendingPathComponent("fhir")
+			let encDataEndpoint = dataRoot.appendingPathComponent("encfhir")
+			let regEndpoint = dataRoot.appendingPathComponent("register")
+			let authConfig = [
+				"client_name": cStudyName,
+				"registration_uri": regEndpoint.absoluteString,
+				"authorize_uri": dataRoot.appendingPathComponent("oauth").absoluteString,
+				"authorize_type": "client_credentials",
+			//	"verbose": true,
+			]
+			
+			let srv = EncryptedDataQueue(baseURL: dataEndpoint, auth: authConfig, encBaseURL: encDataEndpoint, publicCertificateFile: "")
+			let manager = try ProfileManager(dir: dir, dataServer: srv)
 			rootViewController?.profileManager = manager
 			profileManager = manager
 		}
@@ -37,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			fatalError("\(error) at \(first)")
 		}
 		
-		NSLog("APP STARTED. C3-PRO is using FHIR v\(C3PROFHIRVersion). Profile manager is storing to «\(profileManager!.directory.path)»")
+		NSLog("APP STARTED.\n\tC3-PRO is using FHIR v\(C3PROFHIRVersion).\n\tProfile manager is storing locally to\n\t«\(profileManager.directory.path)»\n\tand sending data to\n\t«\(profileManager.dataServer?.baseURL.description ?? "nil")»")
 		return true
 	}
 	
@@ -59,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		if let manager = profileManager {
 			UserNotificationManager.shared.synchronizeNotifications(with: manager)
 		}
-		rootViewController?.updateBadges()
+		rootViewController.updateBadges()
 	}
 	
 	func userDidCompleteTask(_ notification: Notification) {

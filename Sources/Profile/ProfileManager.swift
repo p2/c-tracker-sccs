@@ -70,8 +70,9 @@ open class ProfileManager {
 		return directory.appendingPathComponent("Completed.json")
 	}
 	
-	public init(dir: URL) throws {
+	public init(dir: URL, dataServer srv: FHIRServer?) throws {
 		directory = dir
+		dataServer = srv
 		
 		let fm = FileManager()
 		var isDir: ObjCBool = false
@@ -135,18 +136,17 @@ open class ProfileManager {
 	*/
 	open func establishLink(between user: User, and link: ProfileLink, callback: @escaping ((Error?) -> Void)) {
 		do {
-			let endpoint = try link.establishURL()
+			guard let dataURL = dataServer?.baseURL else {
+				throw AppError.generic("ProfileManager is not configured with a data server, cannot link user")
+			}
+			let req = try link.request(linking: user, dataEndpoint: dataURL)
 			let srv = OAuth2Requestable(verbose: false)
-			var req = URLRequest(url: endpoint)
-			req.addValue("Bearer \(link.token)", forHTTPHeaderField: "Authorization")
-			req.addValue("application/json", forHTTPHeaderField: "Content-type")
-			// TODO: body
 			srv.perform(request: req) { res in
 				if res.response.statusCode >= 400 {
 					callback(res.error ?? AppError.generic(res.response.statusString))
 				}
 				else {
-					user.didLink(on: Date(), against: endpoint)
+					user.didLink(on: Date(), against: req.url!)
 					callback(nil)
 				}
 				self.tokenServer = nil
@@ -164,6 +164,7 @@ open class ProfileManager {
 	*/
 	open func withdraw() throws {
 		user = nil
+		// TODO: notify IDM if `linked_at` is present?
 		
 		let fm = FileManager()
 		if fm.fileExists(atPath: userURL.path) {
@@ -376,8 +377,8 @@ open class ProfileManager {
 			HKCharacteristicType.characteristicType(forIdentifier: .dateOfBirth)!,
 			])
 		let hkQRead = Set<HKQuantityType>([
-//			HKQuantityType.quantityType(forIdentifier: .height)!,
-//			HKQuantityType.quantityType(forIdentifier: .bodyMass)!,
+			HKQuantityType.quantityType(forIdentifier: .height)!,
+			HKQuantityType.quantityType(forIdentifier: .bodyMass)!,
 			HKQuantityType.quantityType(forIdentifier: .stepCount)!,
 			HKQuantityType.quantityType(forIdentifier: .flightsClimbed)!,
 			HKQuantityType.quantityType(forIdentifier: .activeEnergyBurned)!,
@@ -436,10 +437,14 @@ open class ProfileManager {
 	}
 	
 	/**
-	Create a user from confirmed token data.
+	Create a user from confirmed token data. Will also assign `userId` to a random UUID.
+	
+	- parameter link: The data in the JWT, presumably one that the user scanned
+	- returns: Initialized User
 	*/
 	public class func userFromLink(_ link: ProfileLink) -> User {
 		let user = AppUser()
+		user.userId = UUID().uuidString
 		if let name = link.payload["sub"] as? String, name.characters.count > 0 {
 			user.name = name
 		}
@@ -452,15 +457,27 @@ open class ProfileManager {
 	
 	// MARK: - FHIR
 	
-	public func patient() -> Patient {
+	public func patientResource(for user: User) -> Patient {
 		let patient = Patient()
-		if let name = user?.name {
+		if let name = user.name {
 			patient.name = [HumanName()]
 			patient.name?.first?.text = FHIRString(name)
 		}
-		if let bday = user?.birthDate {
+		if let bday = user.birthDate {
 			patient.birthDate = bday.fhir_asDate()
 		}
+		return patient
+	}
+	
+	public func linkablePatientResource(for user: User) throws -> Patient {
+		guard let userId = user.userId else {
+			throw AppError.generic("User does not have a user id")
+		}
+		let patient = Patient()
+		let ident = Identifier()
+		ident.value = userId.fhir_string
+		ident.system = dataServer?.baseURL.fhir_url
+		patient.identifier = [ident]
 		return patient
 	}
 	

@@ -26,7 +26,7 @@ You can also copy this file to `Configuration_Debug.swift` or any other build co
 let cStudyName = "C Tracker"
 
 /// The FHIR server's base URI.
-let cStudyServerRoot = "https://c3-pro.io"
+let cStudyDataServerRoot = "https://c3-pro.io"
 
 /// optional, client credentials to use from simulator.
 let cServerSimulatorClientKey: String? = "user"
@@ -38,7 +38,7 @@ let cServerAntispamToken: String? = "A91DCA9156D3492E89B12832145A8899"
 /// An identifier for the public key used to encrypt resources.
 let cEncDataQueueKey = "N/A"
 
-/// The issuer endpoint expected from JWT decoding; can be nil if any issuer should be allowed.
+/// The issuer endpoint expected from JWT decoding; can be nil if any issuer should be allowed, but this is definitely not recommended.
 let cJWTIssuer: String? = "https://idm.c3-pro.io/"
 
 /// The secret used in the JWT.

@@ -1,0 +1,86 @@
+/* 
+  Localizable.strings
+  C-Tracker-SCCS
+
+  Created by Pascal Pfiffner on 16.12.16.
+  Copyright © 2016 SCCS. All rights reserved.
+*/
+
+"All your tasks are done" = "Toutes vos tâches sont faites";
+"App Credentials" = "App Credentials";
+"App Settings" = "Paramètres de l'app";
+"Are you sure you wish to withdraw from the study?" = "Êtes-vous sûr de vouloir vous retirer de l'étude?";
+"Birthday" = "Jour de naissance";
+"Cancel" = "Annuler";
+"Cannot Scan QR Code" = "Ne peut pas numériser le code QR";
+"Cannot Start Task" = "Impossible de Lancer la Tâche";
+"Change Passcode" = "Changer le Mot de Passe";
+"Completed task format is invalid" = "Le format de la tâche terminée est invalide";
+"Completed Tasks" = "Tâches Terminées";
+"consent" = "Consentement";
+"Consent" = "Consentement";
+"Could Not Load Profile" = "Impossible de Charger le Profil";
+"due" = "dû";
+"Enrolled!" = "Enrôle!";
+"Error" = "Erreur";
+"Failed to Enroll" = "Ne Pas Enrôle";
+"Female" = "Femme";
+"Gender" = "Sexe";
+"Gender, birthday, height, weight" = "Sexe, anniv., taille, poids";
+"Height" = "Taille";
+"in {{days}} days" = "en {{days}} jours";
+"Invalid Code" = "Code Invalide";
+"Join {{study}}!" = "Rejoindre {{study}}!";
+"Leave" = "Retirer";
+"Leave Study?" = "Retirer de l’étude?";
+"Legal" = "Légal";
+"Male" = "Homme";
+"No camera on device, cannot scan QR code" = "Aucune caméra sur l'appareil, ne peut pas numériser le code QR";
+"Not enrolled in the study yet" = "Pas encore enrôle à l'étude";
+"Not Set" = "Pas Encore Défini";
+"Not You" = "Pas Vous";
+"Now, please verify your personal data in order to conclude enrollment" = "Vérifiez maintenant vos données personnelles afin de conclure votre enrôlement.";
+"OK" = "OK";
+"Other" = "Autre";
+"Our work wouldn't have been possible without the work of other great individuals." = "Notre travail n'aurait pas été possible sans le travail d'autres grands individus. Les licences de leurs logiciels sont énumérées ci-dessous, sans ordre particulier.";
+"Past 24 Hours" = "Dernières 24 Heures";
+"Permissioning Error" = "Erreur d'Approvisionnement";
+"Privacy Policy" = "Charte de Confidentialité";
+"Problem with QR Code" = "Problème Avec le Code QR";
+"Recent Activity" = "Activité Récente";
+"Refreshing activity data..." = "Actualiser les Données d’Activité...";
+"Remind in 1 hour" = "Rappeler en 1 heure";
+"Remind me at" = "Rappelez-moi à";
+"Remind me tomorrow" = "Rappelez-moi demain";
+"Reminders" = "Rappels";
+"Reset" = "Remettre";
+"Review Consent" = "Revoir Consentement";
+"Scanned!" = "Numérisé!";
+"Schedule format is invalid" = "Le format d'horaire n'est pas valide";
+"Set Reminders" = "Définir des Rappels";
+"Software Licenses" = "Licences de Logiciels";
+"Step count not available" = "Compte d’étapes non disponible";
+"survey" = "Questionnaire";
+"The JWT `aud` param's value is “{{aud}}”, which is not a valid URL" = "The JWT `aud` param's value is “{{aud}}”, which is not a valid URL";
+"The JWT is missing its audience (`aud` parameter)" = "The JWT is missing its audience (`aud` parameter)";
+"There's still some time until {{due_date}}" = "Il reste du temps jusqu'à {{due_date}}";
+"This will unset your medical data for the study. You can later re-enter this data manually." = "Cela annulera vos données médicales pour l'étude. Vous pouvez ultérieurement entrer de nouveau ces données manuellement.";
+"To get started, please allow the app to access some of the features of your phone" = "Pour commencer, laissez l'application accéder à certaines fonctionnalités de votre téléphone.\n\nEnsuite, appuyez sur “Terminé”";
+"today" = "aujourd'hui";
+"tomorrow" = "demain";
+"Unset Medical Data?" = "Supprimer les Données?";
+"Verify App Permissions" = "Vérifier les Autorisations d'app";
+"Verify…" = "Vérifier…";
+"We'd like you to complete another survey" = "Nous aimerions que vous remplissiez une autre questionnaire";
+"Weight" = "Poids";
+"Welcome!" = "Bienvenue!";
+"You are enrolled in {{study}}" = "Vous êtes inscrit à {{study}}";
+"You refuted some of the information contained in the code" = "Vous avez réfuté certaines des informations contenues dans le code";
+"You were born on" = "Vous êtes né le";
+"Your Medical Data" = "Votres Données Médicales";
+"Your name is" = "Votre nom est";
+"Your Tasks" = "Votres Tâches";
+"Your {key} is" = "Votre {key} est";
+"{{steps}} steps per day" = "{{steps}} étapes par jour";
+"{{steps}} steps, {{flights}} floors climbed per day" = "{{steps}} étapes, {{flights}} étages escaladés par jour";
+"{{title}} is not yet due" = "{{title}} n'est pas encore due";

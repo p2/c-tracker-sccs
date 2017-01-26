@@ -51,8 +51,8 @@
 		EE86F4C11E00038D00922994 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F4641E0001CE00922994 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE87B2BA1E081B2C00719A71 /* QRCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE87B2B91E081B2C00719A71 /* QRCodeScanner.swift */; };
 		EE87B2D01E081D9700719A71 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE87B2CF1E081D9700719A71 /* AVFoundation.framework */; };
-		EE957D4F1E042B29004FADB4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE957D511E042B29004FADB4 /* Localizable.strings */; };
 		EE957D581E044156004FADB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE957D5A1E044156004FADB4 /* InfoPlist.strings */; };
+		EE98525D1E3A1C5000A88D72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE98525B1E3A1C5000A88D72 /* Localizable.strings */; };
 		EE98D2A51E0160EC001BC845 /* ProfileSettingsDebug.json in Resources */ = {isa = PBXBuildFile; fileRef = EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */; };
 		EEEC78641DEC24B400E7020C /* SCCSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78631DEC24B400E7020C /* SCCSViewController.swift */; };
 		EEEC78671DEC258100E7020C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78661DEC258100E7020C /* ProfileViewController.swift */; };
@@ -364,12 +364,16 @@
 		EE86F4671E0001D600922994 /* JWT.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JWT.xcodeproj; path = JSONWebToken.swift/JWT.xcodeproj; sourceTree = "<group>"; };
 		EE87B2B91E081B2C00719A71 /* QRCodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeScanner.swift; sourceTree = "<group>"; };
 		EE87B2CF1E081D9700719A71 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		EE957D501E042B29004FADB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE957D521E042B94004FADB4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		EE957D531E042B94004FADB4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		EE957D541E042B94004FADB4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE957D591E044156004FADB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EE957D5B1E044159004FADB4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EE9852561E3A110600A88D72 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		EE9852571E3A110600A88D72 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		EE9852591E3A110700A88D72 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EE98525C1E3A1C5000A88D72 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EE98525E1E3A1C5600A88D72 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EE98525F1E3A1C5900A88D72 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfileSettingsDebug.json; sourceTree = SOURCE_ROOT; };
 		EEEC78631DEC24B400E7020C /* SCCSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCCSViewController.swift; sourceTree = "<group>"; };
 		EEEC78661DEC258100E7020C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -447,10 +451,10 @@
 			children = (
 				EEFC6B351DF5CD4700D03A84 /* README.md */,
 				EE14E7A41DD0CAAA009F8736 /* Main.storyboard */,
+				EE98525B1E3A1C5000A88D72 /* Localizable.strings */,
 				EE14E7A71DD0CAAA009F8736 /* Assets.xcassets */,
 				EE14E7A91DD0CAAA009F8736 /* LaunchScreen.storyboard */,
 				EE0F351C1E02F435003AA556 /* Intro.css */,
-				EE957D511E042B29004FADB4 /* Localizable.strings */,
 				EE0F35161E02E68A003AA556 /* Licenses */,
 				EE14E7AC1DD0CAAA009F8736 /* Info.plist */,
 				EE957D5A1E044156004FADB4 /* InfoPlist.strings */,
@@ -682,6 +686,7 @@
 				en,
 				Base,
 				de,
+				fr,
 			);
 			mainGroup = EE14E7921DD0CAAA009F8736;
 			productRefGroup = EE14E79C1DD0CAAA009F8736 /* Products */;
@@ -883,10 +888,10 @@
 			files = (
 				EE14E7AB1DD0CAAA009F8736 /* LaunchScreen.storyboard in Resources */,
 				EE0B328E1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json in Resources */,
+				EE98525D1E3A1C5000A88D72 /* Localizable.strings in Resources */,
 				EE98D2A51E0160EC001BC845 /* ProfileSettingsDebug.json in Resources */,
 				EEFC6B331DF5CCB900D03A84 /* c-tracker.survey-in-app.withdrawal.json in Resources */,
 				EE14E7A81DD0CAAA009F8736 /* Assets.xcassets in Resources */,
-				EE957D4F1E042B29004FADB4 /* Localizable.strings in Resources */,
 				EE252D0A1DED87BC008F5E3E /* ProfileSettings.json in Resources */,
 				EE0F351D1E02F435003AA556 /* Intro.css in Resources */,
 				EE0F35171E02E68A003AA556 /* Licenses in Resources */,
@@ -1051,6 +1056,7 @@
 			children = (
 				EE14E7A51DD0CAAA009F8736 /* Base */,
 				EE957D521E042B94004FADB4 /* de */,
+				EE9852561E3A110600A88D72 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1060,18 +1066,9 @@
 			children = (
 				EE14E7AA1DD0CAAA009F8736 /* Base */,
 				EE957D531E042B94004FADB4 /* de */,
+				EE9852571E3A110600A88D72 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		EE957D511E042B29004FADB4 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EE957D501E042B29004FADB4 /* en */,
-				EE957D541E042B94004FADB4 /* de */,
-			);
-			name = Localizable.strings;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		EE957D5A1E044156004FADB4 /* InfoPlist.strings */ = {
@@ -1079,8 +1076,19 @@
 			children = (
 				EE957D591E044156004FADB4 /* en */,
 				EE957D5B1E044159004FADB4 /* de */,
+				EE9852591E3A110700A88D72 /* fr */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EE98525B1E3A1C5000A88D72 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE98525C1E3A1C5000A88D72 /* en */,
+				EE98525E1E3A1C5600A88D72 /* de */,
+				EE98525F1E3A1C5900A88D72 /* fr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

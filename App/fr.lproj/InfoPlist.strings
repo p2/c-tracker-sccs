@@ -1,0 +1,12 @@
+/* 
+  InfoPlist.strings
+  C-Tracker-SCCS
+
+  Created by Pascal Pfiffner on 16.12.16.
+  Copyright © 2016 SCCS. All rights reserved.
+*/
+
+"NSHealthShareUsageDescription" = "To retrieve basic medical information about you, such as your gender";
+"NSMotionUsageDescription" = "Using the motion co-processor allows the app to determine your activity, helping the study to better understand how activity level may influence disease";
+"NSCameraUsageDescription" = "To scan QR codes";
+

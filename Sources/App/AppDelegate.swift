@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var rootViewController: RootViewController!
 	
 	
-	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+	func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
 		rootViewController = window?.rootViewController as? RootViewController
 		
 		let paths = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true)
@@ -54,6 +54,48 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		
 		NSLog("APP STARTED.\n\tC3-PRO is using FHIR v\(C3PROFHIRVersion).\n\tProfile manager is storing locally to\n\t«\(profileManager.directory.path)»\n\tand sending data to\n\t«\(profileManager.dataServer?.baseURL.description ?? "nil")»")
 		return true
+	}
+	
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+		rootViewController.showSecureView()
+		DispatchQueue.main.async {
+			self.rootViewController.unlockApp()
+		}
+		return true
+	}
+	
+	func applicationWillResignActive(_ application: UIApplication) {
+		rootViewController.lockApp()
+	}
+	
+	func applicationDidEnterBackground(_ application: UIApplication) {
+		rootViewController.lockApp()
+	}
+	
+	func applicationWillEnterForeground(_ application: UIApplication) {
+		rootViewController.unlockApp()
+	}
+	
+	func applicationDidBecomeActive(_ application: UIApplication) {
+		rootViewController.unlockApp()
+		prepareDueTasks()
+		
+		// make sure data queue is flushed
+		let delay = DispatchTime.now() + Double(Int64(2.0 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+		DispatchQueue.main.asyncAfter(deadline: delay) { [weak self] in
+			// TODO: self?.flushDataQueue()
+		}
+	}
+	
+	func applicationWillTerminate(_ application: UIApplication) {
+		rootViewController.lockApp(true)
+	}
+	
+	
+	// MARK: - Background Fetch
+	
+	func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+		// TODO: update core motion database
 	}
 	
 	

@@ -10,6 +10,7 @@ import UIKit
 import SMART
 import C3PRO
 import HealthKit
+import ResearchKit
 
 
 /**
@@ -90,6 +91,9 @@ open class ProfileManager {
 			let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
 			user = type(of: self).userFromJSON(json)
 		}
+		else if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
+			ORKPasscodeViewController.removePasscodeFromKeychain()      // just to be safe in case the user deleted the app while enrolled
+		}
 		if fm.fileExists(atPath: scheduleURL.path) {
 			user?.tasks = try readAllTasks()
 		}
@@ -161,6 +165,8 @@ open class ProfileManager {
 	
 	/**
 	Withdraw our user.
+	
+	This method trashes data stored about the user, the schedule, info about completed data, removes the PIN and cancels all notifications.
 	*/
 	open func withdraw() throws {
 		user = nil
@@ -177,6 +183,7 @@ open class ProfileManager {
 			try fm.removeItem(at: completedURL)
 		}
 		
+		ORKPasscodeViewController.removePasscodeFromKeychain()
 		NotificationManager.shared.cancelExistingNotifications(ofTypes: [], evenRescheduled: true)
 		NotificationCenter.default.post(name: type(of: self).didChangeProfileNotification, object: self)
 	}

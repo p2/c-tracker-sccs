@@ -83,9 +83,9 @@ class WelcomeViewController: UIViewController, ORKTaskViewControllerDelegate {
 		// create an intro step and a system permissioning step
 		let step1 = ORKInstructionStep(identifier: "permission-intro")
 		step1.title = "Welcome!".sccs_loc
-		step1.text = "To get started, please allow the app to access some of the features of your phone".sccs_loc
-		let step2 = SystemPermissionStep(identifier: "permission-step", permissions: profileManager.systemServicesNeeded)
-		let task = ORKOrderedTask(identifier: "permissioning", steps: [step1, step2])
+		step1.text = "To get started, please create a passcode first, then allow the app to access some of the features of your phone".sccs_loc
+		let step3 = SystemPermissionStep(identifier: "permission-step", permissions: profileManager.systemServicesNeeded)
+		let task = ORKOrderedTask(identifier: "permissioning", steps: [step1, ORKPasscodeStep(identifier: "set-passcode"), step3])
 		let permissioning = ORKTaskViewController(task: task, taskRun: UUID())
 		permissioning.delegate = self
 		

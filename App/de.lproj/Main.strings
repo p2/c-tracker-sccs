@@ -17,8 +17,8 @@
 /* Class = "UIButton"; normalTitle = "About SCCS"; ObjectID = "9VG-hk-9TB"; */
 "9VG-hk-9TB.normalTitle" = "Über SCCS";
 
-/* Class = "UILabel"; text = "to the Swiss Hepatitis C Cohort Study"; ObjectID = "A5M-7J-77L"; */
-"A5M-7J-77L.text" = "zur Swiss Hepatitis C Cohort Study";
+/* Class = "UILabel"; text = "by the Swiss Hepatitis C Cohort Study"; ObjectID = "A5M-7J-77L"; */
+"A5M-7J-77L.text" = "der Swiss Hepatitis C Cohort Study";
 
 /* Class = "UILabel"; text = "Your name is"; ObjectID = "A9u-dX-9MA"; */
 "A9u-dX-9MA.text" = "Ihr Name ist";
@@ -47,8 +47,8 @@
 /* Class = "UILabel"; text = "Label"; ObjectID = "KCS-0B-10b"; */
 "KCS-0B-10b.text" = "Label";
 
-/* Class = "UILabel"; text = "Welcome"; ObjectID = "KQZ-1w-vlD"; */
-"KQZ-1w-vlD.text" = "Willkommen";
+/* Class = "UILabel"; text = "Welcome to C Tracker"; ObjectID = "KQZ-1w-vlD"; */
+"KQZ-1w-vlD.text" = "Willkommen\nbei C Tracker";
 
 /* Class = "UILabel"; text = "Update your name here"; ObjectID = "KnI-jg-RWY"; */
 "KnI-jg-RWY.text" = "Name ändern";

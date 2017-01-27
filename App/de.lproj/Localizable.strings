@@ -65,7 +65,7 @@
 "The JWT is missing its audience (`aud` parameter)" = "Im JWT fehlt die “audience” (`aud` Parameter)";
 "There's still some time until {{due_date}}" = "Bis zum {{due_date}} bleibt noch ein wenig Zeit";
 "This will unset your medical data for the study. You can later re-enter this data manually." = "Dies wird die medizinischen Angaben in dieser Studie zurück setzen. Sie können diese Daten später von Hand wieder eingeben.";
-"To get started, please allow the app to access some of the features of your phone" = "Als erstes erlauben Sie bitte der App, gewisse Dienste Ihres Telefons zu benutzen\n\nTappen Sie danach auf “Fertig”";
+"To get started, please create a passcode first, then allow the app to access some of the features of your phone" = "Als erstes setzen Sie bitte einen PIN, dann erlauben Sie der App, auf Dienste Ihres Telefons zuzugreifen\n\nTappen Sie danach auf “Fertig”";
 "today" = "heute";
 "tomorrow" = "morgen";
 "Unset Medical Data?" = "Daten Entfernen?";

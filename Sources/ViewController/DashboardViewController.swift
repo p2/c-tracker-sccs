@@ -517,17 +517,20 @@ class DashboardViewController: UITableViewController {
 				if task.due || task.canReview {
 					showTask(task, indexPath: indexPath, animated: true)
 				}
-				else if task.pending {
+				else {
 					let formatter = DateFormatter()
 					formatter.dateStyle = .long
 					formatter.timeStyle = .none
-					let alert = UIAlertController(title: "{{title}} is not yet due".sccs_loc.replacingOccurrences(of: "{{title}}", with: task.title ?? task.type.rawValue.sccs_loc),
-						message: "There's still some time until {{due_date}}".sccs_loc.replacingOccurrences(of: "{{due_date}}", with: formatter.string(from: task.dueDate!)),
-						preferredStyle: UIAlertControllerStyle.alert)
-					let ok = UIAlertAction(title: "OK", style: UIAlertActionStyle.cancel, handler: nil)
-					
-					alert.addAction(ok)
-					present(alert, animated: true)
+					if task.pending {
+						let title = "{{title}} is not yet due".sccs_loc.replacingOccurrences(of: "{{title}}", with: task.title ?? task.type.rawValue.sccs_loc)
+						let msg = "There's still some time until {{due_date}}".sccs_loc.replacingOccurrences(of: "{{due_date}}", with: formatter.string(from: task.dueDate!))
+						show(message: msg, title: title)
+					}
+					else if task.expired {
+						let title = "{{title}} has expired".sccs_loc.replacingOccurrences(of: "{{title}}", with: task.title ?? task.type.rawValue.sccs_loc)
+						let msg = "It has expired {{expiry_date}}".sccs_loc.replacingOccurrences(of: "{{expiry_date}}", with: formatter.string(from: task.expiredDate!))
+						show(message: msg, title: title)
+					}
 				}
 			}
 			tableView.deselectRow(at: indexPath, animated: true)

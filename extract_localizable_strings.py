@@ -46,7 +46,7 @@ if '__main__' == __name__:
 	
 	# look at Localizable.strings
 	existing = {}
-	with io.open('{}.lproj/Localizable.strings'.format(REFERENCE), 'r', encoding='utf-8') as handle:
+	with io.open('App/{}.lproj/Localizable.strings'.format(REFERENCE), 'r', encoding='utf-8') as handle:
 		for line in handle:
 			line = line.strip()
 			if len(line) > 0:

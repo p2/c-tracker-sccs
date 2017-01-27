@@ -30,6 +30,7 @@
 "Height" = "Grösse";
 "in {{days}} days" = "in {{days}} Tagen";
 "Invalid Code" = "Ungültiger Code";
+"It has expired {{expiry_date}}" = "Lief am {{expiry_date}} ab";
 "Join {{study}}!" = "{{study}} beitreten!";
 "Leave" = "Verlassen";
 "Leave Study?" = "Studie Verlassen?";
@@ -83,4 +84,5 @@
 "Your {key} is" = "Ihr {key} ist";
 "{{steps}} steps per day" = "{{steps}} Schritte pro Tag";
 "{{steps}} steps, {{flights}} floors climbed per day" = "{{steps}} Schritte, {{flights}} Stockwerke pro Tag";
+"{{title}} has expired" = "{{title}} ist abgelaufen";
 "{{title}} is not yet due" = "{{title}} ist noch nicht fällig";

@@ -54,6 +54,8 @@
 		EE957D581E044156004FADB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE957D5A1E044156004FADB4 /* InfoPlist.strings */; };
 		EE98525D1E3A1C5000A88D72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE98525B1E3A1C5000A88D72 /* Localizable.strings */; };
 		EE98D2A51E0160EC001BC845 /* ProfileSettingsDebug.json in Resources */ = {isa = PBXBuildFile; fileRef = EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */; };
+		EEDDAC7D1E40ED84007D4056 /* StudyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDDAC7C1E40ED84007D4056 /* StudyTableViewController.swift */; };
+		EEDDAC901E40EF51007D4056 /* ShareTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDDAC8F1E40EF51007D4056 /* ShareTableViewController.swift */; };
 		EEEC78641DEC24B400E7020C /* SCCSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78631DEC24B400E7020C /* SCCSViewController.swift */; };
 		EEEC78671DEC258100E7020C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78661DEC258100E7020C /* ProfileViewController.swift */; };
 		EEEC78691DEC258B00E7020C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78681DEC258B00E7020C /* DashboardViewController.swift */; };
@@ -375,6 +377,8 @@
 		EE98525E1E3A1C5600A88D72 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE98525F1E3A1C5900A88D72 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfileSettingsDebug.json; sourceTree = SOURCE_ROOT; };
+		EEDDAC7C1E40ED84007D4056 /* StudyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyTableViewController.swift; sourceTree = "<group>"; };
+		EEDDAC8F1E40EF51007D4056 /* ShareTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTableViewController.swift; sourceTree = "<group>"; };
 		EEEC78631DEC24B400E7020C /* SCCSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCCSViewController.swift; sourceTree = "<group>"; };
 		EEEC78661DEC258100E7020C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EEEC78681DEC258B00E7020C /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
@@ -511,7 +515,9 @@
 				EE0F34F51E02E61C003AA556 /* NotificationsViewController.swift */,
 				EE0F34F61E02E61C003AA556 /* LicenseViewController.swift */,
 				EE0F34F71E02E61C003AA556 /* ClientDebugViewController.swift */,
+				EEDDAC7C1E40ED84007D4056 /* StudyTableViewController.swift */,
 				EE0F351E1E02F4C8003AA556 /* StudyContentWebViewController.swift */,
+				EEDDAC8F1E40EF51007D4056 /* ShareTableViewController.swift */,
 				EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */,
 			);
 			path = ViewController;
@@ -960,6 +966,7 @@
 				EE14E7C41DD0DF79009F8736 /* String+Extensions.swift in Sources */,
 				EE252D001DED718B008F5E3E /* UIColor+C3PRO.swift in Sources */,
 				EE0F351B1E02F1C8003AA556 /* HeightPicker.swift in Sources */,
+				EEDDAC7D1E40ED84007D4056 /* StudyTableViewController.swift in Sources */,
 				EE14E7DE1DD27D08009F8736 /* ProfileManager.swift in Sources */,
 				EE0F35191E02F1BF003AA556 /* GenderPicker.swift in Sources */,
 				EE252D061DED7A4C008F5E3E /* ProfileManagerSettings.swift in Sources */,
@@ -987,6 +994,7 @@
 				EEEC78641DEC24B400E7020C /* SCCSViewController.swift in Sources */,
 				EE492CD31E2E6F470043D531 /* ProfileLink.swift in Sources */,
 				EE5074C31DE892B300A0C73F /* UIViewController+Utilities.swift in Sources */,
+				EEDDAC901E40EF51007D4056 /* ShareTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

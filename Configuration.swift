@@ -25,6 +25,9 @@ You can also copy this file to `Configuration_Debug.swift` or any other build co
 /// The name of your study; will be shown in-app.
 let cStudyName = "C Tracker"
 
+/// A website where interested parties can learn more.
+let cStudyWebsiteURL = "http://c-tracker.org"
+
 /// The FHIR server's base URI.
 let cStudyDataServerRoot = "https://c3-pro.io"
 

@@ -157,47 +157,18 @@ to C Tracker</string>
             </objects>
             <point key="canvasLocation" x="-687.20000000000005" y="-293.70314842578711"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="w39-sF-oo4">
-            <objects>
-                <tableViewController storyboardIdentifier="SCCSView" id="etp-HN-9gP" customClass="SCCSViewController" customModule="C_Tracker" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="1u1-J5-U67">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ACell" id="Ycv-sH-ra5">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ycv-sH-ra5" id="vYS-Ec-2Ei">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="etp-HN-9gP" id="Yv8-s5-bxL"/>
-                            <outlet property="delegate" destination="etp-HN-9gP" id="Hhv-7m-ZIq"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="IAA-xY-LVd"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9dU-Pz-tqA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1103" y="1130"/>
-        </scene>
-        <!--SCCS-->
+        <!--C Tracker-->
         <scene sceneID="xag-PZ-W0M">
             <objects>
                 <navigationController storyboardIdentifier="SCCSViewRoot" id="00R-5l-nBa" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="SCCS" image="tab_learn" selectedImage="tab_learn_inverse" id="YSI-UM-MId"/>
+                    <tabBarItem key="tabBarItem" title="C Tracker" image="tab_learn" selectedImage="tab_learn_inverse" id="YSI-UM-MId"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6dq-7v-0TV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="etp-HN-9gP" kind="relationship" relationship="rootViewController" id="eEl-6t-MSr"/>
+                        <segue destination="Id0-Rk-Cnk" kind="relationship" relationship="rootViewController" id="o8c-Iw-lH5"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qdt-aM-SeF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -418,7 +389,7 @@ to C Tracker</string>
                                 <rect key="frame" x="0.0" y="28" width="375" height="162"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Byb-NJ-VOC" id="tEB-z7-eSa">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="161"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="161.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Your name is" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9u-dX-9MA">
@@ -552,10 +523,10 @@ to C Tracker</string>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3TaskCell" rowHeight="76" id="Nmm-iw-Z8e" customClass="DashboardTaskTableViewCell" customModule="C_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="56" width="375" height="76"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nmm-iw-Z8e" id="475-3N-ee3">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="75.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="progress_pending" translatesAutoresizingMaskIntoConstraints="NO" id="0p5-wk-QLN">
@@ -601,10 +572,10 @@ to C Tracker</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3ActivityCell" rowHeight="224" id="Z7C-sr-THf" customClass="DashboardActivityTableViewCell" customModule="C_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="132" width="375" height="224"/>
+                                <rect key="frame" x="0.0" y="131.5" width="375" height="224"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z7C-sr-THf" id="V2p-A8-ecY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="223"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="223.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pun-f7-TvE" customClass="ORKPieChartView">
@@ -652,10 +623,10 @@ to C Tracker</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3GraphCell" rowHeight="224" id="cM4-1a-esN" customClass="DashboardGraphTableViewCell" customModule="C_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="356" width="375" height="224"/>
+                                <rect key="frame" x="0.0" y="355.5" width="375" height="224"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cM4-1a-esN" id="rGL-WH-3gY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="223"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="223.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOl-Nu-ABH" userLabel="Graph" customClass="FixedLineGraphChartView" customModule="C_Tracker" customModuleProvider="target">
@@ -675,10 +646,10 @@ to C Tracker</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3DailyActivityCell" id="5jS-Wc-GBF" customClass="DashboardDailyActivityTableViewCell" customModule="C_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="580" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="579.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5jS-Wc-GBF" id="mpu-Dl-HPK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxR-cc-MvL" customClass="ORKPieChartView">
@@ -717,10 +688,10 @@ to C Tracker</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3TextCell" id="Vl7-BK-Ryc">
-                                <rect key="frame" x="0.0" y="624" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="623.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vl7-BK-Ryc" id="ef5-qW-Kwi">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -810,14 +781,14 @@ to C Tracker</string>
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="C3MoreCell" textLabel="JWn-wf-g3s" style="IBUITableViewCellStyleDefault" id="APn-fa-1HE">
-                                <rect key="frame" x="0.0" y="171" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="170.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="APn-fa-1HE" id="sV7-db-TrC">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JWn-wf-g3s">
-                                            <rect key="frame" x="15" y="0.0" width="325" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -827,14 +798,14 @@ to C Tracker</string>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3BasicCell" textLabel="To8-W3-Ta7" style="IBUITableViewCellStyleDefault" id="iIo-rE-FQU">
-                                <rect key="frame" x="0.0" y="215" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="214.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iIo-rE-FQU" id="PAp-IW-MUa">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="To8-W3-Ta7">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -926,18 +897,18 @@ to C Tracker</string>
                                 <rect key="frame" x="0.0" y="22" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nbw-7Q-0B3" id="TY2-bQ-4u5">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Ub-Qs-5Un">
-                                            <rect key="frame" x="15" y="12" width="32" height="20"/>
+                                            <rect key="frame" x="15" y="12" width="31.5" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2C1-OY-YQ7">
-                                            <rect key="frame" x="318" y="12" width="42" height="20"/>
+                                            <rect key="frame" x="318.5" y="12" width="41.5" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -950,7 +921,7 @@ to C Tracker</string>
                                 <rect key="frame" x="0.0" y="66" width="375" height="162"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E0i-oM-fZ2" id="Oyv-Id-oX6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="161"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="161.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="IbQ-JU-mtt">
@@ -975,7 +946,7 @@ to C Tracker</string>
                                 <rect key="frame" x="0.0" y="228" width="375" height="162"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aMx-iu-oBI" id="i2U-mD-B2l">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="161"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="161.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mx6-vx-4SL" customClass="GenderPicker" customModule="C_Tracker" customModuleProvider="target">
@@ -997,7 +968,7 @@ to C Tracker</string>
                                 <rect key="frame" x="0.0" y="390" width="375" height="162"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aXp-98-3No" id="n3N-JI-6uX">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="161"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="161.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHZ-oE-JwC" customClass="HeightPicker" customModule="C_Tracker" customModuleProvider="target">
@@ -1025,6 +996,91 @@ to C Tracker</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LmN-Lu-aHI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2023" y="424"/>
+        </scene>
+        <!--Learn-->
+        <scene sceneID="gJH-3k-lnk">
+            <objects>
+                <tableViewController id="Id0-Rk-Cnk" customClass="StudyTableViewController" customModule="C_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="76" sectionHeaderHeight="22" sectionFooterHeight="22" id="FHP-UE-CVN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="zbk-Ns-fEE">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="148"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2S3-z4-fbO">
+                                    <rect key="frame" x="-1" y="-1" width="377" height="149"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SCCS_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="dg5-Sd-ut4">
+                                            <rect key="frame" x="94" y="30" width="190" height="85"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="85" id="BYU-Dc-kS4"/>
+                                                <constraint firstAttribute="width" constant="190" id="tHb-BM-ubv"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="dg5-Sd-ut4" firstAttribute="top" secondItem="2S3-z4-fbO" secondAttribute="top" constant="30" id="OaF-Iz-gJ7"/>
+                                        <constraint firstAttribute="centerX" secondItem="dg5-Sd-ut4" secondAttribute="centerX" id="g3W-4d-V51"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="2S3-z4-fbO" secondAttribute="trailing" constant="-1" id="EWP-Yb-yVr"/>
+                                <constraint firstItem="2S3-z4-fbO" firstAttribute="top" secondItem="zbk-Ns-fEE" secondAttribute="top" constant="-1" id="F0U-RV-J6P"/>
+                                <constraint firstItem="2S3-z4-fbO" firstAttribute="leading" secondItem="zbk-Ns-fEE" secondAttribute="leading" constant="-1" id="ta3-91-vQd"/>
+                                <constraint firstAttribute="bottom" secondItem="2S3-z4-fbO" secondAttribute="bottom" id="tj9-4o-uK3"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CellText" rowHeight="72" id="iz1-dx-fec" customClass="StudyTextTableViewCell" customModule="C_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="170" width="375" height="72"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iz1-dx-fec" id="Jn0-8h-Vzv">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="71"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4bB-Qk-MuS">
+                                            <rect key="frame" x="28" y="22" width="27" height="27"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="27" id="BSn-zn-Im3"/>
+                                                <constraint firstAttribute="width" constant="27" id="F8Y-vI-Beg"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u3e-br-Qcy">
+                                            <rect key="frame" x="73" y="25" width="261" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="4bB-Qk-MuS" secondAttribute="centerY" id="JpI-Z1-uNb"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="u3e-br-Qcy" secondAttribute="trailing" id="Jwe-lM-6hP"/>
+                                        <constraint firstAttribute="centerY" secondItem="u3e-br-Qcy" secondAttribute="centerY" id="dhY-10-BGc"/>
+                                        <constraint firstItem="4bB-Qk-MuS" firstAttribute="leading" secondItem="Jn0-8h-Vzv" secondAttribute="leadingMargin" constant="20" id="fX7-rY-eTW"/>
+                                        <constraint firstItem="u3e-br-Qcy" firstAttribute="leading" secondItem="4bB-Qk-MuS" secondAttribute="trailing" constant="18" id="vQc-rW-P6J"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="imgView" destination="4bB-Qk-MuS" id="N1g-j5-Gm6"/>
+                                    <outlet property="titleLabel" destination="u3e-br-Qcy" id="A9L-UT-gCj"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Id0-Rk-Cnk" id="hBZ-8D-hLi"/>
+                            <outlet property="delegate" destination="Id0-Rk-Cnk" id="TSe-ID-e5X"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Learn" id="c9O-wZ-5Kx"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jHD-ud-doO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1101.5999999999999" y="1127.5862068965519"/>
         </scene>
     </scenes>
     <resources>

@@ -57,6 +57,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+		UINavigationBar.appearance().tintColor = UIColor.appPrimaryColor()
+		UINavigationBar.appearance().backgroundColor = UIColor.white
+		UIView.appearance().tintColor = UIColor.appPrimaryColor()
+		
 		rootViewController.showSecureView()
 		DispatchQueue.main.async {
 			self.rootViewController.unlockApp()

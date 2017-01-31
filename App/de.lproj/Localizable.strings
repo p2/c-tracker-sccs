@@ -6,6 +6,8 @@
   Copyright © 2016 SCCS. All rights reserved.
 */
 
+"About SCCS" = "Über SCCS";
+"About this Study" = "Über die Studie";
 "All your tasks are done" = "Alle Aufgaben sind erledigt";
 "App Credentials" = "App Zugangsdaten";
 "App Settings" = "Einstellungen";
@@ -17,17 +19,19 @@
 "Change Passcode" = "PIN Ändern";
 "Completed task format is invalid" = "Aufgaben-Format is Ungültig";
 "Completed Tasks" = "Erledigt";
-"consent" = "Einwilligung";
 "Consent" = "Einwilligungsverfügung";
+"Copy Link" = "Link kopieren";
 "Could Not Load Profile" = "Profil konnte nicht geladen werden";
 "due" = "heute";
+"Email" = "Email";
 "Enrolled!" = "Angemeldet!";
 "Error" = "Fehler";
+"Facebook" = "Facebook";
 "Failed to Enroll" = "Anmeldung ist Fehlgeschlagen";
-"Female" = "Frau";
 "Gender" = "Geschlecht";
 "Gender, birthday, height, weight" = "Geschlecht, Geburtstag, Grösse, Gewicht";
 "Height" = "Grösse";
+"I think you'd like “C Tracker”, a research study app for iPhone:" = "Schau dir “C Tracker” an, eine Forschungs-App für’s iPhone:";
 "in {{days}} days" = "in {{days}} Tagen";
 "Invalid Code" = "Ungültiger Code";
 "It has expired {{expiry_date}}" = "Lief am {{expiry_date}} ab";
@@ -35,14 +39,15 @@
 "Leave" = "Verlassen";
 "Leave Study?" = "Studie Verlassen?";
 "Legal" = "Legales";
-"Male" = "Mann";
+"Looks like your device is not set up to share via {{service}}" = "Es sieht so aus als könnte ihr iPhone nicht via {{service}} teilen";
 "No camera on device, cannot scan QR code" = "Dieses Gerät hat keine Kamera, kann QR Code nicht scannen";
+"No {{service}}" = "Kein {{service}}";
 "Not enrolled in the study yet" = "Noch nicht angemeldet";
-"Not Set" = "Unbekannt";
 "Not You" = "Falsche Person?";
 "Now, please verify your personal data in order to conclude enrollment" = "Überprüfen Sie nun Ihre persönlichen Angaben, um die Studie zu starten";
 "OK" = "OK";
-"Other" = "Anderes";
+"Open Website" = "Website öffnen";
+"Or share this link:" = "Oder diesen Link teilen:";
 "Our work wouldn't have been possible without the work of other great individuals." = "Unsere Arbeit wäre ohne die Arbeit vieler anderer wunderbarer Menschen nicht möglich gewesen. Die Software-Lizenzen derer Arbeit sind hier aufgelistet, ohne bestimmte Reihenfolge.";
 "Past 24 Hours" = "Letzte 24 Stunden";
 "Permissioning Error" = "Fehler bei Zugriffsermächtigung";
@@ -59,9 +64,14 @@
 "Scanned!" = "Gescannt!";
 "Schedule format is invalid" = "Das Format des Zeitflans ist ungültig";
 "Set Reminders" = "Erinnerungen aktivieren";
+"Share" = "Teilen";
+"Share on" = "Teilen auf";
+"Share via" = "Teilen via";
+"SMS" = "SMS";
 "Software Licenses" = "Software-Lizenzen";
+"Spread the Word" = "Spread the Word!";
 "Step count not available" = "Schrittdaten nicht verfügbar";
-"survey" = "Fragebogen";
+"Survey" = "Fragebogen";
 "The JWT `aud` param's value is “{{aud}}”, which is not a valid URL" = "Im JWT ist der `aud` Parameter “{{aud}}” – dies ist keine gültige URL";
 "The JWT is missing its audience (`aud` parameter)" = "Im JWT fehlt die “audience” (`aud` Parameter)";
 "There's still some time until {{due_date}}" = "Bis zum {{due_date}} bleibt noch ein wenig Zeit";
@@ -69,13 +79,18 @@
 "To get started, please create a passcode first, then allow the app to access some of the features of your phone" = "Als erstes setzen Sie bitte einen PIN, dann erlauben Sie der App, auf Dienste Ihres Telefons zuzugreifen\n\nTappen Sie danach auf “Fertig”";
 "today" = "heute";
 "tomorrow" = "morgen";
+"Twitter" = "Twitter";
+"Unknown" = "Unbekannt";
 "Unset Medical Data?" = "Daten Entfernen?";
 "Verify App Permissions" = "App Zugriffsrechte";
 "Verify…" = "Überprüfen…";
 "We'd like you to complete another survey" = "Bitte beantworten Sie einen weiteren Fragebogen";
 "Weight" = "Gewicht";
 "Welcome!" = "Willkommen!";
+"What is Hepatitis C?" = "Was ist Hepatitis C?";
+"Who Can Participate?" = "Wer kann teilnehmen?";
 "You are enrolled in {{study}}" = "✅ Bei {{study}} dabei";
+"You can help us find study participants by telling others about the study!" = "Sie können uns dabei helfen, weitere Teilnehmer zu finden, indem Sie anderen über die Studie erzählen!";
 "You refuted some of the information contained in the code" = "Sie gaben an, gewisse Angaben im Code seien nicht korrekt";
 "You were born on" = "Sie wurden geboren am";
 "Your Medical Data" = "Persönliche Angaben";

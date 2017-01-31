@@ -6,6 +6,8 @@
   Copyright © 2016 SCCS. All rights reserved.
 */
 
+"About SCCS" = "About SCCS";
+"About this Study" = "About this Study";
 "All your tasks are done" = "All your tasks are done";
 "App Credentials" = "App Credentials";
 "App Settings" = "App Settings";
@@ -17,17 +19,19 @@
 "Change Passcode" = "Change Passcode";
 "Completed task format is invalid" = "Completed task format is invalid";
 "Completed Tasks" = "Completed Tasks";
-"consent" = "Consent";
 "Consent" = "Consent";
+"Copy Link" = "Copy Link";
 "Could Not Load Profile" = "Could Not Load Profile";
 "due" = "due";
+"Email" = "Email";
 "Enrolled!" = "Enrolled!";
 "Error" = "Error";
+"Facebook" = "Facebook";
 "Failed to Enroll" = "Failed to Enroll";
-"Female" = "Female";
 "Gender" = "Gender";
 "Gender, birthday, height, weight" = "Gender, birthday, height, weight";
 "Height" = "Height";
+"I think you'd like “C Tracker”, a research study app for iPhone:" = "I think you'd like “C Tracker”, a research study app for iPhone:";
 "in {{days}} days" = "in {{days}} days";
 "Invalid Code" = "Invalid Code";
 "It has expired {{expiry_date}}" = "It has expired {{expiry_date}}";
@@ -35,14 +39,16 @@
 "Leave" = "Leave";
 "Leave Study?" = "Leave Study?";
 "Legal" = "Legal";
-"Male" = "Male";
+"Looks like your device is not set up to share via {{service}}" = "Looks like your device is not set up to share via {{service}}";
+"No" = "No";
 "No camera on device, cannot scan QR code" = "No camera on device, cannot scan QR code";
+"No {{service}}" = "No {{service}}";
 "Not enrolled in the study yet" = "Not enrolled in the study yet";
-"Not Set" = "Not Set";
 "Not You" = "Not You";
 "Now, please verify your personal data in order to conclude enrollment" = "Now, please verify your personal data in order to conclude enrollment";
 "OK" = "OK";
-"Other" = "Other";
+"Open Website" = "Open Website";
+"Or share this link:" = "Or share this link:";
 "Our work wouldn't have been possible without the work of other great individuals." = "Our work wouldn't have been possible without the work of other great individuals. The licenses of their software are listed below, in no particular order.";
 "Past 24 Hours" = "Past 24 Hours";
 "Permissioning Error" = "Permissioning Error";
@@ -59,9 +65,14 @@
 "Scanned!" = "Scanned!";
 "Schedule format is invalid" = "Schedule format is invalid";
 "Set Reminders" = "Set Reminders";
+"Share" = "Share";
+"Share on" = "Share on";
+"Share via" = "Share via";
+"SMS" = "SMS";
 "Software Licenses" = "Software Licenses";
+"Spread the Word" = "Spread the Word";
 "Step count not available" = "Step count not available";
-"survey" = "Survey";
+"Survey" = "Survey";
 "The JWT `aud` param's value is “{{aud}}”, which is not a valid URL" = "The JWT `aud` param's value is “{{aud}}”, which is not a valid URL";
 "The JWT is missing its audience (`aud` parameter)" = "The JWT is missing its audience (`aud` parameter)";
 "There's still some time until {{due_date}}" = "There's still some time until {{due_date}}";
@@ -69,13 +80,18 @@
 "To get started, please create a passcode first, then allow the app to access some of the features of your phone" = "To get started, please set a passcode first, then allow the app to access some of the features of your phone\n\nAfterwards, tap “Done”";
 "today" = "today";
 "tomorrow" = "tomorrow";
+"Twitter" = "Twitter";
+"Unknown" = "Unknown";
 "Unset Medical Data?" = "Unset Medical Data?";
 "Verify App Permissions" = "Verify App Permissions";
 "Verify…" = "Verify…";
 "We'd like you to complete another survey" = "We'd like you to complete another survey";
 "Weight" = "Weight";
 "Welcome!" = "Welcome!";
+"What is Hepatitis C?" = "What is Hepatitis C?";
+"Who Can Participate?" = "Who Can Participate?";
 "You are enrolled in {{study}}" = "You are enrolled in {{study}}";
+"You can help us find study participants by telling others about the study!" = "You can help us find study participants by telling others about the study!";
 "You refuted some of the information contained in the code" = "You refuted some of the information contained in the code";
 "You were born on" = "You were born on";
 "Your Medical Data" = "Your Medical Data";

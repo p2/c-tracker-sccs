@@ -14,6 +14,14 @@ public enum UserTaskType: String {
 	case unknown = "unknown"
 	case consent = "consent"
 	case survey = "survey"
+	
+	public var localizedName: String {
+		switch self {
+		case .consent: return "Consent".sccs_loc
+		case .survey:  return "Survey".sccs_loc
+		default:       return "Unknown".sccs_loc
+		}
+	}
 }
 
 let UserDidReceiveTaskNotification = Notification.Name(rawValue: "UserDidReceiveTask")

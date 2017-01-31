@@ -77,8 +77,8 @@
 /* Class = "UILabel"; text = "8'500 steps, 14 floors"; ObjectID = "Ueo-mC-psY"; */
 "Ueo-mC-psY.text" = "8'500 Schritte, 14 Stockwerke";
 
-/* Class = "UITabBarItem"; title = "SCCS"; ObjectID = "YSI-UM-MId"; */
-"YSI-UM-MId.title" = "SCCS";
+/* Class = "UITabBarItem"; title = "C Tracker"; ObjectID = "YSI-UM-MId"; */
+"YSI-UM-MId.title" = "C Tracker";
 
 /* Class = "UITableViewController"; title = "Dashboard"; ObjectID = "ZGO-rY-IzW"; */
 "ZGO-rY-IzW.title" = "Dashboard";

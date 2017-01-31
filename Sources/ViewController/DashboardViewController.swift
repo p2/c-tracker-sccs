@@ -454,7 +454,7 @@ class DashboardViewController: UITableViewController {
 		// tasks due and completed
 		let cell = tableView.dequeueReusableCell(withIdentifier: "C3TaskCell", for: indexPath) as! DashboardTaskTableViewCell
 		if let task = taskAtIndexPath(indexPath) {
-			cell.labelTask?.text = task.title ?? task.type.rawValue.sccs_loc
+			cell.labelTask?.text = task.title ?? task.type.localizedName
 			cell.progress?.image = progressImage(for: task)
 			cell.accessoryType = task.canReview ? .disclosureIndicator : .none
 			
@@ -522,12 +522,12 @@ class DashboardViewController: UITableViewController {
 					formatter.dateStyle = .long
 					formatter.timeStyle = .none
 					if task.pending {
-						let title = "{{title}} is not yet due".sccs_loc.replacingOccurrences(of: "{{title}}", with: task.title ?? task.type.rawValue.sccs_loc)
+						let title = "{{title}} is not yet due".sccs_loc.replacingOccurrences(of: "{{title}}", with: task.title ?? task.type.localizedName)
 						let msg = "There's still some time until {{due_date}}".sccs_loc.replacingOccurrences(of: "{{due_date}}", with: formatter.string(from: task.dueDate!))
 						show(message: msg, title: title)
 					}
 					else if task.expired {
-						let title = "{{title}} has expired".sccs_loc.replacingOccurrences(of: "{{title}}", with: task.title ?? task.type.rawValue.sccs_loc)
+						let title = "{{title}} has expired".sccs_loc.replacingOccurrences(of: "{{title}}", with: task.title ?? task.type.localizedName)
 						let msg = "It has expired {{expiry_date}}".sccs_loc.replacingOccurrences(of: "{{expiry_date}}", with: formatter.string(from: task.expiredDate!))
 						show(message: msg, title: title)
 					}

@@ -6,6 +6,8 @@
   Copyright © 2016 SCCS. All rights reserved.
 */
 
+"About SCCS" = "Sur SCCS";
+"About this Study" = "À propos de cette étude";
 "All your tasks are done" = "Toutes vos tâches sont faites";
 "App Credentials" = "App Credentials";
 "App Settings" = "Paramètres de l'app";
@@ -17,17 +19,19 @@
 "Change Passcode" = "Changer le Mot de Passe";
 "Completed task format is invalid" = "Le format de la tâche terminée est invalide";
 "Completed Tasks" = "Tâches Terminées";
-"consent" = "Consentement";
 "Consent" = "Consentement";
+"Copy Link" = "Copier le lien";
 "Could Not Load Profile" = "Impossible de Charger le Profil";
 "due" = "dû";
+"Email" = "Email";
 "Enrolled!" = "Enrôle!";
 "Error" = "Erreur";
+"Facebook" = "Facebook";
 "Failed to Enroll" = "Ne Pas Enrôle";
-"Female" = "Femme";
 "Gender" = "Sexe";
 "Gender, birthday, height, weight" = "Sexe, anniv., taille, poids";
 "Height" = "Taille";
+"I think you'd like “C Tracker”, a research study app for iPhone:" = "Je pense que vous aimeriez “C Tracker”, une application de recherche pour iPhone:";
 "in {{days}} days" = "en {{days}} jours";
 "Invalid Code" = "Code Invalide";
 "It has expired {{expiry_date}}" = "A expiré {{expiry_date}}";
@@ -35,14 +39,15 @@
 "Leave" = "Retirer";
 "Leave Study?" = "Retirer de l’étude?";
 "Legal" = "Légal";
-"Male" = "Homme";
+"Looks like your device is not set up to share via {{service}}" = "Apparemment, votre appareil n'est pas configuré pour être partagé via {{service}}";
 "No camera on device, cannot scan QR code" = "Aucune caméra sur l'appareil, ne peut pas numériser le code QR";
+"No {{service}}" = "Pas de {{service}}";
 "Not enrolled in the study yet" = "Pas encore enrôle à l'étude";
-"Not Set" = "Pas Encore Défini";
 "Not You" = "Pas Vous";
 "Now, please verify your personal data in order to conclude enrollment" = "Vérifiez maintenant vos données personnelles afin de conclure votre enrôlement.";
 "OK" = "OK";
-"Other" = "Autre";
+"Open Website" = "Ouvrir le site";
+"Or share this link:" = "Ou partagez ce lien:";
 "Our work wouldn't have been possible without the work of other great individuals." = "Notre travail n'aurait pas été possible sans le travail d'autres grands individus. Les licences de leurs logiciels sont énumérées ci-dessous, sans ordre particulier.";
 "Past 24 Hours" = "Dernières 24 Heures";
 "Permissioning Error" = "Erreur d'Approvisionnement";
@@ -59,9 +64,14 @@
 "Scanned!" = "Numérisé!";
 "Schedule format is invalid" = "Le format d'horaire n'est pas valide";
 "Set Reminders" = "Définir des Rappels";
+"Share" = "Partager";
+"Share on" = "Partager sur";
+"Share via" = "Partager via";
+"SMS" = "SMS";
 "Software Licenses" = "Licences de Logiciels";
+"Spread the Word" = "Diffusez la Parole";
 "Step count not available" = "Compte d’étapes non disponible";
-"survey" = "Questionnaire";
+"Survey" = "Questionnaire";
 "The JWT `aud` param's value is “{{aud}}”, which is not a valid URL" = "The JWT `aud` param's value is “{{aud}}”, which is not a valid URL";
 "The JWT is missing its audience (`aud` parameter)" = "The JWT is missing its audience (`aud` parameter)";
 "There's still some time until {{due_date}}" = "Il reste du temps jusqu'à {{due_date}}";
@@ -69,13 +79,18 @@
 "To get started, please create a passcode first, then allow the app to access some of the features of your phone" = "Pour commencer, créez d'abord un code d'accès, puis laissez l'application accéder à certaines fonctionnalités de votre téléphone.\n\nEnsuite, appuyez sur “Terminé”";
 "today" = "aujourd'hui";
 "tomorrow" = "demain";
+"Twitter" = "Twitter";
+"Unknown" = "Inconnu";
 "Unset Medical Data?" = "Supprimer les Données?";
 "Verify App Permissions" = "Vérifier les Autorisations d'app";
 "Verify…" = "Vérifier…";
 "We'd like you to complete another survey" = "Nous aimerions que vous remplissiez une autre questionnaire";
 "Weight" = "Poids";
 "Welcome!" = "Bienvenue!";
+"What is Hepatitis C?" = "Qu'est-ce que l'hépatite C?";
+"Who Can Participate?" = "Qui peut partager?";
 "You are enrolled in {{study}}" = "Vous êtes inscrit à {{study}}";
+"You can help us find study participants by telling others about the study!" = "Vous pouvez nous aider à trouver des participants à l'étude en disant aux autres sur l'étude!";
 "You refuted some of the information contained in the code" = "Vous avez réfuté certaines des informations contenues dans le code";
 "You were born on" = "Vous êtes né le";
 "Your Medical Data" = "Votres Données Médicales";

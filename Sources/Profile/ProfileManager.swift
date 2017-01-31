@@ -397,6 +397,23 @@ open class ProfileManager {
 	// MARK: - Serialization
 	
 	/**
+	Updates user properties by copying from the given instance, then persists.
+	
+	Will update medical data only if the provided `user` instance is an AppUser.
+	*/
+	public func persistMedicalData(from user: User) throws {
+		guard let myUser = self.user else {
+			throw AppError.noUserEnrolled
+		}
+		if let appUser = myUser as? AppUser {
+			appUser.updateMedicalData(from: user)
+		}
+		self.user = myUser
+		try type(of: self).persist(user: myUser, at: userURL)
+	}
+	
+	
+	/**
 	Serializes and writes user data to the given location.
 	*/
 	public class func persist(user: User, at url: URL) throws {
@@ -415,6 +432,15 @@ open class ProfileManager {
 		}
 		if let linked = user.linkedAgainst?.absoluteString {
 			json["linked_at"] = linked
+		}
+		if user.biologicalSex != .notSet {
+			json["gender"] = user.biologicalSex.rawValue
+		}
+		if let height = user.bodyheight {
+			json["height"] = "\(height.doubleValue(for: HKUnit.meterUnit(with: .centi))) cm"
+		}
+		if let weight = user.bodyweight {
+			json["weight"] = "\(weight.doubleValue(for: HKUnit.gramUnit(with: .kilo))) kg"
 		}
 		let data = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
 		try data.write(to: url, options: [.atomic, .completeFileProtection])
@@ -439,6 +465,23 @@ open class ProfileManager {
 		}
 		if let linked = json["linked_at"] as? String, linked.characters.count > 0 {
 			user.linkedAgainst = URL(string: linked)
+		}
+		if let genderInt = json["gender"] as? Int, let gender = HKBiologicalSex(rawValue: genderInt) {
+			user.biologicalSex = gender
+		}
+		if let height = json["height"] as? String {
+			let comps = height.components(separatedBy: CharacterSet.whitespaces)
+			if 2 == comps.count {
+				let val = (comps[0] as NSString).doubleValue
+				user.bodyheight = HKQuantity(unit: HKUnit(from: comps[1]), doubleValue: val)
+			}
+		}
+		if let weight = json["weight"] as? String {
+			let comps = weight.components(separatedBy: CharacterSet.whitespaces)
+			if 2 == comps.count {
+				let val = (comps[0] as NSString).doubleValue
+				user.bodyweight = HKQuantity(unit: HKUnit(from: comps[1]), doubleValue: val)
+			}
 		}
 		return user
 	}

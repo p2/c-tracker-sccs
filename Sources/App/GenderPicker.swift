@@ -8,6 +8,7 @@
 
 import UIKit
 import HealthKit
+import C3PRO
 
 
 class GenderPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
@@ -53,23 +54,6 @@ class GenderPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
 	func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
 		gender = HKBiologicalSex(rawValue: row)!
 		onValueChange?(self)
-	}
-}
-
-
-extension HKBiologicalSex {
-	
-	var humanString: String {
-		switch self {
-		case .male:
-			return "Male".sccs_loc
-		case .female:
-			return "Female".sccs_loc
-		case .other:
-			return "Other".sccs_loc
-		case .notSet:
-			return "Not Set".sccs_loc
-		}
 	}
 }
 

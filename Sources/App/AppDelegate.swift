@@ -52,7 +52,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			fatalError("\(error) at \(first)")
 		}
 		
-		NSLog("APP STARTED.\n\tC3-PRO is using FHIR v\(C3PROFHIRVersion).\n\tProfile manager is storing locally to\n\t«\(profileManager.directory.path)»\n\tand sending data to\n\t«\(profileManager.dataServer?.baseURL.description ?? "nil")»")
+		NSLog("\n\nAPP STARTED.\n\tC3-PRO is using FHIR v\(C3PROFHIRVersion).\n\tProfile manager is storing locally to\n«\(profileManager.directory.path)»\n\tand sending data to\n«\(profileManager.dataServer?.baseURL.description ?? "nil")»\n\n")
 		return true
 	}
 	

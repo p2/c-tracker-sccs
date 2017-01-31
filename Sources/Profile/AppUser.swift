@@ -44,6 +44,18 @@ final class AppUser: User {
 	var profileImage: Data?
 	
 	
+	// MARK: - Medical Data
+	
+	public func updateMedicalData(from user: User) {
+		birthDate = user.birthDate
+		biologicalSex = user.biologicalSex
+		bodyheight = user.bodyheight
+		bodyweight = user.bodyweight
+		bloodType = user.bloodType
+		ethnicity = user.ethnicity
+	}
+	
+	
 	// MARK: - Enrollment
 	
 	public internal(set) var enrollmentDate: Date?
@@ -86,7 +98,7 @@ final class AppUser: User {
 	// MARK: - Human Readable
 	
 	public var humanSummary: String {
-		var parts = !humanSex.isEmpty ? [humanSex] : [String]()
+		var parts = (biologicalSex != .notSet) ? [biologicalSex.symbolString] : [String]()
 		if let bd = humanBirthday, !bd.isEmpty {	parts.append(bd)	}
 		if let he = humanHeight, !he.isEmpty {	parts.append(he)	}
 		if let we = humanWeight, !we.isEmpty {	parts.append(we)	}
@@ -105,7 +117,7 @@ final class AppUser: User {
 	var _humanBirthday: String?
 	
 	public var humanSex: String {
-		return ""//biologicalSex.humanString
+		return biologicalSex.humanString
 	}
 	
 	public var humanHeight: String? {

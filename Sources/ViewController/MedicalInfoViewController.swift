@@ -20,7 +20,16 @@ Allow to edit medical info:
 */
 class MedicalInfoViewController : UITableViewController {
 	
-	var user: User?
+	var profileManager: ProfileManager! {
+		didSet {
+			user = AppUser()
+			if let managedUser = profileManager?.user {
+				user?.updateMedicalData(from: managedUser)
+			}
+		}
+	}
+	
+	private var user: AppUser?
 	
 	/// Which row is a detail view showing details for the previous row?
 	var detailShowingAtRow: Int?
@@ -35,14 +44,18 @@ class MedicalInfoViewController : UITableViewController {
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
 		storeInputFieldDataIfPresent()
+		if let user = user {
+			try? profileManager.persistMedicalData(from: user)
+		}
 	}
 	
 	
 	// MARK: - User Data
 	
 	func birthdayDidChange(_ picker: UIDatePicker) {
-//		user?.birthDate = picker.date
+		user?.birthDate = picker.date
 		tableView?.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
 	}
 	
@@ -59,10 +72,10 @@ class MedicalInfoViewController : UITableViewController {
 	}
 	
 	func discardAll() {
-//		user?.biologicalSex = .notSet
-//		user?.birthDate = nil
-//		user?.bodyheight = nil
-//		user?.bodyweight = nil
+		user?.biologicalSex = .notSet
+		user?.birthDate = nil
+		user?.bodyheight = nil
+		user?.bodyweight = nil
 		self.tableView.reloadData()
 	}
 	
@@ -132,17 +145,16 @@ class MedicalInfoViewController : UITableViewController {
 			if let weight = field.text, !weight.isEmpty {
 				let quant = HKQuantity(unit: weightInputUnit(), doubleValue: (weight as NSString).doubleValue)
 				let kilo = quant.doubleValue(for: HKUnit.gramUnit(with: .kilo))
-//				user?.bodyweight = (kilo >= 3.0 && kilo < 800.0) ? quant : nil
+				user?.bodyweight = (kilo >= 3.0 && kilo < 800.0) ? quant : nil
 			}
 			else {
-//				user?.bodyweight = nil
+				user?.bodyweight = nil
 			}
 			inputFieldShowing = nil
 		}
 	}
 	
 	func weightInputUnit() -> HKUnit {
-		print("VERIFY UPDATE, must return country code: \(Locale.current.regionCode)")
 		if let current = Locale.current.regionCode {
 			if "US" == current {
 				return HKUnit.pound()
@@ -238,7 +250,7 @@ class MedicalInfoViewController : UITableViewController {
 			if let picker = cell.picker as? GenderPicker {
 				picker.gender = user?.biologicalSex ?? .notSet
 				picker.onValueChange = { [weak self] picker in
-//					self?.user?.biologicalSex = picker.gender
+					self?.user?.biologicalSex = picker.gender
 					self?.tableView?.reloadRows(at: [IndexPath(row: row, section: 0)], with: .automatic)
 				}
 			}
@@ -257,7 +269,7 @@ class MedicalInfoViewController : UITableViewController {
 			if let picker = cell.picker as? HeightPicker {
 				picker.bodyheight = user?.bodyheight
 				picker.onValueChange = { [weak self] picker in
-//					self?.user?.bodyheight = picker.bodyheight
+					self?.user?.bodyheight = picker.bodyheight
 					self?.tableView?.reloadRows(at: [IndexPath(row: row, section: 0)], with: .automatic)
 				}
 			}

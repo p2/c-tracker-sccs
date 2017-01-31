@@ -40,7 +40,6 @@ let cEncDataQueueKey = "N/A"
 
 /// The issuer endpoint expected from JWT decoding; can be nil if any issuer should be allowed, but this is definitely not recommended. Note
 /// that this must be an exact match, meaning trailing slashes matter.
-#if ON_SIMULATOR
 let cJWTIssuer: String? = "https://idm.c3-pro.io/"
 
 /// The secret used in the JWT.

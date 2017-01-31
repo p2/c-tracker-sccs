@@ -22,10 +22,10 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 	
 	var willReloadTable = false
 	
-	var profileManager: ProfileManager?
+	var profileManager: ProfileManager!
 	
 	var user: User? {
-		return profileManager?.user
+		return profileManager.user
 	}
 	
 	@IBOutlet var labelName: UILabel?
@@ -154,7 +154,7 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 //		}
 //		self.questionnaireController = nil
 		do {
-			try profileManager?.withdraw()
+			try profileManager.withdraw()
 		}
 		catch let error {
 			c3_logIfDebug("ERROR withdrawing: \(error)")
@@ -378,7 +378,7 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 	
 	func showMedicalInfoVC(_ animated: Bool = true) {
 		if let info = storyboard?.instantiateViewController(withIdentifier: "C3MedicalInfo") as? MedicalInfoViewController {
-			info.user = user
+			info.profileManager = profileManager
 			if let navi = navigationController {
 				navi.pushViewController(info, animated: animated)
 			}

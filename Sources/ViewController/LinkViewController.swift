@@ -18,6 +18,7 @@ class LinkViewController: UIViewController {
 	@IBOutlet var instructionTitle: UILabel?
 	@IBOutlet var instructionMain: UILabel?
 	@IBOutlet var instructionButton: UIButton?
+	@IBOutlet var simulateButton: UIButton?
 	
 	var tokenConfirmed: ((ProfileLink, Bool) -> Void)?
 	
@@ -36,6 +37,9 @@ class LinkViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		#if DEBUG
+			simulateButton?.isHidden = false
+		#endif
 		
 		do {
 			guard let camera = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo) else {

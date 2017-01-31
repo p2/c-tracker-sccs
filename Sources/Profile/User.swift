@@ -16,17 +16,17 @@ public protocol User {
 	
 	var name: String? { get set }
 	
-	var birthDate: Date? { get }
+	var birthDate: Date? { get set }
 	
-	var biologicalSex: HKBiologicalSex { get }
+	var biologicalSex: HKBiologicalSex { get set }
 	
 	var bloodType: HKBloodType { get set }
 	
-	var ethnicity: String? { get }
+	var ethnicity: String? { get set }
 	
-	var bodyheight: HKQuantity? { get }
+	var bodyheight: HKQuantity? { get set }
 	
-	var bodyweight: HKQuantity? { get }
+	var bodyweight: HKQuantity? { get set }
 	
 	var profileImage: Data? { get }
 	

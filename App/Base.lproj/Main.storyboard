@@ -233,7 +233,7 @@ to C Tracker</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNd-XW-n8o">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNd-XW-n8o">
                                 <rect key="frame" x="145" y="609" width="86" height="28"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <state key="normal" title="Simulate Scan"/>
@@ -341,6 +341,7 @@ to C Tracker</string>
                         <outlet property="instructionOverlay" destination="X5n-jA-CdM" id="hOM-CZ-pYa"/>
                         <outlet property="instructionTitle" destination="caH-7i-mcd" id="9FU-Fe-Z0I"/>
                         <outlet property="scanArea" destination="GuI-fw-X5x" id="uB6-wo-sMR"/>
+                        <outlet property="simulateButton" destination="jNd-XW-n8o" id="0RT-uS-Ve3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CPk-Us-4rD" userLabel="First Responder" sceneMemberID="firstResponder"/>

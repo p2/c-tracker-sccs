@@ -43,7 +43,6 @@ class HeightPicker: UIPickerView, UIPickerViewDelegate, UIPickerViewDataSource {
 	func setup() {
 		delegate = self
 		dataSource = self
-		print("VERIFY UPDATE, should be “US” on US phone: \(Locale.current.regionCode)")
 		if let current = Locale.current.regionCode, "US" == current {
 			units = [
 				HKUnit.foot(),

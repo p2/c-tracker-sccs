@@ -92,46 +92,40 @@ public struct UserTaskSetting {
 	*/
 	func scheduledTasks(starting: Date) throws -> [UserTask] {
 		let cal = Calendar.current
-		var startComp = cal.dateComponents([.year, .month, .day], from: starting)
-		startComp.timeZone = TimeZone(identifier: "UTC")!
-		let start = cal.date(from: startComp)!
 		
-		// create start date
-		var dates = [Date]()
-		if let first = cal.date(byAdding: starts ?? DateComponents(), to: start) {
-			dates.append(first)
+		// create start date as first entry
+		guard let first = cal.date(byAdding: starts ?? DateComponents(), to: starting) else {
+			throw AppError.invalidScheduleFormat("Unable to add date components \(starts ?? DateComponents()) to start date")
 		}
-		else {
-			throw AppError.invalidScheduleFormat("Unable to add date components \(starts ?? DateComponents()) to now")
-		}
+		var datetimes = [first]
 		
 		// create repetitions
 		if let rep = repeats, let exp = expires {
-			if let end = cal.date(byAdding: exp, to: start) {
-				var next = start
-				while next < end {
-					if let date = cal.date(byAdding: rep, to: next) {
-						dates.append(date)
-						next = date
-					}
-					else {
-						throw AppError.invalidScheduleFormat("Unable to add date components \(rep) to date \(next)")
-					}
-				}
+			guard let end = cal.date(byAdding: exp, to: starting) else {
+				throw AppError.invalidScheduleFormat("Unable to add date components \(exp) to date \(starting)")
 			}
-			else {
-				throw AppError.invalidScheduleFormat("Unable to add date components \(exp) to date \(start)")
+			var next = starting
+			while next < end {
+				guard let date = cal.date(byAdding: rep, to: next) else {
+					throw AppError.invalidScheduleFormat("Unable to add date components \(rep) to date \(next)")
+				}
+				datetimes.append(date)
+				next = date
 			}
 		}
 		
-		// create UserTask instances
+		// create UserTask instances: add due date (without time), timezone and max delay date-time
 		var tasks = [UserTask]()
-		for date in dates {
+		for datetime in datetimes {
+			var comps = cal.dateComponents([.year, .month, .day], from: datetime)
+			comps.timeZone = TimeZone(identifier: "UTC")!
+			let date = cal.date(from: comps)!
+			
 			let task = AppUserTask(id: UUID().uuidString, taskId: taskId, type: taskType)
 			task.notificationType = notificationType
 			task.dueDate = date
 			if let delay = delayMax {
-				task.delayMaxDate = cal.date(byAdding: delay, to: date)
+				task.expiredDate = cal.date(byAdding: delay, to: datetime)
 			}
 			tasks.append(task)
 		}

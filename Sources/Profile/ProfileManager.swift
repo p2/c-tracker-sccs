@@ -306,9 +306,6 @@ open class ProfileManager {
 	}
 	
 	func userDidComplete(task: UserTask, on date: Date, context: Any?) throws {
-		guard task.completed else {
-			throw AppError.invalidCompletedTasksFormat("The task \(task) has not been marked as completed yet")
-		}
 		task.completed(on: date)
 		var completed = [[String: Any]]()
 		
@@ -337,7 +334,7 @@ open class ProfileManager {
 		// handle task context
 		if let context = context {
 			if let resource = context as? Resource {
-				app_logIfDebug("--->  COMPLETED TASK WITH RESOURCE: \(try! resource.asJSON())")
+				app_logIfDebug("--->  COMPLETED TASK WITH RESOURCE: \(String(reflecting: resource))")
 			}
 			else {
 				app_logIfDebug("Completed task with unknown context: \(context)")

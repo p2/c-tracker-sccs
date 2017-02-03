@@ -64,13 +64,10 @@ public protocol UserTask {
 	
 	var humanDueDate: String? { get }
 	
-	/// Until when the task can be delayed (e.g. via "Remind me tomorrow" actions).
-	var delayMaxDate: Date? { get }
-	
 	/// The day this task has been completed.
 	var completedDate: Date? { get set }
 	
-	/// The day this task has expired.
+	/// The day this task has expired or will expire (also the max date to which the user can delay the task).
 	var expiredDate: Date? { get set }
 	
 	/// Human-readable date this task has either been completed or has expired.

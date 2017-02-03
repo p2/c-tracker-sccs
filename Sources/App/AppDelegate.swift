@@ -134,8 +134,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //					c3_logIfDebug("Questionnaire completed, submitting")
 //					resource.create(smart.server) { error in }
 //					#if DEBUG
-//						let data = try! JSONSerialization.data(withJSONObject: resource.asJSON(), options: .prettyPrinted)
-//						print(String(data: data, encoding: String.Encoding.utf8)!)
+//						debugPrint(resource)
 //					#endif
 //					
 //					sendLatestBodyweight()

@@ -59,9 +59,6 @@ class AppUserTask: UserTask {
 		return nil
 	}
 	
-	/// How long this can be delayed.
-	var delayMaxDate: Date?
-	
 	/// The day this task has been completed.
 	var completedDate: Date?
 	
@@ -155,17 +152,11 @@ class AppUserTask: UserTask {
 		if let due = serialized["due"] as? String {
 			dueDate = FHIRDate(string: due)?.nsDate
 		}
-		if let delayMax = serialized["delayMax"] as? String {
-			delayMaxDate = DateTime(string: delayMax)?.nsDate
-			if let delayMaxDate = delayMaxDate, delayMaxDate < Date() {
-				expiredDate = delayMaxDate
-			}
-		}
 		if let done = serialized["done"] as? String {
-			completedDate = FHIRDate(string: done)?.nsDate
+			completedDate = DateTime(string: done)?.nsDate
 		}
 		if let expired = serialized["expired"] as? String {
-			expiredDate = FHIRDate(string: expired)?.nsDate
+			expiredDate = DateTime(string: expired)?.nsDate
 		}
 	}
 	
@@ -173,7 +164,7 @@ class AppUserTask: UserTask {
 		var errors = [FHIRValidationError]()
 		
 		var json = ["id": id, "taskId": taskId, "type": type.rawValue]
-		if let comp = completedDate?.fhir_asDate() {
+		if let comp = completedDate?.fhir_asDateTime() {
 			json["done"] = comp.asJSON(errors: &errors)
 		}
 		
@@ -187,10 +178,7 @@ class AppUserTask: UserTask {
 			if let due = dueDate?.fhir_asDate() {
 				json["due"] = due.asJSON(errors: &errors)
 			}
-			if let delayMax = delayMaxDate?.fhir_asDateTime() {
-				json["delayMax"] = delayMax.asJSON(errors: &errors)
-			}
-			if let expired = delayMaxDate?.fhir_asDateTime() {
+			if let expired = expiredDate?.fhir_asDateTime() {
 				json["expired"] = expired.asJSON(errors: &errors)
 			}
 		}

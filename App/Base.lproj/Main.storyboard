@@ -13,7 +13,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--First-->
+        <!--Welcome View Controller-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController storyboardIdentifier="Welcome" id="9pv-A4-QxB" customClass="WelcomeViewController" customModule="C_Tracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -151,7 +151,7 @@ to C Tracker</string>
                             <constraint firstItem="FBV-Xr-MGl" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="P7w-7f-Z4K"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
+                    <tabBarItem key="tabBarItem" title="" id="acW-dT-cKf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
             </objects>
@@ -1040,7 +1040,7 @@ to C Tracker</string>
                                 <rect key="frame" x="0.0" y="170" width="375" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iz1-dx-fec" id="Jn0-8h-Vzv">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="71"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="71.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4bB-Qk-MuS">
@@ -1085,7 +1085,6 @@ to C Tracker</string>
     </scenes>
     <resources>
         <image name="SCCS_Logo" width="190" height="85"/>
-        <image name="first" width="30" height="30"/>
         <image name="profile_placeholder" width="65" height="65"/>
         <image name="progress_pending" width="40" height="40"/>
         <image name="tab_dashboard" width="32" height="32"/>

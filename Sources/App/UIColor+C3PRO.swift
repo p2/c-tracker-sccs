@@ -22,7 +22,15 @@ public extension UIColor {
 	}
 	
 	public class func appPrimaryColor() -> UIColor {
-		return UIColor(red:57.0/255, green:99.0/255, blue:159.0/255, alpha:1.0)
+		return UIColor(red:153.0/255, green:24.0/255, blue:24.0/255, alpha:1.0)
+	}
+	
+	public class func appBarColor() -> UIColor {
+		return UIColor(red:201.0/255, green:209.0/255, blue:211.0/255, alpha:1.0)
+	}
+	
+	public class func appBackgroundColor() -> UIColor {
+		return UIColor(red:247.0/255, green:247.0/255, blue:247.0/255, alpha:1.0)
 	}
 }
 

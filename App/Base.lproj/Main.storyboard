@@ -31,30 +31,43 @@
                                     <view contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FBV-Xr-MGl">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="598"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="SCCS_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="ZKS-gx-5Sg">
-                                                <rect key="frame" x="93" y="30.5" width="190" height="85"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="FullLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ZKS-gx-5Sg">
+                                                <rect key="frame" x="93" y="20" width="190" height="150"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="85" id="JAS-Ci-QeO"/>
+                                                    <constraint firstAttribute="height" constant="150" id="JAS-Ci-QeO"/>
                                                     <constraint firstAttribute="width" constant="190" id="Jlv-5s-LAf"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="751" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
-                                                <rect key="frame" x="30" y="175.5" width="315" height="86"/>
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <string key="text">Welcome
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eca-xS-vlC">
+                                                <rect key="frame" x="0.0" y="236" width="375" height="126.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="KQZ-1w-vlD">
+                                                        <rect key="frame" x="34" y="0.0" width="307" height="86"/>
+                                                        <string key="text">Welcome
 to C Tracker</string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="by the Swiss Hepatitis C Cohort Study" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
-                                                <rect key="frame" x="16" y="281.5" width="343" height="21"/>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THY-03-5WJ">
-                                                <rect key="frame" x="155" y="362.5" width="66" height="97.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" text="by the Swiss Hepatitis C Cohort Study" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A5M-7J-77L">
+                                                        <rect key="frame" x="20" y="106" width="335" height="20.5"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="20" id="9eD-cM-bOD"/>
+                                                    <constraint firstAttribute="bottom" secondItem="A5M-7J-77L" secondAttribute="bottom" id="BhJ-LQ-4Bm"/>
+                                                    <constraint firstAttribute="trailing" secondItem="A5M-7J-77L" secondAttribute="trailing" constant="20" id="EMZ-d2-776"/>
+                                                    <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="Eca-xS-vlC" secondAttribute="top" id="Mov-hf-ith"/>
+                                                    <constraint firstItem="A5M-7J-77L" firstAttribute="leading" secondItem="Eca-xS-vlC" secondAttribute="leading" constant="20" id="dIo-GE-rDb"/>
+                                                    <constraint firstAttribute="trailing" secondItem="KQZ-1w-vlD" secondAttribute="trailing" constant="34" id="kqS-Bj-ab9"/>
+                                                    <constraint firstItem="KQZ-1w-vlD" firstAttribute="leading" secondItem="Eca-xS-vlC" secondAttribute="leading" constant="34" id="pGA-43-weK"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THY-03-5WJ">
+                                                <rect key="frame" x="154" y="402" width="66" height="46"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                 <state key="normal" title="Enroll"/>
                                                 <connections>
@@ -97,7 +110,6 @@ to C Tracker</string>
                                                         </connections>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailingMargin" secondItem="EhU-aj-ZlM" secondAttribute="trailing" id="3tn-Ek-kcW"/>
                                                     <constraint firstAttribute="trailingMargin" secondItem="9VG-hk-9TB" secondAttribute="trailing" id="IQc-X2-QRT"/>
@@ -112,29 +124,26 @@ to C Tracker</string>
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="centerY" secondItem="KQZ-1w-vlD" secondAttribute="centerY" constant="81" id="0CJ-N3-9fM"/>
-                                            <constraint firstItem="KQZ-1w-vlD" firstAttribute="leading" secondItem="FBV-Xr-MGl" secondAttribute="leading" constant="30" id="4Ac-xd-unZ"/>
-                                            <constraint firstItem="KQZ-1w-vlD" firstAttribute="top" secondItem="ZKS-gx-5Sg" secondAttribute="bottom" constant="60" id="5Cj-9N-V7O"/>
                                             <constraint firstItem="THY-03-5WJ" firstAttribute="centerX" secondItem="FBV-Xr-MGl" secondAttribute="centerX" id="5kW-Sq-EMA"/>
                                             <constraint firstAttribute="bottom" secondItem="aWQ-NM-XHp" secondAttribute="bottom" id="93y-z6-ZVO"/>
-                                            <constraint firstItem="aWQ-NM-XHp" firstAttribute="top" secondItem="THY-03-5WJ" secondAttribute="bottom" priority="751" constant="40" id="A7M-Hl-mj9"/>
+                                            <constraint firstItem="aWQ-NM-XHp" firstAttribute="top" relation="greaterThanOrEqual" secondItem="THY-03-5WJ" secondAttribute="bottom" priority="750" constant="40" id="A7M-Hl-mj9"/>
                                             <constraint firstItem="aWQ-NM-XHp" firstAttribute="leading" secondItem="FBV-Xr-MGl" secondAttribute="leading" id="HCX-Nc-RCy"/>
+                                            <constraint firstItem="Eca-xS-vlC" firstAttribute="centerY" secondItem="FBV-Xr-MGl" secondAttribute="centerY" id="NcV-CX-zra"/>
+                                            <constraint firstAttribute="trailing" secondItem="Eca-xS-vlC" secondAttribute="trailing" id="Prm-Tc-OJo"/>
                                             <constraint firstItem="ZKS-gx-5Sg" firstAttribute="centerX" secondItem="FBV-Xr-MGl" secondAttribute="centerX" id="QRr-H6-I8j"/>
-                                            <constraint firstItem="ZKS-gx-5Sg" firstAttribute="top" secondItem="FBV-Xr-MGl" secondAttribute="top" priority="749" constant="20" id="TJu-zJ-MsC"/>
-                                            <constraint firstAttribute="trailing" secondItem="KQZ-1w-vlD" secondAttribute="trailing" constant="30" id="Ve7-DW-91K"/>
-                                            <constraint firstAttribute="trailingMargin" secondItem="A5M-7J-77L" secondAttribute="trailing" id="c8q-oP-CjW"/>
-                                            <constraint firstItem="THY-03-5WJ" firstAttribute="top" secondItem="A5M-7J-77L" secondAttribute="bottom" constant="60" id="cIg-lB-zLN"/>
-                                            <constraint firstItem="A5M-7J-77L" firstAttribute="top" secondItem="KQZ-1w-vlD" secondAttribute="bottom" constant="20" id="qUc-n4-kZ9"/>
-                                            <constraint firstAttribute="centerX" secondItem="KQZ-1w-vlD" secondAttribute="centerX" id="rME-4O-oyr"/>
+                                            <constraint firstItem="ZKS-gx-5Sg" firstAttribute="top" secondItem="FBV-Xr-MGl" secondAttribute="top" constant="20" id="TJu-zJ-MsC"/>
+                                            <constraint firstItem="THY-03-5WJ" firstAttribute="top" secondItem="Eca-xS-vlC" secondAttribute="bottom" constant="40" id="Wve-XH-H2i"/>
+                                            <constraint firstItem="Eca-xS-vlC" firstAttribute="leading" secondItem="FBV-Xr-MGl" secondAttribute="leading" id="Xmw-a3-0Kc"/>
+                                            <constraint firstItem="Eca-xS-vlC" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ZKS-gx-5Sg" secondAttribute="bottom" priority="749" constant="40" id="ljM-gT-BCT"/>
                                             <constraint firstAttribute="trailing" secondItem="aWQ-NM-XHp" secondAttribute="trailing" id="xTV-e9-mpL"/>
-                                            <constraint firstItem="A5M-7J-77L" firstAttribute="leading" secondItem="FBV-Xr-MGl" secondAttribute="leadingMargin" id="zVR-49-Tfh"/>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="FBV-Xr-MGl" firstAttribute="height" relation="greaterThanOrEqual" secondItem="Cg0-Ih-dHE" secondAttribute="height" id="74k-WF-dWX"/>
+                                    <constraint firstItem="FBV-Xr-MGl" firstAttribute="height" secondItem="Cg0-Ih-dHE" secondAttribute="height" id="74k-WF-dWX"/>
                                     <constraint firstItem="FBV-Xr-MGl" firstAttribute="leading" secondItem="Cg0-Ih-dHE" secondAttribute="leading" id="WGp-9w-g7f"/>
                                     <constraint firstAttribute="bottom" secondItem="FBV-Xr-MGl" secondAttribute="bottom" id="Z4W-if-gwB"/>
                                     <constraint firstAttribute="trailing" secondItem="FBV-Xr-MGl" secondAttribute="trailing" id="bHe-zN-nlf"/>
@@ -142,7 +151,7 @@ to C Tracker</string>
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Cg0-Ih-dHE" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="5v1-vY-qzP"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Cg0-Ih-dHE" secondAttribute="bottom" id="8wf-DZ-8Jj"/>
@@ -182,7 +191,6 @@ to C Tracker</string>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="9pv-A4-QxB" kind="relationship" relationship="viewControllers" id="u7Y-xg-7CH"/>
@@ -389,7 +397,7 @@ to C Tracker</string>
                                 <rect key="frame" x="0.0" y="28" width="375" height="162"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Byb-NJ-VOC" id="tEB-z7-eSa">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="161.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="161"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Your name is" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9u-dX-9MA">
@@ -520,13 +528,13 @@ to C Tracker</string>
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Yc5-V4-EFY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3TaskCell" rowHeight="76" id="Nmm-iw-Z8e" customClass="DashboardTaskTableViewCell" customModule="C_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="76"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="76"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nmm-iw-Z8e" id="475-3N-ee3">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="75.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="progress_pending" translatesAutoresizingMaskIntoConstraints="NO" id="0p5-wk-QLN">
@@ -572,10 +580,10 @@ to C Tracker</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3ActivityCell" rowHeight="224" id="Z7C-sr-THf" customClass="DashboardActivityTableViewCell" customModule="C_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="131.5" width="375" height="224"/>
+                                <rect key="frame" x="0.0" y="132" width="375" height="224"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z7C-sr-THf" id="V2p-A8-ecY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="223.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="223"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pun-f7-TvE" customClass="ORKPieChartView">
@@ -623,10 +631,10 @@ to C Tracker</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3GraphCell" rowHeight="224" id="cM4-1a-esN" customClass="DashboardGraphTableViewCell" customModule="C_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="355.5" width="375" height="224"/>
+                                <rect key="frame" x="0.0" y="356" width="375" height="224"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cM4-1a-esN" id="rGL-WH-3gY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="223.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="223"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOl-Nu-ABH" userLabel="Graph" customClass="FixedLineGraphChartView" customModule="C_Tracker" customModuleProvider="target">
@@ -646,10 +654,10 @@ to C Tracker</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3DailyActivityCell" id="5jS-Wc-GBF" customClass="DashboardDailyActivityTableViewCell" customModule="C_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="579.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="580" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5jS-Wc-GBF" id="mpu-Dl-HPK">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wxR-cc-MvL" customClass="ORKPieChartView">
@@ -688,10 +696,10 @@ to C Tracker</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3TextCell" id="Vl7-BK-Ryc">
-                                <rect key="frame" x="0.0" y="623.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="624" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vl7-BK-Ryc" id="ef5-qW-Kwi">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -721,7 +729,7 @@ to C Tracker</string>
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="sr1-Rw-k0w">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="exl-1B-mcF">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -781,14 +789,14 @@ to C Tracker</string>
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="C3MoreCell" textLabel="JWn-wf-g3s" style="IBUITableViewCellStyleDefault" id="APn-fa-1HE">
-                                <rect key="frame" x="0.0" y="170.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="171" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="APn-fa-1HE" id="sV7-db-TrC">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JWn-wf-g3s">
-                                            <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="325" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -798,14 +806,14 @@ to C Tracker</string>
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3BasicCell" textLabel="To8-W3-Ta7" style="IBUITableViewCellStyleDefault" id="iIo-rE-FQU">
-                                <rect key="frame" x="0.0" y="214.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="215" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iIo-rE-FQU" id="PAp-IW-MUa">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="To8-W3-Ta7">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="345" height="43"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -897,18 +905,18 @@ to C Tracker</string>
                                 <rect key="frame" x="0.0" y="22" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nbw-7Q-0B3" id="TY2-bQ-4u5">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="4Ub-Qs-5Un">
-                                            <rect key="frame" x="15" y="12" width="31.5" height="19.5"/>
+                                            <rect key="frame" x="15" y="12" width="32" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2C1-OY-YQ7">
-                                            <rect key="frame" x="318.5" y="12" width="41.5" height="19.5"/>
+                                            <rect key="frame" x="318" y="12" width="42" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -921,7 +929,7 @@ to C Tracker</string>
                                 <rect key="frame" x="0.0" y="66" width="375" height="162"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E0i-oM-fZ2" id="Oyv-Id-oX6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="161.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="161"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="IbQ-JU-mtt">
@@ -946,7 +954,7 @@ to C Tracker</string>
                                 <rect key="frame" x="0.0" y="228" width="375" height="162"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aMx-iu-oBI" id="i2U-mD-B2l">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="161.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="161"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mx6-vx-4SL" customClass="GenderPicker" customModule="C_Tracker" customModuleProvider="target">
@@ -968,7 +976,7 @@ to C Tracker</string>
                                 <rect key="frame" x="0.0" y="390" width="375" height="162"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aXp-98-3No" id="n3N-JI-6uX">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="161.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="161"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QHZ-oE-JwC" customClass="HeightPicker" customModule="C_Tracker" customModuleProvider="target">
@@ -1006,21 +1014,21 @@ to C Tracker</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="zbk-Ns-fEE">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="148"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="213"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2S3-z4-fbO">
-                                    <rect key="frame" x="-1" y="-1" width="377" height="149"/>
+                                    <rect key="frame" x="-1" y="-1" width="377" height="214"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SCCS_Logo" translatesAutoresizingMaskIntoConstraints="NO" id="dg5-Sd-ut4">
-                                            <rect key="frame" x="94" y="30" width="190" height="85"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FullLogo" translatesAutoresizingMaskIntoConstraints="NO" id="dg5-Sd-ut4">
+                                            <rect key="frame" x="94" y="30" width="190" height="150"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="85" id="BYU-Dc-kS4"/>
+                                                <constraint firstAttribute="height" constant="150" id="BYU-Dc-kS4"/>
                                                 <constraint firstAttribute="width" constant="190" id="tHb-BM-ubv"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstItem="dg5-Sd-ut4" firstAttribute="top" secondItem="2S3-z4-fbO" secondAttribute="top" constant="30" id="OaF-Iz-gJ7"/>
                                         <constraint firstAttribute="centerX" secondItem="dg5-Sd-ut4" secondAttribute="centerX" id="g3W-4d-V51"/>
@@ -1037,10 +1045,10 @@ to C Tracker</string>
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="CellText" rowHeight="72" id="iz1-dx-fec" customClass="StudyTextTableViewCell" customModule="C_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="170" width="375" height="72"/>
+                                <rect key="frame" x="0.0" y="235" width="375" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iz1-dx-fec" id="Jn0-8h-Vzv">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="71.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="71"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4bB-Qk-MuS">
@@ -1084,7 +1092,7 @@ to C Tracker</string>
         </scene>
     </scenes>
     <resources>
-        <image name="SCCS_Logo" width="190" height="85"/>
+        <image name="FullLogo" width="190" height="150"/>
         <image name="profile_placeholder" width="65" height="65"/>
         <image name="progress_pending" width="40" height="40"/>
         <image name="tab_dashboard" width="32" height="32"/>

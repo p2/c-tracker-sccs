@@ -56,7 +56,6 @@
 		EE98D2A51E0160EC001BC845 /* ProfileSettingsDebug.json in Resources */ = {isa = PBXBuildFile; fileRef = EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */; };
 		EEDDAC7D1E40ED84007D4056 /* StudyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDDAC7C1E40ED84007D4056 /* StudyTableViewController.swift */; };
 		EEDDAC901E40EF51007D4056 /* ShareTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDDAC8F1E40EF51007D4056 /* ShareTableViewController.swift */; };
-		EEEC78641DEC24B400E7020C /* SCCSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78631DEC24B400E7020C /* SCCSViewController.swift */; };
 		EEEC78671DEC258100E7020C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78661DEC258100E7020C /* ProfileViewController.swift */; };
 		EEEC78691DEC258B00E7020C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78681DEC258B00E7020C /* DashboardViewController.swift */; };
 		EEEC786B1DEC25BE00E7020C /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC786A1DEC25BE00E7020C /* RootViewController.swift */; };
@@ -379,7 +378,6 @@
 		EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfileSettingsDebug.json; sourceTree = SOURCE_ROOT; };
 		EEDDAC7C1E40ED84007D4056 /* StudyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyTableViewController.swift; sourceTree = "<group>"; };
 		EEDDAC8F1E40EF51007D4056 /* ShareTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTableViewController.swift; sourceTree = "<group>"; };
-		EEEC78631DEC24B400E7020C /* SCCSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCCSViewController.swift; sourceTree = "<group>"; };
 		EEEC78661DEC258100E7020C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		EEEC78681DEC258B00E7020C /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		EEEC786A1DEC25BE00E7020C /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
@@ -510,7 +508,6 @@
 				EE492CE51E2E7CC60043D531 /* EstablishViewController.swift */,
 				EEEC78681DEC258B00E7020C /* DashboardViewController.swift */,
 				EEEC78661DEC258100E7020C /* ProfileViewController.swift */,
-				EEEC78631DEC24B400E7020C /* SCCSViewController.swift */,
 				EE0F34F41E02E61C003AA556 /* MedicalInfoViewController.swift */,
 				EE0F34F51E02E61C003AA556 /* NotificationsViewController.swift */,
 				EE0F34F61E02E61C003AA556 /* LicenseViewController.swift */,
@@ -991,7 +988,6 @@
 				EE0F34FA1E02E61C003AA556 /* LicenseViewController.swift in Sources */,
 				EE252D031DED7196008F5E3E /* NotificationManager.swift in Sources */,
 				EEEC78791DEC3DDA00E7020C /* GraphDataSource.swift in Sources */,
-				EEEC78641DEC24B400E7020C /* SCCSViewController.swift in Sources */,
 				EE492CD31E2E6F470043D531 /* ProfileLink.swift in Sources */,
 				EE5074C31DE892B300A0C73F /* UIViewController+Utilities.swift in Sources */,
 				EEDDAC901E40EF51007D4056 /* ShareTableViewController.swift in Sources */,

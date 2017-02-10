@@ -31,22 +31,28 @@ open class ProfileManager {
 	static let userDidWithdrawFromStudyNotification = Notification.Name("UserDidWithdrawFromStudyNotification")
 	
 	/// The user managed by the receiver.
-	var user: User?
+	public internal(set) var user: User?
+	
+	/// The type implementing the `User` protocol to use.
+	public let userType: User.Type
+	
+	/// The type implementing the `UserTask` protocol to use.
+	public let taskType: UserTask.Type
 	
 	/// The profile persister taking care of persisting user, schedule and co.
-	var persister: ProfilePersister?
+	public internal(set) var persister: ProfilePersister?
 	
 	/// The data server to be used.
-	var dataServer: FHIRServer?
+	public internal(set) var dataServer: FHIRServer?
 	
 	/// Internally used to hold on to a token server instance.
-	var tokenServer: OAuth2Requestable?
+	public internal(set) var tokenServer: OAuth2Requestable?
 	
 	/// Settings to use for this study profile.
-	var settings: ProfileManagerSettings?
+	public internal(set) var settings: ProfileManagerSettings?
 	
 	/// The task preparer that can be used to prepare user tasks.
-	var taskPreparer: UserTaskPreparer? {
+	public var taskPreparer: UserTaskPreparer? {
 		if let taskPreparer = _taskPreparer {
 			return taskPreparer
 		}
@@ -59,7 +65,7 @@ open class ProfileManager {
 	private var _taskPreparer: UserTaskPreparer?
 	
 	/// Handles system permissioning.
-	var permissioner: SystemServicePermissioner {
+	public var permissioner: SystemServicePermissioner {
 		if nil == _permissioner {
 			_permissioner = SystemServicePermissioner()
 		}
@@ -75,7 +81,9 @@ open class ProfileManager {
 	- parameter dataServer:  A handle to the FHIR server that should receive study data
 	- parameter persister:   The instance to use to persist app data
 	*/
-	public init(settingsURL: URL, dataServer: FHIRServer?, persister: ProfilePersister?) throws {
+	public init(userType: User.Type, taskType: UserTask.Type, settingsURL: URL, dataServer: FHIRServer?, persister: ProfilePersister?) throws {
+		self.userType = userType
+		self.taskType = taskType
 		self.dataServer = dataServer
 		self.persister = persister
 		
@@ -85,7 +93,7 @@ open class ProfileManager {
 		settings = try ProfileManagerSettings(with: json)
 		
 		// load user and tasks
-		if let usr = try persister?.loadUser(with: nil) {
+		if let usr = try persister?.loadEnrolledUser(type: userType) {
 			user = usr
 			if let tasks = try persister?.loadAllTasks(for: usr) {
 				user!.tasks = tasks
@@ -176,7 +184,7 @@ open class ProfileManager {
 	/**
 	Reads the app's profile configuration, creates `UserTask` for every scheduled task and sets up app notifications.
 	*/
-	func setupSchedule() throws {
+	open func setupSchedule() throws {
 		guard let user = user else {
 			throw AppError.noUserEnrolled
 		}
@@ -187,7 +195,7 @@ open class ProfileManager {
 		
 		// setup complete schedule
 		let now = Date()
-		var scheduled = try schedulable.flatMap() { try $0.scheduledTasks(starting: now) }
+		var scheduled = try schedulable.flatMap() { try $0.scheduledTasks(starting: now, type: taskType) }
 		scheduled.sort {
 			guard let ldue = $0.dueDate else {
 				return false
@@ -210,7 +218,7 @@ open class ProfileManager {
 	
 	- returns: A tuple with the actual notification [0] and the notification type [1]
 	*/
-	func notification(for task: UserTask, suggestedDate: DateComponents?) -> (UILocalNotification, NotificationManagerNotificationType)? {
+	public func notification(for task: UserTask, suggestedDate: DateComponents?) -> (UILocalNotification, NotificationManagerNotificationType)? {
 		if task.completed {
 			return nil
 		}
@@ -239,7 +247,7 @@ open class ProfileManager {
 		}
 	}
 	
-	func userDidComplete(task: UserTask, on date: Date, context: Any?) throws {
+	public func userDidComplete(task: UserTask, on date: Date, context: Any?) throws {
 		task.completed(on: date)
 		try persister?.persist(task: task)
 		
@@ -272,12 +280,12 @@ open class ProfileManager {
 		]
 	}
 	
-	var notificationCategories: Set<UIUserNotificationCategory> {
+	public var notificationCategories: Set<UIUserNotificationCategory> {
 		let notificationTypes = [NotificationManagerNotificationType.none, .once, .delayable]
 		return Set(notificationTypes.map() { $0.category() }.filter() { nil != $0 }.map() { $0!.userNotificationCategory })
 	}
 	
-	var healthKitTypes: HealthKitTypes {
+	public var healthKitTypes: HealthKitTypes {
 		let hkCRead = Set<HKCharacteristicType>([
 			HKCharacteristicType.characteristicType(forIdentifier: .biologicalSex)!,
 			HKCharacteristicType.characteristicType(forIdentifier: .dateOfBirth)!,
@@ -317,8 +325,8 @@ open class ProfileManager {
 	- parameter link: The data in the JWT, presumably one that the user scanned
 	- returns: Initialized User
 	*/
-	public class func userFromLink(_ link: ProfileLink) -> User {
-		let user = AppUser()
+	public func userFromLink(_ link: ProfileLink) -> User {
+		var user = userType.init()
 		user.userId = UUID().uuidString
 		if let name = link.payload["sub"] as? String, name.characters.count > 0 {
 			user.name = name
@@ -359,15 +367,15 @@ open class ProfileManager {
 	
 	// MARK: - Trying the App
 	
-	class func sampleUser() -> User {
-		let (token, secret) = sampleToken()
+	open func sampleUser() -> User {
+		let (token, secret) = type(of: self).sampleToken()
 		let link = try! ProfileLink(token: token, using: secret)
-		var user = self.userFromLink(link)
+		var user = userFromLink(link)
 		user.userId = "000-SAMPLE"
 		return user
 	}
 	
-	class func sampleToken() -> (String, String) {
+	open class func sampleToken() -> (String, String) {
 		let token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodHRwczovL2lkbS5jMy1wcm8uaW8vIiwiYXVkIjoiaHR0cHM6Ly9pZG0uYzMtcHJvLmlvLyIsImp0aSI6IjgyRjI3OTc5QTkzNiIsImV4cCI6IjE2NzM0OTcyODgiLCJzdWIiOiJQZXRlciBNw7xsbGVyIiwiYmlydGhkYXRlIjoiMTk3Ni0wNC0yOCJ9.ZwhX0_dVNsekm7N-tf4-m1y4P37GR7z4qOGtuWD_oNY"	// valid until Jan 2023
 		let secret = "super-duper-secret"
 		

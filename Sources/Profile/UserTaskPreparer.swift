@@ -17,7 +17,7 @@ Instances of this class can be used to perform preparations for tasks, such as d
 While you can have multiple instances of this class, only one at a time may be actively preparing all tasks (this is taken care of
 internally).
 */
-class UserTaskPreparer {
+open class UserTaskPreparer {
 	
 	static var preparingDueTasks = false
 	
@@ -25,7 +25,7 @@ class UserTaskPreparer {
 	
 	let server: FHIRServer?
 	
-	init(user: User, server: FHIRServer? = nil) {
+	public init(user: User, server: FHIRServer? = nil) {
 		self.user = user
 		self.server = server
 	}
@@ -33,7 +33,7 @@ class UserTaskPreparer {
 	
 	// MARK: - Task Checking
 	
-	func prepareDueTasks(_ callback: ((Void) -> Void)? = nil) {
+	open func prepareDueTasks(_ callback: ((Void) -> Void)? = nil) {
 		if type(of: self).preparingDueTasks {
 			c3_logIfDebug("Already preparing tasks, skipping this run")
 			return
@@ -66,7 +66,7 @@ class UserTaskPreparer {
 	- paramater task:     The task to prepare for
 	- parameter callback: Block to execute when preparation has finished
 	*/
-	func prepare(task: UserTask, callback: @escaping ((Void) -> Void)) {
+	open func prepare(task: UserTask, callback: @escaping ((Void) -> Void)) {
 		c3_logIfDebug("Preparing task \(task.id)")
 		switch task.type {
 		case .survey:
@@ -83,7 +83,7 @@ class UserTaskPreparer {
 	- parameter task:     The task that wants a survey completed
 	- parameter callback: Block to execute when preparation has finished
 	*/
-	func prepareSurveyTask(_ task: UserTask, callback: @escaping ((Void) -> Void)) {
+	open func prepareSurveyTask(_ task: UserTask, callback: @escaping ((Void) -> Void)) {
 		guard .survey == task.type else {
 			c3_logIfDebug("Not attempting to cache non-survey task \(task)")
 			return
@@ -115,7 +115,7 @@ class UserTaskPreparer {
 		callback()
 	}
 	
-	func preparedResource(for task: UserTask, callback: @escaping ((Resource?, Error?) -> Void)) {
+	open func preparedResource(for task: UserTask, callback: @escaping ((Resource?, Error?) -> Void)) {
 		if let url = cacheURL(for: task), FileManager().fileExists(atPath: url.path) {
 			c3_logIfDebug("Reading Resource from cache at \(url)")
 			do {
@@ -130,7 +130,7 @@ class UserTaskPreparer {
 		prepareResource(for: task, callback: callback)
 	}
 	
-	func prepareResource(for task: UserTask, callback: @escaping ((Resource?, Error?) -> Void)) {
+	open func prepareResource(for task: UserTask, callback: @escaping ((Resource?, Error?) -> Void)) {
 		switch task.type {
 		case .survey:
 			guard let server = server else {
@@ -182,7 +182,7 @@ class UserTaskPreparer {
 		return nil
 	}
 	
-	func bundleResourceIsNewerThanResource(at url: URL, for task: UserTask) -> Bool {
+	public func bundleResourceIsNewerThanResource(at url: URL, for task: UserTask) -> Bool {
 		if let bundled = Bundle.main.path(forResource: task.id, ofType: "json") {
 			let fm = FileManager()
 			if let dateBundled = (try? fm.attributesOfItem(atPath: bundled))?[FileAttributeKey.creationDate] as? Date,

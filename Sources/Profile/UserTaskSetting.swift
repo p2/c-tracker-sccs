@@ -27,26 +27,27 @@ TODO: still unsure on the time format, CRON seems overly complicated. See `UserT
 public struct UserTaskSetting {
 	
 	/// The identifier of the task this notification belongs to.
-	let taskId: String
+	public let taskId: String
 	
-	let taskType: UserTaskType
+	/// The type of the task.
+	public let taskType: UserTaskType
 	
-	let notificationType: NotificationManagerNotificationType
+	public let notificationType: NotificationManagerNotificationType
 	
 	/// Delay before the task's notifications should kick in.
-	var starts: DateComponents?
+	public var starts: DateComponents?
 	
 	/// If set, the delay between notifications for this task; must also set `expires` when a repeat interval is set.
-	var repeats: DateComponents?
+	public var repeats: DateComponents?
 	
 	/// After this date, no more notifications will be posted; must be present when `repeats` is set.
-	var expires: DateComponents?
+	public var expires: DateComponents?
 	
 	/// How long will users be able to delay/postpone performing this task after they've been notified.
-	var delayMax: DateComponents?
+	public var delayMax: DateComponents?
 	
 	
-	init(from json: [String: String]) throws {
+	public init(from json: [String: String]) throws {
 		taskId = json["taskId"] ?? ""		// will check at the end if it's empty, then throw
 		taskType = UserTaskType(rawValue: json["taskType"] ?? "") ?? .unknown
 		if let typ = json["notificationType"] {
@@ -90,7 +91,7 @@ public struct UserTaskSetting {
 	- parameter starting: When the schedule should start, usually the enrollment day
 	- returns: An array full of `Date`
 	*/
-	func scheduledTasks(starting: Date) throws -> [UserTask] {
+	public func scheduledTasks(starting: Date, type: UserTask.Type) throws -> [UserTask] {
 		let cal = Calendar.current
 		
 		// create start date as first entry
@@ -121,7 +122,7 @@ public struct UserTaskSetting {
 			comps.timeZone = TimeZone(identifier: "UTC")!
 			let date = cal.date(from: comps)!
 			
-			let task = AppUserTask(id: UUID().uuidString, taskId: taskId, type: taskType)
+			var task = type.init(id: UUID().uuidString, taskId: taskId, type: taskType)
 			task.notificationType = notificationType
 			task.dueDate = date
 			if let delay = delayMax {
@@ -135,9 +136,9 @@ public struct UserTaskSetting {
 }
 
 
-public class UserTaskDateFormatParser {
+open class UserTaskDateFormatParser {
 	
-	static func parse(string: String) throws -> DateComponents {
+	open static func parse(string: String) throws -> DateComponents {
 		// TODO: implement a nice format
 		let parts = string.components(separatedBy: CharacterSet.whitespaces)
 		var comps = DateComponents()

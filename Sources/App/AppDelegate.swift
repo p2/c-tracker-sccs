@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			#else
 				let settings = Bundle.main.url(forResource: "ProfileSettings", withExtension: "json")!
 			#endif
-			let manager = try ProfileManager(settingsURL: settings, dataServer: srv, persister: persister)
+			let manager = try ProfileManager(userType: AppUser.self, taskType: AppUserTask.self, settingsURL: settings, dataServer: srv, persister: persister)
 			rootViewController?.profileManager = manager
 			profileManager = manager
 			

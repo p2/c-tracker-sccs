@@ -30,6 +30,8 @@ public protocol User {
 	
 	var profileImage: Data? { get }
 	
+	init()
+	
 	
 	// MARK: - Enrollment
 	

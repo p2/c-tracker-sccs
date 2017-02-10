@@ -20,7 +20,7 @@ class WelcomeViewController: UIViewController, ORKTaskViewControllerDelegate {
 	// MARK: - Routing
 	
 	@IBAction func doTryApp(_ sender: AnyObject?) {
-		let sample = ProfileManager.sampleUser()
+		let sample = profileManager.sampleUser()
 		doEnroll(user: sample)
 	}
 	
@@ -52,7 +52,7 @@ class WelcomeViewController: UIViewController, ORKTaskViewControllerDelegate {
 	func didConfirm(link: ProfileLink, in viewController: LinkViewController, isFake: Bool) {
 		
 		// link is confirmed, create user and attempt to establish link
-		let user = ProfileManager.userFromLink(link)
+		let user = profileManager.userFromLink(link)
 		viewController.didStartLinking()
 		self.profileManager.establishLink(between: user, and: link) { error in
 			// TODO: allow non-fake links to fail gracefully, attempt to establish the link later on

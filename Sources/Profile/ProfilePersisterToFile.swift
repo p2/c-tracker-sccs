@@ -56,13 +56,13 @@ public class ProfilePersisterToFile: ProfilePersister {
 	
 	// MARK: - User
 	
-	public func loadUser(with id: String?) throws -> User? {
+	public func loadEnrolledUser(type: User.Type) throws -> User? {
 		guard FileManager.default.fileExists(atPath: userURL.path) else {
 			return nil
 		}
 		let data = try Data(contentsOf: userURL)
 		let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-		return type(of: self).userFromJSON(json)
+		return type(of: self).userFromJSON(json, of: type)
 	}
 	
 	public func persist(user: User) throws {
@@ -119,8 +119,8 @@ public class ProfilePersisterToFile: ProfilePersister {
 	/**
 	Create a user from stored JSON data.
 	*/
-	class func userFromJSON(_ json: [String: Any]) -> User {
-		let user = AppUser()
+	class func userFromJSON(_ json: [String: Any], of type: User.Type) -> User {
+		var user = type.init()
 		if let name = json["name"] as? String, name.characters.count > 0 {
 			user.name = name
 		}

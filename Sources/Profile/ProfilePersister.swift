@@ -15,7 +15,7 @@ public protocol ProfilePersister {
 	// MARK: - User
 	
 	/** Load the enrolled user's data, if any. */
-	func loadUser(with id: String?) throws -> User?
+	func loadEnrolledUser(type: User.Type) throws -> User?
 	
 	/** Persist user properties. */
 	func persist(user: User) throws

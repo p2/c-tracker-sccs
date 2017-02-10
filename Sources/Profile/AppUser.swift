@@ -89,7 +89,7 @@ final class AppUser: User {
 	
 	public func add(task: UserTask) throws {
 		if let assigned = task.assignedTo, assigned.userId != self.userId {
-			throw NSError()
+			throw NSError()	// TODO: create error
 		}
 		tasks.append(task)
 	}

@@ -28,6 +28,8 @@
 		EE14E7C21DD0D23F009F8736 /* LinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E7C11DD0D23F009F8736 /* LinkViewController.swift */; };
 		EE14E7C41DD0DF79009F8736 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E7C31DD0DF79009F8736 /* String+Extensions.swift */; };
 		EE14E7DE1DD27D08009F8736 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E7DD1DD27D08009F8736 /* ProfileManager.swift */; };
+		EE2011A41E4E0A0900913FA7 /* ProfilePersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2011A31E4E0A0900913FA7 /* ProfilePersister.swift */; };
+		EE2011A61E4E0B5800913FA7 /* ProfilePersisterToFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2011A51E4E0B5800913FA7 /* ProfilePersisterToFile.swift */; };
 		EE252D001DED718B008F5E3E /* UIColor+C3PRO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252CFF1DED718B008F5E3E /* UIColor+C3PRO.swift */; };
 		EE252D031DED7196008F5E3E /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252D011DED7196008F5E3E /* NotificationManager.swift */; };
 		EE252D041DED7196008F5E3E /* UserNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252D021DED7196008F5E3E /* UserNotificationManager.swift */; };
@@ -347,6 +349,8 @@
 		EE14E7C11DD0D23F009F8736 /* LinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkViewController.swift; sourceTree = "<group>"; };
 		EE14E7C31DD0DF79009F8736 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		EE14E7DD1DD27D08009F8736 /* ProfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
+		EE2011A31E4E0A0900913FA7 /* ProfilePersister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePersister.swift; sourceTree = "<group>"; };
+		EE2011A51E4E0B5800913FA7 /* ProfilePersisterToFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePersisterToFile.swift; sourceTree = "<group>"; };
 		EE252CFF1DED718B008F5E3E /* UIColor+C3PRO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+C3PRO.swift"; sourceTree = "<group>"; };
 		EE252D011DED7196008F5E3E /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		EE252D021DED7196008F5E3E /* UserNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationManager.swift; sourceTree = "<group>"; };
@@ -533,6 +537,8 @@
 			isa = PBXGroup;
 			children = (
 				EE14E7DD1DD27D08009F8736 /* ProfileManager.swift */,
+				EE2011A31E4E0A0900913FA7 /* ProfilePersister.swift */,
+				EE2011A51E4E0B5800913FA7 /* ProfilePersisterToFile.swift */,
 				EE252D051DED7A4C008F5E3E /* ProfileManagerSettings.swift */,
 				EE492CD21E2E6F470043D531 /* ProfileLink.swift */,
 				EEEC786E1DEC291C00E7020C /* User.swift */,
@@ -971,6 +977,7 @@
 				EEEC78711DEC2B4F00E7020C /* AppUserTask.swift in Sources */,
 				EE252D081DED81A3008F5E3E /* AppError.swift in Sources */,
 				EE14E7C21DD0D23F009F8736 /* LinkViewController.swift in Sources */,
+				EE2011A61E4E0B5800913FA7 /* ProfilePersisterToFile.swift in Sources */,
 				EEEC786B1DEC25BE00E7020C /* RootViewController.swift in Sources */,
 				EE14E7C01DD0D236009F8736 /* ConfirmViewController.swift in Sources */,
 				EE492CE61E2E7CC60043D531 /* EstablishViewController.swift in Sources */,
@@ -979,6 +986,7 @@
 				EE0F34FB1E02E61C003AA556 /* ClientDebugViewController.swift in Sources */,
 				EE0F351F1E02F4C8003AA556 /* StudyContentWebViewController.swift in Sources */,
 				EE14E7BA1DD0CBBE009F8736 /* WelcomeViewController.swift in Sources */,
+				EE2011A41E4E0A0900913FA7 /* ProfilePersister.swift in Sources */,
 				EE14E7B91DD0CBBE009F8736 /* AppDelegate.swift in Sources */,
 				EEECC2241DECDF2C005645B8 /* Configuration.swift in Sources */,
 				EEEC78671DEC258100E7020C /* ProfileViewController.swift in Sources */,

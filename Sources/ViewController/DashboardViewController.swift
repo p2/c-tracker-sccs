@@ -266,7 +266,7 @@ class DashboardViewController: UITableViewController {
 					self.show(error: error)
 				}
 				else if let m = self.profileManager {
-					m.requestPermission(for: .healthKit(m.healthKitTypes)) { error in
+					m.permissioner.requestPermission(for: .healthKit(m.healthKitTypes)) { error in
 						if let error = error {
 							self.show(error: error)
 						}
@@ -290,8 +290,8 @@ class DashboardViewController: UITableViewController {
 		if refreshingMotion {
 			return
 		}
-		if let m = profileManager, !m.hasPermission(for: .coreMotion) {
-			m.requestPermission(for: .coreMotion) { error in
+		if let m = profileManager, !m.permissioner.hasPermission(for: .coreMotion) {
+			m.permissioner.requestPermission(for: .coreMotion) { error in
 				if let error = error {
 					self.show(error: error)
 				}

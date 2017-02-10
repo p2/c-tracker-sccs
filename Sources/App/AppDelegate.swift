@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	var profileManager: ProfileManager!
 	
+	var motionReporterStore: URL!
+	
 	var rootViewController: RootViewController!
 	
 	
@@ -29,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 		do {
 			let dir = URL(fileURLWithPath: first).appendingPathComponent("C-Tracker")
+			motionReporterStore = dir.appendingPathComponent("CoreMotion")
 			
 			// server configuration
 			let dataRoot = URL(string: cStudyDataServerRoot)!
@@ -42,17 +45,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				"authorize_type": "client_credentials",
 			//	"verbose": true,
 			]
-			
 			let srv = EncryptedDataQueue(baseURL: dataEndpoint, auth: authConfig, encBaseURL: encDataEndpoint, publicCertificateFile: "")
-			let manager = try ProfileManager(dir: dir, dataServer: srv)
+			
+			// create profile manager
+			let persister = try ProfilePersisterToFile(dir: dir)
+			#if DEBUG
+				let settings = Bundle.main.url(forResource: "ProfileSettingsDebug", withExtension: "json")!
+			#else
+				let settings = Bundle.main.url(forResource: "ProfileSettings", withExtension: "json")!
+			#endif
+			let manager = try ProfileManager(settingsURL: settings, dataServer: srv, persister: persister)
 			rootViewController?.profileManager = manager
 			profileManager = manager
+			
+			NSLog("\n\nAPP STARTED.\n\tC3-PRO is using FHIR v\(C3PROFHIRVersion).\n\tProfile manager is storing locally to\n«\(dir.path)»\n\tand sending data to\n«\(srv.baseURL.description)»\n\n")
 		}
 		catch let error {
 			fatalError("\(error) at \(first)")
 		}
 		
-		NSLog("\n\nAPP STARTED.\n\tC3-PRO is using FHIR v\(C3PROFHIRVersion).\n\tProfile manager is storing locally to\n«\(profileManager.directory.path)»\n\tand sending data to\n«\(profileManager.dataServer?.baseURL.description ?? "nil")»\n\n")
+		// configure background fetch (for CoreMotion archiving)
+		application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
+		
 		return true
 	}
 	
@@ -88,7 +102,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// make sure data queue is flushed
 		let delay = DispatchTime.now() + Double(Int64(2.0 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
 		DispatchQueue.main.asyncAfter(deadline: delay) { [weak self] in
-			// TODO: self?.flushDataQueue()
+			if let dataQueue = self?.profileManager.dataServer as? EncryptedDataQueue {
+				dataQueue.flush() { error in
+					if let error = error {
+						app_logIfDebug("Failed to flush data queue: \(error)")
+					}
+				}
+			}
 		}
 	}
 	
@@ -100,7 +120,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	// MARK: - Background Fetch
 	
 	func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-		// TODO: update core motion database
+		let motionReporter = CoreMotionReporter(path: motionReporterStore.path)
+		motionReporter.archiveActivities { numNewActivities, error in
+			if let _ = error {
+				completionHandler(.failed)
+			}
+			else {
+				completionHandler(numNewActivities > 0 ? .newData : .noData)
+			}
+		}
 	}
 	
 	

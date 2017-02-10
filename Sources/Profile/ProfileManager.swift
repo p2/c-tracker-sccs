@@ -16,14 +16,13 @@ import ResearchKit
 /**
 The profile manager handles the app user, which usually is the user that consented to participating in the study.
 
-It uses the bundled file `ProfileSettings.json` to schedule tasks for the user.
+Use an instance of this class to handle everything surrounding the profile of your study participant. This includes:
 
-Data pertaining to the user will be written to the following files inside `directory` the manager is configured to run. These files will
-receive OS-level data protection.
-
-- `User.json`: participant demographic information
-- `Schedule.json`: A schedule of the tasks for the user for the whole course of his or her enrollment
-- `Completed.json`: Which tasks have been completed
+- enrolling a user
+- holding on to an instance of the data server that should be used
+- setting up a schedule
+- handling user tasks
+- withdrawing a user
 */
 open class ProfileManager {
 	
@@ -34,68 +33,66 @@ open class ProfileManager {
 	/// The user managed by the receiver.
 	var user: User?
 	
+	/// The profile persister taking care of persisting user, schedule and co.
+	var persister: ProfilePersister?
+	
 	/// The data server to be used.
 	var dataServer: FHIRServer?
 	
 	/// Internally used to hold on to a token server instance.
 	var tokenServer: OAuth2Requestable?
 	
-	let directory: URL
-	
+	/// Settings to use for this study profile.
 	var settings: ProfileManagerSettings?
 	
-	var taskPreparer: UserTaskPreparer?
-	
-	var permissioner: SystemServicePermissioner?
-	
-	private var settingsURL: URL? {
-		#if DEBUG
-			return Bundle.main.url(forResource: "ProfileSettingsDebug", withExtension: "json")
-		#else
-			return Bundle.main.url(forResource: "ProfileSettings", withExtension: "json")
-		#endif
-	}
-	
-	/// JSON file containing user demographic information.
-	private var userURL: URL {
-		return directory.appendingPathComponent("User.json")
-	}
-	
-	/// The user-specific schedule lives here.
-	private var scheduleURL: URL {
-		return directory.appendingPathComponent("Schedule.json")
-	}
-	
-	/// Tasks that have been completed by the user.
-	private var completedURL: URL {
-		return directory.appendingPathComponent("Completed.json")
-	}
-	
-	public init(dir: URL, dataServer srv: FHIRServer?) throws {
-		directory = dir
-		dataServer = srv
-		
-		let fm = FileManager()
-		var isDir: ObjCBool = false
-		if !fm.fileExists(atPath: directory.path, isDirectory: &isDir) || !isDir.boolValue {
-			try fm.createDirectory(at: directory, withIntermediateDirectories: true, attributes: nil)
+	/// The task preparer that can be used to prepare user tasks.
+	var taskPreparer: UserTaskPreparer? {
+		if let taskPreparer = _taskPreparer {
+			return taskPreparer
 		}
-		
-		if let settingsURL = settingsURL {
-			let data = try Data(contentsOf: settingsURL)
-			let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-			settings = try ProfileManagerSettings(with: json)
+		guard let user = user, let server = dataServer else {
+			return nil
 		}
-		if fm.fileExists(atPath: userURL.path) {
-			let data = try Data(contentsOf: userURL)
-			let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-			user = type(of: self).userFromJSON(json)
+		_taskPreparer = UserTaskPreparer(user: user, server: server)
+		return _taskPreparer
+	}
+	private var _taskPreparer: UserTaskPreparer?
+	
+	/// Handles system permissioning.
+	var permissioner: SystemServicePermissioner {
+		if nil == _permissioner {
+			_permissioner = SystemServicePermissioner()
+		}
+		return _permissioner!
+	}
+	private var _permissioner: SystemServicePermissioner?
+	
+	
+	/**
+	Designated initializer.
+	
+	- parameter settingsURL: The local URL to the JSON settings file
+	- parameter dataServer:  A handle to the FHIR server that should receive study data
+	- parameter persister:   The instance to use to persist app data
+	*/
+	public init(settingsURL: URL, dataServer: FHIRServer?, persister: ProfilePersister?) throws {
+		self.dataServer = dataServer
+		self.persister = persister
+		
+		// load settings
+		let data = try Data(contentsOf: settingsURL)
+		let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+		settings = try ProfileManagerSettings(with: json)
+		
+		// load user and tasks
+		if let usr = try persister?.loadUser(with: nil) {
+			user = usr
+			if let tasks = try persister?.loadAllTasks(for: usr) {
+				user!.tasks = tasks
+			}
 		}
 		else if ORKPasscodeViewController.isPasscodeStoredInKeychain() {
 			ORKPasscodeViewController.removePasscodeFromKeychain()      // just to be safe in case the user deleted the app while enrolled
-		}
-		if fm.fileExists(atPath: scheduleURL.path) {
-			user?.tasks = try readAllTasks()
 		}
 	}
 	
@@ -115,18 +112,10 @@ open class ProfileManager {
 		self.user = user
 		user.didEnroll(on: Date())
 		
-		try type(of: self).persist(user: user, at: userURL)
+		try persister?.persist(user: user)
 		try setupSchedule()
-		if let server = dataServer {
-			taskPreparer = taskPreparer ?? UserTaskPreparer(user: user, server: server)
-			taskPreparer!.prepareDueTasks() { [weak self] in
-				if let this = self {
-					this.taskPreparer = nil
-				}
-			}
-		}
-		else {
-			app_logIfDebug("No `dataServer` configured, cannot prepare due tasks")
+		taskPreparer?.prepareDueTasks() { [weak self] in
+			self?._taskPreparer = nil
 		}
 		NotificationCenter.default.post(name: type(of: self).didChangeProfileNotification, object: self)
 	}
@@ -169,19 +158,12 @@ open class ProfileManager {
 	This method trashes data stored about the user, the schedule, info about completed data, removes the PIN and cancels all notifications.
 	*/
 	open func withdraw() throws {
+		if let user = user {
+			try persister?.userDidWithdraw(user: user)
+		}
 		user = nil
+		_taskPreparer = nil
 		// TODO: notify IDM if `linked_at` is present?
-		
-		let fm = FileManager()
-		if fm.fileExists(atPath: userURL.path) {
-			try fm.removeItem(at: userURL)
-		}
-		if fm.fileExists(atPath: scheduleURL.path) {
-			try fm.removeItem(at: scheduleURL)
-		}
-		if fm.fileExists(atPath: completedURL.path) {
-			try fm.removeItem(at: completedURL)
-		}
 		
 		ORKPasscodeViewController.removePasscodeFromKeychain()
 		NotificationManager.shared.cancelExistingNotifications(ofTypes: [], evenRescheduled: true)
@@ -217,57 +199,9 @@ open class ProfileManager {
 		}
 		try scheduled.forEach() { try user.add(task: $0) }
 		
-		// serialize to file and create notifications
-		try write(json: ["schedule": scheduled.map() { $0.serialized() }], to: scheduleURL)
+		// persist and create notifications
+		try persister?.persist(schedule: scheduled)
 		UserNotificationManager.shared.synchronizeNotifications(with: self)
-	}
-	
-	/**
-	Reads the user's scheduled tasks. Assumes that tasks have already been scheduled!
-	*/
-	func readScheduledTasks() throws -> [UserTask] {
-		let data = try Data(contentsOf: scheduleURL)
-		let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-		guard let scheduled = json["schedule"] as? [[String: Any]] else {
-			throw AppError.invalidScheduleFormat("Expecting an array of schedule objects at `schedule` top level")
-		}
-		return try scheduled.map() { try AppUserTask(serialized: $0) }
-	}
-	
-	/**
-	Reads the tasks the user has already completed. The returned task instances are minimal representations, carrying id, taskId and
-	completion date only.
-	*/
-	func readCompletedTasks() throws -> [UserTask] {
-		if FileManager.default.fileExists(atPath: completedURL.path) {
-			let existing = try Data(contentsOf: completedURL)
-			let json = try JSONSerialization.jsonObject(with: existing, options: []) as! [String: Any]
-			if let completed = json["completed"] {
-				guard let completed = completed as? [[String: Any]] else {
-					throw AppError.invalidCompletedTasksFormat("Expecting an array of completed task objects at `completed` top level")
-				}
-				return try completed.map() { try AppUserTask(serialized: $0) }
-			}
-		}
-		return []
-	}
-	
-	/**
-	Reads all scheduled tasks first – assumes that a schedule has been set up! – and then updates the instances with completed tasks.
-	*/
-	func readAllTasks() throws -> [UserTask] {
-		let tasks = try readScheduledTasks()
-		let completed = try readCompletedTasks()
-		return tasks.map() { task in
-			if let cmpltd = completed.filter({ $0.id == task.id }).first {
-				var copy = task
-				copy.completedDate = cmpltd.completedDate
-				return copy
-			}
-			else {
-				return task
-			}
-		}
 	}
 	
 	
@@ -307,29 +241,7 @@ open class ProfileManager {
 	
 	func userDidComplete(task: UserTask, on date: Date, context: Any?) throws {
 		task.completed(on: date)
-		var completed = [[String: Any]]()
-		
-		// read what's already completed
-		if FileManager.default.fileExists(atPath: completedURL.path) {
-			let existing = try Data(contentsOf: completedURL)
-			let json = try JSONSerialization.jsonObject(with: existing, options: []) as! [String: Any]
-			if let alreadyCompleted = json["completed"] {
-				guard let alreadyCompleted = alreadyCompleted as? [[String: Any]] else {
-					throw AppError.invalidCompletedTasksFormat("Expecting an array of completed task objects at `completed` top level")
-				}
-				completed.append(contentsOf: alreadyCompleted)
-			}
-		}
-		
-		// add completed task and persist
-		let tsk: [String: Any] = task.serializedMinimal()
-		//let permissioner = SystemServicePermissioner()
-		//if permissioner.hasGeoLocationPermissions(always: false) {
-			// TODO: use Geocoder.currentLocation()
-			//tsk["location"] = "xy"
-		//}
-		completed.append(tsk)
-		try write(json: ["completed": completed], to: completedURL)
+		try persister?.persist(task: task)
 		
 		// handle task context
 		if let context = context {
@@ -358,16 +270,6 @@ open class ProfileManager {
 			.coreMotion,
 			.healthKit(healthKitTypes),
 		]
-	}
-	
-	public func hasPermission(for service: SystemService) -> Bool {
-		permissioner = permissioner ?? SystemServicePermissioner()
-		return permissioner!.hasPermission(for: service)
-	}
-	
-	public func requestPermission(for service: SystemService, callback: @escaping ((Error?) -> Void)) {
-		permissioner = permissioner ?? SystemServicePermissioner()
-		permissioner!.requestPermission(for: service, callback: callback)
 	}
 	
 	var notificationCategories: Set<UIUserNotificationCategory> {
@@ -406,81 +308,7 @@ open class ProfileManager {
 			appUser.updateMedicalData(from: user)
 		}
 		self.user = myUser
-		try type(of: self).persist(user: myUser, at: userURL)
-	}
-	
-	
-	/**
-	Serializes and writes user data to the given location.
-	*/
-	public class func persist(user: User, at url: URL) throws {
-		var json = [String: Any]()
-		if let name = user.name {
-			json["name"] = name
-		}
-		if let bday = user.birthDate?.fhir_asDate() {
-			json["birthday"] = bday.description
-		}
-		if let enrolled = user.enrollmentDate?.fhir_asDate() {
-			json["enrolled"] = enrolled.description
-		}
-		if let linked = user.linkedDate?.fhir_asDate() {
-			json["linked"] = linked.description
-		}
-		if let linked = user.linkedAgainst?.absoluteString {
-			json["linked_at"] = linked
-		}
-		if user.biologicalSex != .notSet {
-			json["gender"] = user.biologicalSex.rawValue
-		}
-		if let height = user.bodyheight {
-			json["height"] = "\(height.doubleValue(for: HKUnit.meterUnit(with: .centi))) cm"
-		}
-		if let weight = user.bodyweight {
-			json["weight"] = "\(weight.doubleValue(for: HKUnit.gramUnit(with: .kilo))) kg"
-		}
-		let data = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
-		try data.write(to: url, options: [.atomic, .completeFileProtection])
-	}
-	
-	/**
-	Create a user from stored JSON data.
-	*/
-	public class func userFromJSON(_ json: [String: Any]) -> User {
-		let user = AppUser()
-		if let name = json["name"] as? String, name.characters.count > 0 {
-			user.name = name
-		}
-		if let bday = json["birthday"] as? String, bday.characters.count > 0 {
-			user.birthDate = FHIRDate(string: bday)?.nsDate
-		}
-		if let enrolled = json["enrolled"] as? String, enrolled.characters.count > 0 {
-			user.enrollmentDate = FHIRDate(string: enrolled)?.nsDate
-		}
-		if let linked = json["linked"] as? String, linked.characters.count > 0 {
-			user.linkedDate = FHIRDate(string: linked)?.nsDate
-		}
-		if let linked = json["linked_at"] as? String, linked.characters.count > 0 {
-			user.linkedAgainst = URL(string: linked)
-		}
-		if let genderInt = json["gender"] as? Int, let gender = HKBiologicalSex(rawValue: genderInt) {
-			user.biologicalSex = gender
-		}
-		if let height = json["height"] as? String {
-			let comps = height.components(separatedBy: CharacterSet.whitespaces)
-			if 2 == comps.count {
-				let val = (comps[0] as NSString).doubleValue
-				user.bodyheight = HKQuantity(unit: HKUnit(from: comps[1]), doubleValue: val)
-			}
-		}
-		if let weight = json["weight"] as? String {
-			let comps = weight.components(separatedBy: CharacterSet.whitespaces)
-			if 2 == comps.count {
-				let val = (comps[0] as NSString).doubleValue
-				user.bodyweight = HKQuantity(unit: HKUnit(from: comps[1]), doubleValue: val)
-			}
-		}
-		return user
+		try persister?.persist(user: myUser)
 	}
 	
 	/**
@@ -526,14 +354,6 @@ open class ProfileManager {
 		ident.system = dataServer?.baseURL.fhir_url
 		patient.identifier = [ident]
 		return patient
-	}
-	
-	
-	// MARK: - Utilities
-	
-	private func write(json: [String: Any], to url: URL) throws {
-		let data = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
-		try data.write(to: url, options: [.atomic, .completeFileProtection])
 	}
 	
 	

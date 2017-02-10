@@ -72,7 +72,7 @@ class RootViewController: UITabBarController, ORKPasscodeDelegate {
 				let sccsNavi = storyboard?.instantiateViewController(withIdentifier: "SCCSViewRoot") as? UINavigationController {
 				
 				dashboard.profileManager = manager
-				dashboard.motionReporter = CoreMotionReporter(path: manager.directory.appendingPathComponent("CoreMotion").path)
+				dashboard.motionReporter = CoreMotionReporter(path: (UIApplication.shared.delegate as! AppDelegate).motionReporterStore.path)
 				profile.profileManager = manager
 				setViewControllers([dashNavi, profileNavi, sccsNavi], animated: animated)
 			}

@@ -16,8 +16,6 @@
 		EE0F35171E02E68A003AA556 /* Licenses in Resources */ = {isa = PBXBuildFile; fileRef = EE0F35161E02E68A003AA556 /* Licenses */; };
 		EE0F35191E02F1BF003AA556 /* GenderPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F35181E02F1BF003AA556 /* GenderPicker.swift */; };
 		EE0F351B1E02F1C8003AA556 /* HeightPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F351A1E02F1C8003AA556 /* HeightPicker.swift */; };
-		EE0F351D1E02F435003AA556 /* Intro.css in Resources */ = {isa = PBXBuildFile; fileRef = EE0F351C1E02F435003AA556 /* Intro.css */; };
-		EE0F351F1E02F4C8003AA556 /* StudyContentWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F351E1E02F4C8003AA556 /* StudyContentWebViewController.swift */; };
 		EE0F35221E02FCA7003AA556 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE0F35211E02FCA7003AA556 /* HealthKit.framework */; };
 		EE14E7A61DD0CAAA009F8736 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE14E7A41DD0CAAA009F8736 /* Main.storyboard */; };
 		EE14E7A81DD0CAAA009F8736 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE14E7A71DD0CAAA009F8736 /* Assets.xcassets */; };
@@ -40,6 +38,11 @@
 		EE492CD31E2E6F470043D531 /* ProfileLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE492CD21E2E6F470043D531 /* ProfileLink.swift */; };
 		EE492CE61E2E7CC60043D531 /* EstablishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE492CE51E2E7CC60043D531 /* EstablishViewController.swift */; };
 		EE5074C31DE892B300A0C73F /* UIViewController+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */; };
+		EE7B36D91E543ACB007B1D73 /* AppStoreDescription.txt in Resources */ = {isa = PBXBuildFile; fileRef = EE7B36D51E543ACB007B1D73 /* AppStoreDescription.txt */; };
+		EE7B36DC1E544135007B1D73 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = EE7B36DB1E544135007B1D73 /* Style.css */; };
+		EE7B36E31E544233007B1D73 /* PrivacyPolicy.html in Resources */ = {isa = PBXBuildFile; fileRef = EE7B36E11E544233007B1D73 /* PrivacyPolicy.html */; };
+		EE7B36E91E5449BB007B1D73 /* AboutHepC.html in Resources */ = {isa = PBXBuildFile; fileRef = EE7B36E51E5449BB007B1D73 /* AboutHepC.html */; };
+		EE7B36EA1E5449BB007B1D73 /* AboutSCCS.html in Resources */ = {isa = PBXBuildFile; fileRef = EE7B36E71E5449BB007B1D73 /* AboutSCCS.html */; };
 		EE86F4A31E00029B00922994 /* C3PRO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F42A1E0001AD00922994 /* C3PRO.framework */; };
 		EE86F4A41E00029B00922994 /* C3PRO.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F42A1E0001AD00922994 /* C3PRO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE86F4A71E00029B00922994 /* SMART.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F4351E0001B600922994 /* SMART.framework */; };
@@ -334,8 +337,6 @@
 		EE0F35161E02E68A003AA556 /* Licenses */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Licenses; sourceTree = "<group>"; };
 		EE0F35181E02F1BF003AA556 /* GenderPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderPicker.swift; sourceTree = "<group>"; };
 		EE0F351A1E02F1C8003AA556 /* HeightPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeightPicker.swift; sourceTree = "<group>"; };
-		EE0F351C1E02F435003AA556 /* Intro.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Intro.css; sourceTree = "<group>"; };
-		EE0F351E1E02F4C8003AA556 /* StudyContentWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyContentWebViewController.swift; sourceTree = "<group>"; };
 		EE0F35201E02FC9C003AA556 /* C Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "C Tracker.entitlements"; path = "../C Tracker.entitlements"; sourceTree = "<group>"; };
 		EE0F35211E02FCA7003AA556 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		EE14E79B1DD0CAAA009F8736 /* C Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "C Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -361,6 +362,15 @@
 		EE492CD21E2E6F470043D531 /* ProfileLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileLink.swift; sourceTree = "<group>"; };
 		EE492CE51E2E7CC60043D531 /* EstablishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstablishViewController.swift; sourceTree = "<group>"; };
 		EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utilities.swift"; sourceTree = "<group>"; };
+		EE7B36D61E543ACB007B1D73 /* de */ = {isa = PBXFileReference; lastKnownFileType = text; name = de; path = de.lproj/AppStoreDescription.txt; sourceTree = "<group>"; };
+		EE7B36D71E543ACB007B1D73 /* en */ = {isa = PBXFileReference; lastKnownFileType = text; name = en; path = en.lproj/AppStoreDescription.txt; sourceTree = "<group>"; };
+		EE7B36DB1E544135007B1D73 /* Style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		EE7B36E21E544233007B1D73 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/PrivacyPolicy.html; sourceTree = "<group>"; };
+		EE7B36E41E544237007B1D73 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = de; path = de.lproj/PrivacyPolicy.html; sourceTree = "<group>"; };
+		EE7B36E61E5449BB007B1D73 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/AboutHepC.html; sourceTree = "<group>"; };
+		EE7B36E81E5449BB007B1D73 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/AboutSCCS.html; sourceTree = "<group>"; };
+		EE7B36EB1E5449C2007B1D73 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = de; path = de.lproj/AboutHepC.html; sourceTree = "<group>"; };
+		EE7B36EC1E5449C8007B1D73 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = de; path = de.lproj/AboutSCCS.html; sourceTree = "<group>"; };
 		EE86F4241E0001AD00922994 /* C3PRO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = C3PRO.xcodeproj; path = "c3-pro-ios-framework/C3PRO.xcodeproj"; sourceTree = "<group>"; };
 		EE86F42D1E0001B500922994 /* SwiftSMART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftSMART.xcodeproj; path = "c3-pro-ios-framework/Swift-SMART/SwiftSMART.xcodeproj"; sourceTree = "<group>"; };
 		EE86F43C1E0001BC00922994 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "c3-pro-ios-framework/SQLiteSwift/SQLite.xcodeproj"; sourceTree = "<group>"; };
@@ -433,6 +443,7 @@
 				EE14E7B31DD0CBBE009F8736 /* Sources */,
 				EE14E79D1DD0CAAA009F8736 /* Assets */,
 				EE0B328A1DF1CA90009F9939 /* c-tracker-sccs-questionnaires */,
+				EE7B36D41E543ACB007B1D73 /* c-tracker-sccs-content */,
 				EE14E7CD1DD18921009F8736 /* Frameworks */,
 				EE14E79C1DD0CAAA009F8736 /* Products */,
 				EE86F4241E0001AD00922994 /* C3PRO.xcodeproj */,
@@ -456,11 +467,14 @@
 			isa = PBXGroup;
 			children = (
 				EEFC6B351DF5CD4700D03A84 /* README.md */,
-				EE14E7A41DD0CAAA009F8736 /* Main.storyboard */,
-				EE98525B1E3A1C5000A88D72 /* Localizable.strings */,
-				EE14E7A71DD0CAAA009F8736 /* Assets.xcassets */,
 				EE14E7A91DD0CAAA009F8736 /* LaunchScreen.storyboard */,
-				EE0F351C1E02F435003AA556 /* Intro.css */,
+				EE14E7A41DD0CAAA009F8736 /* Main.storyboard */,
+				EE14E7A71DD0CAAA009F8736 /* Assets.xcassets */,
+				EE98525B1E3A1C5000A88D72 /* Localizable.strings */,
+				EE7B36DB1E544135007B1D73 /* Style.css */,
+				EE7B36E11E544233007B1D73 /* PrivacyPolicy.html */,
+				EE7B36E51E5449BB007B1D73 /* AboutHepC.html */,
+				EE7B36E71E5449BB007B1D73 /* AboutSCCS.html */,
 				EE0F35161E02E68A003AA556 /* Licenses */,
 				EE14E7AC1DD0CAAA009F8736 /* Info.plist */,
 				EE957D5A1E044156004FADB4 /* InfoPlist.strings */,
@@ -517,7 +531,6 @@
 				EE0F34F61E02E61C003AA556 /* LicenseViewController.swift */,
 				EE0F34F71E02E61C003AA556 /* ClientDebugViewController.swift */,
 				EEDDAC7C1E40ED84007D4056 /* StudyTableViewController.swift */,
-				EE0F351E1E02F4C8003AA556 /* StudyContentWebViewController.swift */,
 				EEDDAC8F1E40EF51007D4056 /* ShareTableViewController.swift */,
 				EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */,
 			);
@@ -552,6 +565,14 @@
 			);
 			path = Profile;
 			sourceTree = "<group>";
+		};
+		EE7B36D41E543ACB007B1D73 /* c-tracker-sccs-content */ = {
+			isa = PBXGroup;
+			children = (
+				EE7B36D51E543ACB007B1D73 /* AppStoreDescription.txt */,
+			);
+			path = "c-tracker-sccs-content";
+			sourceTree = SOURCE_ROOT;
 		};
 		EE86F4251E0001AD00922994 /* Products */ = {
 			isa = PBXGroup;
@@ -895,14 +916,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE7B36E31E544233007B1D73 /* PrivacyPolicy.html in Resources */,
 				EE14E7AB1DD0CAAA009F8736 /* LaunchScreen.storyboard in Resources */,
+				EE7B36EA1E5449BB007B1D73 /* AboutSCCS.html in Resources */,
+				EE7B36DC1E544135007B1D73 /* Style.css in Resources */,
 				EE0B328E1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json in Resources */,
+				EE7B36E91E5449BB007B1D73 /* AboutHepC.html in Resources */,
 				EE98525D1E3A1C5000A88D72 /* Localizable.strings in Resources */,
 				EE98D2A51E0160EC001BC845 /* ProfileSettingsDebug.json in Resources */,
 				EEFC6B331DF5CCB900D03A84 /* c-tracker.survey-in-app.withdrawal.json in Resources */,
 				EE14E7A81DD0CAAA009F8736 /* Assets.xcassets in Resources */,
 				EE252D0A1DED87BC008F5E3E /* ProfileSettings.json in Resources */,
-				EE0F351D1E02F435003AA556 /* Intro.css in Resources */,
+				EE7B36D91E543ACB007B1D73 /* AppStoreDescription.txt in Resources */,
 				EE0F35171E02E68A003AA556 /* Licenses in Resources */,
 				EE957D581E044156004FADB4 /* InfoPlist.strings in Resources */,
 				EE14E7A61DD0CAAA009F8736 /* Main.storyboard in Resources */,
@@ -984,7 +1009,6 @@
 				EE0B32881DF1B191009F9939 /* UserTaskPreparer.swift in Sources */,
 				EE87B2BA1E081B2C00719A71 /* QRCodeScanner.swift in Sources */,
 				EE0F34FB1E02E61C003AA556 /* ClientDebugViewController.swift in Sources */,
-				EE0F351F1E02F4C8003AA556 /* StudyContentWebViewController.swift in Sources */,
 				EE14E7BA1DD0CBBE009F8736 /* WelcomeViewController.swift in Sources */,
 				EE2011A41E4E0A0900913FA7 /* ProfilePersister.swift in Sources */,
 				EE14E7B91DD0CBBE009F8736 /* AppDelegate.swift in Sources */,
@@ -1081,6 +1105,42 @@
 				EE9852571E3A110600A88D72 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EE7B36D51E543ACB007B1D73 /* AppStoreDescription.txt */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE7B36D61E543ACB007B1D73 /* de */,
+				EE7B36D71E543ACB007B1D73 /* en */,
+			);
+			name = AppStoreDescription.txt;
+			sourceTree = "<group>";
+		};
+		EE7B36E11E544233007B1D73 /* PrivacyPolicy.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE7B36E21E544233007B1D73 /* en */,
+				EE7B36E41E544237007B1D73 /* de */,
+			);
+			name = PrivacyPolicy.html;
+			sourceTree = "<group>";
+		};
+		EE7B36E51E5449BB007B1D73 /* AboutHepC.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE7B36E61E5449BB007B1D73 /* en */,
+				EE7B36EB1E5449C2007B1D73 /* de */,
+			);
+			name = AboutHepC.html;
+			sourceTree = "<group>";
+		};
+		EE7B36E71E5449BB007B1D73 /* AboutSCCS.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EE7B36E81E5449BB007B1D73 /* en */,
+				EE7B36EC1E5449C8007B1D73 /* de */,
+			);
+			name = AboutSCCS.html;
 			sourceTree = "<group>";
 		};
 		EE957D5A1E044156004FADB4 /* InfoPlist.strings */ = {

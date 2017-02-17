@@ -5,4 +5,5 @@ Configuration_*.swift
 # Xcode
 *.xcuserdatad
 *.xcscmblueprint
+env
 

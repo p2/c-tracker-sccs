@@ -97,7 +97,7 @@
 "Your name is" = "Votre nom est";
 "Your Tasks" = "Votres Tâches";
 "Your {key} is" = "Votre {key} est";
-"{{steps}} steps per day" = "{{steps}} étapes par jour";
-"{{steps}} steps, {{flights}} floors climbed per day" = "{{steps}} étapes, {{flights}} étages escaladés par jour";
+"{{steps}} steps" = "{{steps}} étapes";
+"{{steps}} steps, {{flights}} floors climbed" = "{{steps}} étapes, {{flights}} étages escaladés";
 "{{title}} has expired" = "{{title}} est expirée";
 "{{title}} is not yet due" = "{{title}} n'est pas encore due";

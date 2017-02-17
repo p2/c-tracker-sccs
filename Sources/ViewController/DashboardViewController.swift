@@ -364,9 +364,9 @@ class DashboardViewController: UITableViewController {
 		
 		if let steps = stepstr {
 			if let flights = fligstr {
-				return "{{steps}} steps, {{flights}} floors climbed per day".sccs_loc.replacingOccurrences(of: "{{steps}}", with: steps).replacingOccurrences(of: "{{flights}}", with: flights)
+				return "{{steps}} steps, {{flights}} floors climbed".sccs_loc.replacingOccurrences(of: "{{steps}}", with: steps).replacingOccurrences(of: "{{flights}}", with: flights)
 			}
-			return "{{steps}} steps per day".sccs_loc.replacingOccurrences(of: "{{steps}}", with: steps)
+			return "{{steps}} steps".sccs_loc.replacingOccurrences(of: "{{steps}}", with: steps)
 		}
 		return nil
 	}

@@ -17,7 +17,7 @@ env = Environment(loader=PackageLoader(__name__, 'content-templates'))
 app_template = env.get_template('App.html')
 dir_source = 'c-tracker-sccs-content'
 dir_target = 'App'
-files = ['PrivacyPolicy.md', 'AboutHepC.md', 'AboutSCCS.md']
+files = ['PrivacyPolicy.md', 'AboutHepC.md', 'AboutSCCS.md', 'AboutTheStudy.md', 'WhoCanParticipate.md']
 
 for file in files:
 	print('-->  Building {}'.format(file))

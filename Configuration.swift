@@ -26,7 +26,7 @@ You can also copy this file to `Configuration_Debug.swift` or any other build co
 let cStudyName = "C Tracker"
 
 /// A website where interested parties can learn more.
-let cStudyWebsiteURL = "http://c-tracker.org"
+let cStudyWebsiteURL = "http://www.c-tracker.ch"
 
 /// The FHIR server's base URI.
 let cStudyDataServerRoot = "https://c3-pro.io"

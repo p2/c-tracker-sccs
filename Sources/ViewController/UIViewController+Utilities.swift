@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import AVFoundation
 
 
 extension UIViewController {
 	
 	func show(error: Error, title: String = "Error".sccs_loc, onDismiss: ((UIAlertAction) -> Void)? = nil) {
 		app_logIfDebug("Presenting error: \(error)")
-		let msg = ([NSCocoaErrorDomain, NSURLErrorDomain].contains(error._domain)) ? error.localizedDescription : "\(error)"
+		let msg = ([NSCocoaErrorDomain, NSURLErrorDomain, AVFoundationErrorDomain].contains(error._domain)) ? error.localizedDescription : "\(error)"
 		show(message: msg, title: title, onDismiss: onDismiss)
 	}
 	
@@ -21,5 +22,9 @@ extension UIViewController {
 		let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
 		alert.addAction(UIAlertAction(title: "OK".sccs_loc, style: .cancel, handler: onDismiss))
 		present(alert, animated: true)
+	}
+	
+	func dismissModal(_ sender: AnyObject?) {
+		dismiss(animated: nil != sender)
 	}
 }

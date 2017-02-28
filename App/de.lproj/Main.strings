@@ -14,8 +14,8 @@
 /* Class = "UILabel"; text = "Ask the researcher to display your enrollment QR code on a computer screen"; ObjectID = "8lv-86-ycl"; */
 "8lv-86-ycl.text" = "Lassen Sie sich vom Studienmitarbeiter den QR-Code zur Anmeldung anzeigen";
 
-/* Class = "UIButton"; normalTitle = "About SCCS"; ObjectID = "9VG-hk-9TB"; */
-"9VG-hk-9TB.normalTitle" = "Über SCCS";
+/* Class = "UIButton"; normalTitle = "Contact"; ObjectID = "9VG-hk-9TB"; */
+"9VG-hk-9TB.normalTitle" = "Kontakt";
 
 /* Class = "UILabel"; text = "by the Swiss Hepatitis C Cohort Study"; ObjectID = "A5M-7J-77L"; */
 "A5M-7J-77L.text" = "der Swiss Hepatitis C Cohort Study";
@@ -23,8 +23,8 @@
 /* Class = "UILabel"; text = "Your name is"; ObjectID = "A9u-dX-9MA"; */
 "A9u-dX-9MA.text" = "Ihr Name ist";
 
-/* Class = "UIButton"; normalTitle = "Help!"; ObjectID = "EhU-aj-ZlM"; */
-"EhU-aj-ZlM.normalTitle" = "Hilfe!";
+/* Class = "UIButton"; normalTitle = "Try App"; ObjectID = "EhU-aj-ZlM"; */
+"EhU-aj-ZlM.normalTitle" = "App ausprobieren";
 
 /* Class = "UIButton"; normalTitle = "Leave Study"; ObjectID = "FKy-da-W2e"; */
 "FKy-da-W2e.normalTitle" = "Studie verlassen";
@@ -37,9 +37,6 @@
 
 /* Class = "UIButton"; normalTitle = "No"; ObjectID = "I3C-8E-k4p"; */
 "I3C-8E-k4p.normalTitle" = "Nein";
-
-/* Class = "UINavigationItem"; title = "Root View Controller"; ObjectID = "IAA-xY-LVd"; */
-"IAA-xY-LVd.title" = "Root View Controller";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "JWn-wf-g3s"; */
 "JWn-wf-g3s.text" = "Titel";
@@ -86,17 +83,17 @@
 /* Class = "UINavigationItem"; title = "Your Profile"; ObjectID = "a7D-Yb-njM"; */
 "a7D-Yb-njM.title" = "Ihr Profil";
 
-/* Class = "UITabBarItem"; title = "First"; ObjectID = "acW-dT-cKf"; */
-"acW-dT-cKf.title" = "First";
-
 /* Class = "UILabel"; text = "Enrolling..."; ObjectID = "c2T-o4-Sn8"; */
 "c2T-o4-Sn8.text" = "Anmelden...";
+
+/* Class = "UINavigationItem"; title = "Learn"; ObjectID = "c9O-wZ-5Kx"; */
+"c9O-wZ-5Kx.title" = "Mehr Erfahren";
 
 /* Class = "UILabel"; text = "Enrollment"; ObjectID = "caH-7i-mcd"; */
 "caH-7i-mcd.text" = "Anmeldung";
 
-/* Class = "UIButton"; normalTitle = "About the App"; ObjectID = "dRm-NV-3Nd"; */
-"dRm-NV-3Nd.normalTitle" = "Über die App";
+/* Class = "UIButton"; normalTitle = "About SCCS"; ObjectID = "dRm-NV-3Nd"; */
+"dRm-NV-3Nd.normalTitle" = "Über SCCS";
 
 /* Class = "UIButton"; normalTitle = "Simulate Scan"; ObjectID = "jNd-XW-n8o"; */
 "jNd-XW-n8o.normalTitle" = "Scan Simulieren";
@@ -116,8 +113,8 @@
 /* Class = "UIButton"; normalTitle = "Yes"; ObjectID = "r0r-Uk-ZS2"; */
 "r0r-Uk-ZS2.normalTitle" = "Ja";
 
-/* Class = "UIButton"; normalTitle = "Try the App"; ObjectID = "s4D-mm-5uD"; */
-"s4D-mm-5uD.normalTitle" = "App ausprobieren";
+/* Class = "UIButton"; normalTitle = "About the Study"; ObjectID = "s4D-mm-5uD"; */
+"s4D-mm-5uD.normalTitle" = "Über die Studie";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "sBu-cF-KU8"; */
 "sBu-cF-KU8.text" = "Name";

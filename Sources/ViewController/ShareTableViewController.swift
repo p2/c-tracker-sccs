@@ -179,7 +179,7 @@ class ShareTableViewController: UITableViewController {
 		link.translatesAutoresizingMaskIntoConstraints = false
 		link.font = UIFont.preferredFont(forTextStyle: .body)
 		link.textAlignment = .center
-		link.numberOfLines = 1
+		link.numberOfLines = 0
 		link.minimumScaleFactor = 0.5
 		let tap = UITapGestureRecognizer(target: self, action: #selector(ShareTableViewController.didTapFooter(_:)))
 		link.addGestureRecognizer(tap)

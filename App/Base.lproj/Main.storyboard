@@ -78,36 +78,33 @@ to C Tracker</string>
                                                 <rect key="frame" x="0.0" y="500" width="375" height="98"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4D-mm-5uD">
-                                                        <rect key="frame" x="16" y="8" width="90" height="33"/>
+                                                        <rect key="frame" x="16" y="8" width="125" height="33"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <state key="normal" title="Try the App"/>
+                                                        <state key="normal" title="About the Study"/>
                                                         <connections>
-                                                            <action selector="doTryApp:" destination="9pv-A4-QxB" eventType="touchUpInside" id="V5V-QP-QIh"/>
+                                                            <action selector="aboutTheStudy:" destination="9pv-A4-QxB" eventType="touchUpInside" id="pWg-N8-gAL"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dRm-NV-3Nd">
-                                                        <rect key="frame" x="16" y="49" width="111" height="33"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <state key="normal" title="About the App"/>
-                                                        <connections>
-                                                            <action selector="aboutTheApp:" destination="9pv-A4-QxB" eventType="touchUpInside" id="DeE-jB-9Cs"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EhU-aj-ZlM">
-                                                        <rect key="frame" x="318" y="8" width="41" height="33"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                        <state key="normal" title="Help!"/>
-                                                        <connections>
-                                                            <action selector="showHelp:" destination="9pv-A4-QxB" eventType="touchUpInside" id="4nE-Xp-098"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9VG-hk-9TB">
-                                                        <rect key="frame" x="264" y="49" width="95" height="33"/>
+                                                        <rect key="frame" x="16" y="49" width="95" height="33"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <state key="normal" title="About SCCS"/>
                                                         <connections>
-                                                            <action selector="aboutSCCS:" destination="9pv-A4-QxB" eventType="touchUpInside" id="s1N-dz-11T"/>
+                                                            <action selector="aboutSCCS:" destination="9pv-A4-QxB" eventType="touchUpInside" id="OiV-r6-kOQ"/>
                                                         </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EhU-aj-ZlM">
+                                                        <rect key="frame" x="299" y="8" width="60" height="33"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <state key="normal" title="Try App"/>
+                                                        <connections>
+                                                            <action selector="doTryApp:" destination="9pv-A4-QxB" eventType="touchUpInside" id="hNe-vn-ujr"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9VG-hk-9TB">
+                                                        <rect key="frame" x="298" y="49" width="61" height="33"/>
+                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                        <state key="normal" title="Contact"/>
                                                     </button>
                                                 </subviews>
                                                 <constraints>

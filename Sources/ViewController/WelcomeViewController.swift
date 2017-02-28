@@ -24,15 +24,23 @@ class WelcomeViewController: UIViewController, ORKTaskViewControllerDelegate {
 		doEnroll(user: sample)
 	}
 	
-	@IBAction func aboutTheApp(_ sender: AnyObject?) {
-		
+	@IBAction func aboutTheStudy(_ sender: AnyObject?) {
+		let web = WebViewController()
+		web.startURL = Bundle.main.url(forResource: "AboutTheStudy", withExtension: "html")
+		web.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(WelcomeViewController.dismissModal(_:)))
+		let navi = UINavigationController(rootViewController: web)
+		present(navi, animated: true)
 	}
 	
 	@IBAction func aboutSCCS(_ sender: AnyObject?) {
-		
+		let web = WebViewController()
+		web.startURL = Bundle.main.url(forResource: "AboutSCCS", withExtension: "html")
+		web.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(WelcomeViewController.dismissModal(_:)))
+		let navi = UINavigationController(rootViewController: web)
+		present(navi, animated: true)
 	}
 	
-	@IBAction func showHelp(_ sender: AnyObject?) {
+	@IBAction func showContactForm(_ sender: AnyObject?) {
 		
 	}
 	

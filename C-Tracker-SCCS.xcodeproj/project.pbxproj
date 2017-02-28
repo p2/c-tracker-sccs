@@ -59,6 +59,8 @@
 		EE957D581E044156004FADB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE957D5A1E044156004FADB4 /* InfoPlist.strings */; };
 		EE98525D1E3A1C5000A88D72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE98525B1E3A1C5000A88D72 /* Localizable.strings */; };
 		EE98D2A51E0160EC001BC845 /* ProfileSettingsDebug.json in Resources */ = {isa = PBXBuildFile; fileRef = EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */; };
+		EEB82F1D1E65E7360084E030 /* AboutTheStudy.html in Resources */ = {isa = PBXBuildFile; fileRef = EEB82F191E65E7360084E030 /* AboutTheStudy.html */; };
+		EEB82F1E1E65E7360084E030 /* WhoCanParticipate.html in Resources */ = {isa = PBXBuildFile; fileRef = EEB82F1B1E65E7360084E030 /* WhoCanParticipate.html */; };
 		EEDDAC7D1E40ED84007D4056 /* StudyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDDAC7C1E40ED84007D4056 /* StudyTableViewController.swift */; };
 		EEDDAC901E40EF51007D4056 /* ShareTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDDAC8F1E40EF51007D4056 /* ShareTableViewController.swift */; };
 		EEEC78671DEC258100E7020C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78661DEC258100E7020C /* ProfileViewController.swift */; };
@@ -357,17 +359,23 @@
 		EE86F4671E0001D600922994 /* JWT.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JWT.xcodeproj; path = JSONWebToken.swift/JWT.xcodeproj; sourceTree = "<group>"; };
 		EE87B2B91E081B2C00719A71 /* QRCodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeScanner.swift; sourceTree = "<group>"; };
 		EE87B2CF1E081D9700719A71 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		EE957D521E042B94004FADB4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		EE957D531E042B94004FADB4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		EE957D591E044156004FADB4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EE957D5B1E044159004FADB4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		EE9852561E3A110600A88D72 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		EE9852571E3A110600A88D72 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		EE9852591E3A110700A88D72 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EE98525C1E3A1C5000A88D72 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE98525E1E3A1C5600A88D72 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE98525F1E3A1C5900A88D72 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfileSettingsDebug.json; sourceTree = SOURCE_ROOT; };
+		EEB82F1A1E65E7360084E030 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = App/en.lproj/AboutTheStudy.html; sourceTree = "<group>"; };
+		EEB82F1C1E65E7360084E030 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = App/en.lproj/WhoCanParticipate.html; sourceTree = "<group>"; };
+		EEB82F1F1E65E7490084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = de; path = App/de.lproj/AboutTheStudy.html; sourceTree = "<group>"; };
+		EEB82F201E65E74C0084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = App/fr.lproj/AboutTheStudy.html; sourceTree = "<group>"; };
+		EEB82F211E65E7500084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = de; path = App/de.lproj/WhoCanParticipate.html; sourceTree = "<group>"; };
+		EEB82F221E65E7530084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = App/fr.lproj/WhoCanParticipate.html; sourceTree = "<group>"; };
+		EEB82F241E65EB2A0084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		EEB82F261E65EB2F0084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		EEDDAC7C1E40ED84007D4056 /* StudyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyTableViewController.swift; sourceTree = "<group>"; };
 		EEDDAC8F1E40EF51007D4056 /* ShareTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTableViewController.swift; sourceTree = "<group>"; };
 		EEEC78661DEC258100E7020C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -616,9 +624,11 @@
 				EE14E7A41DD0CAAA009F8736 /* Main.storyboard */,
 				EE14E7A71DD0CAAA009F8736 /* Assets.xcassets */,
 				EE7B36DB1E544135007B1D73 /* Style.css */,
-				EE7B36E11E544233007B1D73 /* PrivacyPolicy.html */,
 				EE7B36E51E5449BB007B1D73 /* AboutHepC.html */,
 				EE7B36E71E5449BB007B1D73 /* AboutSCCS.html */,
+				EEB82F191E65E7360084E030 /* AboutTheStudy.html */,
+				EE7B36E11E544233007B1D73 /* PrivacyPolicy.html */,
+				EEB82F1B1E65E7360084E030 /* WhoCanParticipate.html */,
 				EE0F35161E02E68A003AA556 /* Licenses */,
 			);
 			name = UI;
@@ -883,9 +893,11 @@
 				EE0B328E1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json in Resources */,
 				EE7B36E91E5449BB007B1D73 /* AboutHepC.html in Resources */,
 				EE98525D1E3A1C5000A88D72 /* Localizable.strings in Resources */,
+				EEB82F1E1E65E7360084E030 /* WhoCanParticipate.html in Resources */,
 				EE98D2A51E0160EC001BC845 /* ProfileSettingsDebug.json in Resources */,
 				EEFC6B331DF5CCB900D03A84 /* c-tracker.survey-in-app.withdrawal.json in Resources */,
 				EE14E7A81DD0CAAA009F8736 /* Assets.xcassets in Resources */,
+				EEB82F1D1E65E7360084E030 /* AboutTheStudy.html in Resources */,
 				EE252D0A1DED87BC008F5E3E /* ProfileSettings.json in Resources */,
 				EE7B36D91E543ACB007B1D73 /* AppStoreDescription.txt in Resources */,
 				EE0F35171E02E68A003AA556 /* Licenses in Resources */,
@@ -1061,8 +1073,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				EE14E7A51DD0CAAA009F8736 /* Base */,
-				EE957D521E042B94004FADB4 /* de */,
-				EE9852561E3A110600A88D72 /* fr */,
+				EEB82F241E65EB2A0084E030 /* de */,
+				EEB82F261E65EB2F0084E030 /* fr */,
 			);
 			name = Main.storyboard;
 			path = App;
@@ -1136,6 +1148,26 @@
 				EE98525F1E3A1C5900A88D72 /* fr */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		EEB82F191E65E7360084E030 /* AboutTheStudy.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEB82F1A1E65E7360084E030 /* en */,
+				EEB82F1F1E65E7490084E030 /* de */,
+				EEB82F201E65E74C0084E030 /* fr */,
+			);
+			name = AboutTheStudy.html;
+			sourceTree = "<group>";
+		};
+		EEB82F1B1E65E7360084E030 /* WhoCanParticipate.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEB82F1C1E65E7360084E030 /* en */,
+				EEB82F211E65E7500084E030 /* de */,
+				EEB82F221E65E7530084E030 /* fr */,
+			);
+			name = WhoCanParticipate.html;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

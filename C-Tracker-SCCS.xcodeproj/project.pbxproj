@@ -35,6 +35,7 @@
 		EE252D081DED81A3008F5E3E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252D071DED81A3008F5E3E /* AppError.swift */; };
 		EE252D0A1DED87BC008F5E3E /* ProfileSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = EE252D091DED87BC008F5E3E /* ProfileSettings.json */; };
 		EE252D0C1DEDCC5A008F5E3E /* UserTaskSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252D0B1DEDCC5A008F5E3E /* UserTaskSetting.swift */; };
+		EE429DB71E65791000BC6F67 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE429DB61E65791000BC6F67 /* CryptoSwift.framework */; };
 		EE492CD31E2E6F470043D531 /* ProfileLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE492CD21E2E6F470043D531 /* ProfileLink.swift */; };
 		EE492CE61E2E7CC60043D531 /* EstablishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE492CE51E2E7CC60043D531 /* EstablishViewController.swift */; };
 		EE5074C31DE892B300A0C73F /* UIViewController+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */; };
@@ -53,7 +54,6 @@
 		EE86F4B01E00029B00922994 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F45B1E0001C800922994 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE86F4B31E00029B00922994 /* JWT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F4721E0001D600922994 /* JWT.framework */; };
 		EE86F4B41E00029B00922994 /* JWT.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F4721E0001D600922994 /* JWT.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EE86F4C11E00038D00922994 /* CryptoSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F4641E0001CE00922994 /* CryptoSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE87B2BA1E081B2C00719A71 /* QRCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE87B2B91E081B2C00719A71 /* QRCodeScanner.swift */; };
 		EE87B2D01E081D9700719A71 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE87B2CF1E081D9700719A71 /* AVFoundation.framework */; };
 		EE957D581E044156004FADB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE957D5A1E044156004FADB4 /* InfoPlist.strings */; };
@@ -179,20 +179,6 @@
 			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
 			remoteInfo = ResearchKitTests;
 		};
-		EE86F4631E0001CE00922994 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE86F45E1E0001CE00922994 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 754BE45519693E190098E6F3;
-			remoteInfo = CryptoSwift;
-		};
-		EE86F4651E0001CE00922994 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE86F45E1E0001CE00922994 /* CryptoSwift.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 754BE46019693E190098E6F3;
-			remoteInfo = Tests;
-		};
 		EE86F46F1E0001D600922994 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EE86F4671E0001D600922994 /* JWT.xcodeproj */;
@@ -298,13 +284,6 @@
 			remoteGlobalIDString = CD9B62131C7753D8005D4844;
 			remoteInfo = "JWT-iOS";
 		};
-		EE86F4BF1E00038100922994 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE86F45E1E0001CE00922994 /* CryptoSwift.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 754BE45419693E190098E6F3;
-			remoteInfo = CryptoSwift;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -314,7 +293,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EE86F4C11E00038D00922994 /* CryptoSwift.framework in Embed Frameworks */,
 				EE86F4A81E00029B00922994 /* SMART.framework in Embed Frameworks */,
 				EE86F4A41E00029B00922994 /* C3PRO.framework in Embed Frameworks */,
 				EE86F4B41E00029B00922994 /* JWT.framework in Embed Frameworks */,
@@ -334,14 +312,14 @@
 		EE0F34F51E02E61C003AA556 /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
 		EE0F34F61E02E61C003AA556 /* LicenseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
 		EE0F34F71E02E61C003AA556 /* ClientDebugViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientDebugViewController.swift; sourceTree = "<group>"; };
-		EE0F35161E02E68A003AA556 /* Licenses */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Licenses; sourceTree = "<group>"; };
+		EE0F35161E02E68A003AA556 /* Licenses */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Licenses; path = App/Licenses; sourceTree = "<group>"; };
 		EE0F35181E02F1BF003AA556 /* GenderPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenderPicker.swift; sourceTree = "<group>"; };
 		EE0F351A1E02F1C8003AA556 /* HeightPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeightPicker.swift; sourceTree = "<group>"; };
 		EE0F35201E02FC9C003AA556 /* C Tracker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = "C Tracker.entitlements"; path = "../C Tracker.entitlements"; sourceTree = "<group>"; };
 		EE0F35211E02FCA7003AA556 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		EE14E79B1DD0CAAA009F8736 /* C Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "C Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE14E7A51DD0CAAA009F8736 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EE14E7A71DD0CAAA009F8736 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EE14E7A71DD0CAAA009F8736 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = App/Assets.xcassets; sourceTree = "<group>"; };
 		EE14E7AA1DD0CAAA009F8736 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE14E7AC1DD0CAAA009F8736 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE14E7B51DD0CBBE009F8736 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -359,12 +337,13 @@
 		EE252D071DED81A3008F5E3E /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		EE252D091DED87BC008F5E3E /* ProfileSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfileSettings.json; sourceTree = SOURCE_ROOT; };
 		EE252D0B1DEDCC5A008F5E3E /* UserTaskSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTaskSetting.swift; sourceTree = "<group>"; };
+		EE429DB61E65791000BC6F67 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		EE492CD21E2E6F470043D531 /* ProfileLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileLink.swift; sourceTree = "<group>"; };
 		EE492CE51E2E7CC60043D531 /* EstablishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstablishViewController.swift; sourceTree = "<group>"; };
 		EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utilities.swift"; sourceTree = "<group>"; };
 		EE7B36D61E543ACB007B1D73 /* de */ = {isa = PBXFileReference; lastKnownFileType = text; name = de; path = de.lproj/AppStoreDescription.txt; sourceTree = "<group>"; };
 		EE7B36D71E543ACB007B1D73 /* en */ = {isa = PBXFileReference; lastKnownFileType = text; name = en; path = en.lproj/AppStoreDescription.txt; sourceTree = "<group>"; };
-		EE7B36DB1E544135007B1D73 /* Style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = Style.css; sourceTree = "<group>"; };
+		EE7B36DB1E544135007B1D73 /* Style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = Style.css; path = App/Style.css; sourceTree = "<group>"; };
 		EE7B36E21E544233007B1D73 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/PrivacyPolicy.html; sourceTree = "<group>"; };
 		EE7B36E41E544237007B1D73 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = de; path = de.lproj/PrivacyPolicy.html; sourceTree = "<group>"; };
 		EE7B36E61E5449BB007B1D73 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = en.lproj/AboutHepC.html; sourceTree = "<group>"; };
@@ -375,7 +354,6 @@
 		EE86F42D1E0001B500922994 /* SwiftSMART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftSMART.xcodeproj; path = "c3-pro-ios-framework/Swift-SMART/SwiftSMART.xcodeproj"; sourceTree = "<group>"; };
 		EE86F43C1E0001BC00922994 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "c3-pro-ios-framework/SQLiteSwift/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		EE86F4541E0001C700922994 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = "c3-pro-ios-framework/ResearchKit/ResearchKit.xcodeproj"; sourceTree = "<group>"; };
-		EE86F45E1E0001CE00922994 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = "c3-pro-ios-framework/CryptoSwift/CryptoSwift.xcodeproj"; sourceTree = "<group>"; };
 		EE86F4671E0001D600922994 /* JWT.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JWT.xcodeproj; path = JSONWebToken.swift/JWT.xcodeproj; sourceTree = "<group>"; };
 		EE87B2B91E081B2C00719A71 /* QRCodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeScanner.swift; sourceTree = "<group>"; };
 		EE87B2CF1E081D9700719A71 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -421,6 +399,7 @@
 				EE0F35221E02FCA7003AA556 /* HealthKit.framework in Frameworks */,
 				EE86F4AF1E00029B00922994 /* ResearchKit.framework in Frameworks */,
 				EE86F4AB1E00029B00922994 /* SQLite.framework in Frameworks */,
+				EE429DB71E65791000BC6F67 /* CryptoSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +420,7 @@
 			isa = PBXGroup;
 			children = (
 				EE14E7B31DD0CBBE009F8736 /* Sources */,
+				EEB82F181E6589180084E030 /* UI */,
 				EE14E79D1DD0CAAA009F8736 /* Assets */,
 				EE0B328A1DF1CA90009F9939 /* c-tracker-sccs-questionnaires */,
 				EE7B36D41E543ACB007B1D73 /* c-tracker-sccs-content */,
@@ -450,7 +430,6 @@
 				EE86F42D1E0001B500922994 /* SwiftSMART.xcodeproj */,
 				EE86F43C1E0001BC00922994 /* SQLite.xcodeproj */,
 				EE86F4541E0001C700922994 /* ResearchKit.xcodeproj */,
-				EE86F45E1E0001CE00922994 /* CryptoSwift.xcodeproj */,
 				EE86F4671E0001D600922994 /* JWT.xcodeproj */,
 			);
 			sourceTree = "<group>";
@@ -467,17 +446,9 @@
 			isa = PBXGroup;
 			children = (
 				EEFC6B351DF5CD4700D03A84 /* README.md */,
-				EE14E7A91DD0CAAA009F8736 /* LaunchScreen.storyboard */,
-				EE14E7A41DD0CAAA009F8736 /* Main.storyboard */,
-				EE14E7A71DD0CAAA009F8736 /* Assets.xcassets */,
-				EE98525B1E3A1C5000A88D72 /* Localizable.strings */,
-				EE7B36DB1E544135007B1D73 /* Style.css */,
-				EE7B36E11E544233007B1D73 /* PrivacyPolicy.html */,
-				EE7B36E51E5449BB007B1D73 /* AboutHepC.html */,
-				EE7B36E71E5449BB007B1D73 /* AboutSCCS.html */,
-				EE0F35161E02E68A003AA556 /* Licenses */,
 				EE14E7AC1DD0CAAA009F8736 /* Info.plist */,
 				EE957D5A1E044156004FADB4 /* InfoPlist.strings */,
+				EE98525B1E3A1C5000A88D72 /* Localizable.strings */,
 				EE0F35201E02FC9C003AA556 /* C Tracker.entitlements */,
 			);
 			name = Assets;
@@ -540,6 +511,7 @@
 		EE14E7CD1DD18921009F8736 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EE429DB61E65791000BC6F67 /* CryptoSwift.framework */,
 				EE87B2CF1E081D9700719A71 /* AVFoundation.framework */,
 				EE0F35211E02FCA7003AA556 /* HealthKit.framework */,
 			);
@@ -617,15 +589,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EE86F45F1E0001CE00922994 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				EE86F4641E0001CE00922994 /* CryptoSwift.framework */,
-				EE86F4661E0001CE00922994 /* Tests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		EE86F4681E0001D600922994 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -646,6 +609,21 @@
 			path = Scan;
 			sourceTree = "<group>";
 		};
+		EEB82F181E6589180084E030 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EE14E7A91DD0CAAA009F8736 /* LaunchScreen.storyboard */,
+				EE14E7A41DD0CAAA009F8736 /* Main.storyboard */,
+				EE14E7A71DD0CAAA009F8736 /* Assets.xcassets */,
+				EE7B36DB1E544135007B1D73 /* Style.css */,
+				EE7B36E11E544233007B1D73 /* PrivacyPolicy.html */,
+				EE7B36E51E5449BB007B1D73 /* AboutHepC.html */,
+				EE7B36E71E5449BB007B1D73 /* AboutSCCS.html */,
+				EE0F35161E02E68A003AA556 /* Licenses */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -659,12 +637,12 @@
 				EE14E7981DD0CAAA009F8736 /* Frameworks */,
 				EE14E7991DD0CAAA009F8736 /* Resources */,
 				EEECC2291DECE0EF005645B8 /* Run Postflight */,
+				EE429DB81E65791B00BC6F67 /* Run Script [carthage copy-frameworks] */,
 				EE86F4B91E00029C00922994 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				EE86F4C01E00038100922994 /* PBXTargetDependency */,
 				EE86F4841E0001FE00922994 /* PBXTargetDependency */,
 				EE86F48F1E00024200922994 /* PBXTargetDependency */,
 				EE86F4931E00024200922994 /* PBXTargetDependency */,
@@ -725,10 +703,6 @@
 				{
 					ProductGroup = EE86F4251E0001AD00922994 /* Products */;
 					ProjectRef = EE86F4241E0001AD00922994 /* C3PRO.xcodeproj */;
-				},
-				{
-					ProductGroup = EE86F45F1E0001CE00922994 /* Products */;
-					ProjectRef = EE86F45E1E0001CE00922994 /* CryptoSwift.xcodeproj */;
 				},
 				{
 					ProductGroup = EE86F4681E0001D600922994 /* Products */;
@@ -860,20 +834,6 @@
 			remoteRef = EE86F45C1E0001C800922994 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		EE86F4641E0001CE00922994 /* CryptoSwift.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CryptoSwift.framework;
-			remoteRef = EE86F4631E0001CE00922994 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		EE86F4661E0001CE00922994 /* Tests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = Tests.xctest;
-			remoteRef = EE86F4651E0001CE00922994 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		EE86F4701E0001D600922994 /* JWT.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -937,6 +897,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		EE429DB81E65791B00BC6F67 /* Run Script [carthage copy-frameworks] */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
+			);
+			name = "Run Script [carthage copy-frameworks]";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		EE492CE81E2E8DF60043D531 /* Run Script (check config files) */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1079,11 +1054,6 @@
 			name = "JWT-iOS";
 			targetProxy = EE86F4B51E00029B00922994 /* PBXContainerItemProxy */;
 		};
-		EE86F4C01E00038100922994 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CryptoSwift;
-			targetProxy = EE86F4BF1E00038100922994 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1095,6 +1065,7 @@
 				EE9852561E3A110600A88D72 /* fr */,
 			);
 			name = Main.storyboard;
+			path = App;
 			sourceTree = "<group>";
 		};
 		EE14E7A91DD0CAAA009F8736 /* LaunchScreen.storyboard */ = {
@@ -1105,6 +1076,7 @@
 				EE9852571E3A110600A88D72 /* fr */,
 			);
 			name = LaunchScreen.storyboard;
+			path = App;
 			sourceTree = "<group>";
 		};
 		EE7B36D51E543ACB007B1D73 /* AppStoreDescription.txt */ = {
@@ -1123,6 +1095,7 @@
 				EE7B36E41E544237007B1D73 /* de */,
 			);
 			name = PrivacyPolicy.html;
+			path = App;
 			sourceTree = "<group>";
 		};
 		EE7B36E51E5449BB007B1D73 /* AboutHepC.html */ = {
@@ -1132,6 +1105,7 @@
 				EE7B36EB1E5449C2007B1D73 /* de */,
 			);
 			name = AboutHepC.html;
+			path = App;
 			sourceTree = "<group>";
 		};
 		EE7B36E71E5449BB007B1D73 /* AboutSCCS.html */ = {
@@ -1141,6 +1115,7 @@
 				EE7B36EC1E5449C8007B1D73 /* de */,
 			);
 			name = AboutSCCS.html;
+			path = App;
 			sourceTree = "<group>";
 		};
 		EE957D5A1E044156004FADB4 /* InfoPlist.strings */ = {
@@ -1268,13 +1243,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "C Tracker.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = MH6DGH3QYY;
+				DEVELOPMENT_TEAM = 36H974DUG4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				"OTHER_SWIFT_FLAGS[sdk=iphoneos*]" = "-DDEBUG";
 				"OTHER_SWIFT_FLAGS[sdk=iphonesimulator*]" = "-DON_SIMULATOR -DDEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.ossus.app.ios.C-Tracker-SCCS";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.usz.c-tracker";
 				PRODUCT_NAME = "C Tracker";
 				SWIFT_VERSION = 3.0;
 			};
@@ -1287,10 +1266,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "C Tracker.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				DEVELOPMENT_TEAM = MH6DGH3QYY;
+				DEVELOPMENT_TEAM = 36H974DUG4;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ch.ossus.app.ios.C-Tracker-SCCS";
+				PRODUCT_BUNDLE_IDENTIFIER = "ch.usz.c-tracker";
 				PRODUCT_NAME = "C Tracker";
 				SWIFT_VERSION = 3.0;
 			};

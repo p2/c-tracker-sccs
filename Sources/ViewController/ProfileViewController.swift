@@ -148,11 +148,13 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 	}
 	
 	func doWithdraw(_ answers: QuestionnaireResponse? = nil) {
-//		if let answers = answers, let server = (UIApplication.shared.delegate as? AppDelegate)?.dataQueue {
-//			answers.subject = try? user?.asPatient().asRelativeReference()
-//			answers.create(server) { error in }
-//		}
-//		self.questionnaireController = nil
+		if let answers = answers, let server = profileManager?.dataServer {
+			if let user = user {
+				answers.subject = try? profileManager.patientResource(for: user).asRelativeReference()
+			}
+			answers.create(server) { error in }
+		}
+		self.questionnaireController = nil
 		do {
 			try profileManager.withdraw()
 		}
@@ -417,29 +419,25 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 	}
 	
 	func showPermissionsVC(_ animated: Bool = true) {
-		if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-			let vc = SystemPermissionTableViewController(style: .plain)
-//			vc.services = appDelegate.initialPermissionsRequested()
-			vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(ProfileViewController.dismissPresentedViewController))
-			
-			let navi = UINavigationController(rootViewController: vc)
-			present(navi, animated: animated, completion: nil)
-		}
+		let vc = SystemPermissionTableViewController(style: .plain)
+		vc.services = profileManager.systemServicesNeeded
+		vc.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(ProfileViewController.dismissPresentedViewController))
+		
+		let navi = UINavigationController(rootViewController: vc)
+		present(navi, animated: animated, completion: nil)
 	}
 	
 	func showClientDebugVC(_ animated: Bool = true) {
 		#if DEBUG
 		let debug = ClientDebugViewController()
-//		if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
-//			debug.smart = appDelegate.smart
-//		}
+//		debug.smart = profileManager.dataServer
 		navigationController?.pushViewController(debug, animated: animated)
 		#endif
 	}
 	
 	func showPrivacyPolicyVC(_ animated: Bool = true) {
-		let privacy = StudyContentWebViewController()
-		privacy.startURL = Bundle.main.url(forResource: "PrivacyPolicy", withExtension: "html", subdirectory: "HTMLContent")
+		let privacy = WebViewController()
+		privacy.startURL = Bundle.main.url(forResource: "PrivacyPolicy", withExtension: "html")
 		navigationController?.pushViewController(privacy, animated: animated)
 	}
 	

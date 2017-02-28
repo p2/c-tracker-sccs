@@ -6,7 +6,8 @@
   Copyright © 2016 SCCS. All rights reserved.
 */
 
-"NSHealthShareUsageDescription" = "To retrieve basic medical information about you, such as your gender";
-"NSMotionUsageDescription" = "Using the motion co-processor allows the app to determine your activity, helping the study to better understand how activity level may influence disease";
-"NSCameraUsageDescription" = "To scan QR codes";
+"NSHealthShareUsageDescription" = "Pour récupérer vos données, telles que votre sexe";
+"NSHealthUpdateUsageDescription" = "Pour mettre à jour vos données, telles que votre sexe";
+"NSMotionUsageDescription" = "L'utilisation du coprocesseur de mouvement permet à l'application de déterminer votre activité, en aidant l'étude à mieux comprendre comment le niveau d'activité peut influencer la maladie";
+"NSCameraUsageDescription" = "Pour numériser des codes QR";
 

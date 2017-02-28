@@ -7,6 +7,7 @@
 */
 
 "NSHealthShareUsageDescription" = "To retrieve basic medical information about you, such as your gender";
+"NSHealthUpdateUsageDescription" = "To update basic medical information about you, such as your gender";
 "NSMotionUsageDescription" = "Using the motion co-processor allows the app to determine your activity, helping the study to better understand how activity level may influence disease";
 "NSCameraUsageDescription" = "To scan QR codes";
 

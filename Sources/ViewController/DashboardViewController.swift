@@ -11,6 +11,7 @@ import SMART
 import C3PRO
 import ResearchKit
 
+let kDashboardTodayActivityNumHours = 48
 let kDashboardActivityNumDays = 7
 
 
@@ -71,10 +72,10 @@ class DashboardViewController: UITableViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		updateTasks()
-		if nil == healthReport {
+		if nil == healthReport || nil == recentHealthReport {
 			refreshHealthData()
 		}
-		if nil == motionReport {
+		if nil == motionReport || nil == todayReport {
 			refreshMotionData()
 		}
 	}
@@ -215,7 +216,7 @@ class DashboardViewController: UITableViewController {
 	
 	// MARK: - Activity
 	
-	var refreshingActivity = false
+	var refreshingHealthData = false
 	
 	var refreshingMotion = false
 	
@@ -226,6 +227,46 @@ class DashboardViewController: UITableViewController {
 	var healthReport: ActivityReport? {
 		didSet {
 			redrawHealthReport()
+		}
+	}
+	
+	var localizedStringForStepCount: String?
+	
+	var recentHealthReport: ActivityReport? {
+		didSet {
+			localizedStringForStepCount = nil
+			if let report = recentHealthReport {
+				let formatter = NumberFormatter()
+				formatter.numberStyle = .decimal
+				formatter.maximumFractionDigits = 0
+				
+				var stepstr: String?
+				var fligstr: String?
+				if let samples = report.last?.healthKitSamples {
+					for sample in samples {
+						if HKQuantityTypeIdentifier.stepCount.rawValue == sample.quantityType.identifier {
+							let quantity = try? sample.c3_asFHIRQuantity()
+							let daily = quantity?.value?.decimal ?? Decimal(0)
+							stepstr = formatter.string(from: NSDecimalNumber(decimal: daily)) ?? stepstr
+						}
+						else if HKQuantityTypeIdentifier.flightsClimbed.rawValue == sample.quantityType.identifier {
+							let quantity = try? sample.c3_asFHIRQuantity()
+							let daily = quantity?.value?.decimal ?? Decimal(0)
+							fligstr = formatter.string(from: NSDecimalNumber(decimal: daily)) ?? fligstr
+						}
+					}
+				}
+				
+				if let steps = stepstr {
+					if let flights = fligstr {
+						localizedStringForStepCount = "{{steps}} steps, {{flights}} floors climbed".sccs_loc.replacingOccurrences(of: "{{steps}}", with: steps).replacingOccurrences(of: "{{flights}}", with: flights)
+					}
+					else {
+						localizedStringForStepCount = "{{steps}} steps".sccs_loc.replacingOccurrences(of: "{{steps}}", with: steps)
+					}
+				}
+			}
+			redrawRecentHealthReport()
 		}
 	}
 	
@@ -252,15 +293,17 @@ class DashboardViewController: UITableViewController {
 	}
 	
 	func refreshHealthData(isRetry: Bool = false) {
-		if refreshingActivity {
+		if refreshingHealthData {
 			return
 		}
-		refreshingActivity = true
+		refreshingHealthData = true
 		c3_logIfDebug("Refreshing health data")
 		
-		healthReporter.progressivelyCollatedActivityData() { report, error in
-			self.refreshingActivity = false
+		// 1: recent steps
+		let start = Date(timeIntervalSinceNow: Double(-3600*kDashboardTodayActivityNumHours))
+		healthReporter.reportForActivityPeriod(startingAt: start, until: Date()) { period, error in
 			if let error = error {
+				self.refreshingHealthData = false
 				if isRetry {
 					c3_logIfDebug("Cannot refresh health data: tried to get permission from HealthKit, not received")
 					self.show(error: error)
@@ -277,12 +320,24 @@ class DashboardViewController: UITableViewController {
 				}
 				return
 			}
-			self.healthReport = report
-			c3_logIfDebug("Health data refreshed")
+			self.recentHealthReport = (nil == period) ? nil : ActivityReport(periods: [period!])
+			c3_logIfDebug("Health data refreshed (recent)")
+			
+			// 2: progressive health report
+			self.healthReporter.progressivelyCollatedActivityData() { report, error in
+				self.refreshingHealthData = false
+				if let error = error {
+					c3_logIfDebug("Cannot refresh recent health data: \(error)")
+				}
+				else {
+					self.healthReport = report
+					c3_logIfDebug("Health data refreshed (progressive)")
+				}
+			}
 		}
 	}
 	
-	func refreshMotionData() {
+	func refreshMotionData(isRetry: Bool = false) {
 		guard let motionReporter = motionReporter else {
 			c3_logIfDebug("Error: \(self) does not have `motionReporter` set, cannot refresh motion data")
 			return
@@ -290,13 +345,13 @@ class DashboardViewController: UITableViewController {
 		if refreshingMotion {
 			return
 		}
-		if let m = profileManager, !m.permissioner.hasPermission(for: .coreMotion) {
+		if let m = profileManager, !m.permissioner.hasPermission(for: .coreMotion), !isRetry {
 			m.permissioner.requestPermission(for: .coreMotion) { error in
 				if let error = error {
 					self.show(error: error)
 				}
 				else {
-					self.refreshMotionData()
+					self.refreshMotionData(isRetry: true)
 				}
 			}
 			return
@@ -305,9 +360,9 @@ class DashboardViewController: UITableViewController {
 		refreshingMotion = true
 		c3_logIfDebug("Refreshing motion data")
 		
-		// start collecting 24 hours ago
+		// start collecting X hours ago
 		let now = Date()
-		let today = Date(timeIntervalSinceNow: -24*3600)
+		let today = Date(timeIntervalSinceNow: Double(kDashboardTodayActivityNumHours * -3600))
 		
 		motionReporter.reportForActivityPeriod(startingAt: today, until: now) { period, error in
 			if let period = period {
@@ -330,45 +385,16 @@ class DashboardViewController: UITableViewController {
 		tableView.reloadRows(at: [IndexPath(row: 0, section: 1)], with: .none)
 	}
 	
-	func redrawHealthReport() {
-		tableView.reloadRows(at: [IndexPath(row: 1, section: 1), IndexPath(row: 2, section: 1)], with: .none)
+	func redrawRecentHealthReport() {
+		tableView.reloadRows(at: [IndexPath(row: 1, section: 1)], with: .none)
 	}
 	
 	func redrawMotionReport() {
-		tableView.reloadRows(at: [IndexPath(row: 3, section: 1)], with: .none)
+		tableView.reloadRows(at: [IndexPath(row: 2, section: 1)], with: .none)
 	}
 	
-	func localizedStringForStepCount() -> String? {
-		let formatter = NumberFormatter()
-		formatter.numberStyle = .decimal
-		formatter.maximumFractionDigits = 0
-		
-		var stepstr: String?
-		var fligstr: String?
-		if let samples = healthReport?.last?.healthKitSamples {
-			for sample in samples {
-				if HKQuantityTypeIdentifier.stepCount.rawValue == sample.quantityType.identifier {
-					let quantity = try? sample.c3_asFHIRQuantity()
-					var daily = quantity?.value?.decimal ?? Decimal(0)
-					daily.divide(by: Decimal(kDashboardActivityNumDays))
-					stepstr = formatter.string(from: NSDecimalNumber(decimal: daily)) ?? stepstr
-				}
-				else if HKQuantityTypeIdentifier.flightsClimbed.rawValue == sample.quantityType.identifier {
-					let quantity = try? sample.c3_asFHIRQuantity()
-					var daily = quantity?.value?.decimal ?? Decimal(0)
-					daily.divide(by: Decimal(kDashboardActivityNumDays))
-					fligstr = formatter.string(from: NSDecimalNumber(decimal: daily)) ?? fligstr
-				}
-			}
-		}
-		
-		if let steps = stepstr {
-			if let flights = fligstr {
-				return "{{steps}} steps, {{flights}} floors climbed".sccs_loc.replacingOccurrences(of: "{{steps}}", with: steps).replacingOccurrences(of: "{{flights}}", with: flights)
-			}
-			return "{{steps}} steps".sccs_loc.replacingOccurrences(of: "{{steps}}", with: steps)
-		}
-		return nil
+	func redrawHealthReport() {
+		tableView.reloadRows(at: [IndexPath(row: 3, section: 1)], with: .none)
 	}
 	
 	
@@ -420,18 +446,18 @@ class DashboardViewController: UITableViewController {
 				let cell = tableView.dequeueReusableCell(withIdentifier: "C3ActivityCell", for: indexPath) as! DashboardActivityTableViewCell
 				pieSource = PieDataSource(report: todayReport)
 				cell.setup(with: pieSource!)
-				cell.legendTitle?.text = "Past 24 Hours".sccs_loc
+				cell.legendTitle?.text = "Past \(kDashboardTodayActivityNumHours) Hours".sccs_loc
 				return cell
 			}
 			
 			// graphs
-			if 1 == indexPath.row {
+			if 2 == indexPath.row {
 				let cell = tableView.dequeueReusableCell(withIdentifier: "C3GraphCell", for: indexPath) as! DashboardGraphTableViewCell
 				motionGraphSource = GraphDataSource(report: motionReport)
 				cell.graph?.dataSource = motionGraphSource
 				return cell
 			}
-			if 2 == indexPath.row {
+			if 3 == indexPath.row {
 				let cell = tableView.dequeueReusableCell(withIdentifier: "C3GraphCell", for: indexPath) as! DashboardGraphTableViewCell
 				healthGraphSource = HealthGraphDataSource(report: healthReport)
 				cell.graph?.dataSource = healthGraphSource
@@ -440,13 +466,13 @@ class DashboardViewController: UITableViewController {
 			
 			// steps and flights
 			let cell = tableView.dequeueReusableCell(withIdentifier: "C3TextCell", for: indexPath) 
-			if let stepstr = localizedStringForStepCount() {
+			if let stepstr = localizedStringForStepCount {
 				cell.textLabel?.textColor = UIColor.black
 				cell.textLabel?.text = stepstr
 			}
 			else {
 				cell.textLabel?.textColor = UIColor.lightGray
-				cell.textLabel?.text = refreshingActivity ? "Refreshing activity data...".sccs_loc : "Step count not available".sccs_loc
+				cell.textLabel?.text = refreshingHealthData ? "Refreshing activity data...".sccs_loc : "Step count not available".sccs_loc
 			}
 			return cell
 		}
@@ -494,7 +520,7 @@ class DashboardViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if 1 == indexPath.section {
-			if indexPath.row < 3 {
+			if 1 != indexPath.row {
 				return min(228.0, max(152.0, tableView.bounds.size.width / 2.6))
 			}
 			return UITableViewAutomaticDimension
@@ -504,7 +530,7 @@ class DashboardViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if 1 == indexPath.section {
-			if indexPath.row < 2 {
+			if 0 == indexPath.row || 2 == indexPath.row {
 				refreshMotionData()
 			}
 			else {

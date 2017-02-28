@@ -6,4 +6,5 @@ Configuration_*.swift
 *.xcuserdatad
 *.xcscmblueprint
 env
+Carthage
 

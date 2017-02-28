@@ -66,7 +66,11 @@ class GraphDataSource: NSObject, ORKValueRangeGraphChartViewDataSource {
 	
 	init(report: ActivityReport?) {
 		self.report = report
+		super.init()
 	}
+	
+	
+	// MARK: - Delegate
 	
 	func numberOfPlots(in graphChartView: ORKGraphChartView) -> Int {
 		return report?.last?.coreMotionActivities?.count ?? 0
@@ -97,6 +101,10 @@ class GraphDataSource: NSObject, ORKValueRangeGraphChartViewDataSource {
 		}
 		return UIColor.lightGray
 	}
+	
+	func minimumValue(for graphChartView: ORKGraphChartView) -> Double {
+		return 0.0
+	}
 }
 
 /**
@@ -107,6 +115,9 @@ class HealthGraphDataSource: GraphDataSource {
 	override init(report: ActivityReport?) {
 		super.init(report: report)
 	}
+	
+	
+	// MARK: - Delegate
 	
 	override func numberOfPlots(in graphChartView: ORKGraphChartView) -> Int {
 		return 3

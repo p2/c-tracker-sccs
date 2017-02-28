@@ -16,9 +16,9 @@ class StudyTableViewController: UITableViewController {
 	lazy var sections = [
 		StudySection(title: "About this Study".sccs_loc, imageName: "listitem_about", htmlPage: "Intro_about"),
 		StudySection(title: "Who Can Participate?".sccs_loc, imageName: "listitem_participants", htmlPage: "Intro_eligibility"),
-		StudySection(title: "What is Hepatitis C?".sccs_loc, imageName: "listitem_hepc", htmlPage: "WhatIsHepC"),
+		StudySection(title: "What is Hepatitis C?".sccs_loc, imageName: "listitem_hepc", htmlPage: "AboutHepC"),
 		StudySection(title: "Spread the Word".sccs_loc, imageName: "listitem_share", controllerClass: ShareTableViewController.self),
-		StudySection(title: "About SCCS".sccs_loc, imageName: "listitem_howitworks", htmlPage: "Intro_howstuffworks"),
+		StudySection(title: "About SCCS".sccs_loc, imageName: "listitem_howitworks", htmlPage: "AboutSCCS"),
 	]
 	
 	
@@ -68,8 +68,8 @@ class StudyTableViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		let section = indexPath.row >= sections.count ? sections.last! : sections[indexPath.row]
 		if let html = section.htmlPage {
-			let web = StudyContentWebViewController()
-			web.startURL = Bundle.main.url(forResource: html, withExtension: "html", subdirectory: "HTMLContent")
+			let web = WebViewController()
+			web.startURL = Bundle.main.url(forResource: html, withExtension: "html")
 			navigationController?.pushViewController(web, animated: true)
 		}
 		else if let klass = section.controllerClass {

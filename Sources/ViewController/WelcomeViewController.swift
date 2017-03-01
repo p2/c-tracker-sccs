@@ -40,10 +40,6 @@ class WelcomeViewController: UIViewController, ORKTaskViewControllerDelegate {
 		present(navi, animated: true)
 	}
 	
-	@IBAction func showContactForm(_ sender: AnyObject?) {
-		
-	}
-	
 	/**
 	Tells the profile manager to use this user going forward. Will emit a notification that the root view controller intercepts and
 	consequently updates the UI, dismissing the receiver.

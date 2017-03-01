@@ -242,10 +242,6 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 		userDidSomething(notification)
 	}
 	
-	@IBAction func help(_ sender: UIBarButtonItem?) {
-//		SmoochHelpKit.show()
-	}
-	
 	
 	// MARK: - Table View Data Source
 	

@@ -120,10 +120,6 @@ class DashboardViewController: UITableViewController {
 		updateTasks()
 	}
 	
-	@IBAction func help(_ sender: UIBarButtonItem?) {
-//		SmoochHelpKit.show()
-	}
-	
 	
 	// MARK: - Questionnaires
 	

@@ -61,6 +61,11 @@
 		EE98D2A51E0160EC001BC845 /* ProfileSettingsDebug.json in Resources */ = {isa = PBXBuildFile; fileRef = EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */; };
 		EEB82F1D1E65E7360084E030 /* AboutTheStudy.html in Resources */ = {isa = PBXBuildFile; fileRef = EEB82F191E65E7360084E030 /* AboutTheStudy.html */; };
 		EEB82F1E1E65E7360084E030 /* WhoCanParticipate.html in Resources */ = {isa = PBXBuildFile; fileRef = EEB82F1B1E65E7360084E030 /* WhoCanParticipate.html */; };
+		EEB82F291E66C3CE0084E030 /* Smooch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB82F281E66C3CE0084E030 /* Smooch.framework */; };
+		EEB82F2C1E66D37D0084E030 /* SmoochLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EEB82F2E1E66D37D0084E030 /* SmoochLocalizable.strings */; };
+		EEB82F321E66D5940084E030 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB82F311E66D5940084E030 /* AssetsLibrary.framework */; };
+		EEB82F341E66D59E0084E030 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB82F331E66D59E0084E030 /* CFNetwork.framework */; };
+		EEB82F361E66D5AF0084E030 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB82F351E66D5AF0084E030 /* SystemConfiguration.framework */; };
 		EEDDAC7D1E40ED84007D4056 /* StudyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDDAC7C1E40ED84007D4056 /* StudyTableViewController.swift */; };
 		EEDDAC901E40EF51007D4056 /* ShareTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDDAC8F1E40EF51007D4056 /* ShareTableViewController.swift */; };
 		EEEC78671DEC258100E7020C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78661DEC258100E7020C /* ProfileViewController.swift */; };
@@ -376,6 +381,13 @@
 		EEB82F221E65E7530084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = App/fr.lproj/WhoCanParticipate.html; sourceTree = "<group>"; };
 		EEB82F241E65EB2A0084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		EEB82F261E65EB2F0084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		EEB82F281E66C3CE0084E030 /* Smooch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Smooch.framework; path = Carthage/Build/iOS/Smooch.framework; sourceTree = "<group>"; };
+		EEB82F2D1E66D37D0084E030 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SmoochLocalizable.strings; sourceTree = "<group>"; };
+		EEB82F2F1E66D37E0084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SmoochLocalizable.strings; sourceTree = "<group>"; };
+		EEB82F301E66D3800084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/SmoochLocalizable.strings; sourceTree = "<group>"; };
+		EEB82F311E66D5940084E030 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		EEB82F331E66D59E0084E030 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		EEB82F351E66D5AF0084E030 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		EEDDAC7C1E40ED84007D4056 /* StudyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyTableViewController.swift; sourceTree = "<group>"; };
 		EEDDAC8F1E40EF51007D4056 /* ShareTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTableViewController.swift; sourceTree = "<group>"; };
 		EEEC78661DEC258100E7020C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -400,6 +412,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEB82F361E66D5AF0084E030 /* SystemConfiguration.framework in Frameworks */,
+				EEB82F341E66D59E0084E030 /* CFNetwork.framework in Frameworks */,
+				EEB82F321E66D5940084E030 /* AssetsLibrary.framework in Frameworks */,
 				EE87B2D01E081D9700719A71 /* AVFoundation.framework in Frameworks */,
 				EE86F4A71E00029B00922994 /* SMART.framework in Frameworks */,
 				EE86F4A31E00029B00922994 /* C3PRO.framework in Frameworks */,
@@ -408,6 +423,7 @@
 				EE86F4AF1E00029B00922994 /* ResearchKit.framework in Frameworks */,
 				EE86F4AB1E00029B00922994 /* SQLite.framework in Frameworks */,
 				EE429DB71E65791000BC6F67 /* CryptoSwift.framework in Frameworks */,
+				EEB82F291E66C3CE0084E030 /* Smooch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +473,7 @@
 				EE14E7AC1DD0CAAA009F8736 /* Info.plist */,
 				EE957D5A1E044156004FADB4 /* InfoPlist.strings */,
 				EE98525B1E3A1C5000A88D72 /* Localizable.strings */,
+				EEB82F2E1E66D37D0084E030 /* SmoochLocalizable.strings */,
 				EE0F35201E02FC9C003AA556 /* C Tracker.entitlements */,
 			);
 			name = Assets;
@@ -519,6 +536,10 @@
 		EE14E7CD1DD18921009F8736 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EEB82F351E66D5AF0084E030 /* SystemConfiguration.framework */,
+				EEB82F331E66D59E0084E030 /* CFNetwork.framework */,
+				EEB82F311E66D5940084E030 /* AssetsLibrary.framework */,
+				EEB82F281E66C3CE0084E030 /* Smooch.framework */,
 				EE429DB61E65791000BC6F67 /* CryptoSwift.framework */,
 				EE87B2CF1E081D9700719A71 /* AVFoundation.framework */,
 				EE0F35211E02FCA7003AA556 /* HealthKit.framework */,
@@ -890,6 +911,7 @@
 				EE14E7AB1DD0CAAA009F8736 /* LaunchScreen.storyboard in Resources */,
 				EE7B36EA1E5449BB007B1D73 /* AboutSCCS.html in Resources */,
 				EE7B36DC1E544135007B1D73 /* Style.css in Resources */,
+				EEB82F2C1E66D37D0084E030 /* SmoochLocalizable.strings in Resources */,
 				EE0B328E1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json in Resources */,
 				EE7B36E91E5449BB007B1D73 /* AboutHepC.html in Resources */,
 				EE98525D1E3A1C5000A88D72 /* Localizable.strings in Resources */,
@@ -916,6 +938,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Smooch.framework",
 			);
 			name = "Run Script [carthage copy-frameworks]";
 			outputPaths = (
@@ -1170,6 +1193,16 @@
 			name = WhoCanParticipate.html;
 			sourceTree = "<group>";
 		};
+		EEB82F2E1E66D37D0084E030 /* SmoochLocalizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEB82F2D1E66D37D0084E030 /* en */,
+				EEB82F2F1E66D37E0084E030 /* de */,
+				EEB82F301E66D3800084E030 /* fr */,
+			);
+			name = SmoochLocalizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -1282,6 +1315,7 @@
 				);
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-licucore";
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				"OTHER_SWIFT_FLAGS[sdk=iphoneos*]" = "-DDEBUG";
 				"OTHER_SWIFT_FLAGS[sdk=iphonesimulator*]" = "-DON_SIMULATOR -DDEBUG";
@@ -1305,6 +1339,7 @@
 				);
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-licucore";
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.usz.c-tracker";
 				PRODUCT_NAME = "C Tracker";
 				SWIFT_VERSION = 3.0;

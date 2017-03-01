@@ -32,6 +32,8 @@
 	<string>ResearchKit may ask you to speak into your microphone</string>
 	<key>NSMotionUsageDescription</key>
 	<string>Using the motion co-processor allows the app to determine your activity</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>$(PRODUCT_NAME) will use your photo library to gather additional information when you seek help</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>

@@ -105,6 +105,9 @@ to C Tracker</string>
                                                         <rect key="frame" x="298" y="49" width="61" height="33"/>
                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                         <state key="normal" title="Contact"/>
+                                                        <connections>
+                                                            <action selector="showHelp:" destination="9pv-A4-QxB" eventType="touchUpInside" id="Xnr-gi-ADJ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <constraints>
@@ -710,7 +713,7 @@ to C Tracker</string>
                     <navigationItem key="navigationItem" title="Dashboard" id="QFM-IZ-exJ">
                         <barButtonItem key="leftBarButtonItem" title="Help" id="vn2-gK-ZWP">
                             <connections>
-                                <action selector="help:" destination="ZGO-rY-IzW" id="tsU-er-Fem"/>
+                                <action selector="showHelp:" destination="ZGO-rY-IzW" id="k12-KW-wXC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -828,7 +831,7 @@ to C Tracker</string>
                     <navigationItem key="navigationItem" title="Your Profile" id="a7D-Yb-njM">
                         <barButtonItem key="leftBarButtonItem" title="Help" id="0h9-Z5-Yre">
                             <connections>
-                                <action selector="help:" destination="vcs-c5-Ktx" id="ctX-dl-W4D"/>
+                                <action selector="showHelp:" destination="vcs-c5-Ktx" id="A53-jN-eok"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

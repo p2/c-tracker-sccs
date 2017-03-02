@@ -14,7 +14,7 @@ import C3PRO
 class StudyTableViewController: UITableViewController {
 	
 	lazy var sections = [
-		StudySection(title: "About this Study".sccs_loc, imageName: "listitem_about", htmlPage: "AboutTheStudy"),
+		StudySection(title: "About this Study".sccs_loc, imageName: "listitem_about", htmlPage: "StudyAndHowItWorks"),
 		StudySection(title: "Who Can Participate?".sccs_loc, imageName: "listitem_participants", htmlPage: "WhoCanParticipate"),
 		StudySection(title: "What is Hepatitis C?".sccs_loc, imageName: "listitem_hepc", htmlPage: "AboutHepC"),
 		StudySection(title: "Spread the Word".sccs_loc, imageName: "listitem_share", controllerClass: ShareTableViewController.self),

@@ -67,6 +67,11 @@
 		EEB82F341E66D59E0084E030 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB82F331E66D59E0084E030 /* CFNetwork.framework */; };
 		EEB82F361E66D5AF0084E030 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB82F351E66D5AF0084E030 /* SystemConfiguration.framework */; };
 		EEB833641E685E890084E030 /* Hepatitis-Flyer-2016.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EEB833621E685E890084E030 /* Hepatitis-Flyer-2016.pdf */; };
+		EEB8336D1E686FCD0084E030 /* StudyIntro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEB8336B1E686FCD0084E030 /* StudyIntro.storyboard */; };
+		EEB833751E6886930084E030 /* LockableTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEB833741E6886930084E030 /* LockableTabBarController.swift */; };
+		EEB833761E688DD50084E030 /* StudyOverview.json in Resources */ = {isa = PBXBuildFile; fileRef = EEB833781E688DD50084E030 /* StudyOverview.json */; };
+		EEB8338B1E6898FC0084E030 /* HowItWorks.html in Resources */ = {isa = PBXBuildFile; fileRef = EEB833871E6898FC0084E030 /* HowItWorks.html */; };
+		EEB8338C1E6898FC0084E030 /* StudyAndHowItWorks.html in Resources */ = {isa = PBXBuildFile; fileRef = EEB833891E6898FC0084E030 /* StudyAndHowItWorks.html */; };
 		EEDDAC7D1E40ED84007D4056 /* StudyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDDAC7C1E40ED84007D4056 /* StudyTableViewController.swift */; };
 		EEDDAC901E40EF51007D4056 /* ShareTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDDAC8F1E40EF51007D4056 /* ShareTableViewController.swift */; };
 		EEEC78671DEC258100E7020C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78661DEC258100E7020C /* ProfileViewController.swift */; };
@@ -380,8 +385,6 @@
 		EEB82F201E65E74C0084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = App/fr.lproj/AboutTheStudy.html; sourceTree = "<group>"; };
 		EEB82F211E65E7500084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = de; path = App/de.lproj/WhoCanParticipate.html; sourceTree = "<group>"; };
 		EEB82F221E65E7530084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = App/fr.lproj/WhoCanParticipate.html; sourceTree = "<group>"; };
-		EEB82F241E65EB2A0084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
-		EEB82F261E65EB2F0084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		EEB82F281E66C3CE0084E030 /* Smooch.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Smooch.framework; path = Carthage/Build/iOS/Smooch.framework; sourceTree = "<group>"; };
 		EEB82F2D1E66D37D0084E030 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SmoochLocalizable.strings; sourceTree = "<group>"; };
 		EEB82F2F1E66D37E0084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/SmoochLocalizable.strings; sourceTree = "<group>"; };
@@ -392,6 +395,21 @@
 		EEB833631E685E890084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = de; path = "c-tracker-sccs-content/de.lproj/Hepatitis-Flyer-2016.pdf"; sourceTree = "<group>"; };
 		EEB833651E685E900084E030 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = en; path = "c-tracker-sccs-content/en.lproj/Hepatitis-Flyer-2016.pdf"; sourceTree = "<group>"; };
 		EEB833661E685E930084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = fr; path = "c-tracker-sccs-content/fr.lproj/Hepatitis-Flyer-2016.pdf"; sourceTree = "<group>"; };
+		EEB8336C1E686FCD0084E030 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = App/Base.lproj/StudyIntro.storyboard; sourceTree = "<group>"; };
+		EEB833741E6886930084E030 /* LockableTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LockableTabBarController.swift; sourceTree = "<group>"; };
+		EEB833771E688DD50084E030 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = en; path = en.lproj/StudyOverview.json; sourceTree = "<group>"; };
+		EEB8337E1E688F420084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = App/de.lproj/StudyIntro.strings; sourceTree = "<group>"; };
+		EEB8337F1E688FA30084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = de; path = de.lproj/StudyOverview.json; sourceTree = "<group>"; };
+		EEB833811E6891C10084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = App/fr.lproj/StudyIntro.strings; sourceTree = "<group>"; };
+		EEB833821E6891F40084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = fr; path = fr.lproj/StudyOverview.json; sourceTree = "<group>"; };
+		EEB833841E6893CE0084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		EEB833861E6893DE0084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		EEB833881E6898FC0084E030 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = App/en.lproj/HowItWorks.html; sourceTree = "<group>"; };
+		EEB8338A1E6898FC0084E030 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = App/en.lproj/StudyAndHowItWorks.html; sourceTree = "<group>"; };
+		EEB8338D1E6899050084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = de; path = App/de.lproj/HowItWorks.html; sourceTree = "<group>"; };
+		EEB8338E1E6899080084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = App/fr.lproj/HowItWorks.html; sourceTree = "<group>"; };
+		EEB8338F1E68990F0084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = de; path = App/de.lproj/StudyAndHowItWorks.html; sourceTree = "<group>"; };
+		EEB833901E6899120084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = App/fr.lproj/StudyAndHowItWorks.html; sourceTree = "<group>"; };
 		EEDDAC7C1E40ED84007D4056 /* StudyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyTableViewController.swift; sourceTree = "<group>"; };
 		EEDDAC8F1E40EF51007D4056 /* ShareTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTableViewController.swift; sourceTree = "<group>"; };
 		EEEC78661DEC258100E7020C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -532,6 +550,7 @@
 				EE0F34F71E02E61C003AA556 /* ClientDebugViewController.swift */,
 				EEDDAC7C1E40ED84007D4056 /* StudyTableViewController.swift */,
 				EEDDAC8F1E40EF51007D4056 /* ShareTableViewController.swift */,
+				EEB833741E6886930084E030 /* LockableTabBarController.swift */,
 				EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */,
 			);
 			path = ViewController;
@@ -646,12 +665,16 @@
 			isa = PBXGroup;
 			children = (
 				EE14E7A91DD0CAAA009F8736 /* LaunchScreen.storyboard */,
+				EEB8336B1E686FCD0084E030 /* StudyIntro.storyboard */,
 				EE14E7A41DD0CAAA009F8736 /* Main.storyboard */,
 				EE14E7A71DD0CAAA009F8736 /* Assets.xcassets */,
 				EE7B36DB1E544135007B1D73 /* Style.css */,
+				EEB833781E688DD50084E030 /* StudyOverview.json */,
 				EE7B36E51E5449BB007B1D73 /* AboutHepC.html */,
 				EE7B36E71E5449BB007B1D73 /* AboutSCCS.html */,
 				EEB82F191E65E7360084E030 /* AboutTheStudy.html */,
+				EEB833871E6898FC0084E030 /* HowItWorks.html */,
+				EEB833891E6898FC0084E030 /* StudyAndHowItWorks.html */,
 				EE7B36E11E544233007B1D73 /* PrivacyPolicy.html */,
 				EEB82F1B1E65E7360084E030 /* WhoCanParticipate.html */,
 				EEB833621E685E890084E030 /* Hepatitis-Flyer-2016.pdf */,
@@ -913,6 +936,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE7B36E31E544233007B1D73 /* PrivacyPolicy.html in Resources */,
+				EEB8336D1E686FCD0084E030 /* StudyIntro.storyboard in Resources */,
 				EE14E7AB1DD0CAAA009F8736 /* LaunchScreen.storyboard in Resources */,
 				EE7B36EA1E5449BB007B1D73 /* AboutSCCS.html in Resources */,
 				EE7B36DC1E544135007B1D73 /* Style.css in Resources */,
@@ -924,11 +948,14 @@
 				EE98D2A51E0160EC001BC845 /* ProfileSettingsDebug.json in Resources */,
 				EEFC6B331DF5CCB900D03A84 /* c-tracker.survey-in-app.withdrawal.json in Resources */,
 				EEB833641E685E890084E030 /* Hepatitis-Flyer-2016.pdf in Resources */,
+				EEB8338B1E6898FC0084E030 /* HowItWorks.html in Resources */,
 				EE14E7A81DD0CAAA009F8736 /* Assets.xcassets in Resources */,
 				EEB82F1D1E65E7360084E030 /* AboutTheStudy.html in Resources */,
 				EE252D0A1DED87BC008F5E3E /* ProfileSettings.json in Resources */,
 				EE7B36D91E543ACB007B1D73 /* AppStoreDescription.txt in Resources */,
+				EEB833761E688DD50084E030 /* StudyOverview.json in Resources */,
 				EE0F35171E02E68A003AA556 /* Licenses in Resources */,
+				EEB8338C1E6898FC0084E030 /* StudyAndHowItWorks.html in Resources */,
 				EE957D581E044156004FADB4 /* InfoPlist.strings in Resources */,
 				EE14E7A61DD0CAAA009F8736 /* Main.storyboard in Resources */,
 			);
@@ -1014,6 +1041,7 @@
 				EE14E7DE1DD27D08009F8736 /* ProfileManager.swift in Sources */,
 				EE0F35191E02F1BF003AA556 /* GenderPicker.swift in Sources */,
 				EE252D061DED7A4C008F5E3E /* ProfileManagerSettings.swift in Sources */,
+				EEB833751E6886930084E030 /* LockableTabBarController.swift in Sources */,
 				EE252D041DED7196008F5E3E /* UserNotificationManager.swift in Sources */,
 				EEEC78711DEC2B4F00E7020C /* AppUserTask.swift in Sources */,
 				EE252D081DED81A3008F5E3E /* AppError.swift in Sources */,
@@ -1102,8 +1130,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				EE14E7A51DD0CAAA009F8736 /* Base */,
-				EEB82F241E65EB2A0084E030 /* de */,
-				EEB82F261E65EB2F0084E030 /* fr */,
+				EEB833841E6893CE0084E030 /* de */,
+				EEB833861E6893DE0084E030 /* fr */,
 			);
 			name = Main.storyboard;
 			path = App;
@@ -1217,6 +1245,47 @@
 				EEB833661E685E930084E030 /* fr */,
 			);
 			name = "Hepatitis-Flyer-2016.pdf";
+			sourceTree = "<group>";
+		};
+		EEB8336B1E686FCD0084E030 /* StudyIntro.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEB8336C1E686FCD0084E030 /* Base */,
+				EEB8337E1E688F420084E030 /* de */,
+				EEB833811E6891C10084E030 /* fr */,
+			);
+			name = StudyIntro.storyboard;
+			sourceTree = "<group>";
+		};
+		EEB833781E688DD50084E030 /* StudyOverview.json */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEB833771E688DD50084E030 /* en */,
+				EEB8337F1E688FA30084E030 /* de */,
+				EEB833821E6891F40084E030 /* fr */,
+			);
+			name = StudyOverview.json;
+			path = App;
+			sourceTree = "<group>";
+		};
+		EEB833871E6898FC0084E030 /* HowItWorks.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEB833881E6898FC0084E030 /* en */,
+				EEB8338D1E6899050084E030 /* de */,
+				EEB8338E1E6899080084E030 /* fr */,
+			);
+			name = HowItWorks.html;
+			sourceTree = "<group>";
+		};
+		EEB833891E6898FC0084E030 /* StudyAndHowItWorks.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEB8338A1E6898FC0084E030 /* en */,
+				EEB8338F1E68990F0084E030 /* de */,
+				EEB833901E6899120084E030 /* fr */,
+			);
+			name = StudyAndHowItWorks.html;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

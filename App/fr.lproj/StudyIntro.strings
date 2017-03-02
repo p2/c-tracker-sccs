@@ -1,0 +1,12 @@
+
+/* Class = "UIButton"; normalTitle = "Try App"; ObjectID = "3a2-MF-kdd"; */
+"3a2-MF-kdd.normalTitle" = "Essayez l'app";
+
+/* Class = "UIButton"; normalTitle = "Contact"; ObjectID = "gTW-eA-UOf"; */
+"gTW-eA-UOf.normalTitle" = "Contacter";
+
+/* Class = "UILabel"; text = "Swipe to learn more"; ObjectID = "kbZ-XP-b9S"; */
+"kbZ-XP-b9S.text" = "Chiper pour en savoir plus ➙";
+
+/* Class = "UIButton"; normalTitle = "Enroll"; ObjectID = "m7j-a1-sfG"; */
+"m7j-a1-sfG.normalTitle" = "Enrôler";

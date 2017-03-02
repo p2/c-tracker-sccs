@@ -1,0 +1,26 @@
+{
+	"logo": "ResearchInstitute",
+	"items": [
+		{
+			"type": "welcome",
+			"title": "Willkommen\nbei C\u00a0Tracker",
+			"subtitle": "der Swiss Hepatitis\u00a0C Cohort Study"
+		},
+		{
+			"title": "About this Study",
+			"filename": "AboutTheStudy"
+		},
+		{
+			"title": "How the Study Works",
+			"filename": "HowItWorks"
+		},
+		{
+			"title": "Who can Participate",
+			"filename": "WhoCanParticipate"
+		},
+		{
+			"title": "About Hepatitis C",
+			"filename": "AboutHepC"
+		}
+	]
+}

@@ -12,32 +12,41 @@ import ResearchKit
 import C3PRO
 
 
-class WelcomeViewController: UIViewController, ORKTaskViewControllerDelegate {
+class WelcomeViewController: StudyIntroCollectionViewController, ORKTaskViewControllerDelegate {
 	
 	var profileManager: ProfileManager!
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		onJoinStudy = { viewController in
+			self.startEnrollment()
+		}
+	}
 	
 	
 	// MARK: - Routing
 	
+	func startEnrollment() {
+		let story = UIStoryboard(name: "Main", bundle: nil)
+		if let navi = story.instantiateViewController(withIdentifier: "LinkNavi") as? UINavigationController, let linking = navi.viewControllers.first as? LinkViewController {
+			linking.tokenConfirmed = { link, fake in
+				self.didConfirm(link: link, in: linking, isFake: fake)
+			}
+			linking.tokenRefuted = { error in
+				self.dismiss(animated: true) {
+					self.show(error: error, title: "Not You".sccs_loc)
+				}
+			}
+			present(navi, animated: true)
+		}
+		else {
+			fatalError("No “LinkNavi” view controller in the storyboard or of wrong class")
+		}
+	}
+	
 	@IBAction func doTryApp(_ sender: AnyObject?) {
 		let sample = profileManager.sampleUser()
 		doEnroll(user: sample)
-	}
-	
-	@IBAction func aboutTheStudy(_ sender: AnyObject?) {
-		let web = WebViewController()
-		web.startURL = Bundle.main.url(forResource: "AboutTheStudy", withExtension: "html")
-		web.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(WelcomeViewController.dismissModal(_:)))
-		let navi = UINavigationController(rootViewController: web)
-		present(navi, animated: true)
-	}
-	
-	@IBAction func aboutSCCS(_ sender: AnyObject?) {
-		let web = WebViewController()
-		web.startURL = Bundle.main.url(forResource: "AboutSCCS", withExtension: "html")
-		web.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(WelcomeViewController.dismissModal(_:)))
-		let navi = UINavigationController(rootViewController: web)
-		present(navi, animated: true)
 	}
 	
 	/**
@@ -104,25 +113,6 @@ class WelcomeViewController: UIViewController, ORKTaskViewControllerDelegate {
 		}
 		viewController.dismiss(animated: false) {
 			self.present(permissioning, animated: false)
-		}
-	}
-	
-	
-	// MARK: - Link Segue
-	
-	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-		if "ShowLink" == segue.identifier {
-			guard let target = (segue.destination as? UINavigationController)?.topViewController as? LinkViewController else {
-				fatalError("Destination for “ShowLink” is not a link view controller in storyboard «\(storyboard?.description ?? "nil")»")
-			}
-			target.tokenConfirmed = { link, fake in
-				self.didConfirm(link: link, in: target, isFake: fake)
-			}
-			target.tokenRefuted = { error in
-				target.dismiss(animated: true) {
-					self.show(error: error, title: "Not You".sccs_loc)
-				}
-			}
 		}
 	}
 	

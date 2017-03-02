@@ -194,11 +194,8 @@ class DashboardViewController: UITableViewController {
 			if let navi = navigationController {
 				pdfController.title = "Consent".sccs_loc
 				pdfController.hidesBottomBarWhenPushed = true
+				pdfController.startURL = url
 				navi.pushViewController(pdfController, animated: true)
-				
-				DispatchQueue.main.async {
-					pdfController.loadPDFDataFrom(url)
-				}
 			}
 			else {
 				c3_logIfDebug("I must be embedded in a navigation controller to show the consent")

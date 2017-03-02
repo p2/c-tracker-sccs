@@ -31,7 +31,6 @@ for file in files:
 				continue
 		
 		with io.open(os.path.join(langpath, file), 'r', encoding="utf-8") as handle:
-			print('--->  Reading {}'.format(lang))
 			content = handle.read()
 			filename = file
 			title = os.path.splitext(file)[0]

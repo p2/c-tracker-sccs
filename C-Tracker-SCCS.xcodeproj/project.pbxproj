@@ -66,6 +66,7 @@
 		EEB82F321E66D5940084E030 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB82F311E66D5940084E030 /* AssetsLibrary.framework */; };
 		EEB82F341E66D59E0084E030 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB82F331E66D59E0084E030 /* CFNetwork.framework */; };
 		EEB82F361E66D5AF0084E030 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB82F351E66D5AF0084E030 /* SystemConfiguration.framework */; };
+		EEB833641E685E890084E030 /* Hepatitis-Flyer-2016.pdf in Resources */ = {isa = PBXBuildFile; fileRef = EEB833621E685E890084E030 /* Hepatitis-Flyer-2016.pdf */; };
 		EEDDAC7D1E40ED84007D4056 /* StudyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDDAC7C1E40ED84007D4056 /* StudyTableViewController.swift */; };
 		EEDDAC901E40EF51007D4056 /* ShareTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDDAC8F1E40EF51007D4056 /* ShareTableViewController.swift */; };
 		EEEC78671DEC258100E7020C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78661DEC258100E7020C /* ProfileViewController.swift */; };
@@ -388,6 +389,9 @@
 		EEB82F311E66D5940084E030 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		EEB82F331E66D59E0084E030 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		EEB82F351E66D5AF0084E030 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		EEB833631E685E890084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = de; path = "c-tracker-sccs-content/de.lproj/Hepatitis-Flyer-2016.pdf"; sourceTree = "<group>"; };
+		EEB833651E685E900084E030 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = en; path = "c-tracker-sccs-content/en.lproj/Hepatitis-Flyer-2016.pdf"; sourceTree = "<group>"; };
+		EEB833661E685E930084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = fr; path = "c-tracker-sccs-content/fr.lproj/Hepatitis-Flyer-2016.pdf"; sourceTree = "<group>"; };
 		EEDDAC7C1E40ED84007D4056 /* StudyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyTableViewController.swift; sourceTree = "<group>"; };
 		EEDDAC8F1E40EF51007D4056 /* ShareTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTableViewController.swift; sourceTree = "<group>"; };
 		EEEC78661DEC258100E7020C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -650,6 +654,7 @@
 				EEB82F191E65E7360084E030 /* AboutTheStudy.html */,
 				EE7B36E11E544233007B1D73 /* PrivacyPolicy.html */,
 				EEB82F1B1E65E7360084E030 /* WhoCanParticipate.html */,
+				EEB833621E685E890084E030 /* Hepatitis-Flyer-2016.pdf */,
 				EE0F35161E02E68A003AA556 /* Licenses */,
 			);
 			name = UI;
@@ -918,6 +923,7 @@
 				EEB82F1E1E65E7360084E030 /* WhoCanParticipate.html in Resources */,
 				EE98D2A51E0160EC001BC845 /* ProfileSettingsDebug.json in Resources */,
 				EEFC6B331DF5CCB900D03A84 /* c-tracker.survey-in-app.withdrawal.json in Resources */,
+				EEB833641E685E890084E030 /* Hepatitis-Flyer-2016.pdf in Resources */,
 				EE14E7A81DD0CAAA009F8736 /* Assets.xcassets in Resources */,
 				EEB82F1D1E65E7360084E030 /* AboutTheStudy.html in Resources */,
 				EE252D0A1DED87BC008F5E3E /* ProfileSettings.json in Resources */,
@@ -1201,6 +1207,16 @@
 				EEB82F301E66D3800084E030 /* fr */,
 			);
 			name = SmoochLocalizable.strings;
+			sourceTree = "<group>";
+		};
+		EEB833621E685E890084E030 /* Hepatitis-Flyer-2016.pdf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEB833631E685E890084E030 /* de */,
+				EEB833651E685E900084E030 /* en */,
+				EEB833661E685E930084E030 /* fr */,
+			);
+			name = "Hepatitis-Flyer-2016.pdf";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

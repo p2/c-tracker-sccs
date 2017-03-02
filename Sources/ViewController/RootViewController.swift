@@ -197,7 +197,7 @@ class RootViewController: UITabBarController, ORKPasscodeDelegate {
 				let blur = UIBlurEffect(style: UIBlurEffectStyle.extraLight)
 				let blurView = UIVisualEffectView(effect: blur)
 				blurView.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
-				let appIcon = UIImage(named: "SCCS_Logo")
+				let appIcon = UIImage(named: "ResearchInstitute")
 				let appIconImageView = UIImageView(frame: CGRect(x: 0.0, y: 0.0, width: 190.0, height: 85.0))
 				
 				blurView.frame = secureView!.bounds

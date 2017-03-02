@@ -7,5 +7,5 @@
 */
 
 /* Conversation header. Uses CFBundleDisplayName */
-"This is the start of your conversation with the %@ team. We'll stay in touch to help you get the most out of your app.\nFeel free to leave us a message about anything that’s on your mind. We’ll get back to your questions, suggestions or anything else as soon as we can." = "Hi from the %@ team!\nWe'll be very happy to answer general questions about the study and the app that you might have, but please note that we CAN NOT AND WILL NOT give medical advice.";
+"This is the start of your conversation with the %@ team. We'll stay in touch to help you get the most out of your app.\nFeel free to leave us a message about anything that’s on your mind. We’ll get back to your questions, suggestions or anything else as soon as we can." = "Hi from the %@ team!\nWe'll be very happy to answer general questions about the study and the app that you might have, but please note that we can not and will not give medical advice.";
 

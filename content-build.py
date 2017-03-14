@@ -19,6 +19,7 @@ dir_source = 'c-tracker-sccs-content'
 dir_target = 'App'
 files = [
 	'PrivacyPolicy.md',
+	'LicenseAgreement.md',
 	'AboutHepC.md',
 	'AboutSCCS.md',
 	'AboutTheStudy.md',

@@ -24,6 +24,7 @@
 "Could Not Load Profile" = "Could Not Load Profile";
 "due" = "due";
 "Email" = "Email";
+"End User License Agreement" = "End User License Agreement";
 "Enrolled!" = "Enrolled!";
 "Error" = "Error";
 "Facebook" = "Facebook";
@@ -40,7 +41,6 @@
 "Leave Study?" = "Leave Study?";
 "Legal" = "Legal";
 "Looks like your device is not set up to share via {{service}}" = "Looks like your device is not set up to share via {{service}}";
-"No" = "No";
 "No camera on device, cannot scan QR code" = "No camera on device, cannot scan QR code";
 "No {{service}}" = "No {{service}}";
 "Not enrolled in the study yet" = "Not enrolled in the study yet";
@@ -50,7 +50,7 @@
 "Open Website" = "Open Website";
 "Or share this link:" = "Or share this link:";
 "Our work wouldn't have been possible without the work of other great individuals." = "Our work wouldn't have been possible without the work of other great individuals. The licenses of their software are listed below, in no particular order.";
-"Past 24 Hours" = "Past 24 Hours";
+"Past {{hours}} Hours" = "Past {{hours}} Hours";
 "Permissioning Error" = "Permissioning Error";
 "Privacy Policy" = "Privacy Policy";
 "Problem with QR Code" = "Problem with QR Code";

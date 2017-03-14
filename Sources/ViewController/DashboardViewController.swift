@@ -439,7 +439,7 @@ class DashboardViewController: UITableViewController {
 				let cell = tableView.dequeueReusableCell(withIdentifier: "C3ActivityCell", for: indexPath) as! DashboardActivityTableViewCell
 				pieSource = PieDataSource(report: todayReport)
 				cell.setup(with: pieSource!)
-				cell.legendTitle?.text = "Past \(kDashboardTodayActivityNumHours) Hours".sccs_loc
+				cell.legendTitle?.text = "Past {{hours}} Hours".sccs_loc.replacingOccurrences(of: "{{hours}}", with: "\(kDashboardTodayActivityNumHours)")
 				return cell
 			}
 			

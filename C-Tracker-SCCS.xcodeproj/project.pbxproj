@@ -59,6 +59,7 @@
 		EE957D581E044156004FADB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE957D5A1E044156004FADB4 /* InfoPlist.strings */; };
 		EE98525D1E3A1C5000A88D72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE98525B1E3A1C5000A88D72 /* Localizable.strings */; };
 		EE98D2A51E0160EC001BC845 /* ProfileSettingsDebug.json in Resources */ = {isa = PBXBuildFile; fileRef = EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */; };
+		EEAEA1361E78497000C29EC3 /* LicenseAgreement.html in Resources */ = {isa = PBXBuildFile; fileRef = EEAEA1341E78497000C29EC3 /* LicenseAgreement.html */; };
 		EEB82F1D1E65E7360084E030 /* AboutTheStudy.html in Resources */ = {isa = PBXBuildFile; fileRef = EEB82F191E65E7360084E030 /* AboutTheStudy.html */; };
 		EEB82F1E1E65E7360084E030 /* WhoCanParticipate.html in Resources */ = {isa = PBXBuildFile; fileRef = EEB82F1B1E65E7360084E030 /* WhoCanParticipate.html */; };
 		EEB82F291E66C3CE0084E030 /* Smooch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEB82F281E66C3CE0084E030 /* Smooch.framework */; };
@@ -379,6 +380,9 @@
 		EE98525E1E3A1C5600A88D72 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE98525F1E3A1C5900A88D72 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfileSettingsDebug.json; sourceTree = SOURCE_ROOT; };
+		EEAEA1351E78497000C29EC3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = de; path = App/de.lproj/LicenseAgreement.html; sourceTree = "<group>"; };
+		EEAEA1471E78497800C29EC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = App/en.lproj/LicenseAgreement.html; sourceTree = "<group>"; };
+		EEAEA1481E78497A00C29EC3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = App/fr.lproj/LicenseAgreement.html; sourceTree = "<group>"; };
 		EEB82F1A1E65E7360084E030 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = App/en.lproj/AboutTheStudy.html; sourceTree = "<group>"; };
 		EEB82F1C1E65E7360084E030 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = App/en.lproj/WhoCanParticipate.html; sourceTree = "<group>"; };
 		EEB82F1F1E65E7490084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = de; path = App/de.lproj/AboutTheStudy.html; sourceTree = "<group>"; };
@@ -676,6 +680,7 @@
 				EEB833871E6898FC0084E030 /* HowItWorks.html */,
 				EEB833891E6898FC0084E030 /* StudyAndHowItWorks.html */,
 				EE7B36E11E544233007B1D73 /* PrivacyPolicy.html */,
+				EEAEA1341E78497000C29EC3 /* LicenseAgreement.html */,
 				EEB82F1B1E65E7360084E030 /* WhoCanParticipate.html */,
 				EEB833621E685E890084E030 /* Hepatitis-Flyer-2016.pdf */,
 				EE0F35161E02E68A003AA556 /* Licenses */,
@@ -946,6 +951,7 @@
 				EE98525D1E3A1C5000A88D72 /* Localizable.strings in Resources */,
 				EEB82F1E1E65E7360084E030 /* WhoCanParticipate.html in Resources */,
 				EE98D2A51E0160EC001BC845 /* ProfileSettingsDebug.json in Resources */,
+				EEAEA1361E78497000C29EC3 /* LicenseAgreement.html in Resources */,
 				EEFC6B331DF5CCB900D03A84 /* c-tracker.survey-in-app.withdrawal.json in Resources */,
 				EEB833641E685E890084E030 /* Hepatitis-Flyer-2016.pdf in Resources */,
 				EEB8338B1E6898FC0084E030 /* HowItWorks.html in Resources */,
@@ -1205,6 +1211,16 @@
 				EE98525F1E3A1C5900A88D72 /* fr */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		EEAEA1341E78497000C29EC3 /* LicenseAgreement.html */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEAEA1351E78497000C29EC3 /* de */,
+				EEAEA1471E78497800C29EC3 /* en */,
+				EEAEA1481E78497A00C29EC3 /* fr */,
+			);
+			name = LicenseAgreement.html;
 			sourceTree = "<group>";
 		};
 		EEB82F191E65E7360084E030 /* AboutTheStudy.html */ = {

@@ -24,6 +24,7 @@
 "Could Not Load Profile" = "Impossible de Charger le Profil";
 "due" = "dû";
 "Email" = "Email";
+"End User License Agreement" = "Contrat de Licence Utilisateur Final";
 "Enrolled!" = "Enrôle!";
 "Error" = "Erreur";
 "Facebook" = "Facebook";
@@ -49,7 +50,7 @@
 "Open Website" = "Ouvrir le site";
 "Or share this link:" = "Ou partagez ce lien:";
 "Our work wouldn't have been possible without the work of other great individuals." = "Notre travail n'aurait pas été possible sans le travail d'autres grands individus. Les licences de leurs logiciels sont énumérées ci-dessous, sans ordre particulier.";
-"Past 24 Hours" = "Dernières 24 Heures";
+"Past {{hours}} Hours" = "Dernières {{hours}} Heures";
 "Permissioning Error" = "Erreur d'Approvisionnement";
 "Privacy Policy" = "Charte de Confidentialité";
 "Problem with QR Code" = "Problème Avec le Code QR";

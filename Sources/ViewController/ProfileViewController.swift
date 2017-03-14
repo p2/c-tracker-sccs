@@ -255,7 +255,7 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 		#endif
 		}
 		if 3 == section {
-			return 2
+			return 3
 		}
 		return 1
 	}
@@ -316,6 +316,9 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 			cell.textLabel?.text = "Privacy Policy".sccs_loc
 		}
 		else if 1 == indexPath.row {
+			cell.textLabel?.text = "End User License Agreement".sccs_loc
+		}
+		else if 2 == indexPath.row {
 			cell.textLabel?.text = "Software Licenses".sccs_loc
 		}
 		return cell
@@ -351,6 +354,9 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 				showPrivacyPolicyVC()
 			}
 			else if 1 == indexPath.row {
+				showEULAVC()
+			}
+			else if 2 == indexPath.row {
 				showLicensesVC()
 			}
 		}
@@ -432,6 +438,12 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 		let privacy = WebViewController()
 		privacy.startURL = Bundle.main.url(forResource: "PrivacyPolicy", withExtension: "html")
 		navigationController?.pushViewController(privacy, animated: animated)
+	}
+	
+	func showEULAVC(_ animated: Bool = true) {
+		let eula = WebViewController()
+		eula.startURL = Bundle.main.url(forResource: "LicenseAgreement", withExtension: "html")
+		navigationController?.pushViewController(eula, animated: animated)
 	}
 	
 	func showLicensesVC(_ animated: Bool = true) {

@@ -12,6 +12,8 @@ import C3PRO
 import HealthKit
 import ResearchKit
 
+let kProfileManagerSampleUserId = "0000-SAMPLE-NOT-REAL-DATA"
+
 
 /**
 The profile manager handles the app user, which usually is the user that consented to participating in the study.
@@ -63,6 +65,9 @@ open class ProfileManager {
 		return _taskPreparer
 	}
 	private var _taskPreparer: UserTaskPreparer?
+	
+	/// If set, the handler is notified when a user completes a task and does its thing.
+	public var taskHandler: ProfileTaskHandler?
 	
 	/// Handles system permissioning.
 	public var permissioner: SystemServicePermissioner {
@@ -212,6 +217,15 @@ open class ProfileManager {
 		UserNotificationManager.shared.synchronizeNotifications(with: self)
 	}
 	
+	/**
+	Prepares tasks, like attempting to download questionnaires.
+	*/
+	public func prepareDueTasks() {
+		taskPreparer?.prepareDueTasks() { [weak self] in
+			self?._taskPreparer = nil
+		}
+	}
+	
 	
 	/**
 	Create a notification suitable for the given task, influenced by the suggested date given.
@@ -248,17 +262,12 @@ open class ProfileManager {
 	}
 	
 	public func userDidComplete(task: UserTask, on date: Date, context: Any?) throws {
-		task.completed(on: date)
+		task.completed(on: date, with: context)
 		try persister?.persist(task: task)
 		
-		// handle task context
-		if let context = context {
-			if let resource = context as? Resource {
-				app_logIfDebug("--->  COMPLETED TASK WITH RESOURCE: \(String(reflecting: resource))")
-			}
-			else {
-				app_logIfDebug("Completed task with unknown context: \(context)")
-			}
+		// handle the task
+		if let handler = taskHandler {
+			handler.handle(task: task)
 		}
 		
 		// send notification
@@ -340,14 +349,17 @@ open class ProfileManager {
 	
 	// MARK: - FHIR
 	
-	public func patientResource(for user: User) -> Patient {
+	/** Returns a `Patient` resource from the given user with only user-id and birth-year (capped at 90). */
+	public func anonPatientResource(for user: User) -> Patient {
 		let patient = Patient()
-		if let name = user.name {
-			patient.name = [HumanName()]
-			patient.name?.first?.text = FHIRString(name)
+		if let userId = user.userId {
+			patient.id = userId.fhir_string
 		}
-		if let bday = user.birthDate {
-			patient.birthDate = bday.fhir_asDate()
+		if var bday = user.birthDate?.fhir_asDate() {
+			bday.day = nil
+			bday.month = nil
+			bday.year = max(bday.year, Calendar.current.component(.year, from: Date()) - 90)
+			patient.birthDate = bday
 		}
 		return patient
 	}
@@ -371,7 +383,7 @@ open class ProfileManager {
 		let (token, secret) = type(of: self).sampleToken()
 		let link = try! ProfileLink(token: token, using: secret)
 		var user = userFromLink(link)
-		user.userId = "000-SAMPLE"
+		user.userId = kProfileManagerSampleUserId
 		return user
 	}
 	

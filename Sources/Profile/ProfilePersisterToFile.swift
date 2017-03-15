@@ -88,6 +88,9 @@ public class ProfilePersisterToFile: ProfilePersister {
 	*/
 	class func persist(user: User, at url: URL) throws {
 		var json = [String: Any]()
+		if let userId = user.userId {
+			json["id"] = userId
+		}
 		if let name = user.name {
 			json["name"] = name
 		}
@@ -121,6 +124,9 @@ public class ProfilePersisterToFile: ProfilePersister {
 	*/
 	class func userFromJSON(_ json: [String: Any], of type: User.Type) -> User {
 		var user = type.init()
+		if let userId = json["id"] as? String, userId.characters.count > 0 {
+			user.userId = userId
+		}
 		if let name = json["name"] as? String, name.characters.count > 0 {
 			user.name = name
 		}

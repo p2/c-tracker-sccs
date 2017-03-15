@@ -129,8 +129,16 @@ class AppUserTask: UserTask {
 	}
 	
 	/** Call this method to mark a task complete. */
-	final func completed(on date: Date) {
+	final func completed(on date: Date, with context: Any?) {
 		completedDate = date
+		if let context = context {
+			if let resource = context as? Resource {
+				resultResource = resource
+			}
+			else {
+				app_logIfDebug("Completed task with unknown context: \(context)")
+			}
+		}
 	}
 	
 	

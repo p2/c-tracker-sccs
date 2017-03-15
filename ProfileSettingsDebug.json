@@ -1,4 +1,5 @@
 {
+	"activitySampleDays": 2,
 	"tasks": [
 		{
 			"taskId": "c-tracker.survey-in-app.main",

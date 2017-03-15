@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SMART
 
 
 /// The type of the task.
@@ -85,6 +86,9 @@ public protocol UserTask {
 	/// Whether this task can be reviewed.
 	var canReview: Bool { get }
 	
+	/// The resource resulting from this task, if any.
+	var resultResource: Resource? { get }
+	
 	
 	init(id: String, taskId: String, type: UserTaskType)
 	
@@ -95,7 +99,7 @@ public protocol UserTask {
 	func add(to user: User) throws
 	
 	/** Call this method to mark a task complete. */
-	func completed(on date: Date)
+	func completed(on date: Date, with context: Any?)
 	
 	
 	// MARK: - Serialization

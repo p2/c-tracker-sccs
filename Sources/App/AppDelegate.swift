@@ -58,6 +58,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			rootViewController?.profileManager = manager
 			profileManager = manager
 			
+			// task handler
+			let taskHandler = UserActivityTaskHandler(manager: manager)
+			taskHandler.motionReporterStore = motionReporterStore
+			manager.taskHandler = taskHandler
+			
+			// sign up for task notifications
+			let center = NotificationCenter.default
+			center.addObserver(self, selector: #selector(AppDelegate.userDidReceiveTask(_:)), name: UserDidReceiveTaskNotification, object: nil)
+			
 			NSLog("\n\nAPP STARTED.\n\tC3-PRO is using FHIR v\(C3PROFHIRVersion).\n\tProfile manager is storing locally to\n«\(dir.path)»\n\tand sending data to\n«\(srv.baseURL.description)»\n\n")
 		}
 		catch let error {
@@ -68,6 +77,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
 		
 		return true
+	}
+	
+	func userDidReceiveTask(_ notification: Notification) {
+		// TODO: needed??
+		profileManager.prepareDueTasks()
+		NotificationManager.shared.ensureProperNotificationSettings()
+		if let manager = profileManager {
+			UserNotificationManager.shared.synchronizeNotifications(with: manager)
+		}
+		rootViewController.updateBadges()
 	}
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
@@ -97,7 +116,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	
 	func applicationDidBecomeActive(_ application: UIApplication) {
 		rootViewController.unlockApp()
-		prepareDueTasks()
+		profileManager.prepareDueTasks()
 		
 		// make sure data queue is flushed
 		let delay = DispatchTime.now() + Double(Int64(2.0 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
@@ -132,52 +151,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	
 	
-	// MARK: - Tasks
-	
-	func prepareDueTasks() {
-//		let preparer = taskPreparer ?? UserTaskPreparer(user: UserManager.sharedManager.user, server: dataQueue)
-//		preparer.prepareDueTasks() { [weak self] in
-//			if let this = self {
-//				this.taskPreparer = nil
-//			}
-//		}
-	}
-	
-	func userDidReceiveTask(_ notification: Notification) {
-		prepareDueTasks()
-		NotificationManager.shared.ensureProperNotificationSettings()
-		if let manager = profileManager {
-			UserNotificationManager.shared.synchronizeNotifications(with: manager)
-		}
-		rootViewController.updateBadges()
-	}
-	
-	func userDidCompleteTask(_ notification: Notification) {
-		userDidReceiveTask(notification)
-		
-		if let task = notification.object as? UserTask {
-			
-			// survey completed: submit, submit current weight, then sample activity data and submit as well
-			if .survey == task.type {
-//				if let resource = task.resultResource {
-//					c3_logIfDebug("Questionnaire completed, submitting")
-//					resource.create(smart.server) { error in }
-//					#if DEBUG
-//						debugPrint(resource)
-//					#endif
-//					
-//					sendLatestBodyweight()
-//				}
-//				else {
-//					c3_logIfDebug("Questionnaire completed but no result resource received!")
-//				}
-//				
-//				if UserDefaults.standard.activityDataSend {
-//					sampleAndSendLatestActivityData()
-//				}
-			}
-		}
-	}
+	// MARK: - Local Notifications
 	
 	func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, withResponseInfo responseInfo: [AnyHashable : Any], completionHandler: @escaping () -> Void) {
 		if let identifier = identifier, let action = NotificationManagerNotificationAction(rawValue: identifier) {

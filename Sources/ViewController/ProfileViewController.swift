@@ -145,10 +145,8 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 	}
 	
 	func doWithdraw(_ answers: QuestionnaireResponse? = nil) {
-		if let answers = answers, let server = profileManager?.dataServer {
-			if let user = user {
-				answers.subject = try? profileManager.patientResource(for: user).asRelativeReference()
-			}
+		if let answers = answers, let server = profileManager?.dataServer, let user = user {
+			answers.subject = try? profileManager.anonPatientResource(for: user).asRelativeReference()
 			answers.create(server) { error in }
 		}
 		self.questionnaireController = nil

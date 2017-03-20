@@ -36,6 +36,8 @@
 		EE252D0A1DED87BC008F5E3E /* ProfileSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = EE252D091DED87BC008F5E3E /* ProfileSettings.json */; };
 		EE252D0C1DEDCC5A008F5E3E /* UserTaskSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252D0B1DEDCC5A008F5E3E /* UserTaskSetting.swift */; };
 		EE429DB71E65791000BC6F67 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE429DB61E65791000BC6F67 /* CryptoSwift.framework */; };
+		EE4560FA1E79863000B36BC3 /* ProfileTaskHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4560F91E79863000B36BC3 /* ProfileTaskHandler.swift */; };
+		EE45610C1E79871F00B36BC3 /* UserActivityTaskHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE45610B1E79871F00B36BC3 /* UserActivityTaskHandler.swift */; };
 		EE492CD31E2E6F470043D531 /* ProfileLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE492CD21E2E6F470043D531 /* ProfileLink.swift */; };
 		EE492CE61E2E7CC60043D531 /* EstablishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE492CE51E2E7CC60043D531 /* EstablishViewController.swift */; };
 		EE5074C31DE892B300A0C73F /* UIViewController+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */; };
@@ -352,6 +354,8 @@
 		EE252D091DED87BC008F5E3E /* ProfileSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfileSettings.json; sourceTree = SOURCE_ROOT; };
 		EE252D0B1DEDCC5A008F5E3E /* UserTaskSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTaskSetting.swift; sourceTree = "<group>"; };
 		EE429DB61E65791000BC6F67 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
+		EE4560F91E79863000B36BC3 /* ProfileTaskHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTaskHandler.swift; sourceTree = "<group>"; };
+		EE45610B1E79871F00B36BC3 /* UserActivityTaskHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserActivityTaskHandler.swift; sourceTree = "<group>"; };
 		EE492CD21E2E6F470043D531 /* ProfileLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileLink.swift; sourceTree = "<group>"; };
 		EE492CE51E2E7CC60043D531 /* EstablishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstablishViewController.swift; sourceTree = "<group>"; };
 		EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utilities.swift"; sourceTree = "<group>"; };
@@ -582,10 +586,12 @@
 				EE2011A51E4E0B5800913FA7 /* ProfilePersisterToFile.swift */,
 				EE252D051DED7A4C008F5E3E /* ProfileManagerSettings.swift */,
 				EE492CD21E2E6F470043D531 /* ProfileLink.swift */,
+				EE4560F91E79863000B36BC3 /* ProfileTaskHandler.swift */,
 				EEEC786E1DEC291C00E7020C /* User.swift */,
 				EEEC78721DEC2B6600E7020C /* UserTask.swift */,
 				EE252D0B1DEDCC5A008F5E3E /* UserTaskSetting.swift */,
 				EE0B32871DF1B191009F9939 /* UserTaskPreparer.swift */,
+				EE45610B1E79871F00B36BC3 /* UserActivityTaskHandler.swift */,
 				EEEC786C1DEC28E800E7020C /* AppUser.swift */,
 				EEEC78701DEC2B4F00E7020C /* AppUserTask.swift */,
 				EE252D011DED7196008F5E3E /* NotificationManager.swift */,
@@ -1055,11 +1061,13 @@
 				EE2011A61E4E0B5800913FA7 /* ProfilePersisterToFile.swift in Sources */,
 				EEEC786B1DEC25BE00E7020C /* RootViewController.swift in Sources */,
 				EE14E7C01DD0D236009F8736 /* ConfirmViewController.swift in Sources */,
+				EE4560FA1E79863000B36BC3 /* ProfileTaskHandler.swift in Sources */,
 				EE492CE61E2E7CC60043D531 /* EstablishViewController.swift in Sources */,
 				EE0B32881DF1B191009F9939 /* UserTaskPreparer.swift in Sources */,
 				EE87B2BA1E081B2C00719A71 /* QRCodeScanner.swift in Sources */,
 				EE0F34FB1E02E61C003AA556 /* ClientDebugViewController.swift in Sources */,
 				EE14E7BA1DD0CBBE009F8736 /* WelcomeViewController.swift in Sources */,
+				EE45610C1E79871F00B36BC3 /* UserActivityTaskHandler.swift in Sources */,
 				EE2011A41E4E0A0900913FA7 /* ProfilePersister.swift in Sources */,
 				EE14E7B91DD0CBBE009F8736 /* AppDelegate.swift in Sources */,
 				EEECC2241DECDF2C005645B8 /* Configuration.swift in Sources */,

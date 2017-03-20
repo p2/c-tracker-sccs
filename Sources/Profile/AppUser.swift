@@ -42,6 +42,7 @@ final class AppUser: User {
 	}
 	
 	var profileImage: Data?
+	public var isSampleUser = false
 	
 	
 	// MARK: - Medical Data

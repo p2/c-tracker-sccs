@@ -24,6 +24,11 @@ public protocol ProfileTaskHandler {
 	
 	init(manager: ProfileManager)
 	
+	/**
+	Handle the task given. This method does not take a callback, you'll need to handle submission errors etc. on your own.
+	
+	- parameter task: The UserTask to handle, usually a task that has just been completed
+	*/
 	func handle(task: UserTask)
 }
 

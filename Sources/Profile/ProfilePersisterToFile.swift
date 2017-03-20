@@ -115,6 +115,9 @@ public class ProfilePersisterToFile: ProfilePersister {
 		if let weight = user.bodyweight {
 			json["weight"] = "\(weight.doubleValue(for: HKUnit.gramUnit(with: .kilo))) kg"
 		}
+		if user.isSampleUser {
+			json["sample"] = true
+		}
 		let data = try JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
 		try data.write(to: url, options: [.atomic, .completeFileProtection])
 	}
@@ -158,6 +161,9 @@ public class ProfilePersisterToFile: ProfilePersister {
 				let val = (comps[0] as NSString).doubleValue
 				user.bodyweight = HKQuantity(unit: HKUnit(from: comps[1]), doubleValue: val)
 			}
+		}
+		if let sample = json["sample"] as? Bool {
+			user.isSampleUser = sample
 		}
 		return user
 	}

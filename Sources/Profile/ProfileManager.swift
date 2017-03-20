@@ -123,6 +123,7 @@ open class ProfileManager {
 	*/
 	open func enroll(user: User) throws {
 		self.user = user
+		self.user?.isSampleUser = (user.userId == kProfileManagerSampleUserId)
 		user.didEnroll(on: Date())
 		
 		try persister?.persist(user: user)
@@ -149,6 +150,10 @@ open class ProfileManager {
 			let srv = OAuth2Requestable(verbose: false)
 			srv.perform(request: req) { res in
 				if res.response.statusCode >= 400 {
+					// 401: no JWT
+					// 403: invalid JWT
+					// 406: incorrect Authorization header or request body
+					// 409: already linked
 					callback(res.error ?? AppError.generic(res.response.statusString))
 				}
 				else {

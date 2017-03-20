@@ -42,6 +42,10 @@ open class UserActivityTaskHandler: ProfileTaskHandler {
 			c3_warn("The profile manager does not have a user, cannot handle task")
 			return
 		}
+		if user.isSampleUser {
+			c3_logIfDebug("This is a sample user, not submitting any task data")
+			return
+		}
 		
 		// survey completed: submit, submit current user data, sample activity data and submit as well
 		if .survey == task.type {

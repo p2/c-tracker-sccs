@@ -30,6 +30,9 @@ public protocol User {
 	
 	var profileImage: Data? { get }
 	
+	/// Whether this user represents a test/sample user; use it to determine whether data should be sent to your server or not.
+	var isSampleUser: Bool { get set }
+	
 	init()
 	
 	

@@ -67,7 +67,7 @@ class WelcomeViewController: StudyIntroCollectionViewController, ORKTaskViewCont
 		// link is confirmed, create user and attempt to establish link
 		let user = profileManager.userFromLink(link)
 		viewController.didStartLinking()
-		self.profileManager.establishLink(between: user, and: link) { error in
+		profileManager.establishLink(between: user, and: link) { error in
 			// TODO: allow non-fake links to fail gracefully, attempt to establish the link later on
 			if !isFake, let error = error {
 				self.dismiss(animated: true) {

@@ -45,6 +45,9 @@ let cEncDataQueueKey = "N/A"
 /// that this must be an exact match, meaning trailing slashes matter.
 let cJWTIssuer: String? = "https://idm.c3-pro.io/"
 
+/// The valid JWT audience, if any
+let cJWTAudience: String? = nil
+
 /// The secret used in the JWT.
 let cJWTSecret: String = "super-duper-secret"
 

@@ -127,7 +127,7 @@ class LinkViewController: UIViewController {
 		if let scanned = metadata?.stringValue {
 			stopScanner()
 			do {
-				let link = try ProfileLink(token: scanned, using: cJWTSecret, issuer: cJWTIssuer)
+				let link = try ProfileLink(token: scanned, using: cJWTSecret, issuer: cJWTIssuer, audience: cJWTAudience)
 				DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 					self.letUserConfirm(link: link)
 				}

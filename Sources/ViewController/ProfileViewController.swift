@@ -199,9 +199,11 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 	func endEditingName(_ save: Bool = true) {
 		if let edit = editingView {
 			if let newName = textfieldName?.text, save {
-				if var user = profileManager?.user {
-					user.name = newName
-					profileManager?.take(user: user)
+				do {
+					try profileManager?.updateUserName(to: newName)
+				}
+				catch {
+					c3_warn("Failed to update user's name: \(error)")
 				}
 			}
 			updateUserVariables()

@@ -46,8 +46,6 @@
 		EE86F4AC1E00029B00922994 /* SQLite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F4471E0001BC00922994 /* SQLite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE86F4AF1E00029B00922994 /* ResearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F45B1E0001C800922994 /* ResearchKit.framework */; };
 		EE86F4B01E00029B00922994 /* ResearchKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F45B1E0001C800922994 /* ResearchKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EE86F4B31E00029B00922994 /* JWT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F4721E0001D600922994 /* JWT.framework */; };
-		EE86F4B41E00029B00922994 /* JWT.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE86F4721E0001D600922994 /* JWT.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE87B2BA1E081B2C00719A71 /* QRCodeScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE87B2B91E081B2C00719A71 /* QRCodeScanner.swift */; };
 		EE87B2D01E081D9700719A71 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE87B2CF1E081D9700719A71 /* AVFoundation.framework */; };
 		EE957D581E044156004FADB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE957D5A1E044156004FADB4 /* InfoPlist.strings */; };
@@ -185,48 +183,6 @@
 			remoteGlobalIDString = 86CC8E9A1AC09332001CCD89;
 			remoteInfo = ResearchKitTests;
 		};
-		EE86F46F1E0001D600922994 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE86F4671E0001D600922994 /* JWT.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 279D639C1AD07FFF0024E2BC;
-			remoteInfo = "JWT-OSX";
-		};
-		EE86F4711E0001D600922994 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE86F4671E0001D600922994 /* JWT.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CD9B62231C7753D8005D4844;
-			remoteInfo = "JWT-iOS";
-		};
-		EE86F4731E0001D600922994 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE86F4671E0001D600922994 /* JWT.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CD9B62351C7753EC005D4844;
-			remoteInfo = "JWT-tvOS";
-		};
-		EE86F4751E0001D600922994 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE86F4671E0001D600922994 /* JWT.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CD9B62471C7753FB005D4844;
-			remoteInfo = "JWT-watchOS";
-		};
-		EE86F4771E0001D600922994 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE86F4671E0001D600922994 /* JWT.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 279D63A71AD07FFF0024E2BC;
-			remoteInfo = JWTTests;
-		};
-		EE86F4831E0001FE00922994 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE86F4671E0001D600922994 /* JWT.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CD9B62131C7753D8005D4844;
-			remoteInfo = "JWT-iOS";
-		};
 		EE86F48E1E00024200922994 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EE86F4241E0001AD00922994 /* C3PRO.xcodeproj */;
@@ -283,13 +239,6 @@
 			remoteGlobalIDString = B183A4731A8535D100C76870;
 			remoteInfo = ResearchKit;
 		};
-		EE86F4B51E00029B00922994 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EE86F4671E0001D600922994 /* JWT.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CD9B62131C7753D8005D4844;
-			remoteInfo = "JWT-iOS";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -301,7 +250,6 @@
 			files = (
 				EE86F4A81E00029B00922994 /* SMART.framework in Embed Frameworks */,
 				EE86F4A41E00029B00922994 /* C3PRO.framework in Embed Frameworks */,
-				EE86F4B41E00029B00922994 /* JWT.framework in Embed Frameworks */,
 				EE86F4B01E00029B00922994 /* ResearchKit.framework in Embed Frameworks */,
 				EE86F4AC1E00029B00922994 /* SQLite.framework in Embed Frameworks */,
 			);
@@ -354,7 +302,6 @@
 		EE86F42D1E0001B500922994 /* SwiftSMART.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftSMART.xcodeproj; path = "c3-pro-ios-framework/Swift-SMART/SwiftSMART.xcodeproj"; sourceTree = "<group>"; };
 		EE86F43C1E0001BC00922994 /* SQLite.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SQLite.xcodeproj; path = "c3-pro-ios-framework/SQLiteSwift/SQLite.xcodeproj"; sourceTree = "<group>"; };
 		EE86F4541E0001C700922994 /* ResearchKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ResearchKit.xcodeproj; path = "c3-pro-ios-framework/ResearchKit/ResearchKit.xcodeproj"; sourceTree = "<group>"; };
-		EE86F4671E0001D600922994 /* JWT.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JWT.xcodeproj; path = JSONWebToken.swift/JWT.xcodeproj; sourceTree = "<group>"; };
 		EE87B2B91E081B2C00719A71 /* QRCodeScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeScanner.swift; sourceTree = "<group>"; };
 		EE87B2CF1E081D9700719A71 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EE957D531E042B94004FADB4 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -428,7 +375,6 @@
 				EE87B2D01E081D9700719A71 /* AVFoundation.framework in Frameworks */,
 				EE86F4A71E00029B00922994 /* SMART.framework in Frameworks */,
 				EE86F4A31E00029B00922994 /* C3PRO.framework in Frameworks */,
-				EE86F4B31E00029B00922994 /* JWT.framework in Frameworks */,
 				EE0F35221E02FCA7003AA556 /* HealthKit.framework in Frameworks */,
 				EE86F4AF1E00029B00922994 /* ResearchKit.framework in Frameworks */,
 				EE86F4AB1E00029B00922994 /* SQLite.framework in Frameworks */,
@@ -464,7 +410,6 @@
 				EE86F42D1E0001B500922994 /* SwiftSMART.xcodeproj */,
 				EE86F43C1E0001BC00922994 /* SQLite.xcodeproj */,
 				EE86F4541E0001C700922994 /* ResearchKit.xcodeproj */,
-				EE86F4671E0001D600922994 /* JWT.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -621,18 +566,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EE86F4681E0001D600922994 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				EE86F4701E0001D600922994 /* JWT.framework */,
-				EE86F4721E0001D600922994 /* JWT.framework */,
-				EE86F4741E0001D600922994 /* JWT.framework */,
-				EE86F4761E0001D600922994 /* JWT.framework */,
-				EE86F4781E0001D600922994 /* JWTTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		EE87B2A71E081AF100719A71 /* Scan */ = {
 			isa = PBXGroup;
 			children = (
@@ -683,7 +616,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				EE86F4841E0001FE00922994 /* PBXTargetDependency */,
 				EE86F48F1E00024200922994 /* PBXTargetDependency */,
 				EE86F4931E00024200922994 /* PBXTargetDependency */,
 				EE86F4971E00024200922994 /* PBXTargetDependency */,
@@ -692,7 +624,6 @@
 				EE86F4AA1E00029B00922994 /* PBXTargetDependency */,
 				EE86F4AE1E00029B00922994 /* PBXTargetDependency */,
 				EE86F4B21E00029B00922994 /* PBXTargetDependency */,
-				EE86F4B61E00029B00922994 /* PBXTargetDependency */,
 			);
 			name = "C Tracker SCCS";
 			productName = "C Tracker SCCS";
@@ -743,10 +674,6 @@
 				{
 					ProductGroup = EE86F4251E0001AD00922994 /* Products */;
 					ProjectRef = EE86F4241E0001AD00922994 /* C3PRO.xcodeproj */;
-				},
-				{
-					ProductGroup = EE86F4681E0001D600922994 /* Products */;
-					ProjectRef = EE86F4671E0001D600922994 /* JWT.xcodeproj */;
 				},
 				{
 					ProductGroup = EE86F4551E0001C700922994 /* Products */;
@@ -874,41 +801,6 @@
 			remoteRef = EE86F45C1E0001C800922994 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		EE86F4701E0001D600922994 /* JWT.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = JWT.framework;
-			remoteRef = EE86F46F1E0001D600922994 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		EE86F4721E0001D600922994 /* JWT.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = JWT.framework;
-			remoteRef = EE86F4711E0001D600922994 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		EE86F4741E0001D600922994 /* JWT.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = JWT.framework;
-			remoteRef = EE86F4731E0001D600922994 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		EE86F4761E0001D600922994 /* JWT.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = JWT.framework;
-			remoteRef = EE86F4751E0001D600922994 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		EE86F4781E0001D600922994 /* JWTTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = JWTTests.xctest;
-			remoteRef = EE86F4771E0001D600922994 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -954,6 +846,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Smooch.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/JWT.framework",
 			);
 			name = "Run Script [carthage copy-frameworks]";
 			outputPaths = (
@@ -1047,11 +940,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EE86F4841E0001FE00922994 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "JWT-iOS";
-			targetProxy = EE86F4831E0001FE00922994 /* PBXContainerItemProxy */;
-		};
 		EE86F48F1E00024200922994 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = C3PRO;
@@ -1091,11 +979,6 @@
 			isa = PBXTargetDependency;
 			name = ResearchKit;
 			targetProxy = EE86F4B11E00029B00922994 /* PBXContainerItemProxy */;
-		};
-		EE86F4B61E00029B00922994 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "JWT-iOS";
-			targetProxy = EE86F4B51E00029B00922994 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

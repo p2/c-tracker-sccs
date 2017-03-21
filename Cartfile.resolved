@@ -1,2 +1,3 @@
-github "krzyzanowskim/CryptoSwift" "0.6.7"
+github "krzyzanowskim/CryptoSwift" "0.6.8"
 github "smooch/smooch-ios" "5.5.2"
+github "kylef/JSONWebToken.swift" "2.1.0"

@@ -4,9 +4,6 @@
 [submodule "c3-pro-ios-framework"]
 	path = c3-pro-ios-framework
 	url = https://github.com/C3-PRO/c3-pro-ios-framework.git
-[submodule "JSONWebToken.swift"]
-	path = JSONWebToken.swift
-	url = https://github.com/kylef/JSONWebToken.swift
 [submodule "c-tracker-sccs-content"]
 	path = c-tracker-sccs-content
 	url = https://github.com/usz-rdsc/c-tracker-sccs-content.git

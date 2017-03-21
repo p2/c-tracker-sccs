@@ -12,7 +12,7 @@ import C3PRO
 
 class RootViewController: LockableTabBarController {
 	
-	var profileManager: ProfileManager?
+	var profileManager: SCCSProfileManager?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -35,14 +35,14 @@ class RootViewController: LockableTabBarController {
 	// MARK: - Profile
 	
 	func didLoadProfile(notification: Notification) {
-		guard let manager = notification.object as? ProfileManager else {
-			NSLog("Received the following notification without a ProfileManager as object, ignoring: \(notification)")
+		guard let manager = notification.object as? SCCSProfileManager else {
+			NSLog("Received the following notification without a SCCSProfileManager as object, ignoring: \(notification)")
 			return
 		}
 		updateUIAfterProfileChange(with: manager, animated: true)
 	}
 	
-	func updateUIAfterProfileChange(with manager: ProfileManager, animated: Bool = true) {
+	func updateUIAfterProfileChange(with manager: SCCSProfileManager, animated: Bool = true) {
 		if nil != manager.user?.enrollmentDate {
 			tabBar.isHidden = false
 			if let dashNavi = storyboard?.instantiateViewController(withIdentifier: "DashboardRoot") as? UINavigationController,

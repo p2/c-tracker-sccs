@@ -7,9 +7,9 @@
 //
 
 import Foundation
+import C3PRO
 import HealthKit
 import SMART
-import C3PRO
 
 
 /**
@@ -199,7 +199,7 @@ public class ProfilePersisterToFile: ProfilePersister {
 		let data = try Data(contentsOf: scheduleURL)
 		let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
 		guard let scheduled = json["schedule"] as? [[String: Any]] else {
-			throw AppError.invalidScheduleFormat("Expecting an array of schedule objects at `schedule` top level")
+			throw C3Error.invalidScheduleFormat("Expecting an array of schedule objects at `schedule` top level")
 		}
 		return try scheduled.map() { try AppUserTask(serialized: $0) }
 	}

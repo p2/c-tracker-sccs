@@ -43,7 +43,6 @@
 "Looks like your device is not set up to share via {{service}}" = "Looks like your device is not set up to share via {{service}}";
 "No camera on device, cannot scan QR code" = "No camera on device, cannot scan QR code";
 "No {{service}}" = "No {{service}}";
-"Not enrolled in the study yet" = "Not enrolled in the study yet";
 "Not You" = "Not You";
 "Now, please verify your personal data in order to conclude enrollment" = "Now, please verify your personal data in order to conclude enrollment";
 "OK" = "OK";
@@ -56,14 +55,11 @@
 "Problem with QR Code" = "Problem with QR Code";
 "Recent Activity" = "Recent Activity";
 "Refreshing activity data..." = "Refreshing activity data...";
-"Remind in 1 hour" = "Remind in 1 hour";
 "Remind me at" = "Remind me at";
-"Remind me tomorrow" = "Remind me tomorrow";
 "Reminders" = "Reminders";
 "Reset" = "Reset";
 "Review Consent" = "Review Consent";
 "Scanned!" = "Scanned!";
-"Schedule format is invalid" = "Schedule format is invalid";
 "Set Reminders" = "Set Reminders";
 "Share" = "Share";
 "Share on" = "Share on";
@@ -73,8 +69,6 @@
 "Spread the Word" = "Spread the Word";
 "Step count not available" = "Step count not available";
 "Survey" = "Survey";
-"The JWT `aud` param's value is “{{aud}}”, which is not a valid URL" = "The JWT `aud` param's value is “{{aud}}”, which is not a valid URL";
-"The JWT is missing its audience (`aud` parameter)" = "The JWT is missing its audience (`aud` parameter)";
 "There's still some time until {{due_date}}" = "There's still some time until {{due_date}}";
 "This will unset your medical data for the study. You can later re-enter this data manually." = "This will unset your medical data for the study. You can later re-enter this data manually.";
 "To get started, please create a passcode first, then allow the app to access some of the features of your phone" = "To get started, please set a passcode first, then allow the app to access some of the features of your phone\n\nAfterwards, tap “Done”";
@@ -85,14 +79,12 @@
 "Unset Medical Data?" = "Unset Medical Data?";
 "Verify App Permissions" = "Verify App Permissions";
 "Verify…" = "Verify…";
-"We'd like you to complete another survey" = "We'd like you to complete another survey";
 "Weight" = "Weight";
 "Welcome!" = "Welcome!";
 "What is Hepatitis C?" = "What is Hepatitis C?";
 "Who Can Participate?" = "Who Can Participate?";
 "You are enrolled in {{study}}" = "You are enrolled in {{study}}";
 "You can help us find study participants by telling others about the study!" = "You can help us find study participants by telling others about the study!";
-"You refuted some of the information contained in the code" = "You refuted some of the information contained in the code";
 "You were born on" = "You were born on";
 "Your Medical Data" = "Your Medical Data";
 "Your name is" = "Your name is";

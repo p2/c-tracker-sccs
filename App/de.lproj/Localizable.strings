@@ -43,7 +43,6 @@
 "Looks like your device is not set up to share via {{service}}" = "Es sieht so aus als könnte ihr iPhone nicht via {{service}} teilen";
 "No camera on device, cannot scan QR code" = "Dieses Gerät hat keine Kamera, kann QR Code nicht scannen";
 "No {{service}}" = "Kein {{service}}";
-"Not enrolled in the study yet" = "Noch nicht angemeldet";
 "Not You" = "Falsche Person?";
 "Now, please verify your personal data in order to conclude enrollment" = "Überprüfen Sie nun Ihre persönlichen Angaben, um die Studie zu starten";
 "OK" = "OK";
@@ -56,14 +55,11 @@
 "Problem with QR Code" = "Problem mit dem QR-Code";
 "Recent Activity" = "Aktivität";
 "Refreshing activity data..." = "Lade Daten...";
-"Remind in 1 hour" = "In 1 Stunde erinnern";
 "Remind me at" = "Erinnern um";
-"Remind me tomorrow" = "Morgen erinnern";
 "Reminders" = "Erinnerungen";
 "Reset" = "Zurücksetzen";
 "Review Consent" = "Einwilligung ansehen";
 "Scanned!" = "Gescannt!";
-"Schedule format is invalid" = "Das Format des Zeitflans ist ungültig";
 "Set Reminders" = "Erinnerungen aktivieren";
 "Share" = "Teilen";
 "Share on" = "Teilen auf";
@@ -73,8 +69,6 @@
 "Spread the Word" = "Spread the Word!";
 "Step count not available" = "Schrittdaten nicht verfügbar";
 "Survey" = "Fragebogen";
-"The JWT `aud` param's value is “{{aud}}”, which is not a valid URL" = "Im JWT ist der `aud` Parameter “{{aud}}” – dies ist keine gültige URL";
-"The JWT is missing its audience (`aud` parameter)" = "Im JWT fehlt die “audience” (`aud` Parameter)";
 "There's still some time until {{due_date}}" = "Bis zum {{due_date}} bleibt noch ein wenig Zeit";
 "This will unset your medical data for the study. You can later re-enter this data manually." = "Dies wird die medizinischen Angaben in dieser Studie zurück setzen. Sie können diese Daten später von Hand wieder eingeben.";
 "To get started, please create a passcode first, then allow the app to access some of the features of your phone" = "Als erstes setzen Sie bitte einen PIN, dann erlauben Sie der App, auf Dienste Ihres Telefons zuzugreifen\n\nTappen Sie danach auf “Fertig”";
@@ -85,14 +79,12 @@
 "Unset Medical Data?" = "Daten Entfernen?";
 "Verify App Permissions" = "App Zugriffsrechte";
 "Verify…" = "Überprüfen…";
-"We'd like you to complete another survey" = "Bitte beantworten Sie einen weiteren Fragebogen";
 "Weight" = "Gewicht";
 "Welcome!" = "Willkommen!";
 "What is Hepatitis C?" = "Was ist Hepatitis C?";
 "Who Can Participate?" = "Wer kann mitmachen?";
 "You are enrolled in {{study}}" = "✅ Bei {{study}} dabei";
 "You can help us find study participants by telling others about the study!" = "Sie können uns dabei helfen, weitere Teilnehmer zu finden, indem Sie anderen über die Studie erzählen!";
-"You refuted some of the information contained in the code" = "Sie gaben an, gewisse Angaben im Code seien nicht korrekt";
 "You were born on" = "Sie wurden geboren am";
 "Your Medical Data" = "Persönliche Angaben";
 "Your name is" = "Ihr Name ist";

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import C3PRO
 
 
 class NotificationsViewController: UITableViewController {

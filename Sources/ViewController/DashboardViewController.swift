@@ -125,7 +125,7 @@ class DashboardViewController: UITableViewController {
 	
 	func startSurveyTask(_ task: UserTask, animated: Bool = true, started: @escaping ((Error?) -> Void)) {
 		guard let user = user else {
-			started(AppError.noUserEnrolled)
+			started(C3Error.noUserEnrolled)
 			return
 		}
 		

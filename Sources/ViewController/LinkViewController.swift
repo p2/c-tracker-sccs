@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import C3PRO
 import AVFoundation
 
 
@@ -179,7 +180,7 @@ class LinkViewController: UIViewController {
 	}
 	
 	func didRefute() {
-		tokenRefuted?(AppError.jwtDataRefuted)
+		tokenRefuted?(C3Error.jwtDataRefuted)
 	}
 	
 	

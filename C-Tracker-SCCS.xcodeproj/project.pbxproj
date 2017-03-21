@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EE0B32881DF1B191009F9939 /* UserTaskPreparer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0B32871DF1B191009F9939 /* UserTaskPreparer.swift */; };
 		EE0B328E1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json in Resources */ = {isa = PBXBuildFile; fileRef = EE0B328D1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json */; };
 		EE0F34F81E02E61C003AA556 /* MedicalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F34F41E02E61C003AA556 /* MedicalInfoViewController.swift */; };
 		EE0F34F91E02E61C003AA556 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0F34F51E02E61C003AA556 /* NotificationsViewController.swift */; };
@@ -25,21 +24,14 @@
 		EE14E7C01DD0D236009F8736 /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E7BF1DD0D236009F8736 /* ConfirmViewController.swift */; };
 		EE14E7C21DD0D23F009F8736 /* LinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E7C11DD0D23F009F8736 /* LinkViewController.swift */; };
 		EE14E7C41DD0DF79009F8736 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E7C31DD0DF79009F8736 /* String+Extensions.swift */; };
-		EE14E7DE1DD27D08009F8736 /* ProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14E7DD1DD27D08009F8736 /* ProfileManager.swift */; };
-		EE2011A41E4E0A0900913FA7 /* ProfilePersister.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2011A31E4E0A0900913FA7 /* ProfilePersister.swift */; };
 		EE2011A61E4E0B5800913FA7 /* ProfilePersisterToFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2011A51E4E0B5800913FA7 /* ProfilePersisterToFile.swift */; };
 		EE252D001DED718B008F5E3E /* UIColor+C3PRO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252CFF1DED718B008F5E3E /* UIColor+C3PRO.swift */; };
-		EE252D031DED7196008F5E3E /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252D011DED7196008F5E3E /* NotificationManager.swift */; };
-		EE252D041DED7196008F5E3E /* UserNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252D021DED7196008F5E3E /* UserNotificationManager.swift */; };
-		EE252D061DED7A4C008F5E3E /* ProfileManagerSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252D051DED7A4C008F5E3E /* ProfileManagerSettings.swift */; };
 		EE252D081DED81A3008F5E3E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252D071DED81A3008F5E3E /* AppError.swift */; };
 		EE252D0A1DED87BC008F5E3E /* ProfileSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = EE252D091DED87BC008F5E3E /* ProfileSettings.json */; };
-		EE252D0C1DEDCC5A008F5E3E /* UserTaskSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252D0B1DEDCC5A008F5E3E /* UserTaskSetting.swift */; };
+		EE36D8131E8149BD008FE8BD /* UserNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE36D8121E8149BD008FE8BD /* UserNotificationManager.swift */; };
 		EE429DB71E65791000BC6F67 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE429DB61E65791000BC6F67 /* CryptoSwift.framework */; };
-		EE4560FA1E79863000B36BC3 /* ProfileTaskHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4560F91E79863000B36BC3 /* ProfileTaskHandler.swift */; };
-		EE45610C1E79871F00B36BC3 /* UserActivityTaskHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE45610B1E79871F00B36BC3 /* UserActivityTaskHandler.swift */; };
-		EE492CD31E2E6F470043D531 /* ProfileLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE492CD21E2E6F470043D531 /* ProfileLink.swift */; };
 		EE492CE61E2E7CC60043D531 /* EstablishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE492CE51E2E7CC60043D531 /* EstablishViewController.swift */; };
+		EE4BB8BF1E813FDA008A6302 /* SCCSProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4BB8BE1E813FDA008A6302 /* SCCSProfileManager.swift */; };
 		EE5074C31DE892B300A0C73F /* UIViewController+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */; };
 		EE7B36D91E543ACB007B1D73 /* AppStoreDescription.txt in Resources */ = {isa = PBXBuildFile; fileRef = EE7B36D51E543ACB007B1D73 /* AppStoreDescription.txt */; };
 		EE7B36DC1E544135007B1D73 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = EE7B36DB1E544135007B1D73 /* Style.css */; };
@@ -81,9 +73,7 @@
 		EEEC78691DEC258B00E7020C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78681DEC258B00E7020C /* DashboardViewController.swift */; };
 		EEEC786B1DEC25BE00E7020C /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC786A1DEC25BE00E7020C /* RootViewController.swift */; };
 		EEEC786D1DEC28E800E7020C /* AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC786C1DEC28E800E7020C /* AppUser.swift */; };
-		EEEC786F1DEC291C00E7020C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC786E1DEC291C00E7020C /* User.swift */; };
 		EEEC78711DEC2B4F00E7020C /* AppUserTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78701DEC2B4F00E7020C /* AppUserTask.swift */; };
-		EEEC78731DEC2B6600E7020C /* UserTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78721DEC2B6600E7020C /* UserTask.swift */; };
 		EEEC78791DEC3DDA00E7020C /* GraphDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78781DEC3DDA00E7020C /* GraphDataSource.swift */; };
 		EEECC2241DECDF2C005645B8 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEECC2211DECDF2C005645B8 /* Configuration.swift */; };
 		EEFC6B331DF5CCB900D03A84 /* c-tracker.survey-in-app.withdrawal.json in Resources */ = {isa = PBXBuildFile; fileRef = EEFC6B321DF5CCB900D03A84 /* c-tracker.survey-in-app.withdrawal.json */; };
@@ -321,7 +311,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		EE0B32871DF1B191009F9939 /* UserTaskPreparer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTaskPreparer.swift; sourceTree = "<group>"; };
 		EE0B328C1DF1CA90009F9939 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EE0B328D1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "c-tracker.survey-in-app.main.json"; sourceTree = "<group>"; };
 		EE0F34F41E02E61C003AA556 /* MedicalInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicalInfoViewController.swift; sourceTree = "<group>"; };
@@ -343,21 +332,14 @@
 		EE14E7BF1DD0D236009F8736 /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 		EE14E7C11DD0D23F009F8736 /* LinkViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkViewController.swift; sourceTree = "<group>"; };
 		EE14E7C31DD0DF79009F8736 /* String+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
-		EE14E7DD1DD27D08009F8736 /* ProfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileManager.swift; sourceTree = "<group>"; };
-		EE2011A31E4E0A0900913FA7 /* ProfilePersister.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePersister.swift; sourceTree = "<group>"; };
 		EE2011A51E4E0B5800913FA7 /* ProfilePersisterToFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfilePersisterToFile.swift; sourceTree = "<group>"; };
 		EE252CFF1DED718B008F5E3E /* UIColor+C3PRO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+C3PRO.swift"; sourceTree = "<group>"; };
-		EE252D011DED7196008F5E3E /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
-		EE252D021DED7196008F5E3E /* UserNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationManager.swift; sourceTree = "<group>"; };
-		EE252D051DED7A4C008F5E3E /* ProfileManagerSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileManagerSettings.swift; sourceTree = "<group>"; };
 		EE252D071DED81A3008F5E3E /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		EE252D091DED87BC008F5E3E /* ProfileSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfileSettings.json; sourceTree = SOURCE_ROOT; };
-		EE252D0B1DEDCC5A008F5E3E /* UserTaskSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTaskSetting.swift; sourceTree = "<group>"; };
+		EE36D8121E8149BD008FE8BD /* UserNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationManager.swift; sourceTree = "<group>"; };
 		EE429DB61E65791000BC6F67 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
-		EE4560F91E79863000B36BC3 /* ProfileTaskHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTaskHandler.swift; sourceTree = "<group>"; };
-		EE45610B1E79871F00B36BC3 /* UserActivityTaskHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserActivityTaskHandler.swift; sourceTree = "<group>"; };
-		EE492CD21E2E6F470043D531 /* ProfileLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileLink.swift; sourceTree = "<group>"; };
 		EE492CE51E2E7CC60043D531 /* EstablishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstablishViewController.swift; sourceTree = "<group>"; };
+		EE4BB8BE1E813FDA008A6302 /* SCCSProfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCCSProfileManager.swift; sourceTree = "<group>"; };
 		EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utilities.swift"; sourceTree = "<group>"; };
 		EE7B36D61E543ACB007B1D73 /* de */ = {isa = PBXFileReference; lastKnownFileType = text; name = de; path = de.lproj/AppStoreDescription.txt; sourceTree = "<group>"; };
 		EE7B36D71E543ACB007B1D73 /* en */ = {isa = PBXFileReference; lastKnownFileType = text; name = en; path = en.lproj/AppStoreDescription.txt; sourceTree = "<group>"; };
@@ -424,9 +406,7 @@
 		EEEC78681DEC258B00E7020C /* DashboardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		EEEC786A1DEC25BE00E7020C /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		EEEC786C1DEC28E800E7020C /* AppUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
-		EEEC786E1DEC291C00E7020C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EEEC78701DEC2B4F00E7020C /* AppUserTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUserTask.swift; sourceTree = "<group>"; };
-		EEEC78721DEC2B6600E7020C /* UserTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTask.swift; sourceTree = "<group>"; };
 		EEEC78781DEC3DDA00E7020C /* GraphDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GraphDataSource.swift; sourceTree = "<group>"; };
 		EEECC2211DECDF2C005645B8 /* Configuration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configuration.swift; path = ../Configuration.swift; sourceTree = "<group>"; };
 		EEECC2221DECDF2C005645B8 /* Configuration_Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Configuration_Debug.swift; path = ../Configuration_Debug.swift; sourceTree = "<group>"; };
@@ -581,21 +561,11 @@
 		EE14E7DC1DD27CF7009F8736 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				EE14E7DD1DD27D08009F8736 /* ProfileManager.swift */,
-				EE2011A31E4E0A0900913FA7 /* ProfilePersister.swift */,
-				EE2011A51E4E0B5800913FA7 /* ProfilePersisterToFile.swift */,
-				EE252D051DED7A4C008F5E3E /* ProfileManagerSettings.swift */,
-				EE492CD21E2E6F470043D531 /* ProfileLink.swift */,
-				EE4560F91E79863000B36BC3 /* ProfileTaskHandler.swift */,
-				EEEC786E1DEC291C00E7020C /* User.swift */,
-				EEEC78721DEC2B6600E7020C /* UserTask.swift */,
-				EE252D0B1DEDCC5A008F5E3E /* UserTaskSetting.swift */,
-				EE0B32871DF1B191009F9939 /* UserTaskPreparer.swift */,
-				EE45610B1E79871F00B36BC3 /* UserActivityTaskHandler.swift */,
+				EE4BB8BE1E813FDA008A6302 /* SCCSProfileManager.swift */,
 				EEEC786C1DEC28E800E7020C /* AppUser.swift */,
 				EEEC78701DEC2B4F00E7020C /* AppUserTask.swift */,
-				EE252D011DED7196008F5E3E /* NotificationManager.swift */,
-				EE252D021DED7196008F5E3E /* UserNotificationManager.swift */,
+				EE2011A51E4E0B5800913FA7 /* ProfilePersisterToFile.swift */,
+				EE36D8121E8149BD008FE8BD /* UserNotificationManager.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1042,43 +1012,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEEC78731DEC2B6600E7020C /* UserTask.swift in Sources */,
 				EE0F34F81E02E61C003AA556 /* MedicalInfoViewController.swift in Sources */,
-				EEEC786F1DEC291C00E7020C /* User.swift in Sources */,
 				EE0F34F91E02E61C003AA556 /* NotificationsViewController.swift in Sources */,
 				EE14E7C41DD0DF79009F8736 /* String+Extensions.swift in Sources */,
 				EE252D001DED718B008F5E3E /* UIColor+C3PRO.swift in Sources */,
 				EE0F351B1E02F1C8003AA556 /* HeightPicker.swift in Sources */,
+				EE36D8131E8149BD008FE8BD /* UserNotificationManager.swift in Sources */,
 				EEDDAC7D1E40ED84007D4056 /* StudyTableViewController.swift in Sources */,
-				EE14E7DE1DD27D08009F8736 /* ProfileManager.swift in Sources */,
+				EE4BB8BF1E813FDA008A6302 /* SCCSProfileManager.swift in Sources */,
 				EE0F35191E02F1BF003AA556 /* GenderPicker.swift in Sources */,
-				EE252D061DED7A4C008F5E3E /* ProfileManagerSettings.swift in Sources */,
 				EEB833751E6886930084E030 /* LockableTabBarController.swift in Sources */,
-				EE252D041DED7196008F5E3E /* UserNotificationManager.swift in Sources */,
 				EEEC78711DEC2B4F00E7020C /* AppUserTask.swift in Sources */,
 				EE252D081DED81A3008F5E3E /* AppError.swift in Sources */,
 				EE14E7C21DD0D23F009F8736 /* LinkViewController.swift in Sources */,
 				EE2011A61E4E0B5800913FA7 /* ProfilePersisterToFile.swift in Sources */,
 				EEEC786B1DEC25BE00E7020C /* RootViewController.swift in Sources */,
 				EE14E7C01DD0D236009F8736 /* ConfirmViewController.swift in Sources */,
-				EE4560FA1E79863000B36BC3 /* ProfileTaskHandler.swift in Sources */,
 				EE492CE61E2E7CC60043D531 /* EstablishViewController.swift in Sources */,
-				EE0B32881DF1B191009F9939 /* UserTaskPreparer.swift in Sources */,
 				EE87B2BA1E081B2C00719A71 /* QRCodeScanner.swift in Sources */,
 				EE0F34FB1E02E61C003AA556 /* ClientDebugViewController.swift in Sources */,
 				EE14E7BA1DD0CBBE009F8736 /* WelcomeViewController.swift in Sources */,
-				EE45610C1E79871F00B36BC3 /* UserActivityTaskHandler.swift in Sources */,
-				EE2011A41E4E0A0900913FA7 /* ProfilePersister.swift in Sources */,
 				EE14E7B91DD0CBBE009F8736 /* AppDelegate.swift in Sources */,
 				EEECC2241DECDF2C005645B8 /* Configuration.swift in Sources */,
 				EEEC78671DEC258100E7020C /* ProfileViewController.swift in Sources */,
 				EEEC786D1DEC28E800E7020C /* AppUser.swift in Sources */,
 				EEEC78691DEC258B00E7020C /* DashboardViewController.swift in Sources */,
-				EE252D0C1DEDCC5A008F5E3E /* UserTaskSetting.swift in Sources */,
 				EE0F34FA1E02E61C003AA556 /* LicenseViewController.swift in Sources */,
-				EE252D031DED7196008F5E3E /* NotificationManager.swift in Sources */,
 				EEEC78791DEC3DDA00E7020C /* GraphDataSource.swift in Sources */,
-				EE492CD31E2E6F470043D531 /* ProfileLink.swift in Sources */,
 				EE5074C31DE892B300A0C73F /* UIViewController+Utilities.swift in Sources */,
 				EEDDAC901E40EF51007D4056 /* ShareTableViewController.swift in Sources */,
 			);

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import C3PRO
 
 
 /**
@@ -80,7 +81,7 @@ extension UserDefaults {
 	public var surveyRemindersTimeOfDay: DateComponents {
 		let parts = array(forKey: surveyRemindersTimeOfDayKey) as? [Int]
 		var comps = DateComponents()
-		comps.hour = parts?.first
+		comps.hour = parts?.first ?? 10
 		comps.minute = parts?.last
 		return comps
 	}

@@ -43,7 +43,6 @@
 "Looks like your device is not set up to share via {{service}}" = "Apparemment, votre appareil n'est pas configuré pour être partagé via {{service}}";
 "No camera on device, cannot scan QR code" = "Aucune caméra sur l'appareil, ne peut pas numériser le code QR";
 "No {{service}}" = "Pas de {{service}}";
-"Not enrolled in the study yet" = "Pas encore enrôle à l'étude";
 "Not You" = "Pas Vous";
 "Now, please verify your personal data in order to conclude enrollment" = "Vérifiez maintenant vos données personnelles afin de conclure votre enrôlement.";
 "OK" = "OK";
@@ -56,14 +55,11 @@
 "Problem with QR Code" = "Problème Avec le Code QR";
 "Recent Activity" = "Activité Récente";
 "Refreshing activity data..." = "Actualiser les Données d’Activité...";
-"Remind in 1 hour" = "Rappeler en 1 heure";
 "Remind me at" = "Rappelez-moi à";
-"Remind me tomorrow" = "Rappelez-moi demain";
 "Reminders" = "Rappels";
 "Reset" = "Remettre";
 "Review Consent" = "Revoir Consentement";
 "Scanned!" = "Numérisé!";
-"Schedule format is invalid" = "Le format d'horaire n'est pas valide";
 "Set Reminders" = "Définir des Rappels";
 "Share" = "Partager";
 "Share on" = "Partager sur";
@@ -73,8 +69,6 @@
 "Spread the Word" = "Diffusez la Parole";
 "Step count not available" = "Compte d’étapes non disponible";
 "Survey" = "Questionnaire";
-"The JWT `aud` param's value is “{{aud}}”, which is not a valid URL" = "The JWT `aud` param's value is “{{aud}}”, which is not a valid URL";
-"The JWT is missing its audience (`aud` parameter)" = "The JWT is missing its audience (`aud` parameter)";
 "There's still some time until {{due_date}}" = "Il reste du temps jusqu'à {{due_date}}";
 "This will unset your medical data for the study. You can later re-enter this data manually." = "Cela annulera vos données médicales pour l'étude. Vous pouvez ultérieurement entrer de nouveau ces données manuellement.";
 "To get started, please create a passcode first, then allow the app to access some of the features of your phone" = "Pour commencer, créez d'abord un code d'accès, puis laissez l'application accéder à certaines fonctionnalités de votre téléphone.\n\nEnsuite, appuyez sur “Terminé”";
@@ -85,14 +79,12 @@
 "Unset Medical Data?" = "Supprimer les Données?";
 "Verify App Permissions" = "Vérifier les Autorisations d'app";
 "Verify…" = "Vérifier…";
-"We'd like you to complete another survey" = "Nous aimerions que vous remplissiez une autre questionnaire";
 "Weight" = "Poids";
 "Welcome!" = "Bienvenue!";
 "What is Hepatitis C?" = "Qu'est-ce que l'hépatite C?";
 "Who Can Participate?" = "Qui peut partager?";
 "You are enrolled in {{study}}" = "Vous êtes inscrit à {{study}}";
 "You can help us find study participants by telling others about the study!" = "Vous pouvez nous aider à trouver des participants à l'étude en disant aux autres sur l'étude!";
-"You refuted some of the information contained in the code" = "Vous avez réfuté certaines des informations contenues dans le code";
 "You were born on" = "Vous êtes né le";
 "Your Medical Data" = "Votres Données Médicales";
 "Your name is" = "Votre nom est";

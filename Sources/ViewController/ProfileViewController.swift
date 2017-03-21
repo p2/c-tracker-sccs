@@ -22,7 +22,7 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 	
 	var willReloadTable = false
 	
-	var profileManager: ProfileManager!
+	var profileManager: SCCSProfileManager!
 	
 	var user: User? {
 		return profileManager.user
@@ -199,7 +199,10 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 	func endEditingName(_ save: Bool = true) {
 		if let edit = editingView {
 			if let newName = textfieldName?.text, save {
-				profileManager?.user?.name = newName
+				if var user = profileManager?.user {
+					user.name = newName
+					profileManager?.take(user: user)
+				}
 			}
 			updateUserVariables()
 			edit.removeFromSuperview()

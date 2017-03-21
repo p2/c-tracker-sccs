@@ -20,7 +20,7 @@ Allow to edit medical info:
 */
 class MedicalInfoViewController : UITableViewController {
 	
-	var profileManager: ProfileManager! {
+	var profileManager: SCCSProfileManager! {
 		didSet {
 			user = AppUser()
 			if let managedUser = profileManager?.user {

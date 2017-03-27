@@ -49,7 +49,8 @@ public class ProfilePersisterToFile: ProfilePersister {
 		let fm = FileManager()
 		var isDir: ObjCBool = false
 		if !fm.fileExists(atPath: directory.path, isDirectory: &isDir) || !isDir.boolValue {
-			try fm.createDirectory(at: directory, withIntermediateDirectories: true, attributes: nil)
+			let protected = [FileAttributeKey.protectionKey: FileProtectionType.complete]
+			try fm.createDirectory(at: directory, withIntermediateDirectories: true, attributes: protected)
 		}
 	}
 	

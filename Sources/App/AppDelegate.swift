@@ -158,7 +158,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			NotificationManager.shared.applyNotificationAction(action, toNotification: notification)
 		}
 		else {
-			print("Unknown notification action: “\(identifier)”")
+			print("Unknown notification action: “\(String(describing: identifier))”")
 		}
 		completionHandler()
 	}

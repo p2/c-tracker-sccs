@@ -78,6 +78,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		EE34C73B1ECA0399005728C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE34C7311ECA0399005728C7 /* JWT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 279D639C1AD07FFF0024E2BC;
+			remoteInfo = "JWT-OSX";
+		};
+		EE34C73D1ECA0399005728C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE34C7311ECA0399005728C7 /* JWT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CD9B62231C7753D8005D4844;
+			remoteInfo = "JWT-iOS";
+		};
+		EE34C73F1ECA0399005728C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE34C7311ECA0399005728C7 /* JWT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CD9B62351C7753EC005D4844;
+			remoteInfo = "JWT-tvOS";
+		};
+		EE34C7411ECA0399005728C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE34C7311ECA0399005728C7 /* JWT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CD9B62471C7753FB005D4844;
+			remoteInfo = "JWT-watchOS";
+		};
+		EE34C7431ECA0399005728C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE34C7311ECA0399005728C7 /* JWT.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 279D63A71AD07FFF0024E2BC;
+			remoteInfo = JWTTests;
+		};
 		EE86F4291E0001AD00922994 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EE86F4241E0001AD00922994 /* C3PRO.xcodeproj */;
@@ -284,6 +319,7 @@
 		EE252CFF1DED718B008F5E3E /* UIColor+C3PRO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+C3PRO.swift"; sourceTree = "<group>"; };
 		EE252D071DED81A3008F5E3E /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		EE252D091DED87BC008F5E3E /* ProfileSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfileSettings.json; sourceTree = SOURCE_ROOT; };
+		EE34C7311ECA0399005728C7 /* JWT.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JWT.xcodeproj; path = "c3-pro-ios-framework/JSONWebToken/JWT.xcodeproj"; sourceTree = "<group>"; };
 		EE36D8121E8149BD008FE8BD /* UserNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationManager.swift; sourceTree = "<group>"; };
 		EE429DB61E65791000BC6F67 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		EE492CE51E2E7CC60043D531 /* EstablishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstablishViewController.swift; sourceTree = "<group>"; };
@@ -409,6 +445,7 @@
 				EE86F4241E0001AD00922994 /* C3PRO.xcodeproj */,
 				EE86F42D1E0001B500922994 /* SwiftSMART.xcodeproj */,
 				EE86F43C1E0001BC00922994 /* SQLite.xcodeproj */,
+				EE34C7311ECA0399005728C7 /* JWT.xcodeproj */,
 				EE86F4541E0001C700922994 /* ResearchKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
@@ -513,6 +550,18 @@
 				EE36D8121E8149BD008FE8BD /* UserNotificationManager.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		EE34C7321ECA0399005728C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EE34C73C1ECA0399005728C7 /* JWT.framework */,
+				EE34C73E1ECA0399005728C7 /* JWT.framework */,
+				EE34C7401ECA0399005728C7 /* JWT.framework */,
+				EE34C7421ECA0399005728C7 /* JWT.framework */,
+				EE34C7441ECA0399005728C7 /* JWTTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		EE7B36D41E543ACB007B1D73 /* c-tracker-sccs-content */ = {
@@ -676,6 +725,10 @@
 					ProjectRef = EE86F4241E0001AD00922994 /* C3PRO.xcodeproj */;
 				},
 				{
+					ProductGroup = EE34C7321ECA0399005728C7 /* Products */;
+					ProjectRef = EE34C7311ECA0399005728C7 /* JWT.xcodeproj */;
+				},
+				{
 					ProductGroup = EE86F4551E0001C700922994 /* Products */;
 					ProjectRef = EE86F4541E0001C700922994 /* ResearchKit.xcodeproj */;
 				},
@@ -696,6 +749,41 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		EE34C73C1ECA0399005728C7 /* JWT.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JWT.framework;
+			remoteRef = EE34C73B1ECA0399005728C7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EE34C73E1ECA0399005728C7 /* JWT.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JWT.framework;
+			remoteRef = EE34C73D1ECA0399005728C7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EE34C7401ECA0399005728C7 /* JWT.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JWT.framework;
+			remoteRef = EE34C73F1ECA0399005728C7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EE34C7421ECA0399005728C7 /* JWT.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JWT.framework;
+			remoteRef = EE34C7411ECA0399005728C7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EE34C7441ECA0399005728C7 /* JWTTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = JWTTests.xctest;
+			remoteRef = EE34C7431ECA0399005728C7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		EE86F42A1E0001AD00922994 /* C3PRO.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -844,9 +932,7 @@
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Smooch.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/JWT.framework",
 			);
 			name = "Run Script [carthage copy-frameworks]";
 			outputPaths = (

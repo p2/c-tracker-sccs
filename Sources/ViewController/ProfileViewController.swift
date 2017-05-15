@@ -132,7 +132,7 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 					self.present(vc, animated: animated)
 				}
 				else {
-					c3_logIfDebug("Error preparing withdrawal questionnaire: \(error)")
+					c3_logIfDebug("Error preparing withdrawal questionnaire: \(String(describing: error))")
 					self.doWithdraw()
 				}
 			}

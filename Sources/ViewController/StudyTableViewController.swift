@@ -81,7 +81,7 @@ class StudyTableViewController: UITableViewController {
 				navigationController?.pushViewController(vc, animated: true)
 			}
 			else {
-				c3_logIfDebug("Failed to instantiate view controller “\(story)” from storyboard \(storyboard)")
+				c3_logIfDebug("Failed to instantiate view controller “\(story)” from storyboard \(String(describing: storyboard))")
 			}
 		}
 		tableView.deselectRow(at: indexPath, animated: true)

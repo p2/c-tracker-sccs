@@ -12,7 +12,7 @@ Compiling
 ---------
 
 The app currently uses a mix of manually embedding frameworks and using [Carthage](https://github.com/Carthage/Carthage#installing-carthage) to do so.
-This is because of issues with CryptoSwift when archiving the app for App Store publication, so for now we're using _Carthage_ to build CryptoSwift.
+This is because of issues with CryptoSwift when archiving the app for App Store publication, so for now we're using _Carthage_ to build **CryptoSwift** and **Smooch**.
 You will need to install Carthage locally and run the following before running the app:
 
-    carthage update
+    carthage update --platform ios

@@ -69,15 +69,24 @@ class GraphDataSource: NSObject, ORKValueRangeGraphChartViewDataSource {
 		super.init()
 	}
 	
+	/// If we only want to plot one graph, supply the index here; nil to plot all three.
+	var wantedPlotIndex: Int?
+	
+	/// Whether there is actual data in the receiver.
+	var hasData: Bool {
+		let nonempty = report?.periods.filter() { return ($0.coreMotionActivities?.count ?? 0) > 0 } ?? []
+		return nonempty.count > 0
+	}
+	
 	
 	// MARK: - Delegate
 	
 	func numberOfPlots(in graphChartView: ORKGraphChartView) -> Int {
-		return report?.last?.coreMotionActivities?.count ?? 0
+		return (nil != wantedPlotIndex) ? 1 : (report?.last?.coreMotionActivities?.count ?? 0)
 	}
 	
 	func graphChartView(_ graphChartView: ORKGraphChartView, numberOfDataPointsForPlotIndex plotIndex: Int) -> Int {
-		return report?.count ?? 0
+		return hasData ? (report?.count ?? 0) : 0
 	}
 	
 	func graphChartView(_ graphChartView: ORKGraphChartView, dataPointForPointIndex pointIndex: Int, plotIndex: Int) -> ORKValueRange {
@@ -116,16 +125,21 @@ class HealthGraphDataSource: GraphDataSource {
 		super.init(report: report)
 	}
 	
+	override var hasData: Bool {
+		let nonempty = report?.periods.filter() { return ($0.healthKitSamples?.count ?? 0) > 0 } ?? []
+		return nonempty.count > 0
+	}
+	
 	
 	// MARK: - Delegate
 	
 	override func numberOfPlots(in graphChartView: ORKGraphChartView) -> Int {
-		return 3
+		return (nil != wantedPlotIndex) ? 1 : 3
 	}
 	
 	override func graphChartView(_ graphChartView: ORKGraphChartView, dataPointForPointIndex pointIndex: Int, plotIndex: Int) -> ORKValueRange {
 		if let samples = report?[pointIndex]?.healthKitSamples {
-			let want: HKQuantityTypeIdentifier = (0 == plotIndex) ? .stepCount : ((1 == plotIndex) ? .flightsClimbed : .activeEnergyBurned)
+			let want = type(for: plotIndex)
 			for sample in samples {
 				if want.rawValue == sample.quantityType.identifier {
 					let quantity = try? sample.c3_asFHIRQuantity()
@@ -139,7 +153,35 @@ class HealthGraphDataSource: GraphDataSource {
 	}
 	
 	override func graphChartView(_ graphChartView: ORKGraphChartView, colorForPlotIndex plotIndex: Int) -> UIColor {
-		return (0 == plotIndex) ? UIColor.red : ((1 == plotIndex) ? UIColor.green : UIColor.blue)
+		let want = type(for: plotIndex)
+		let (hue, sat, bright) = preferredColorComponentsHSB(for: want)
+		return UIColor(hue: CGFloat(hue), saturation: CGFloat(sat), brightness: CGFloat(bright), alpha: 1.0)
+	}
+	
+	
+	// MARK: - Type
+	
+	public func type(for plotIndex: Int) -> HKQuantityTypeIdentifier {
+		let actualPlotIndex = wantedPlotIndex ?? plotIndex
+		let want: HKQuantityTypeIdentifier = (0 == actualPlotIndex) ? .stepCount : ((1 == actualPlotIndex) ? .flightsClimbed : .activeEnergyBurned)
+		return want
+	}
+	
+	public func preferredColorComponentsHSB(for type: HKQuantityTypeIdentifier) -> (hue: Float, saturation: Float, brightness: Float) {
+		var hue: Float = 0.0
+		let sat: Float = 0.7
+		let bright: Float = 0.94
+		switch type {
+		case HKQuantityTypeIdentifier.activeEnergyBurned:
+			hue = 0.04
+		case HKQuantityTypeIdentifier.flightsClimbed:
+			hue = 0.1
+		case HKQuantityTypeIdentifier.stepCount:
+			hue = 0.4
+		default:
+			break
+		}
+		return (hue: hue, saturation: sat, brightness: bright)
 	}
 }
 

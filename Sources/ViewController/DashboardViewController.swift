@@ -11,7 +11,7 @@ import SMART
 import C3PRO
 import ResearchKit
 
-let kDashboardTodayActivityNumHours = 48
+let kDashboardTodayActivityNumDays = 2
 let kDashboardActivityNumDays = 7
 
 
@@ -293,10 +293,10 @@ class DashboardViewController: UITableViewController {
 		c3_logIfDebug("Refreshing health data")
 		
 		// 1: recent steps
-		let start = Date(timeIntervalSinceNow: Double(-3600*kDashboardTodayActivityNumHours))
+		let start = Date(timeIntervalSinceNow: Double(kDashboardTodayActivityNumDays * 24 * -3600))
 		healthReporter.reportForActivityPeriod(startingAt: start, until: Date()) { period, error in
+			self.refreshingHealthData = false
 			if let error = error {
-				self.refreshingHealthData = false
 				if isRetry {
 					c3_logIfDebug("Cannot refresh health data: tried to get permission from HealthKit, not received")
 					self.show(error: error)
@@ -317,6 +317,7 @@ class DashboardViewController: UITableViewController {
 			c3_logIfDebug("Health data refreshed (recent)")
 			
 			// 2: progressive health report
+			self.refreshingHealthData = true
 			self.healthReporter.progressivelyCollatedActivityData() { report, error in
 				self.refreshingHealthData = false
 				if let error = error {
@@ -355,7 +356,7 @@ class DashboardViewController: UITableViewController {
 		
 		// start collecting X hours ago
 		let now = Date()
-		let today = Date(timeIntervalSinceNow: Double(kDashboardTodayActivityNumHours * -3600))
+		let today = Date(timeIntervalSinceNow: Double(kDashboardTodayActivityNumDays * 24 * -3600))
 		
 		motionReporter.reportForActivityPeriod(startingAt: today, until: now) { period, error in
 			if let period = period {
@@ -383,11 +384,11 @@ class DashboardViewController: UITableViewController {
 	}
 	
 	func redrawMotionReport() {
-		tableView.reloadRows(at: [IndexPath(row: 2, section: 1)], with: .none)
+		tableView.reloadRows(at: [], with: .none)
 	}
 	
 	func redrawHealthReport() {
-		tableView.reloadRows(at: [IndexPath(row: 3, section: 1)], with: .none)
+		tableView.reloadRows(at: [IndexPath(row: 2, section: 1), IndexPath(row: 3, section: 1)], with: .none)
 	}
 	
 	
@@ -395,9 +396,9 @@ class DashboardViewController: UITableViewController {
 	
 	var pieSource: PieDataSource?
 	
-	var healthGraphSource: GraphDataSource?
+	var stepGraphSource: HealthGraphDataSource?
 	
-	var motionGraphSource: GraphDataSource?
+	var flightGraphSource: HealthGraphDataSource?
 	
 	
 	// MARK: - Table View Data Source
@@ -439,21 +440,27 @@ class DashboardViewController: UITableViewController {
 				let cell = tableView.dequeueReusableCell(withIdentifier: "C3ActivityCell", for: indexPath) as! DashboardActivityTableViewCell
 				pieSource = PieDataSource(report: todayReport)
 				cell.setup(with: pieSource!)
-				cell.legendTitle?.text = "Past {{hours}} Hours".sccs_loc.replacingOccurrences(of: "{{hours}}", with: "\(kDashboardTodayActivityNumHours)")
+				cell.legendTitle?.text = "Past {{days}} Days".sccs_loc.replacingOccurrences(of: "{{days}}", with: "\(kDashboardTodayActivityNumDays)")
 				return cell
 			}
 			
 			// graphs
 			if 2 == indexPath.row {
 				let cell = tableView.dequeueReusableCell(withIdentifier: "C3GraphCell", for: indexPath) as! DashboardGraphTableViewCell
-				motionGraphSource = GraphDataSource(report: motionReport)
-				cell.graph?.dataSource = motionGraphSource
+				stepGraphSource = HealthGraphDataSource(report: healthReport)
+				stepGraphSource?.wantedPlotIndex = 0
+				cell.graph?.dataSource = stepGraphSource
+				cell.graph?.noDataText = "No step data".sccs_loc
+				cell.label?.text = "Steps taken".sccs_loc
 				return cell
 			}
 			if 3 == indexPath.row {
 				let cell = tableView.dequeueReusableCell(withIdentifier: "C3GraphCell", for: indexPath) as! DashboardGraphTableViewCell
-				healthGraphSource = HealthGraphDataSource(report: healthReport)
-				cell.graph?.dataSource = healthGraphSource
+				flightGraphSource = HealthGraphDataSource(report: healthReport)
+				flightGraphSource?.wantedPlotIndex = 1
+				cell.graph?.dataSource = flightGraphSource
+				cell.graph?.noDataText = "No stair data".sccs_loc
+				cell.label?.text = "Flights climbed".sccs_loc
 				return cell
 			}
 			
@@ -513,8 +520,11 @@ class DashboardViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		if 1 == indexPath.section {
-			if 1 != indexPath.row {
-				return min(228.0, max(152.0, tableView.bounds.size.width / 2.6))
+			if 0 == indexPath.row {
+				return min(200.0, max(150.0, tableView.bounds.size.width / 2.5))
+			}
+			if indexPath.row > 1 {
+				return min(150.0, max(110.0, tableView.bounds.size.width / 3.4))
 			}
 			return UITableViewAutomaticDimension
 		}
@@ -523,7 +533,7 @@ class DashboardViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		if 1 == indexPath.section {
-			if 0 == indexPath.row || 2 == indexPath.row {
+			if 0 == indexPath.row {
 				refreshMotionData()
 			}
 			else {
@@ -663,20 +673,8 @@ class DashboardActivityTableViewCell: UITableViewCell {
 class DashboardGraphTableViewCell: UITableViewCell {
 	
 	@IBOutlet var graph: ORKGraphChartView?
-}
-
-
-/**
-Needed until this is fixed: https://github.com/ResearchKit/ResearchKit/issues/766
-*/
-class FixedLineGraphChartView: ORKLineGraphChartView {
 	
-	override func layoutSubviews() {
-		if nil == dataSource {
-			return
-		}
-		super.layoutSubviews()
-	}
+	@IBOutlet var label: UILabel?
 }
 
 

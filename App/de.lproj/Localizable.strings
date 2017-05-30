@@ -29,6 +29,7 @@
 "Error" = "Fehler";
 "Facebook" = "Facebook";
 "Failed to Enroll" = "Anmeldung ist Fehlgeschlagen";
+"Flights climbed" = "Stockwerke";
 "Gender" = "Geschlecht";
 "Gender, birthday, height, weight" = "Geschlecht, Geburtstag, Grösse, Gewicht";
 "Height" = "Grösse";
@@ -42,6 +43,8 @@
 "Legal" = "Legales";
 "Looks like your device is not set up to share via {{service}}" = "Es sieht so aus als könnte ihr iPhone nicht via {{service}} teilen";
 "No camera on device, cannot scan QR code" = "Dieses Gerät hat keine Kamera, kann QR Code nicht scannen";
+"No stair data" = "Keine Treppendaten";
+"No step data" = "Keine Schrittdaten";
 "No {{service}}" = "Kein {{service}}";
 "Not You" = "Falsche Person?";
 "Now, please verify your personal data in order to conclude enrollment" = "Überprüfen Sie nun Ihre persönlichen Angaben, um die Studie zu starten";
@@ -49,7 +52,7 @@
 "Open Website" = "Website öffnen";
 "Or share this link:" = "Oder diesen Link teilen:";
 "Our work wouldn't have been possible without the work of other great individuals." = "Unsere Arbeit wäre ohne die Arbeit vieler anderer wunderbarer Menschen nicht möglich gewesen. Die Software-Lizenzen derer Arbeit sind hier aufgelistet, ohne bestimmte Reihenfolge.";
-"Past {{hours}} Hours" = "Letzte {{hours}} Stunden";
+"Past {{days}} Days" = "Letzte {{days}} Tage";
 "Permissioning Error" = "Fehler bei Zugriffsermächtigung";
 "Privacy Policy" = "Datenschutzerklärung";
 "Problem with QR Code" = "Problem mit dem QR-Code";
@@ -67,6 +70,7 @@
 "SMS" = "SMS";
 "Software Licenses" = "Software-Lizenzen";
 "Spread the Word" = "Spread the Word!";
+"Steps taken" = "Schritte";
 "Step count not available" = "Schrittdaten nicht verfügbar";
 "Survey" = "Fragebogen";
 "There's still some time until {{due_date}}" = "Bis zum {{due_date}} bleibt noch ein wenig Zeit";

@@ -29,6 +29,7 @@
 "Error" = "Erreur";
 "Facebook" = "Facebook";
 "Failed to Enroll" = "Ne Pas Enrôle";
+"Flights climbed" = "Étages monté";
 "Gender" = "Sexe";
 "Gender, birthday, height, weight" = "Sexe, anniv., taille, poids";
 "Height" = "Taille";
@@ -42,6 +43,8 @@
 "Legal" = "Légal";
 "Looks like your device is not set up to share via {{service}}" = "Apparemment, votre appareil n'est pas configuré pour être partagé via {{service}}";
 "No camera on device, cannot scan QR code" = "Aucune caméra sur l'appareil, ne peut pas numériser le code QR";
+"No stair data" = "Pas de données d'escalier";
+"No step data" = "Pas de données des pas";
 "No {{service}}" = "Pas de {{service}}";
 "Not You" = "Pas Vous";
 "Now, please verify your personal data in order to conclude enrollment" = "Vérifiez maintenant vos données personnelles afin de conclure votre enrôlement.";
@@ -49,7 +52,7 @@
 "Open Website" = "Ouvrir le site";
 "Or share this link:" = "Ou partagez ce lien:";
 "Our work wouldn't have been possible without the work of other great individuals." = "Notre travail n'aurait pas été possible sans le travail d'autres grands individus. Les licences de leurs logiciels sont énumérées ci-dessous, sans ordre particulier.";
-"Past {{hours}} Hours" = "Dernières {{hours}} Heures";
+"Past {{days}} Days" = "Dernières {{days}} Jours";
 "Permissioning Error" = "Erreur d'Approvisionnement";
 "Privacy Policy" = "Charte de Confidentialité";
 "Problem with QR Code" = "Problème Avec le Code QR";
@@ -67,7 +70,8 @@
 "SMS" = "SMS";
 "Software Licenses" = "Licences de Logiciels";
 "Spread the Word" = "Diffusez la Parole";
-"Step count not available" = "Compte d’étapes non disponible";
+"Steps taken" = "Nombre de pas";
+"Step count not available" = "Nombre de pas non disponible";
 "Survey" = "Questionnaire";
 "There's still some time until {{due_date}}" = "Il reste du temps jusqu'à {{due_date}}";
 "This will unset your medical data for the study. You can later re-enter this data manually." = "Cela annulera vos données médicales pour l'étude. Vous pouvez ultérieurement entrer de nouveau ces données manuellement.";

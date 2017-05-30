@@ -163,7 +163,7 @@ class LinkViewController: UIViewController {
 		guard let confirm = storyboard?.instantiateViewController(withIdentifier: "Confirm") as? ConfirmViewController else {
 			fatalError("There is no “Confirm” view controller in storyboard \(storyboard?.description ?? "nil")")
 		}
-		confirm.claims = link.payload
+		confirm.claims = link.claimset
 		confirm.whenDone = { success in
 			if success {
 				self.didConfirm(link: link, isFake: fake)

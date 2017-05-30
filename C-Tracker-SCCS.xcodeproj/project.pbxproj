@@ -33,6 +33,7 @@
 		EE492CE61E2E7CC60043D531 /* EstablishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE492CE51E2E7CC60043D531 /* EstablishViewController.swift */; };
 		EE4BB8BF1E813FDA008A6302 /* SCCSProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4BB8BE1E813FDA008A6302 /* SCCSProfileManager.swift */; };
 		EE5074C31DE892B300A0C73F /* UIViewController+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */; };
+		EE6F77191EDCF7CD0016F8F2 /* JWT.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EE34C73E1ECA0399005728C7 /* JWT.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EE7B36D91E543ACB007B1D73 /* AppStoreDescription.txt in Resources */ = {isa = PBXBuildFile; fileRef = EE7B36D51E543ACB007B1D73 /* AppStoreDescription.txt */; };
 		EE7B36DC1E544135007B1D73 /* Style.css in Resources */ = {isa = PBXBuildFile; fileRef = EE7B36DB1E544135007B1D73 /* Style.css */; };
 		EE7B36E31E544233007B1D73 /* PrivacyPolicy.html in Resources */ = {isa = PBXBuildFile; fileRef = EE7B36E11E544233007B1D73 /* PrivacyPolicy.html */; };
@@ -112,6 +113,13 @@
 			proxyType = 2;
 			remoteGlobalIDString = 279D63A71AD07FFF0024E2BC;
 			remoteInfo = JWTTests;
+		};
+		EE6F77051EDCF7B70016F8F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE34C7311ECA0399005728C7 /* JWT.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = CD9B62131C7753D8005D4844;
+			remoteInfo = "JWT-iOS";
 		};
 		EE86F4291E0001AD00922994 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -283,6 +291,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				EE6F77191EDCF7CD0016F8F2 /* JWT.framework in Embed Frameworks */,
 				EE86F4A81E00029B00922994 /* SMART.framework in Embed Frameworks */,
 				EE86F4A41E00029B00922994 /* C3PRO.framework in Embed Frameworks */,
 				EE86F4B01E00029B00922994 /* ResearchKit.framework in Embed Frameworks */,
@@ -665,6 +674,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				EE6F77061EDCF7B70016F8F2 /* PBXTargetDependency */,
 				EE86F48F1E00024200922994 /* PBXTargetDependency */,
 				EE86F4931E00024200922994 /* PBXTargetDependency */,
 				EE86F4971E00024200922994 /* PBXTargetDependency */,
@@ -933,6 +943,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Smooch.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
 			);
 			name = "Run Script [carthage copy-frameworks]";
 			outputPaths = (
@@ -1026,6 +1037,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		EE6F77061EDCF7B70016F8F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "JWT-iOS";
+			targetProxy = EE6F77051EDCF7B70016F8F2 /* PBXContainerItemProxy */;
+		};
 		EE86F48F1E00024200922994 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = C3PRO;

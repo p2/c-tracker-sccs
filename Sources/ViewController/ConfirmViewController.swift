@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import JWT
 
 
 /**
@@ -21,10 +22,14 @@ Currently supported:
 */
 class ConfirmViewController: UITableViewController {
 	
-	public var claims: [String: Any]? {
+	public var claims: ClaimSet? {
 		didSet {
 			var confirmable = [String: Any]()
-			claims?.filter() { ["sub", "birthdate"].contains($0.key) }.forEach() { confirmable[$0.key] = $0.value }
+			for key in ["sub", "birthdate"] {
+				if let val = claims?[key] {
+					confirmable[key] = val
+				}
+			}
 			confirmableClaims = confirmable.isEmpty ? nil : confirmable
 			if isViewLoaded {
 				tableView.reloadData()

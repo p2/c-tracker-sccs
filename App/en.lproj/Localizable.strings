@@ -29,6 +29,7 @@
 "Error" = "Error";
 "Facebook" = "Facebook";
 "Failed to Enroll" = "Failed to Enroll";
+"Flights climbed" = "Flights climbed";
 "Gender" = "Gender";
 "Gender, birthday, height, weight" = "Gender, birthday, height, weight";
 "Height" = "Height";
@@ -42,6 +43,8 @@
 "Legal" = "Legal";
 "Looks like your device is not set up to share via {{service}}" = "Looks like your device is not set up to share via {{service}}";
 "No camera on device, cannot scan QR code" = "No camera on device, cannot scan QR code";
+"No stair data" = "No stair data";
+"No step data" = "No step data";
 "No {{service}}" = "No {{service}}";
 "Not You" = "Not You";
 "Now, please verify your personal data in order to conclude enrollment" = "Now, please verify your personal data in order to conclude enrollment";
@@ -49,7 +52,7 @@
 "Open Website" = "Open Website";
 "Or share this link:" = "Or share this link:";
 "Our work wouldn't have been possible without the work of other great individuals." = "Our work wouldn't have been possible without the work of other great individuals. The licenses of their software are listed below, in no particular order.";
-"Past {{hours}} Hours" = "Past {{hours}} Hours";
+"Past {{days}} Days" = "Past {{days}} Days";
 "Permissioning Error" = "Permissioning Error";
 "Privacy Policy" = "Privacy Policy";
 "Problem with QR Code" = "Problem with QR Code";
@@ -67,6 +70,7 @@
 "SMS" = "SMS";
 "Software Licenses" = "Software Licenses";
 "Spread the Word" = "Spread the Word";
+"Steps taken" = "Steps taken";
 "Step count not available" = "Step count not available";
 "Survey" = "Survey";
 "There's still some time until {{due_date}}" = "There's still some time until {{due_date}}";

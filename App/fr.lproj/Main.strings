@@ -17,6 +17,9 @@
 /* Class = "UILabel"; text = "Your name is"; ObjectID = "A9u-dX-9MA"; */
 "A9u-dX-9MA.text" = "Vôtre nom est";
 
+/* Class = "UILabel"; text = "Title"; ObjectID = "FE8-fd-qqh"; */
+"FE8-fd-qqh.text" = "Titre";
+
 /* Class = "UIButton"; normalTitle = "Leave Study"; ObjectID = "FKy-da-W2e"; */
 "FKy-da-W2e.normalTitle" = "Retirer de l’étude";
 
@@ -52,6 +55,9 @@
 
 /* Class = "UINavigationItem"; title = "Dashboard"; ObjectID = "QFM-IZ-exJ"; */
 "QFM-IZ-exJ.title" = "Dashboard";
+
+/* Class = "UIButton"; normalTitle = "Load from Health App"; ObjectID = "Sja-c7-ZxN"; */
+"Sja-c7-ZxN.normalTitle" = "Charger depuis “Santé”";
 
 /* Class = "UILabel"; text = "Title"; ObjectID = "To8-W3-Ta7"; */
 "To8-W3-Ta7.text" = "Titre";
@@ -103,6 +109,9 @@
 
 /* Class = "UILabel"; text = "in 1 week"; ObjectID = "sbX-EU-wAv"; */
 "sbX-EU-wAv.text" = "en 1 semaine";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "u3e-br-Qcy"; */
+"u3e-br-Qcy.text" = "Label";
 
 /* Class = "UITableViewController"; title = "Profile"; ObjectID = "vcs-c5-Ktx"; */
 "vcs-c5-Ktx.title" = "Profil";

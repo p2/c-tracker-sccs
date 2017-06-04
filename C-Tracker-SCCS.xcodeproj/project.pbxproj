@@ -330,6 +330,8 @@
 		EE252D091DED87BC008F5E3E /* ProfileSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfileSettings.json; sourceTree = SOURCE_ROOT; };
 		EE34C7311ECA0399005728C7 /* JWT.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JWT.xcodeproj; path = "c3-pro-ios-framework/JSONWebToken/JWT.xcodeproj"; sourceTree = "<group>"; };
 		EE36D8121E8149BD008FE8BD /* UserNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationManager.swift; sourceTree = "<group>"; };
+		EE388F9A1EE4B6A30050BBED /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		EE388F9C1EE4B6B00050BBED /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		EE429DB61E65791000BC6F67 /* CryptoSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CryptoSwift.framework; path = Carthage/Build/iOS/CryptoSwift.framework; sourceTree = "<group>"; };
 		EE492CE51E2E7CC60043D531 /* EstablishViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EstablishViewController.swift; sourceTree = "<group>"; };
 		EE4BB8BE1E813FDA008A6302 /* SCCSProfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCCSProfileManager.swift; sourceTree = "<group>"; };
@@ -384,8 +386,6 @@
 		EEB8337F1E688FA30084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = de; path = de.lproj/StudyOverview.json; sourceTree = "<group>"; };
 		EEB833811E6891C10084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = App/fr.lproj/StudyIntro.strings; sourceTree = "<group>"; };
 		EEB833821E6891F40084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = fr; path = fr.lproj/StudyOverview.json; sourceTree = "<group>"; };
-		EEB833841E6893CE0084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
-		EEB833861E6893DE0084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
 		EEB833881E6898FC0084E030 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = App/en.lproj/HowItWorks.html; sourceTree = "<group>"; };
 		EEB8338A1E6898FC0084E030 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = App/en.lproj/StudyAndHowItWorks.html; sourceTree = "<group>"; };
 		EEB8338D1E6899050084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = de; path = App/de.lproj/HowItWorks.html; sourceTree = "<group>"; };
@@ -1089,8 +1089,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				EE14E7A51DD0CAAA009F8736 /* Base */,
-				EEB833841E6893CE0084E030 /* de */,
-				EEB833861E6893DE0084E030 /* fr */,
+				EE388F9A1EE4B6A30050BBED /* de */,
+				EE388F9C1EE4B6B00050BBED /* fr */,
 			);
 			name = Main.storyboard;
 			path = App;

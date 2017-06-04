@@ -755,6 +755,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="hi8-IT-E88">
+                            <rect key="frame" x="0.0" y="552" width="375" height="66"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sja-c7-ZxN">
+                                    <rect key="frame" x="8" y="16.5" width="359" height="33"/>
+                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                    <state key="normal" title="Load from Health App"/>
+                                    <connections>
+                                        <action selector="loadFromHealthApp:" destination="pKZ-QR-8IR" eventType="touchUpInside" id="tjk-Jb-zTj"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="Sja-c7-ZxN" firstAttribute="leading" secondItem="hi8-IT-E88" secondAttribute="leadingMargin" id="Dfm-Nb-rTH"/>
+                                <constraint firstAttribute="trailingMargin" secondItem="Sja-c7-ZxN" secondAttribute="trailing" id="wV7-cy-12W"/>
+                                <constraint firstItem="Sja-c7-ZxN" firstAttribute="centerY" secondItem="hi8-IT-E88" secondAttribute="centerY" id="xQ0-3r-bxk"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3DataCell" textLabel="4Ub-Qs-5Un" detailTextLabel="2C1-OY-YQ7" style="IBUITableViewCellStyleValue1" id="Nbw-7Q-0B3" customClass="MedicalInfoDataTableViewCell" customModule="C_Tracker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="22" width="375" height="44"/>

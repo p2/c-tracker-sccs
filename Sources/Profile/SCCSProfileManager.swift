@@ -38,12 +38,37 @@ public class SCCSProfileManager: ProfileManager {
 	
 	lazy var healthStore = HKHealthStore()
 	
+	override open var healthKitTypes: HealthKitTypes {
+		let types = super.healthKitTypes
+		var writes = types.quantityTypesToWrite
+		writes.insert(HKQuantityType.quantityType(forIdentifier: .height)!)
+		writes.insert(HKQuantityType.quantityType(forIdentifier: .bodyMass)!)
+		return HealthKitTypes(readCharacteristics: types.characteristicTypesToRead, readQuantities: types.quantityTypesToRead, writeQuantities: writes)
+	}
+	
 	/**
 	Uses `readUserDataFromHealthKit()` to read user data from HealthKit and `persistMedicalData(from:)` to store the data.
+	
+	- parameter supplementedBy: If provided, data coming back empty from HealthKit will be taken from this user object
+	- parameter callback:       Callback to call when data has been fetched
 	*/
-	public func updateMedicalDataFromHealthKit() {
+	public func updateMedicalDataFromHealthKit(supplementedBy: User? = nil, callback: @escaping ((User?) -> ())) {
 		readUserDataFromHealthKit() { user in
-			if let user = user {
+			if var user = user {
+				if let supplementedBy = supplementedBy {
+					if .notSet == user.biologicalSex {
+						user.biologicalSex = supplementedBy.biologicalSex
+					}
+					if nil == user.birthDate {
+						user.birthDate = supplementedBy.birthDate
+					}
+					if nil == user.bodyheight {
+						user.bodyheight = supplementedBy.bodyheight
+					}
+					if nil == user.bodyweight {
+						user.bodyweight = supplementedBy.bodyweight
+					}
+				}
 				do {
 					try self.persistMedicalData(from: user)
 				}
@@ -51,6 +76,7 @@ public class SCCSProfileManager: ProfileManager {
 					c3_warn("Failed to persist medical data: \(error)")
 				}
 			}
+			callback(user)
 		}
 	}
 	
@@ -74,53 +100,90 @@ public class SCCSProfileManager: ProfileManager {
 	Retrieves certain user data from HealthKit and returns a `userType` instance which has all retrievable data points assigned.
 	*/
 	func readUserDataFromHealthKit(_ callback: ((_ user: User?) -> Void)? = nil) {
-		if HKHealthStore.isHealthDataAvailable() {
-			let group = DispatchGroup()
-			var user = userType.init()
-			
-			do {
-				user.biologicalSex = try healthStore.biologicalSex().biologicalSex
-			}
-			catch let error {
-				c3_logIfDebug("Failed to retrieve gender: \(error)")
-			}
-			
-			do {
-				user.birthDate = try healthStore.dateOfBirth()
-			}
-			catch let error {
-				c3_logIfDebug("Failed to retrieve date of birth: \(error)")
-			}
-			
-			group.enter()
-			healthStore.c3_latestSample(ofType: .height) { quantity, error in
-				if let quant = quantity {
-					user.bodyheight = quant
-				}
-				else if let err = error {
-					c3_logIfDebug("Failed to retrieve body height: \(err)")
-				}
-				group.leave()
-			}
-			
-			group.enter()
-			healthStore.c3_latestSample(ofType: .bodyMass) { quantity, error in
-				if let quant = quantity {
-					user.bodyweight = quant
-				}
-				else if let err = error {
-					c3_logIfDebug("Failed to retrieve body weight: \(err)")
-				}
-				group.leave()
-			}
-			
-			group.notify(queue: DispatchQueue.main) {
-				callback?(user)
-			}
-		}
-		else {
+		guard HKHealthStore.isHealthDataAvailable() else {
 			c3_logIfDebug("HKHealthStorage has no health data available")
 			callback?(nil)
+			return
+		}
+		
+		let group = DispatchGroup()
+		var user = userType.init()
+		var hasData = false
+		
+		do {
+			user.biologicalSex = try healthStore.biologicalSex().biologicalSex
+			//hasData = true	// as of iOS 10, this will not throw when access has not been given
+		}
+		catch let error {
+			c3_logIfDebug("Failed to retrieve gender from HealthKit: \(error)")
+		}
+		
+		do {
+			user.birthDate = try healthStore.dateOfBirth()
+			hasData = true
+		}
+		catch let error {
+			c3_logIfDebug("Failed to retrieve date of birth from HealthKit: \(error)")
+		}
+		
+		group.enter()
+		healthStore.c3_latestSample(ofType: .height) { quantity, error in
+			if let quant = quantity {
+				user.bodyheight = quant
+				hasData = true
+			}
+			else if let error = error {
+				c3_logIfDebug("Failed to retrieve body height from HealthKit: \(error)")
+			}
+			group.leave()
+		}
+		
+		group.enter()
+		healthStore.c3_latestSample(ofType: .bodyMass) { quantity, error in
+			if let quant = quantity {
+				user.bodyweight = quant
+				hasData = true
+			}
+			else if let error = error {
+				c3_logIfDebug("Failed to retrieve body weight from HealthKit: \(error)")
+			}
+			group.leave()
+		}
+		
+		group.notify(queue: DispatchQueue.main) {
+			callback?(hasData ? user : nil)
+		}
+	}
+	
+	/**
+	Stores medical data (height and weight) to HealthKit.
+	*/
+	public func storeMedicalDataToHealthKit() throws {
+		guard HKHealthStore.isHealthDataAvailable() else {
+			throw C3Error.healthKitNotAvailable
+		}
+		guard let user = user else {
+			return
+		}
+		if let height = user.bodyheight {
+			let now = Date()
+			let type = HKQuantityType.quantityType(forIdentifier: .height)!
+			let sample = HKQuantitySample(type: type, quantity: height, start: now, end: now)
+			healthStore.save(sample) { success, error in
+				if let error = error {
+					c3_logIfDebug("Failed to store bodyheight to HealthKit: \(error)")
+				}
+			}
+		}
+		if let weight = user.bodyweight {
+			let now = Date()
+			let type = HKQuantityType.quantityType(forIdentifier: .bodyMass)!
+			let sample = HKQuantitySample(type: type, quantity: weight, start: now, end: now)
+			healthStore.save(sample) { success, error in
+				if let error = error {
+					c3_logIfDebug("Failed to store bodyweight to HealthKit: \(error)")
+				}
+			}
 		}
 	}
 }

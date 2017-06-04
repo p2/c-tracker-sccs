@@ -37,6 +37,7 @@
 "in {{days}} days" = "en {{days}} jours";
 "Invalid Code" = "Code Invalide";
 "It has expired {{expiry_date}}" = "A expiré {{expiry_date}}";
+"It seems you have not given permission to C Tracker to read from Health" = "Il semble que vous n'avez pas autorisé C Tracker à lire de “Santé”";
 "Join {{study}}!" = "Rejoindre {{study}}!";
 "Leave" = "Retirer";
 "Leave Study?" = "Retirer de l’étude?";
@@ -54,6 +55,8 @@
 "Our work wouldn't have been possible without the work of other great individuals." = "Notre travail n'aurait pas été possible sans le travail d'autres grands individus. Les licences de leurs logiciels sont énumérées ci-dessous, sans ordre particulier.";
 "Past {{days}} Days" = "Dernières {{days}} Jours";
 "Permissioning Error" = "Erreur d'Approvisionnement";
+"Permissions..." = "Permettre...";
+"Please open Health App and go to “Sources” » “C Tracker”" = "Ouvrez Health App et accédez à “Sources” » “C Tracker”";
 "Privacy Policy" = "Charte de Confidentialité";
 "Problem with QR Code" = "Problème Avec le Code QR";
 "Recent Activity" = "Activité Récente";
@@ -70,9 +73,9 @@
 "SMS" = "SMS";
 "Software Licenses" = "Licences de Logiciels";
 "Spread the Word" = "Diffusez la Parole";
-"Steps taken per day" = "Nombre de pas par jour";
 "Step count not available" = "Nombre de pas non disponible";
 "Survey" = "Questionnaire";
+"Steps taken per day" = "Nombre de pas par jour";
 "There's still some time until {{due_date}}" = "Il reste du temps jusqu'à {{due_date}}";
 "This will unset your medical data for the study. You can later re-enter this data manually." = "Cela annulera vos données médicales pour l'étude. Vous pouvez ultérieurement entrer de nouveau ces données manuellement.";
 "To get started, please create a passcode first, then allow the app to access some of the features of your phone" = "Pour commencer, créez d'abord un code d'accès, puis laissez l'application accéder à certaines fonctionnalités de votre téléphone.\n\nEnsuite, appuyez sur “Terminé”";

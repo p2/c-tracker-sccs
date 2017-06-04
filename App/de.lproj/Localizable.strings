@@ -37,6 +37,7 @@
 "in {{days}} days" = "in {{days}} Tagen";
 "Invalid Code" = "Ungültiger Code";
 "It has expired {{expiry_date}}" = "Lief am {{expiry_date}} ab";
+"It seems you have not given permission to C Tracker to read from Health" = "Sie haben der C Tracker App keinen Zugriff auf Ihre “Health” Daten gewährt";
 "Join {{study}}!" = "{{study}} beitreten!";
 "Leave" = "Verlassen";
 "Leave Study?" = "Studie Verlassen?";
@@ -54,6 +55,8 @@
 "Our work wouldn't have been possible without the work of other great individuals." = "Unsere Arbeit wäre ohne die Arbeit vieler anderer wunderbarer Menschen nicht möglich gewesen. Die Software-Lizenzen derer Arbeit sind hier aufgelistet, ohne bestimmte Reihenfolge.";
 "Past {{days}} Days" = "Letzte {{days}} Tage";
 "Permissioning Error" = "Fehler bei Zugriffsermächtigung";
+"Permissions..." = "Einstellen...";
+"Please open Health App and go to “Sources” » “C Tracker”" = "Starten Sie bitte die “Health” App und gehen zu “Quellen” » “C Tracker”";
 "Privacy Policy" = "Datenschutzerklärung";
 "Problem with QR Code" = "Problem mit dem QR-Code";
 "Recent Activity" = "Aktivität";
@@ -70,17 +73,17 @@
 "SMS" = "SMS";
 "Software Licenses" = "Software-Lizenzen";
 "Spread the Word" = "Spread the Word!";
-"Steps taken per day" = "Schritte pro Tag";
 "Step count not available" = "Schrittdaten nicht verfügbar";
 "Survey" = "Fragebogen";
+"Steps taken per day" = "Schritte pro Tag";
 "There's still some time until {{due_date}}" = "Bis zum {{due_date}} bleibt noch ein wenig Zeit";
-"This will unset your medical data for the study. You can later re-enter this data manually." = "Dies wird die medizinischen Angaben in dieser Studie zurück setzen. Sie können diese Daten später von Hand wieder eingeben.";
+"This will unset your medical data for the study. You can later re-enter this data manually." = "Dies wird die medizinischen Angaben in dieser Studie zurücksetzen. Sie können diese Daten später von Hand wieder eingeben.";
 "To get started, please create a passcode first, then allow the app to access some of the features of your phone" = "Als erstes setzen Sie bitte einen PIN, dann erlauben Sie der App, auf Dienste Ihres Telefons zuzugreifen\n\nTappen Sie danach auf “Fertig”";
 "today" = "heute";
 "tomorrow" = "morgen";
 "Twitter" = "Twitter";
 "Unknown" = "Unbekannt";
-"Unset Medical Data?" = "Daten Entfernen?";
+"Unset Medical Data?" = "Daten Zurücksetzen?";
 "Verify App Permissions" = "App Zugriffsrechte";
 "Verify…" = "Überprüfen…";
 "Weight" = "Gewicht";

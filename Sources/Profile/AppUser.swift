@@ -103,7 +103,7 @@ final class AppUser: User {
 		if let bd = humanBirthday, !bd.isEmpty {	parts.append(bd)	}
 		if let he = humanHeight, !he.isEmpty {	parts.append(he)	}
 		if let we = humanWeight, !we.isEmpty {	parts.append(we)	}
-		return parts.count > 0 ? parts.joined(separator: ", ") : "Gender, birthday, height, weight".sccs_loc
+		return parts.count > 0 ? parts.joined(separator: "; ") : "Gender, birthday, height, weight".sccs_loc
 	}
 	
 	public var humanBirthday: String? {

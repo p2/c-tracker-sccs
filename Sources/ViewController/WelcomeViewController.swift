@@ -56,7 +56,7 @@ class WelcomeViewController: StudyIntroCollectionViewController, ORKTaskViewCont
 	func doEnroll(user: User) {
 		do {
 			try profileManager.enroll(user: user)
-			profileManager.updateMedicalDataFromHealthKit()
+			profileManager.updateMedicalDataFromHealthKit(supplementedBy: user) { user in }
 		}
 		catch let error {
 			show(error: error, title: "Could Not Load Profile".sccs_loc)

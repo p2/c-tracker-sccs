@@ -37,6 +37,7 @@
 "in {{days}} days" = "in {{days}} days";
 "Invalid Code" = "Invalid Code";
 "It has expired {{expiry_date}}" = "It has expired {{expiry_date}}";
+"It seems you have not given permission to C Tracker to read from Health" = "It seems you have not given permission to C Tracker to read from Health";
 "Join {{study}}!" = "Join {{study}}!";
 "Leave" = "Leave";
 "Leave Study?" = "Leave Study?";
@@ -54,6 +55,8 @@
 "Our work wouldn't have been possible without the work of other great individuals." = "Our work wouldn't have been possible without the work of other great individuals. The licenses of their software are listed below, in no particular order.";
 "Past {{days}} Days" = "Past {{days}} Days";
 "Permissioning Error" = "Permissioning Error";
+"Permissions..." = "Permissions...";
+"Please open Health App and go to “Sources” » “C Tracker”" = "Please open Health App and go to “Sources” » “C Tracker”";
 "Privacy Policy" = "Privacy Policy";
 "Problem with QR Code" = "Problem with QR Code";
 "Recent Activity" = "Recent Activity";
@@ -70,9 +73,9 @@
 "SMS" = "SMS";
 "Software Licenses" = "Software Licenses";
 "Spread the Word" = "Spread the Word";
-"Steps taken per day" = "Steps taken per day";
 "Step count not available" = "Step count not available";
 "Survey" = "Survey";
+"Steps taken per day" = "Steps taken per day";
 "There's still some time until {{due_date}}" = "There's still some time until {{due_date}}";
 "This will unset your medical data for the study. You can later re-enter this data manually." = "This will unset your medical data for the study. You can later re-enter this data manually.";
 "To get started, please create a passcode first, then allow the app to access some of the features of your phone" = "To get started, please set a passcode first, then allow the app to access some of the features of your phone\n\nAfterwards, tap “Done”";

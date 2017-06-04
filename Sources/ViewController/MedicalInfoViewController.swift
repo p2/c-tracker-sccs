@@ -22,20 +22,26 @@ class MedicalInfoViewController : UITableViewController {
 	
 	var profileManager: SCCSProfileManager! {
 		didSet {
-			user = AppUser()
-			if let managedUser = profileManager?.user {
-				user?.updateMedicalData(from: managedUser)
-			}
+			overwriteLocalUserFromManager()
 		}
 	}
 	
 	private var user: AppUser?
+	
+	func overwriteLocalUserFromManager() {
+		user = AppUser()
+		if let managedUser = profileManager?.user {
+			user?.updateMedicalData(from: managedUser)
+		}
+	}
 	
 	/// Which row is a detail view showing details for the previous row?
 	var detailShowingAtRow: Int?
 	
 	var inputShowingAtRow: Int?
 	var inputFieldShowing: UITextField?
+	
+	var heightOrWeightChanged = false
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -48,6 +54,9 @@ class MedicalInfoViewController : UITableViewController {
 		storeInputFieldDataIfPresent()
 		if let user = user {
 			try? profileManager.persistMedicalData(from: user)
+			if heightOrWeightChanged {
+				try? profileManager.storeMedicalDataToHealthKit()
+			}
 		}
 	}
 	
@@ -57,6 +66,52 @@ class MedicalInfoViewController : UITableViewController {
 	func birthdayDidChange(_ picker: UIDatePicker) {
 		user?.birthDate = picker.date
 		tableView?.reloadRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+	}
+	
+	@IBAction
+	func loadFromHealthApp(_ sender: AnyObject?) {
+		if let button = sender as? UIButton {
+			button.isEnabled = false
+		}
+		profileManager.updateMedicalDataFromHealthKit(supplementedBy: user) { user in
+			if let button = sender as? UIButton {
+				button.isEnabled = true
+			}
+			if let _ = user {
+				self.overwriteLocalUserFromManager()
+				self.tableView.reloadData()
+			}
+			else {
+				let alert = UIAlertController(title: "Error".sccs_loc, message: "It seems you have not given permission to C Tracker to read from Health".sccs_loc, preferredStyle: .alert)
+				alert.addAction(UIAlertAction(title: "OK".sccs_loc, style: .cancel, handler: nil))
+				alert.addAction(UIAlertAction(title: "Permissions...".sccs_loc, style: .default) { action in
+					self.askForPermission() { shallRetry, error in
+						if let error = error {
+							self.show(error: error)
+						}
+						else if shallRetry {
+							self.loadFromHealthApp(nil)
+						}
+					}
+				})
+				self.present(alert, animated: true)
+			}
+		}
+	}
+	
+	func askForPermission(callback: @escaping (Bool, Error?) -> ()) {
+		let genderType = HKObjectType.characteristicType(forIdentifier: HKCharacteristicTypeIdentifier.biologicalSex)!
+		if .notDetermined == profileManager.healthStore.authorizationStatus(for: genderType) {
+			profileManager.permissioner.requestPermission(for: .healthKit(profileManager.healthKitTypes)) { error in
+				callback(true, error)
+			}
+		}
+		else if !UIApplication.shared.openURL(URL(string: "x-apple-health://")!) {
+			callback(false, AppError.generic("Please open Health App and go to “Sources” » “C Tracker”".sccs_loc))
+		}
+		else {
+			callback(false, nil)
+		}
 	}
 	
 	func askToDiscard() {
@@ -146,10 +201,14 @@ class MedicalInfoViewController : UITableViewController {
 				let quant = HKQuantity(unit: weightInputUnit(), doubleValue: (weight as NSString).doubleValue)
 				let kilo = quant.doubleValue(for: HKUnit.gramUnit(with: .kilo))
 				user?.bodyweight = (kilo >= 3.0 && kilo < 800.0) ? quant : nil
+				if nil != user?.bodyweight {
+					heightOrWeightChanged = true
+				}
 			}
 			else {
 				user?.bodyweight = nil
 			}
+			field.resignFirstResponder()
 			inputFieldShowing = nil
 		}
 	}
@@ -269,6 +328,7 @@ class MedicalInfoViewController : UITableViewController {
 			if let picker = cell.picker as? HeightPicker {
 				picker.bodyheight = user?.bodyheight
 				picker.onValueChange = { [weak self] picker in
+					self?.heightOrWeightChanged = true
 					self?.user?.bodyheight = picker.bodyheight
 					self?.tableView?.reloadRows(at: [IndexPath(row: row, section: 0)], with: .automatic)
 				}

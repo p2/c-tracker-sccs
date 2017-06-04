@@ -29,7 +29,7 @@
 "Error" = "Fehler";
 "Facebook" = "Facebook";
 "Failed to Enroll" = "Anmeldung ist Fehlgeschlagen";
-"Flights climbed" = "Stockwerke";
+"Flights climbed per day" = "Stockwerke pro Tag";
 "Gender" = "Geschlecht";
 "Gender, birthday, height, weight" = "Geschlecht, Geburtstag, Grösse, Gewicht";
 "Height" = "Grösse";
@@ -70,7 +70,7 @@
 "SMS" = "SMS";
 "Software Licenses" = "Software-Lizenzen";
 "Spread the Word" = "Spread the Word!";
-"Steps taken" = "Schritte";
+"Steps taken per day" = "Schritte pro Tag";
 "Step count not available" = "Schrittdaten nicht verfügbar";
 "Survey" = "Fragebogen";
 "There's still some time until {{due_date}}" = "Bis zum {{due_date}} bleibt noch ein wenig Zeit";

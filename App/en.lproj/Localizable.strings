@@ -29,7 +29,7 @@
 "Error" = "Error";
 "Facebook" = "Facebook";
 "Failed to Enroll" = "Failed to Enroll";
-"Flights climbed" = "Flights climbed";
+"Flights climbed per day" = "Flights climbed per day";
 "Gender" = "Gender";
 "Gender, birthday, height, weight" = "Gender, birthday, height, weight";
 "Height" = "Height";
@@ -70,7 +70,7 @@
 "SMS" = "SMS";
 "Software Licenses" = "Software Licenses";
 "Spread the Word" = "Spread the Word";
-"Steps taken" = "Steps taken";
+"Steps taken per day" = "Steps taken per day";
 "Step count not available" = "Step count not available";
 "Survey" = "Survey";
 "There's still some time until {{due_date}}" = "There's still some time until {{due_date}}";

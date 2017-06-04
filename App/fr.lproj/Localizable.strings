@@ -29,7 +29,7 @@
 "Error" = "Erreur";
 "Facebook" = "Facebook";
 "Failed to Enroll" = "Ne Pas Enrôle";
-"Flights climbed" = "Étages monté";
+"Flights climbed per day" = "Étages monté par jour";
 "Gender" = "Sexe";
 "Gender, birthday, height, weight" = "Sexe, anniv., taille, poids";
 "Height" = "Taille";
@@ -70,7 +70,7 @@
 "SMS" = "SMS";
 "Software Licenses" = "Licences de Logiciels";
 "Spread the Word" = "Diffusez la Parole";
-"Steps taken" = "Nombre de pas";
+"Steps taken per day" = "Nombre de pas par jour";
 "Step count not available" = "Nombre de pas non disponible";
 "Survey" = "Questionnaire";
 "There's still some time until {{due_date}}" = "Il reste du temps jusqu'à {{due_date}}";

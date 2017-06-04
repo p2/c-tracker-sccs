@@ -423,19 +423,19 @@
                                     <outlet property="progress" destination="0p5-wk-QLN" id="mza-AO-cW3"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3ActivityCell" rowHeight="224" id="Z7C-sr-THf" customClass="DashboardActivityTableViewCell" customModule="C_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="131.5" width="375" height="224"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3ActivityCell" rowHeight="175" id="Z7C-sr-THf" customClass="DashboardActivityTableViewCell" customModule="C_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="131.5" width="375" height="175"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Z7C-sr-THf" id="V2p-A8-ecY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="223.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="174.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pun-f7-TvE" customClass="ORKPieChartView">
-                                            <rect key="frame" x="8" y="8" width="179.5" height="207"/>
+                                            <rect key="frame" x="8" y="8" width="179.5" height="158.5"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QY1-PQ-jhF">
-                                            <rect key="frame" x="187.5" y="8" width="179.5" height="207"/>
+                                            <rect key="frame" x="187.5" y="8" width="179.5" height="158.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIl-7N-0nj">
                                                     <rect key="frame" x="0.0" y="0.0" width="179.5" height="21"/>
@@ -474,19 +474,19 @@
                                     <outlet property="pie" destination="Pun-f7-TvE" id="Zsy-i9-uLi"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3GraphCell" rowHeight="224" id="cM4-1a-esN" customClass="DashboardGraphTableViewCell" customModule="C_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="355.5" width="375" height="224"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3GraphCell" rowHeight="140" id="cM4-1a-esN" customClass="DashboardGraphTableViewCell" customModule="C_Tracker" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="306.5" width="375" height="140"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cM4-1a-esN" id="rGL-WH-3gY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="223.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="139.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mOl-Nu-ABH" userLabel="Graph" customClass="ORKLineGraphChartView">
-                                            <rect key="frame" x="8" y="8" width="359" height="207"/>
+                                            <rect key="frame" x="8" y="20" width="359" height="111.5"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="FE8-fd-qqh">
-                                            <rect key="frame" x="18" y="7.5" width="339" height="17"/>
+                                            <rect key="frame" x="16" y="7.5" width="343" height="17"/>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -495,11 +495,11 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="mOl-Nu-ABH" secondAttribute="bottom" id="46f-tz-88t"/>
-                                        <constraint firstItem="mOl-Nu-ABH" firstAttribute="top" secondItem="rGL-WH-3gY" secondAttribute="topMargin" id="AXb-S5-mtB"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="FE8-fd-qqh" secondAttribute="trailing" constant="10" id="RC8-wm-ae8"/>
+                                        <constraint firstItem="mOl-Nu-ABH" firstAttribute="top" secondItem="rGL-WH-3gY" secondAttribute="topMargin" constant="12" id="AXb-S5-mtB"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="FE8-fd-qqh" secondAttribute="trailing" constant="8" id="RC8-wm-ae8"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="mOl-Nu-ABH" secondAttribute="trailing" id="Vyx-06-SOB"/>
                                         <constraint firstItem="FE8-fd-qqh" firstAttribute="top" secondItem="rGL-WH-3gY" secondAttribute="topMargin" id="aLP-oU-bkj"/>
-                                        <constraint firstItem="FE8-fd-qqh" firstAttribute="leading" secondItem="rGL-WH-3gY" secondAttribute="leadingMargin" constant="10" id="bTr-R7-Sk2"/>
+                                        <constraint firstItem="FE8-fd-qqh" firstAttribute="leading" secondItem="rGL-WH-3gY" secondAttribute="leadingMargin" constant="8" id="bTr-R7-Sk2"/>
                                         <constraint firstItem="mOl-Nu-ABH" firstAttribute="leading" secondItem="rGL-WH-3gY" secondAttribute="leadingMargin" id="xfp-8q-DDm"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -509,7 +509,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3DailyActivityCell" id="5jS-Wc-GBF" customClass="DashboardDailyActivityTableViewCell" customModule="C_Tracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="579.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="446.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5jS-Wc-GBF" id="mpu-Dl-HPK">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -551,7 +551,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="C3TextCell" id="Vl7-BK-Ryc">
-                                <rect key="frame" x="0.0" y="623.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="490.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Vl7-BK-Ryc" id="ef5-qW-Kwi">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>

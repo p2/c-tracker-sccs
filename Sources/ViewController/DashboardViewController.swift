@@ -292,9 +292,8 @@ class DashboardViewController: UITableViewController {
 		refreshingHealthData = true
 		c3_logIfDebug("Refreshing health data")
 		
-		// 1: recent steps
-		let start = Date(timeIntervalSinceNow: Double(kDashboardTodayActivityNumDays * 24 * -3600))
-		healthReporter.reportForActivityPeriod(startingAt: start, until: Date()) { period, error in
+		// 1: progressive health report
+		healthReporter.progressivelyCollatedActivityData() { report, error in
 			self.refreshingHealthData = false
 			if let error = error {
 				if isRetry {
@@ -313,21 +312,24 @@ class DashboardViewController: UITableViewController {
 				}
 				return
 			}
-			self.recentHealthReport = (nil == period) ? nil : ActivityReport(periods: [period!])
-			c3_logIfDebug("Health data refreshed (recent)")
+			else {
+				self.healthReport = report
+				c3_logIfDebug("Health data refreshed (progressive)")
+			}
 			
-			// 2: progressive health report
+			/*/ 2: recent steps
+			let start = Date(timeIntervalSinceNow: Double(kDashboardTodayActivityNumDays * 24 * -3600))
 			self.refreshingHealthData = true
-			self.healthReporter.progressivelyCollatedActivityData() { report, error in
+			self.healthReporter.reportForActivityPeriod(startingAt: start, until: Date()) { period, error in
 				self.refreshingHealthData = false
 				if let error = error {
 					c3_logIfDebug("Cannot refresh recent health data: \(error)")
 				}
 				else {
-					self.healthReport = report
-					c3_logIfDebug("Health data refreshed (progressive)")
+					self.recentHealthReport = (nil == period) ? nil : ActivityReport(periods: [period!])
+					c3_logIfDebug("Health data refreshed (recent)")
 				}
-			}
+			}	*/
 		}
 	}
 	
@@ -354,11 +356,12 @@ class DashboardViewController: UITableViewController {
 		refreshingMotion = true
 		c3_logIfDebug("Refreshing motion data")
 		
-		// start collecting X hours ago
+		// 1: today report
 		let now = Date()
 		let today = Date(timeIntervalSinceNow: Double(kDashboardTodayActivityNumDays * 24 * -3600))
 		
 		motionReporter.reportForActivityPeriod(startingAt: today, until: now) { period, error in
+			self.refreshingMotion = false
 			if let period = period {
 				self.todayReport = ActivityReport(periods: [period])
 				c3_logIfDebug("Today data refreshed")
@@ -367,11 +370,13 @@ class DashboardViewController: UITableViewController {
 				c3_logIfDebug("No today data")
 			}
 			
+			/*/ 2: progressive history
+			self.refreshingMotion = true
 			motionReporter.progressivelyCollatedActivityData() { report, error in
 				self.refreshingMotion = false
 				self.motionReport = report
 				c3_logIfDebug("Motion data refreshed")
-			}
+			}	*/
 		}
 	}
 	
@@ -380,7 +385,7 @@ class DashboardViewController: UITableViewController {
 	}
 	
 	func redrawRecentHealthReport() {
-		tableView.reloadRows(at: [IndexPath(row: 1, section: 1)], with: .none)
+		tableView.reloadRows(at: [], with: .none)
 	}
 	
 	func redrawMotionReport() {
@@ -388,7 +393,7 @@ class DashboardViewController: UITableViewController {
 	}
 	
 	func redrawHealthReport() {
-		tableView.reloadRows(at: [IndexPath(row: 2, section: 1), IndexPath(row: 3, section: 1)], with: .none)
+		tableView.reloadRows(at: [IndexPath(row: 1, section: 1), IndexPath(row: 2, section: 1)], with: .none)
 	}
 	
 	
@@ -412,7 +417,7 @@ class DashboardViewController: UITableViewController {
 			return max(tasksOutstanding.count, 1)
 		}
 		if 1 == section {
-			return 4
+			return 3
 		}
 		return tasksDone.count
 	}
@@ -445,26 +450,26 @@ class DashboardViewController: UITableViewController {
 			}
 			
 			// graphs
-			if 2 == indexPath.row {
+			if 1 == indexPath.row {
 				let cell = tableView.dequeueReusableCell(withIdentifier: "C3GraphCell", for: indexPath) as! DashboardGraphTableViewCell
 				stepGraphSource = HealthGraphDataSource(report: healthReport)
 				stepGraphSource?.wantedPlotIndex = 0
 				cell.graph?.dataSource = stepGraphSource
 				cell.graph?.noDataText = "No step data".sccs_loc
-				cell.label?.text = "Steps taken".sccs_loc
+				cell.label?.text = "Steps taken per day".sccs_loc
 				return cell
 			}
-			if 3 == indexPath.row {
+			if 2 == indexPath.row {
 				let cell = tableView.dequeueReusableCell(withIdentifier: "C3GraphCell", for: indexPath) as! DashboardGraphTableViewCell
 				flightGraphSource = HealthGraphDataSource(report: healthReport)
 				flightGraphSource?.wantedPlotIndex = 1
 				cell.graph?.dataSource = flightGraphSource
 				cell.graph?.noDataText = "No stair data".sccs_loc
-				cell.label?.text = "Flights climbed".sccs_loc
+				cell.label?.text = "Flights climbed per day".sccs_loc
 				return cell
 			}
 			
-			// steps and flights
+			// steps and flights - DISABLED FOR NOW
 			let cell = tableView.dequeueReusableCell(withIdentifier: "C3TextCell", for: indexPath) 
 			if let stepstr = localizedStringForStepCount {
 				cell.textLabel?.textColor = UIColor.black
@@ -523,8 +528,8 @@ class DashboardViewController: UITableViewController {
 			if 0 == indexPath.row {
 				return min(200.0, max(150.0, tableView.bounds.size.width / 2.5))
 			}
-			if indexPath.row > 1 {
-				return min(150.0, max(110.0, tableView.bounds.size.width / 3.4))
+			if indexPath.row > 0 {
+				return min(160.0, max(120.0, tableView.bounds.size.width / 3.1))
 			}
 			return UITableViewAutomaticDimension
 		}

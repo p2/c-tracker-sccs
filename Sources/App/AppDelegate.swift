@@ -63,10 +63,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			taskHandler.motionReporterStore = motionReporterStore
 			manager.taskHandler = taskHandler
 			
-			// sign up for task notifications
-			let center = NotificationCenter.default
-			center.addObserver(self, selector: #selector(AppDelegate.userDidReceiveTask(_:)), name: UserDidReceiveTaskNotification, object: nil)
-			
 			NSLog("\n\nAPP STARTED.\n\tC3-PRO is using FHIR v\(C3PROFHIRVersion).\n\tProfile manager is storing locally to\n«\(dir.path)»\n\tand sending data to\n«\(srv.baseURL.description)»\n\n")
 		}
 		catch let error {
@@ -77,16 +73,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		application.setMinimumBackgroundFetchInterval(UIApplicationBackgroundFetchIntervalMinimum)
 		
 		return true
-	}
-	
-	func userDidReceiveTask(_ notification: Notification) {
-		// TODO: needed??
-		profileManager.prepareDueTasks()
-		NotificationManager.shared.ensureProperNotificationSettings()
-		if let manager = profileManager {
-			UserNotificationManager.shared.synchronizeNotifications(with: manager)
-		}
-		rootViewController.updateBadges()
 	}
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

@@ -12,7 +12,7 @@ import HealthKit
 import SMART
 
 
-public class SCCSProfileManager: ProfileManager {
+public class SCCSProfileManager: ProfileManager, EncryptedDataQueueDelegate {
 	
 	/** Overridden to synchronize user notifications. */
 	override open func setupSchedule() throws {
@@ -31,6 +31,23 @@ public class SCCSProfileManager: ProfileManager {
 		user.name = name
 		take(user: user)
 		try persister?.persist(user: user)
+	}
+	
+	
+	// MARK: - EncryptedDataQueueDelegate
+	
+	public func encryptedDataQueue(_ queue: EncryptedDataQueue, wantsEncryptionForResource resource: Resource, requestMethod: FHIRRequestMethod) -> Bool {
+		if .POST == requestMethod {
+			if "Patient" == type(of: resource).resourceType {
+				return false
+			}
+			return true
+		}
+		return false
+	}
+	
+	public func keyIdentifierForEncryptedDataQueue(_ queue: EncryptedDataQueue) -> String? {
+		return cEncDataQueueKey
 	}
 	
 	

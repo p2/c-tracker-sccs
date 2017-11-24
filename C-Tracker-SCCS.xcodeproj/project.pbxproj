@@ -29,7 +29,6 @@
 		EE252D081DED81A3008F5E3E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252D071DED81A3008F5E3E /* AppError.swift */; };
 		EE252D0A1DED87BC008F5E3E /* ProfileSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = EE252D091DED87BC008F5E3E /* ProfileSettings.json */; };
 		EE36D8131E8149BD008FE8BD /* UserNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE36D8121E8149BD008FE8BD /* UserNotificationManager.swift */; };
-		EE429DB71E65791000BC6F67 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE429DB61E65791000BC6F67 /* CryptoSwift.framework */; };
 		EE492CE61E2E7CC60043D531 /* EstablishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE492CE51E2E7CC60043D531 /* EstablishViewController.swift */; };
 		EE4BB8BF1E813FDA008A6302 /* SCCSProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4BB8BE1E813FDA008A6302 /* SCCSProfileManager.swift */; };
 		EE5074C31DE892B300A0C73F /* UIViewController+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5074C21DE892B300A0C73F /* UIViewController+Utilities.swift */; };
@@ -52,6 +51,8 @@
 		EE957D581E044156004FADB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE957D5A1E044156004FADB4 /* InfoPlist.strings */; };
 		EE98525D1E3A1C5000A88D72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE98525B1E3A1C5000A88D72 /* Localizable.strings */; };
 		EE98D2A51E0160EC001BC845 /* ProfileSettingsDebug.json in Resources */ = {isa = PBXBuildFile; fileRef = EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */; };
+		EEA9E4621FC7344A00BF1D15 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA9E44E1FC7342200BF1D15 /* CryptoSwift.framework */; };
+		EEA9E4641FC7782E00BF1D15 /* data-queue-certificate.crt in Resources */ = {isa = PBXBuildFile; fileRef = EEA9E4631FC7782E00BF1D15 /* data-queue-certificate.crt */; };
 		EEAEA1361E78497000C29EC3 /* LicenseAgreement.html in Resources */ = {isa = PBXBuildFile; fileRef = EEAEA1341E78497000C29EC3 /* LicenseAgreement.html */; };
 		EEB82F1D1E65E7360084E030 /* AboutTheStudy.html in Resources */ = {isa = PBXBuildFile; fileRef = EEB82F191E65E7360084E030 /* AboutTheStudy.html */; };
 		EEB82F1E1E65E7360084E030 /* WhoCanParticipate.html in Resources */ = {isa = PBXBuildFile; fileRef = EEB82F1B1E65E7360084E030 /* WhoCanParticipate.html */; };
@@ -282,6 +283,27 @@
 			remoteGlobalIDString = B183A4731A8535D100C76870;
 			remoteInfo = ResearchKit;
 		};
+		EEA9E44D1FC7342200BF1D15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEA9E4471FC7342200BF1D15 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE45519693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
+		EEA9E44F1FC7342200BF1D15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEA9E4471FC7342200BF1D15 /* CryptoSwift.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 754BE46019693E190098E6F3;
+			remoteInfo = Tests;
+		};
+		EEA9E4601FC7342C00BF1D15 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EEA9E4471FC7342200BF1D15 /* CryptoSwift.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 754BE45419693E190098E6F3;
+			remoteInfo = CryptoSwift;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -360,6 +382,8 @@
 		EE98525E1E3A1C5600A88D72 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE98525F1E3A1C5900A88D72 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfileSettingsDebug.json; sourceTree = SOURCE_ROOT; };
+		EEA9E4471FC7342200BF1D15 /* CryptoSwift.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CryptoSwift.xcodeproj; path = "c3-pro-ios-framework/CryptoSwift/CryptoSwift.xcodeproj"; sourceTree = "<group>"; };
+		EEA9E4631FC7782E00BF1D15 /* data-queue-certificate.crt */ = {isa = PBXFileReference; lastKnownFileType = file; path = "data-queue-certificate.crt"; sourceTree = SOURCE_ROOT; };
 		EEAEA1351E78497000C29EC3 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = de; path = App/de.lproj/LicenseAgreement.html; sourceTree = "<group>"; };
 		EEAEA1471E78497800C29EC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = en; path = App/en.lproj/LicenseAgreement.html; sourceTree = "<group>"; };
 		EEAEA1481E78497A00C29EC3 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = App/fr.lproj/LicenseAgreement.html; sourceTree = "<group>"; };
@@ -423,7 +447,7 @@
 				EE0F35221E02FCA7003AA556 /* HealthKit.framework in Frameworks */,
 				EE86F4AF1E00029B00922994 /* ResearchKit.framework in Frameworks */,
 				EE86F4AB1E00029B00922994 /* SQLite.framework in Frameworks */,
-				EE429DB71E65791000BC6F67 /* CryptoSwift.framework in Frameworks */,
+				EEA9E4621FC7344A00BF1D15 /* CryptoSwift.framework in Frameworks */,
 				EEB82F291E66C3CE0084E030 /* Smooch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,6 +468,7 @@
 		EE14E7921DD0CAAA009F8736 = {
 			isa = PBXGroup;
 			children = (
+				EEFC6B351DF5CD4700D03A84 /* README.md */,
 				EE14E7B31DD0CBBE009F8736 /* Sources */,
 				EEB82F181E6589180084E030 /* UI */,
 				EE14E79D1DD0CAAA009F8736 /* Assets */,
@@ -452,6 +477,7 @@
 				EE14E7CD1DD18921009F8736 /* Frameworks */,
 				EE14E79C1DD0CAAA009F8736 /* Products */,
 				EE86F4241E0001AD00922994 /* C3PRO.xcodeproj */,
+				EEA9E4471FC7342200BF1D15 /* CryptoSwift.xcodeproj */,
 				EE86F42D1E0001B500922994 /* SwiftSMART.xcodeproj */,
 				EE86F43C1E0001BC00922994 /* SQLite.xcodeproj */,
 				EE34C7311ECA0399005728C7 /* JWT.xcodeproj */,
@@ -470,7 +496,6 @@
 		EE14E79D1DD0CAAA009F8736 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				EEFC6B351DF5CD4700D03A84 /* README.md */,
 				EE14E7AC1DD0CAAA009F8736 /* Info.plist */,
 				EE957D5A1E044156004FADB4 /* InfoPlist.strings */,
 				EE98525B1E3A1C5000A88D72 /* Localizable.strings */,
@@ -489,6 +514,7 @@
 				EEECC2231DECDF2C005645B8 /* Configuration_Release.swift */,
 				EE252D091DED87BC008F5E3E /* ProfileSettings.json */,
 				EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */,
+				EEA9E4631FC7782E00BF1D15 /* data-queue-certificate.crt */,
 				EEECC2281DECE0AB005645B8 /* preflight.sh */,
 				EEECC22A1DECE108005645B8 /* postflight.sh */,
 				EE14E7B41DD0CBBE009F8736 /* App */,
@@ -632,6 +658,15 @@
 			path = Scan;
 			sourceTree = "<group>";
 		};
+		EEA9E4481FC7342200BF1D15 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EEA9E44E1FC7342200BF1D15 /* CryptoSwift.framework */,
+				EEA9E4501FC7342200BF1D15 /* Tests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		EEB82F181E6589180084E030 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -674,6 +709,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				EEA9E4611FC7342C00BF1D15 /* PBXTargetDependency */,
 				EE6F77061EDCF7B70016F8F2 /* PBXTargetDependency */,
 				EE86F48F1E00024200922994 /* PBXTargetDependency */,
 				EE86F4931E00024200922994 /* PBXTargetDependency */,
@@ -696,7 +732,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = SCCS;
 				TargetAttributes = {
 					EE14E79A1DD0CAAA009F8736 = {
@@ -733,6 +769,10 @@
 				{
 					ProductGroup = EE86F4251E0001AD00922994 /* Products */;
 					ProjectRef = EE86F4241E0001AD00922994 /* C3PRO.xcodeproj */;
+				},
+				{
+					ProductGroup = EEA9E4481FC7342200BF1D15 /* Products */;
+					ProjectRef = EEA9E4471FC7342200BF1D15 /* CryptoSwift.xcodeproj */;
 				},
 				{
 					ProductGroup = EE34C7321ECA0399005728C7 /* Products */;
@@ -899,6 +939,20 @@
 			remoteRef = EE86F45C1E0001C800922994 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		EEA9E44E1FC7342200BF1D15 /* CryptoSwift.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CryptoSwift.framework;
+			remoteRef = EEA9E44D1FC7342200BF1D15 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		EEA9E4501FC7342200BF1D15 /* Tests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.xctest;
+			remoteRef = EEA9E44F1FC7342200BF1D15 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -920,6 +974,7 @@
 				EEAEA1361E78497000C29EC3 /* LicenseAgreement.html in Resources */,
 				EEFC6B331DF5CCB900D03A84 /* c-tracker.survey-in-app.withdrawal.json in Resources */,
 				EEB833641E685E890084E030 /* Hepatitis-Flyer-2016.pdf in Resources */,
+				EEA9E4641FC7782E00BF1D15 /* data-queue-certificate.crt in Resources */,
 				EEB8338B1E6898FC0084E030 /* HowItWorks.html in Resources */,
 				EE14E7A81DD0CAAA009F8736 /* Assets.xcassets in Resources */,
 				EEB82F1D1E65E7360084E030 /* AboutTheStudy.html in Resources */,
@@ -943,7 +998,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Smooch.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
 			);
 			name = "Run Script [carthage copy-frameworks]";
 			outputPaths = (
@@ -1081,6 +1135,11 @@
 			isa = PBXTargetDependency;
 			name = ResearchKit;
 			targetProxy = EE86F4B11E00029B00922994 /* PBXContainerItemProxy */;
+		};
+		EEA9E4611FC7342C00BF1D15 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CryptoSwift;
+			targetProxy = EEA9E4601FC7342C00BF1D15 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1270,7 +1329,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1278,7 +1339,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -1321,7 +1386,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -1329,7 +1396,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
@@ -1371,8 +1442,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-licucore";
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
-				"OTHER_SWIFT_FLAGS[sdk=iphoneos*]" = "-DDEBUG";
-				"OTHER_SWIFT_FLAGS[sdk=iphonesimulator*]" = "-DON_SIMULATOR -DDEBUG";
+				"OTHER_SWIFT_FLAGS[sdk=iphoneos*]" = "-DDEBUG -DENABLE_OAUTH_DEBUG";
+				"OTHER_SWIFT_FLAGS[sdk=iphonesimulator*]" = "-DON_SIMULATOR -DDEBUG -DENABLE_OAUTH_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.usz.c-tracker";
 				PRODUCT_NAME = "C Tracker";
 				SWIFT_VERSION = 3.0;
@@ -1394,6 +1465,7 @@
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-licucore";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "-DENABLE_OAUTH_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.usz.c-tracker";
 				PRODUCT_NAME = "C Tracker";
 				SWIFT_VERSION = 3.0;

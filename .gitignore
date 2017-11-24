@@ -1,4 +1,5 @@
 Configuration_*.swift
+data-queue-certificate_*.crt
 
 .DS_Store
 

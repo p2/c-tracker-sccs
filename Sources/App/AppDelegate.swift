@@ -8,6 +8,7 @@
 
 import UIKit
 import C3PRO
+import SMART
 
 
 @UIApplicationMain
@@ -43,9 +44,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				"registration_uri": regEndpoint.absoluteString,
 				"authorize_uri": dataRoot.appendingPathComponent("oauth").absoluteString,
 				"authorize_type": "client_credentials",
-			//	"verbose": true,
 			]
-			let srv = EncryptedDataQueue(baseURL: dataEndpoint, auth: authConfig, encBaseURL: encDataEndpoint, publicCertificateFile: "")
+			let srv = EncryptedDataQueue(baseURL: dataEndpoint, auth: authConfig, encBaseURL: encDataEndpoint, publicCertificateFile: "data-queue-certificate")
+			srv.onBeforeDynamicClientRegistration = { url in
+				let dynreg = OAuth2DynRegAppStore()
+				if let antispam = cServerAntispamToken {
+					dynreg.extraHeaders = ["Antispam": antispam]
+				}
+				return dynreg
+			}
+			#if DEBUG
+				srv.logger = OAuth2DebugLogger(.debug)
+			#endif
 			
 			// create profile manager
 			let persister = try ProfilePersisterToFile(dir: dir)
@@ -57,6 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			let manager = try SCCSProfileManager(userType: AppUser.self, taskType: AppUserTask.self, settingsURL: settings, dataServer: srv, persister: persister)
 			rootViewController?.profileManager = manager
 			profileManager = manager
+			srv.delegate = manager
 			
 			// task handler
 			let taskHandler = UserActivityTaskHandler(manager: manager)
@@ -110,7 +121,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			if let dataQueue = self?.profileManager.dataServer as? EncryptedDataQueue {
 				dataQueue.flush() { error in
 					if let error = error {
-						app_logIfDebug("Failed to flush data queue: \(error)")
+						app_logIfDebug("Failed to flush data queue on app did become active: \(error)")
 					}
 				}
 			}

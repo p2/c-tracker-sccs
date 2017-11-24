@@ -14,8 +14,8 @@ mv "$ORIG_CONFIG" "$ORIG_CONFIG.bkup"
 cp "$FILE_CONFIG" "$ORIG_CONFIG"
 
 # Certificate (optional)
-FILE_CERT=./public-ctracker_${CONFIG}.crt
-ORIG_CERT=./public-ctracker.crt
+FILE_CERT=./data-queue-certificate_${CONFIG}.crt
+ORIG_CERT=./data-queue-certificate.crt
 
 if [[ -e "$FILE_CERT" ]]; then
 	echo "Using certificate file at "$FILE_CERT

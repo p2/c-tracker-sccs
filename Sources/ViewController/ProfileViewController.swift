@@ -46,7 +46,7 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		navigationItem.rightBarButtonItem = editButtonItem
+//		navigationItem.rightBarButtonItem = editButtonItem		// activate to let users change their displayed name
 		
 		// image as title view
 		let img = UIImage(named: "yourprofile")
@@ -65,6 +65,10 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 		let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "~"
 		let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "?"
 		footTxt.text = "Version \(version) (\(build))"
+		
+		let footTaps = UITapGestureRecognizer(target: self, action: #selector(self.showClientDebugVCAnimated(_:)))
+		footTaps.numberOfTapsRequired = 4
+		foot.addGestureRecognizer(footTaps)
 		
 		foot.addSubview(footTxt)
 		foot.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "|-[lbl]-|", options: [], metrics: nil, views: ["lbl": footTxt]))
@@ -251,7 +255,7 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if 2 == section {
-		#if DEBUG
+		#if ENABLE_OAUTH_DEBUG
 			return 4
 		#else
 			return 3
@@ -307,8 +311,10 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 				cell.textLabel?.text = "Verify App Permissions".sccs_loc
 			}
 			else if 3 == indexPath.row {
-				cell.textLabel?.text = "App Credentials".sccs_loc
+				#if ENABLE_OAUTH_DEBUG
+				cell.textLabel?.text = "OAuth2 Debug"
 				cell.accessoryType = .disclosureIndicator
+				#endif
 			}
 			return cell
 		}
@@ -348,7 +354,9 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 				showPermissionsVC()
 			}
 			else if 3 == indexPath.row {
+				#if ENABLE_OAUTH_DEBUG
 				showClientDebugVC()
+				#endif
 			}
 			tableView.deselectRow(at: indexPath, animated: true)
 		}
@@ -429,12 +437,16 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 		present(navi, animated: animated, completion: nil)
 	}
 	
+	func showClientDebugVCAnimated(_ sender: Any) {
+		showClientDebugVC(true)
+	}
+	
 	func showClientDebugVC(_ animated: Bool = true) {
-		#if DEBUG
 		let debug = ClientDebugViewController()
-//		debug.smart = profileManager.dataServer
+		if let server = profileManager.dataServer {
+			debug.smart = Client(server: server)
+		}
 		navigationController?.pushViewController(debug, animated: animated)
-		#endif
 	}
 	
 	func showPrivacyPolicyVC(_ animated: Bool = true) {

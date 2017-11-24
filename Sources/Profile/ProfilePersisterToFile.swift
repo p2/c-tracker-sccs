@@ -128,22 +128,22 @@ public class ProfilePersisterToFile: ProfilePersister {
 	*/
 	class func userFromJSON(_ json: [String: Any], of type: User.Type) -> User {
 		var user = type.init()
-		if let userId = json["id"] as? String, userId.characters.count > 0 {
+		if let userId = json["id"] as? String, userId.count > 0 {
 			user.userId = userId
 		}
-		if let name = json["name"] as? String, name.characters.count > 0 {
+		if let name = json["name"] as? String, name.count > 0 {
 			user.name = name
 		}
-		if let bday = json["birthday"] as? String, bday.characters.count > 0 {
+		if let bday = json["birthday"] as? String, bday.count > 0 {
 			user.birthDate = FHIRDate(string: bday)?.nsDate
 		}
-		if let enrolled = json["enrolled"] as? String, enrolled.characters.count > 0 {
+		if let enrolled = json["enrolled"] as? String, enrolled.count > 0 {
 			user.enrollmentDate = FHIRDate(string: enrolled)?.nsDate
 		}
-		if let linked = json["linked"] as? String, linked.characters.count > 0 {
+		if let linked = json["linked"] as? String, linked.count > 0 {
 			user.linkedDate = FHIRDate(string: linked)?.nsDate
 		}
-		if let linked = json["linked_at"] as? String, linked.characters.count > 0 {
+		if let linked = json["linked_at"] as? String, linked.count > 0 {
 			user.linkedAgainst = URL(string: linked)
 		}
 		if let genderInt = json["gender"] as? Int, let gender = HKBiologicalSex(rawValue: genderInt) {

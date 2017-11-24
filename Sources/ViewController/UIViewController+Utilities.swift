@@ -31,10 +31,11 @@ extension UIViewController {
 	*/
 	@IBAction func showHelp(_ sender: AnyObject?) {
 		if let token = cSmoochToken {
-			let settings = SKTSettings(appToken: token)
+			let settings = SKTSettings(appId: token)
 			settings.conversationStatusBarStyle = .lightContent
-			Smooch.initWith(settings)
-			Smooch.show()
+			Smooch.initWith(settings) { (error: Error?, userInfo: [AnyHashable : Any]?) in
+				Smooch.show()
+			}
 		}
 		else {
 			show(message: "The app is not set up with a contact point", title: "Cannot Contact")

@@ -5,7 +5,7 @@ if [[ -e "$ORIG_CONFIG.bkup" ]]; then
 	mv "$ORIG_CONFIG.bkup" "$ORIG_CONFIG"
 fi
 
-ORIG_CERT=./public-ctracker.crt
+ORIG_CERT=./data-queue-certificate.crt
 if [[ -e "$ORIG_CERT.bkup" ]]; then
 	mv "$ORIG_CERT.bkup" "$ORIG_CERT"
 fi

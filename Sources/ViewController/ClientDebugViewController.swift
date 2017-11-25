@@ -12,19 +12,13 @@ import SMART
 
 public class ClientDebugViewController: UIViewController {
 	
-	public var smart: Client? {
-		didSet {
-			if nil != smart {
-				smart?.server.logger = OAuth2DebugLogger(.trace)
-			}
-		}
-	}
+	public var smart: Client?
 	
 	@IBOutlet var clientName: UILabel?
 	@IBOutlet var clientId: UILabel?
 	@IBOutlet var clientSecret: UILabel?
 	@IBOutlet var clientAntispam: UILabel?
-	@IBOutlet var status: UILabel?
+	@IBOutlet var status: UITextView?
 	
 	override public func loadView() {
 		super.loadView()
@@ -133,11 +127,14 @@ public class ClientDebugViewController: UIViewController {
 		register.setTitle("Register", for: UIControlState())
 		register.addTarget(self, action: #selector(registerClient), for: .touchUpInside)
 		
-		let status = UILabel()
+		let status = UITextView()
 		status.translatesAutoresizingMaskIntoConstraints = false
-		status.numberOfLines = 0
+		status.isEditable = false
 		status.font = UIFont.preferredFont(forTextStyle: .footnote)
 		status.textColor = UIColor.gray
+		status.isScrollEnabled = false
+		status.textContainerInset = .zero
+		status.textContainer.lineFragmentPadding = 0.0
 		self.status = status
 		
 		content.addSubview(title)
@@ -207,6 +204,7 @@ public class ClientDebugViewController: UIViewController {
 		if let stat = statusText {
 			status?.text = stat
 		}
+		status?.sizeToFit()
 	}
 	
 	
@@ -214,6 +212,7 @@ public class ClientDebugViewController: UIViewController {
 	
 	@IBAction func forgetClient() {
 		status?.text = "Forgetting credentials..."
+		smart?.reset()
 		smart?.forgetClientRegistration()
 		status?.text = "Done"
 		updateView()
@@ -224,19 +223,23 @@ public class ClientDebugViewController: UIViewController {
 			updateView(statusText: "Cannot test, no SMART client")
 			return
 		}
-		status?.text = "Registering..."
+		
+		let originalLogger = smart.server.logger
+		let cachedLogger = CachedLogger(.trace)
+		cachedLogger.onLog = { logger, line in
+			self.updateView(statusText: logger.logString)
+		}
+		smart.server.logger = cachedLogger
+		
+		cachedLogger.debug("C3PRO", msg: "Registering...")
 		smart.server.registerIfNeeded() { json, error in
-			var stat = ""
 			if let error = error {
-				stat = "\(error)"
+				cachedLogger.warn("C3PRO", msg: "\(error)")
 			}
 			if let id = smart.server.authClientCredentials?.id, !id.isEmpty {
-				stat = stat.isEmpty ? "Done" : "\(stat)\n\nStill got client credentials"
+				cachedLogger.debug("C3PRO", msg: "Done")
 			}
-			if let json = json {
-				stat = stat.isEmpty ? "\(json)" : "\(stat)\n\n--- JSON ---\n\n\(json)"
-			}
-			self.updateView(statusText: stat)
+			smart.server.logger = originalLogger
 		}
 	}
 	
@@ -248,16 +251,30 @@ public class ClientDebugViewController: UIViewController {
 			updateView(statusText: "Cannot test, no SMART client")
 			return
 		}
-		updateView(statusText: "Testing GET...")
-		Questionnaire.read("c-tracker.survey-in-app.withdrawal", server: smart.server) { resource, error in
+		
+		let originalLogger = smart.server.logger
+		let cachedLogger = CachedLogger(.trace)
+		cachedLogger.onLog = { logger, line in
+			self.updateView(statusText: logger.logString)
+		}
+		smart.server.logger = cachedLogger
+		
+		cachedLogger.debug("C3PRO", msg: "Testing GET...")
+		smart.server.ready { error in
 			if let error = error {
-				self.updateView(statusText: "Error executing `read`: \(error)")
-			}
-			else if let resource = resource {
-				self.updateView(statusText: "Success, sample resource received\n\n--- JSON ---\n\n\(try! resource.asJSON())")
-			}
-			else {
-				self.updateView(statusText: "Interesting, no error but also no Questionnaire received")
+				cachedLogger.warn("C3PRO", msg: "\(error)")
+				smart.server.logger = originalLogger
+			} else {
+				Questionnaire.read("c-tracker.survey-in-app.withdrawal", server: smart.server) { resource, error in
+					if let error = error {
+						cachedLogger.warn("C3PRO", msg: "Error executing `read`: \(error)")
+					} else if let _ = resource {
+						cachedLogger.debug("C3PRO", msg: "Success")
+					} else {
+						cachedLogger.debug("C3PRO", msg: "Interesting, no error but also no Questionnaire received")
+					}
+					smart.server.logger = originalLogger
+				}
 			}
 		}
 	}
@@ -267,15 +284,31 @@ public class ClientDebugViewController: UIViewController {
 			updateView(statusText: "Cannot test, no SMART client")
 			return
 		}
-		updateView(statusText: "Testing POST...")
+		
+		let originalLogger = smart.server.logger
+		let cachedLogger = CachedLogger(.trace)
+		cachedLogger.onLog = { logger, line in
+			self.updateView(statusText: logger.logString)
+		}
+		smart.server.logger = cachedLogger
+		
+		cachedLogger.debug("C3PRO", msg: "Testing POST...")
 		let response = QuestionnaireResponse()
 		response.status = .enteredInError
-		response.create(smart.server) { error in
+		
+		smart.server.ready { error in
 			if let error = error {
-				self.updateView(statusText: "Error executing `create`: \(error)")
-			}
-			else {
-				self.updateView(statusText: "Successfully created test \(response) on \(smart.server)")
+				cachedLogger.warn("C3PRO", msg: "\(error)")
+				smart.server.logger = originalLogger
+			} else {
+				response.create(smart.server) { error in
+					if let error = error {
+						cachedLogger.warn("C3PRO", msg: "Error executing `create`: \(error)")
+					} else {
+						cachedLogger.debug("C3PRO", msg: "Successfully created test \(response) on \(smart.server)")
+					}
+					smart.server.logger = originalLogger
+				}
 			}
 		}
 	}
@@ -293,6 +326,40 @@ extension String {
 			return substring(to: index(startIndex, offsetBy: 3)) + "[…]"
 		}
 		return substring(to: index(startIndex, offsetBy: 3)) + "[…]" + substring(from: index(endIndex, offsetBy: -3))
+	}
+}
+
+open class CachedLogger: OAuth2Logger {
+	
+	/// The logger's logging level, set to `Debug` by default.
+	open var level = OAuth2LogLevel.debug
+	
+	open var logs: [String] = []
+	open var logString: String {
+		return logs.joined(separator: "\n")
+	}
+	open var onLog: ((CachedLogger, String) -> Void)?
+	
+	public init(_ level: OAuth2LogLevel = OAuth2LogLevel.debug) {
+		self.level = level
+	}
+	
+	open func reset() {
+		logs = []
+	}
+	
+	// MARK: - OAuth2Logger
+	
+	/**
+	The main log method, figures out whether to log the given message based on the receiver's logging level, then just uses `print`. Ignores
+	filename, line and function.
+	*/
+	public func log(_ atLevel: OAuth2LogLevel, module: String?, filename: String?, line: Int?, function: String?, msg: @autoclosure() -> String) {
+		if level != .off && atLevel.rawValue >= level.rawValue {
+			let line = "[\(atLevel)] \(module ?? ""): \(msg())"
+			logs.append(line)
+			onLog?(self, line)
+		}
 	}
 }
 

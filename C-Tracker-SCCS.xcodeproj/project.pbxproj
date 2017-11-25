@@ -51,7 +51,6 @@
 		EE957D581E044156004FADB4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE957D5A1E044156004FADB4 /* InfoPlist.strings */; };
 		EE98525D1E3A1C5000A88D72 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EE98525B1E3A1C5000A88D72 /* Localizable.strings */; };
 		EE98D2A51E0160EC001BC845 /* ProfileSettingsDebug.json in Resources */ = {isa = PBXBuildFile; fileRef = EE98D2A41E0160EC001BC845 /* ProfileSettingsDebug.json */; };
-		EEA9E4621FC7344A00BF1D15 /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA9E44E1FC7342200BF1D15 /* CryptoSwift.framework */; };
 		EEA9E4641FC7782E00BF1D15 /* data-queue-certificate.crt in Resources */ = {isa = PBXBuildFile; fileRef = EEA9E4631FC7782E00BF1D15 /* data-queue-certificate.crt */; };
 		EEAEA1361E78497000C29EC3 /* LicenseAgreement.html in Resources */ = {isa = PBXBuildFile; fileRef = EEAEA1341E78497000C29EC3 /* LicenseAgreement.html */; };
 		EEB82F1D1E65E7360084E030 /* AboutTheStudy.html in Resources */ = {isa = PBXBuildFile; fileRef = EEB82F191E65E7360084E030 /* AboutTheStudy.html */; };
@@ -67,6 +66,7 @@
 		EEB833761E688DD50084E030 /* StudyOverview.json in Resources */ = {isa = PBXBuildFile; fileRef = EEB833781E688DD50084E030 /* StudyOverview.json */; };
 		EEB8338B1E6898FC0084E030 /* HowItWorks.html in Resources */ = {isa = PBXBuildFile; fileRef = EEB833871E6898FC0084E030 /* HowItWorks.html */; };
 		EEB8338C1E6898FC0084E030 /* StudyAndHowItWorks.html in Resources */ = {isa = PBXBuildFile; fileRef = EEB833891E6898FC0084E030 /* StudyAndHowItWorks.html */; };
+		EED763891FCA2F5A0054660C /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE429DB61E65791000BC6F67 /* CryptoSwift.framework */; };
 		EEDDAC7D1E40ED84007D4056 /* StudyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDDAC7C1E40ED84007D4056 /* StudyTableViewController.swift */; };
 		EEDDAC901E40EF51007D4056 /* ShareTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDDAC8F1E40EF51007D4056 /* ShareTableViewController.swift */; };
 		EEEC78671DEC258100E7020C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEC78661DEC258100E7020C /* ProfileViewController.swift */; };
@@ -444,10 +444,10 @@
 				EE87B2D01E081D9700719A71 /* AVFoundation.framework in Frameworks */,
 				EE86F4A71E00029B00922994 /* SMART.framework in Frameworks */,
 				EE86F4A31E00029B00922994 /* C3PRO.framework in Frameworks */,
+				EED763891FCA2F5A0054660C /* CryptoSwift.framework in Frameworks */,
 				EE0F35221E02FCA7003AA556 /* HealthKit.framework in Frameworks */,
 				EE86F4AF1E00029B00922994 /* ResearchKit.framework in Frameworks */,
 				EE86F4AB1E00029B00922994 /* SQLite.framework in Frameworks */,
-				EEA9E4621FC7344A00BF1D15 /* CryptoSwift.framework in Frameworks */,
 				EEB82F291E66C3CE0084E030 /* Smooch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -748,6 +748,9 @@
 							com.apple.HealthKit = {
 								enabled = 1;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 						};
 					};
 				};
@@ -998,6 +1001,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Smooch.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/CryptoSwift.framework",
 			);
 			name = "Run Script [carthage copy-frameworks]";
 			outputPaths = (

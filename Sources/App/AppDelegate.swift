@@ -48,6 +48,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			let srv = EncryptedDataQueue(baseURL: dataEndpoint, auth: authConfig, encBaseURL: encDataEndpoint, publicCertificateFile: "data-queue-certificate")
 			srv.onBeforeDynamicClientRegistration = { url in
 				let dynreg = OAuth2DynRegAppStore()
+				if TARGET_OS_SIMULATOR != 0 {
+					dynreg.overrideAppReceipt("NO-APP-RECEIPT")
+				}
 				if let antispam = cServerAntispamToken {
 					dynreg.extraHeaders = ["Antispam": antispam]
 				}

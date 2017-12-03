@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 				"authorize_uri": dataRoot.appendingPathComponent("oauth").absoluteString,
 				"authorize_type": "client_credentials",
 			]
-			let srv = EncryptedDataQueue(baseURL: dataEndpoint, auth: authConfig, encBaseURL: encDataEndpoint, publicCertificateFile: "data-queue-certificate")
+			let srv = AntispamDataQueue(baseURL: dataEndpoint, auth: authConfig, encBaseURL: encDataEndpoint, publicCertificateFile: "data-queue-certificate", antispamToken: cServerAntispamToken)
 			srv.onBeforeDynamicClientRegistration = { url in
 				let dynreg = OAuth2DynRegAppStore()
 				if TARGET_OS_SIMULATOR != 0 {

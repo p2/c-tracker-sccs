@@ -28,6 +28,7 @@
 		EE252D001DED718B008F5E3E /* UIColor+C3PRO.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252CFF1DED718B008F5E3E /* UIColor+C3PRO.swift */; };
 		EE252D081DED81A3008F5E3E /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE252D071DED81A3008F5E3E /* AppError.swift */; };
 		EE252D0A1DED87BC008F5E3E /* ProfileSettings.json in Resources */ = {isa = PBXBuildFile; fileRef = EE252D091DED87BC008F5E3E /* ProfileSettings.json */; };
+		EE3214EB1FD4671100193C59 /* AntispamDataQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE3214EA1FD4671100193C59 /* AntispamDataQueue.swift */; };
 		EE36D8131E8149BD008FE8BD /* UserNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE36D8121E8149BD008FE8BD /* UserNotificationManager.swift */; };
 		EE492CE61E2E7CC60043D531 /* EstablishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE492CE51E2E7CC60043D531 /* EstablishViewController.swift */; };
 		EE4BB8BF1E813FDA008A6302 /* SCCSProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE4BB8BE1E813FDA008A6302 /* SCCSProfileManager.swift */; };
@@ -350,6 +351,7 @@
 		EE252CFF1DED718B008F5E3E /* UIColor+C3PRO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+C3PRO.swift"; sourceTree = "<group>"; };
 		EE252D071DED81A3008F5E3E /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		EE252D091DED87BC008F5E3E /* ProfileSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfileSettings.json; sourceTree = SOURCE_ROOT; };
+		EE3214EA1FD4671100193C59 /* AntispamDataQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntispamDataQueue.swift; sourceTree = "<group>"; };
 		EE34C7311ECA0399005728C7 /* JWT.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JWT.xcodeproj; path = "c3-pro-ios-framework/JSONWebToken/JWT.xcodeproj"; sourceTree = "<group>"; };
 		EE36D8121E8149BD008FE8BD /* UserNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationManager.swift; sourceTree = "<group>"; };
 		EE388F9A1EE4B6A30050BBED /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
@@ -529,6 +531,7 @@
 			isa = PBXGroup;
 			children = (
 				EE14E7B51DD0CBBE009F8736 /* AppDelegate.swift */,
+				EE3214EA1FD4671100193C59 /* AntispamDataQueue.swift */,
 				EE252D071DED81A3008F5E3E /* AppError.swift */,
 				EEEC78781DEC3DDA00E7020C /* GraphDataSource.swift */,
 				EE0F35181E02F1BF003AA556 /* GenderPicker.swift */,
@@ -1078,6 +1081,7 @@
 				EE14E7C01DD0D236009F8736 /* ConfirmViewController.swift in Sources */,
 				EE492CE61E2E7CC60043D531 /* EstablishViewController.swift in Sources */,
 				EE87B2BA1E081B2C00719A71 /* QRCodeScanner.swift in Sources */,
+				EE3214EB1FD4671100193C59 /* AntispamDataQueue.swift in Sources */,
 				EE0F34FB1E02E61C003AA556 /* ClientDebugViewController.swift in Sources */,
 				EE14E7BA1DD0CBBE009F8736 /* WelcomeViewController.swift in Sources */,
 				EE14E7B91DD0CBBE009F8736 /* AppDelegate.swift in Sources */,

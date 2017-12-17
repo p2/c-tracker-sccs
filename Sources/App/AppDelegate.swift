@@ -119,13 +119,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		profileManager.prepareDueTasks()
 		
 		// make sure data queue is flushed
+		guard let dataQueue = profileManager.dataServer as? EncryptedDataQueue, dataQueue.numberOfEnqueuedResources() > 0 else {
+			return
+		}
 		let delay = DispatchTime.now() + Double(Int64(2.0 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-		DispatchQueue.main.asyncAfter(deadline: delay) { [weak self] in
-			if let dataQueue = self?.profileManager.dataServer as? EncryptedDataQueue {
-				dataQueue.flush() { error in
-					if let error = error {
-						app_logIfDebug("Failed to flush data queue on app did become active: \(error)")
-					}
+		DispatchQueue.main.asyncAfter(deadline: delay) {
+			dataQueue.flush() { error in
+				if let error = error {
+					app_logIfDebug("Failed to flush data queue on app did become active: \(error)")
 				}
 			}
 		}

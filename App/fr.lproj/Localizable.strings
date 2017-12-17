@@ -76,6 +76,7 @@
 "Step count not available" = "Nombre de pas non disponible";
 "Survey" = "Questionnaire";
 "Steps taken per day" = "Nombre de pas par jour";
+"The consent you've signed is specific to the location where you've signed up for study participation." = "Le consentement que vous avez signé est spécifique à l'endroit où vous vous êtes inscrit pour l'étude.";
 "There's still some time until {{due_date}}" = "Il reste du temps jusqu'à {{due_date}}";
 "This will unset your medical data for the study. You can later re-enter this data manually." = "Cela annulera vos données médicales pour l'étude. Vous pouvez ultérieurement entrer de nouveau ces données manuellement.";
 "To get started, please create a passcode first, then allow the app to access some of the features of your phone" = "Pour commencer, créez d'abord un code d'accès, puis laissez l'application accéder à certaines fonctionnalités de votre téléphone.\n\nEnsuite, appuyez sur “Terminé”";

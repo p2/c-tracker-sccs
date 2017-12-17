@@ -19,6 +19,9 @@ public enum AppError: Error, CustomStringConvertible {
 	/// The format for the completed tasks has an error.
 	case invalidCompletedTasksFormat(String)
 	
+	/// No access to HealthKit was granted.
+	case noAccessToHealthKit
+	
 	
 	// MARK: - CustomStringConvertible
 	
@@ -26,6 +29,7 @@ public enum AppError: Error, CustomStringConvertible {
 		switch self {
 		case .generic(let str):                     return str;
 		case .invalidCompletedTasksFormat(let str): return "Completed task format is invalid".sccs_loc + ":\n\n" + str
+		case .noAccessToHealthKit:                  return "No access to HealthKit data"
 		}
 	}
 }

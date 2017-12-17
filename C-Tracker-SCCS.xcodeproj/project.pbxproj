@@ -67,6 +67,8 @@
 		EEB833761E688DD50084E030 /* StudyOverview.json in Resources */ = {isa = PBXBuildFile; fileRef = EEB833781E688DD50084E030 /* StudyOverview.json */; };
 		EEB8338B1E6898FC0084E030 /* HowItWorks.html in Resources */ = {isa = PBXBuildFile; fileRef = EEB833871E6898FC0084E030 /* HowItWorks.html */; };
 		EEB8338C1E6898FC0084E030 /* StudyAndHowItWorks.html in Resources */ = {isa = PBXBuildFile; fileRef = EEB833891E6898FC0084E030 /* StudyAndHowItWorks.html */; };
+		EECEFB5E1FE5EA1800A8B89D /* ConsentListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECEFB5D1FE5EA1800A8B89D /* ConsentListViewController.swift */; };
+		EECEFB711FE5ECF600A8B89D /* c-tracker-sccs-consent-documents in Resources */ = {isa = PBXBuildFile; fileRef = EECEFB701FE5ECF600A8B89D /* c-tracker-sccs-consent-documents */; };
 		EED763891FCA2F5A0054660C /* CryptoSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE429DB61E65791000BC6F67 /* CryptoSwift.framework */; };
 		EEDDAC7D1E40ED84007D4056 /* StudyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDDAC7C1E40ED84007D4056 /* StudyTableViewController.swift */; };
 		EEDDAC901E40EF51007D4056 /* ShareTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDDAC8F1E40EF51007D4056 /* ShareTableViewController.swift */; };
@@ -418,6 +420,8 @@
 		EEB8338E1E6899080084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = App/fr.lproj/HowItWorks.html; sourceTree = "<group>"; };
 		EEB8338F1E68990F0084E030 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = de; path = App/de.lproj/StudyAndHowItWorks.html; sourceTree = "<group>"; };
 		EEB833901E6899120084E030 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = fr; path = App/fr.lproj/StudyAndHowItWorks.html; sourceTree = "<group>"; };
+		EECEFB5D1FE5EA1800A8B89D /* ConsentListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsentListViewController.swift; sourceTree = "<group>"; };
+		EECEFB701FE5ECF600A8B89D /* c-tracker-sccs-consent-documents */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "c-tracker-sccs-consent-documents"; sourceTree = "<group>"; };
 		EEDDAC7C1E40ED84007D4056 /* StudyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StudyTableViewController.swift; sourceTree = "<group>"; };
 		EEDDAC8F1E40EF51007D4056 /* ShareTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareTableViewController.swift; sourceTree = "<group>"; };
 		EEEC78661DEC258100E7020C /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -476,6 +480,7 @@
 				EE14E79D1DD0CAAA009F8736 /* Assets */,
 				EE0B328A1DF1CA90009F9939 /* c-tracker-sccs-questionnaires */,
 				EE7B36D41E543ACB007B1D73 /* c-tracker-sccs-content */,
+				EECEFB701FE5ECF600A8B89D /* c-tracker-sccs-consent-documents */,
 				EE14E7CD1DD18921009F8736 /* Frameworks */,
 				EE14E79C1DD0CAAA009F8736 /* Products */,
 				EE86F4241E0001AD00922994 /* C3PRO.xcodeproj */,
@@ -553,6 +558,7 @@
 				EEEC78681DEC258B00E7020C /* DashboardViewController.swift */,
 				EEEC78661DEC258100E7020C /* ProfileViewController.swift */,
 				EE0F34F41E02E61C003AA556 /* MedicalInfoViewController.swift */,
+				EECEFB5D1FE5EA1800A8B89D /* ConsentListViewController.swift */,
 				EE0F34F51E02E61C003AA556 /* NotificationsViewController.swift */,
 				EE0F34F61E02E61C003AA556 /* LicenseViewController.swift */,
 				EE0F34F71E02E61C003AA556 /* ClientDebugViewController.swift */,
@@ -972,6 +978,7 @@
 				EE7B36EA1E5449BB007B1D73 /* AboutSCCS.html in Resources */,
 				EE7B36DC1E544135007B1D73 /* Style.css in Resources */,
 				EEB82F2C1E66D37D0084E030 /* SmoochLocalizable.strings in Resources */,
+				EECEFB711FE5ECF600A8B89D /* c-tracker-sccs-consent-documents in Resources */,
 				EE0B328E1DF1CAC0009F9939 /* c-tracker.survey-in-app.main.json in Resources */,
 				EE7B36E91E5449BB007B1D73 /* AboutHepC.html in Resources */,
 				EE98525D1E3A1C5000A88D72 /* Localizable.strings in Resources */,
@@ -1086,6 +1093,7 @@
 				EE14E7BA1DD0CBBE009F8736 /* WelcomeViewController.swift in Sources */,
 				EE14E7B91DD0CBBE009F8736 /* AppDelegate.swift in Sources */,
 				EEECC2241DECDF2C005645B8 /* Configuration.swift in Sources */,
+				EECEFB5E1FE5EA1800A8B89D /* ConsentListViewController.swift in Sources */,
 				EEEC78671DEC258100E7020C /* ProfileViewController.swift in Sources */,
 				EEEC786D1DEC28E800E7020C /* AppUser.swift in Sources */,
 				EEEC78691DEC258B00E7020C /* DashboardViewController.swift in Sources */,
@@ -1450,8 +1458,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-licucore";
 				OTHER_SWIFT_FLAGS = "-DDEBUG";
-				"OTHER_SWIFT_FLAGS[sdk=iphoneos*]" = "-DDEBUG -DENABLE_OAUTH_DEBUG";
-				"OTHER_SWIFT_FLAGS[sdk=iphonesimulator*]" = "-DON_SIMULATOR -DDEBUG -DENABLE_OAUTH_DEBUG";
+				"OTHER_SWIFT_FLAGS[sdk=iphoneos*]" = "-DDEBUG -DSHOW_OAUTH_DEBUG";
+				"OTHER_SWIFT_FLAGS[sdk=iphonesimulator*]" = "-DON_SIMULATOR -DDEBUG -DSHOW_OAUTH_DEBUG";
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.usz.c-tracker";
 				PRODUCT_NAME = "C Tracker";
 				SWIFT_VERSION = 3.0;
@@ -1473,7 +1481,7 @@
 				INFOPLIST_FILE = App/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-licucore";
-				"OTHER_SWIFT_FLAGS[arch=*]" = "-DENABLE_OAUTH_DEBUG";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "ch.usz.c-tracker";
 				PRODUCT_NAME = "C Tracker";
 				SWIFT_VERSION = 3.0;

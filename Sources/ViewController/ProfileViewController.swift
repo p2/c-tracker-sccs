@@ -94,20 +94,13 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 	// MARK: - Consent
 	
 	func showConsent(_ animated: Bool = true) {
-		let pdfController = PDFViewController()
-		if let url = ConsentController.signedConsentPDFURL(mustExist: true) ?? ConsentController.bundledConsentPDFURL() {
-			if let navi = navigationController {
-				pdfController.title = "Consent".sccs_loc
-				pdfController.hidesBottomBarWhenPushed = true
-				pdfController.startURL = url
-				navi.pushViewController(pdfController, animated: true)
-			}
-			else {
-				c3_logIfDebug("I must be embedded in a navigation controller to show the consent")
-			}
+		let pdfController = ConsentListViewController(style: .grouped)
+		if let navi = navigationController {
+			pdfController.title = "Review Consent".sccs_loc
+			navi.pushViewController(pdfController, animated: true)
 		}
 		else {
-			c3_logIfDebug("FAILED to locate «consent.pdf»")
+			c3_logIfDebug("I must be embedded in a navigation controller to show the consent")
 		}
 	}
 	
@@ -255,7 +248,7 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if 2 == section {
-		#if ENABLE_OAUTH_DEBUG
+		#if SHOW_OAUTH_DEBUG
 			return 4
 		#else
 			return 3
@@ -311,7 +304,7 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 				cell.textLabel?.text = "Verify App Permissions".sccs_loc
 			}
 			else if 3 == indexPath.row {
-				#if ENABLE_OAUTH_DEBUG
+				#if SHOW_OAUTH_DEBUG
 				cell.textLabel?.text = "OAuth2 Debug"
 				cell.accessoryType = .disclosureIndicator
 				#endif
@@ -354,7 +347,7 @@ class ProfileViewController : UITableViewController, UITextFieldDelegate, ORKPas
 				showPermissionsVC()
 			}
 			else if 3 == indexPath.row {
-				#if ENABLE_OAUTH_DEBUG
+				#if SHOW_OAUTH_DEBUG
 				showClientDebugVC()
 				#endif
 			}

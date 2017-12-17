@@ -56,7 +56,12 @@ class WelcomeViewController: StudyIntroCollectionViewController, ORKTaskViewCont
 	func doEnroll(user: User) {
 		do {
 			try profileManager.enroll(user: user)
-			profileManager.updateMedicalDataFromHealthKit(supplementedBy: user) { user in }
+			profileManager.updateMedicalDataFromHealthKit(supplementedBy: user) { user, error in
+				if let error = error {
+					// simply log, no need to inform the user at this point
+					app_logIfDebug("Error during enrollment: \(error)")
+				}
+			}
 		}
 		catch let error {
 			show(error: error, title: "Could Not Load Profile".sccs_loc)

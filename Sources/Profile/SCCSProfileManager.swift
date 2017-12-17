@@ -69,9 +69,12 @@ public class SCCSProfileManager: ProfileManager, EncryptedDataQueueDelegate {
 	- parameter supplementedBy: If provided, data coming back empty from HealthKit will be taken from this user object
 	- parameter callback:       Callback to call when data has been fetched
 	*/
-	public func updateMedicalDataFromHealthKit(supplementedBy: User? = nil, callback: @escaping ((User?) -> ())) {
-		readUserDataFromHealthKit() { user in
-			if var user = user {
+	public func updateMedicalDataFromHealthKit(supplementedBy: User? = nil, callback: @escaping ((User?, Error?) -> ())) {
+		readUserDataFromHealthKit() { user, error in
+			if let error = error {
+				callback(nil, error)
+			}
+			else if var user = user {
 				if let supplementedBy = supplementedBy {
 					if .notSet == user.biologicalSex {
 						user.biologicalSex = supplementedBy.biologicalSex
@@ -88,12 +91,16 @@ public class SCCSProfileManager: ProfileManager, EncryptedDataQueueDelegate {
 				}
 				do {
 					try self.persistMedicalData(from: user)
+					callback(user, nil)
 				}
 				catch {
 					c3_warn("Failed to persist medical data: \(error)")
+					callback(nil, error)
 				}
 			}
-			callback(user)
+			else {
+				callback(nil, nil)
+			}
 		}
 	}
 	
@@ -114,18 +121,21 @@ public class SCCSProfileManager: ProfileManager, EncryptedDataQueueDelegate {
 	}
 	
 	/**
-	Retrieves certain user data from HealthKit and returns a `userType` instance which has all retrievable data points assigned.
+	Retrieves certain user data from HealthKit and returns a `userType` instance which has all retrievable data points assigned. The error
+	will only be filled if HealthKit is not available at all or if it seems that there is no access to any HealthKit data. If some data may
+	be accessed but some may not, the error comes back nil.
 	*/
-	func readUserDataFromHealthKit(_ callback: ((_ user: User?) -> Void)? = nil) {
+	func readUserDataFromHealthKit(_ callback: ((_ user: User?, _ error: Error?) -> Void)? = nil) {
 		guard HKHealthStore.isHealthDataAvailable() else {
 			c3_logIfDebug("HKHealthStorage has no health data available")
-			callback?(nil)
+			callback?(nil, C3Error.healthKitNotAvailable)
 			return
 		}
 		
 		let group = DispatchGroup()
 		var user = userType.init()
 		var hasData = false
+		var hasError = false
 		
 		do {
 			user.biologicalSex = try healthStore.biologicalSex().biologicalSex
@@ -133,6 +143,7 @@ public class SCCSProfileManager: ProfileManager, EncryptedDataQueueDelegate {
 		}
 		catch let error {
 			c3_logIfDebug("Failed to retrieve gender from HealthKit: \(error)")
+			hasError = hasError || ("nilError" != "\(error)")
 		}
 		
 		do {
@@ -141,6 +152,7 @@ public class SCCSProfileManager: ProfileManager, EncryptedDataQueueDelegate {
 		}
 		catch let error {
 			c3_logIfDebug("Failed to retrieve date of birth from HealthKit: \(error)")
+			hasError = hasError || ("nilError" != "\(error)")
 		}
 		
 		group.enter()
@@ -151,6 +163,7 @@ public class SCCSProfileManager: ProfileManager, EncryptedDataQueueDelegate {
 			}
 			else if let error = error {
 				c3_logIfDebug("Failed to retrieve body height from HealthKit: \(error)")
+				hasError = hasError || ("nilError" != "\(error)")
 			}
 			group.leave()
 		}
@@ -163,12 +176,15 @@ public class SCCSProfileManager: ProfileManager, EncryptedDataQueueDelegate {
 			}
 			else if let error = error {
 				c3_logIfDebug("Failed to retrieve body weight from HealthKit: \(error)")
+				hasError = hasError || ("nilError" != "\(error)")
 			}
 			group.leave()
 		}
 		
+		// if we have some data and some error, we may not have access to all of HealthKit but some access; do not return an error
+		hasError = hasData ? false : hasError
 		group.notify(queue: DispatchQueue.main) {
-			callback?(hasData ? user : nil)
+			callback?(hasData ? user : nil, hasError ? AppError.noAccessToHealthKit : nil)
 		}
 	}
 	

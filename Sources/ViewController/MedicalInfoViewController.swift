@@ -73,7 +73,7 @@ class MedicalInfoViewController : UITableViewController {
 		if let button = sender as? UIButton {
 			button.isEnabled = false
 		}
-		profileManager.updateMedicalDataFromHealthKit(supplementedBy: user) { user in
+		profileManager.updateMedicalDataFromHealthKit(supplementedBy: user) { user, error in
 			if let button = sender as? UIButton {
 				button.isEnabled = true
 			}
@@ -81,20 +81,26 @@ class MedicalInfoViewController : UITableViewController {
 				self.overwriteLocalUserFromManager()
 				self.tableView.reloadData()
 			}
-			else {
-				let alert = UIAlertController(title: "Error".sccs_loc, message: "It seems you have not given permission to C Tracker to read from Health".sccs_loc, preferredStyle: .alert)
-				alert.addAction(UIAlertAction(title: "OK".sccs_loc, style: .cancel, handler: nil))
-				alert.addAction(UIAlertAction(title: "Permissions...".sccs_loc, style: .default) { action in
-					self.askForPermission() { shallRetry, error in
-						if let error = error {
-							self.show(error: error)
+			else if let error = error {
+				switch error {
+				case AppError.noAccessToHealthKit:
+					
+					let alert = UIAlertController(title: "Error".sccs_loc, message: "It seems you have not given permission to C Tracker to read from Health".sccs_loc, preferredStyle: .alert)
+					alert.addAction(UIAlertAction(title: "OK".sccs_loc, style: .cancel, handler: nil))
+					alert.addAction(UIAlertAction(title: "Permissions...".sccs_loc, style: .default) { action in
+						self.askForPermission() { shallRetry, error in
+							if let error = error {
+								self.show(error: error)
+							}
+							else if shallRetry {
+								self.loadFromHealthApp(nil)
+							}
 						}
-						else if shallRetry {
-							self.loadFromHealthApp(nil)
-						}
-					}
-				})
-				self.present(alert, animated: true)
+					})
+					self.present(alert, animated: true)
+				
+				default: break
+				}
 			}
 		}
 	}
@@ -127,6 +133,9 @@ class MedicalInfoViewController : UITableViewController {
 	}
 	
 	func discardAll() {
+		detailShowingAtRow = nil
+		inputShowingAtRow = nil
+		
 		user?.biologicalSex = .notSet
 		user?.birthDate = nil
 		user?.bodyheight = nil

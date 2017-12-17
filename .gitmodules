@@ -7,3 +7,6 @@
 [submodule "c-tracker-sccs-content"]
 	path = c-tracker-sccs-content
 	url = https://github.com/usz-rdsc/c-tracker-sccs-content.git
+[submodule "c-tracker-sccs-consent-documents"]
+	path = c-tracker-sccs-consent-documents
+	url = https://github.com/usz-rdsc/c-tracker-sccs-consent-documents.git

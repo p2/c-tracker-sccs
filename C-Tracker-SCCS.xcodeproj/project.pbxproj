@@ -353,6 +353,7 @@
 		EE252CFF1DED718B008F5E3E /* UIColor+C3PRO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+C3PRO.swift"; sourceTree = "<group>"; };
 		EE252D071DED81A3008F5E3E /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		EE252D091DED87BC008F5E3E /* ProfileSettings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ProfileSettings.json; sourceTree = SOURCE_ROOT; };
+		EE2775F3208A0E7700708A3B /* fr */ = {isa = PBXFileReference; lastKnownFileType = text; name = fr; path = fr.lproj/AppStoreDescription.txt; sourceTree = "<group>"; };
 		EE3214EA1FD4671100193C59 /* AntispamDataQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AntispamDataQueue.swift; sourceTree = "<group>"; };
 		EE34C7311ECA0399005728C7 /* JWT.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JWT.xcodeproj; path = "c3-pro-ios-framework/JSONWebToken/JWT.xcodeproj"; sourceTree = "<group>"; };
 		EE36D8121E8149BD008FE8BD /* UserNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationManager.swift; sourceTree = "<group>"; };
@@ -1187,6 +1188,7 @@
 			children = (
 				EE7B36D61E543ACB007B1D73 /* de */,
 				EE7B36D71E543ACB007B1D73 /* en */,
+				EE2775F3208A0E7700708A3B /* fr */,
 			);
 			name = AppStoreDescription.txt;
 			sourceTree = "<group>";
